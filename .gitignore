@@ -110,3 +110,12 @@ venv/
 /.claude/
 /.commandcode/
 /_workspace/
+*.json
+# 게임 데이터와 공개 아트 명세는 개인 JSON 제외 규칙보다 우선한다.
+!/Assets/Resources/**/*.json
+!/Packages/manifest.json
+!/Packages/packages-lock.json
+!/art/**/*.json
+# 에디터의 개인 MCP 설정은 저장소에 올리지 않는다.
+/ProjectSettings/McpUnitySettings.json
+/.codex
