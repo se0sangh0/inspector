@@ -160,7 +160,7 @@ public class FellowCardView : MonoBehaviour
             roleLabel.text = ShortRoleLabel(fellow.role);
 
         // ── 텍스트 ──
-        if (nameLabel != null)     nameLabel.text     = !string.IsNullOrEmpty(fellow.displayName) ? fellow.displayName : fellow.id;
+        if (nameLabel != null)     nameLabel.text     = !string.IsNullOrEmpty(fellow.displayName) ? Loc.Tr(fellow.displayName) : fellow.id;
         if (affinityLabel != null) affinityLabel.text = Loc.Tr(fellow.AffinityLabel);
         if (starLabel != null)     starLabel.text     = new string('★', Mathf.Clamp(fellow.starLevel, 1, 3));
         if (hpLabel != null)       hpLabel.text       = $"HP {fellow.maxHp}";

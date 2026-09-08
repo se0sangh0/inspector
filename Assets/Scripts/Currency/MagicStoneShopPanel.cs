@@ -26,8 +26,12 @@ public class MagicStoneShopPanel : MonoBehaviour
     private struct CardRow
     {
         public string id;
+        public string nameKo;
+        public string descKo;
         public Button button;
         public TMP_Text buttonLabel;
+        public TMP_Text nameText;
+        public TMP_Text descText;
     }
 
     private void Awake()
@@ -42,14 +46,17 @@ public class MagicStoneShopPanel : MonoBehaviour
     {
         if (ManastoneManager.Instance != null)
             ManastoneManager.Instance.OnCurrencyChanged += OnManaChanged;
+        LocalizationManager.OnLanguageChanged += OnLanguageChanged;
     }
 
     private void OnDisable()
     {
         if (ManastoneManager.Instance != null)
             ManastoneManager.Instance.OnCurrencyChanged -= OnManaChanged;
+        LocalizationManager.OnLanguageChanged -= OnLanguageChanged;
     }
 
+    private void OnLanguageChanged() => Refresh();
     private void OnManaChanged(int _) => Refresh();
 
     // ── 외부 진입점 ─────────────────────────────────────────────
@@ -87,7 +94,11 @@ public class MagicStoneShopPanel : MonoBehaviour
     private void Refresh()
     {
         int mana = ManastoneManager.Instance != null ? ManastoneManager.Instance.Amount : 0;
-        if (_balanceText != null) _balanceText.text = $"보유 마석: {mana}";
+        if (_balanceText != null)
+        {
+            _balanceText.text = Loc.Tr("보유 마석: {0}", mana);
+            Loc.AutoFit(_balanceText);
+        }
 
         foreach (var row in _rows)
         {
@@ -95,15 +106,19 @@ public class MagicStoneShopPanel : MonoBehaviour
             int  cost     = MetaPassiveManager.EffectiveCostOf(row.id);   // 누진 할증가 (2026-06-13 QA)
             bool canAfford = mana >= cost;
 
+            if (row.nameText != null) row.nameText.text = Loc.Tr(row.nameKo);
+            if (row.nameText != null) Loc.AutoFit(row.nameText);
+            if (row.descText != null) { row.descText.text = Loc.Tr(row.descKo); Loc.AutoFit(row.descText); }
+
             if (unlocked)
             {
                 row.button.interactable = false;
-                row.buttonLabel.text = "해금 완료";
+                row.buttonLabel.text = Loc.Tr("해금 완료");
             }
             else
             {
                 row.button.interactable = canAfford;
-                row.buttonLabel.text = $"해금 ({cost})";
+                row.buttonLabel.text = Loc.Tr("해금 ({0})", cost);
             }
         }
     }
@@ -139,7 +154,7 @@ public class MagicStoneShopPanel : MonoBehaviour
         else panelImg.color = new Color(0.12f, 0.12f, 0.16f, 0.98f);
 
         // 제목
-        var title = NewText("Title", panel.transform, "파워업", font, 40, FontStyles.Bold);
+        var title = NewText("Title", panel.transform, Loc.Tr("파워업"), font, 40, FontStyles.Bold);
         var titleRT = (RectTransform)title.transform;
         titleRT.anchorMin = new Vector2(0f, 1f); titleRT.anchorMax = new Vector2(1f, 1f);
         titleRT.pivot = new Vector2(0.5f, 1f);
@@ -147,7 +162,7 @@ public class MagicStoneShopPanel : MonoBehaviour
         title.alignment = TextAlignmentOptions.Center;
 
         // 보유 마석
-        var bal = NewText("Balance", panel.transform, "보유 마석: 0", font, 28, FontStyles.Normal);
+        var bal = NewText("Balance", panel.transform, Loc.Tr("보유 마석: {0}", 0), font, 28, FontStyles.Normal);
         var balRT = (RectTransform)bal.transform;
         balRT.anchorMin = new Vector2(0f, 1f); balRT.anchorMax = new Vector2(1f, 1f);
         balRT.pivot = new Vector2(0.5f, 1f);
@@ -182,17 +197,17 @@ public class MagicStoneShopPanel : MonoBehaviour
         var infos = MetaPassiveManager.All;
         float cardH = 84f, gap = 8f;
         float y = -4f;
-        y = AddSection(content.transform, font, "전투 패시브", y);
+        y = AddSection(content.transform, font, Loc.Tr("전투 패시브"), y);
         foreach (var info in infos)
             if (info.kind == MetaPassiveManager.Kind.Passive) { BuildCard(content.transform, info, font, y, cardH); y -= (cardH + gap); }
         y -= 6f;
-        y = AddSection(content.transform, font, "스킬 해금", y);
+        y = AddSection(content.transform, font, Loc.Tr("스킬 해금"), y);
         foreach (var info in infos)
             if (info.kind == MetaPassiveManager.Kind.Skill) { BuildCard(content.transform, info, font, y, cardH); y -= (cardH + gap); }
         contentRT.sizeDelta = new Vector2(0, -y + 8f);
 
         // 닫기 버튼
-        var closeBtn = NewButton("CloseButton", panel.transform, "닫기", font, out var closeLabel);
+        var closeBtn = NewButton("CloseButton", panel.transform, Loc.Tr("닫기"), font, out _);
         var cbRT = (RectTransform)closeBtn.transform;
         cbRT.anchorMin = cbRT.anchorMax = new Vector2(0.5f, 0f);
         cbRT.pivot = new Vector2(0.5f, 0f);
@@ -223,7 +238,7 @@ public class MagicStoneShopPanel : MonoBehaviour
         img.color = new Color(0.2f, 0.2f, 0.26f, 1f);
 
         // 이름 (상단)
-        var nameT = NewText("Name", card.transform, info.name, font, 23, FontStyles.Bold);
+        var nameT = NewText("Name", card.transform, Loc.Tr(info.name), font, 23, FontStyles.Bold);
         var nrt = (RectTransform)nameT.transform;
         nrt.anchorMin = new Vector2(0f, 1f); nrt.anchorMax = new Vector2(0.74f, 1f);
         nrt.pivot = new Vector2(0f, 1f);
@@ -231,7 +246,7 @@ public class MagicStoneShopPanel : MonoBehaviour
         nameT.alignment = TextAlignmentOptions.Left;
 
         // 설명 (하단)
-        var descT = NewText("Desc", card.transform, info.desc, font, 16, FontStyles.Normal);
+        var descT = NewText("Desc", card.transform, Loc.Tr(info.desc), font, 16, FontStyles.Normal);
         var drt = (RectTransform)descT.transform;
         drt.anchorMin = new Vector2(0f, 0f); drt.anchorMax = new Vector2(0.74f, 1f);
         drt.pivot = new Vector2(0f, 0.5f);
@@ -241,7 +256,7 @@ public class MagicStoneShopPanel : MonoBehaviour
         descT.enableWordWrapping = true;
 
         // 해금 버튼 (오른쪽)
-        var btn = NewButton("Buy", card.transform, "해금", font, out var label);
+        var btn = NewButton("Buy", card.transform, Loc.Tr("해금"), font, out var label);
         label.fontSize = 22;
         var brt = (RectTransform)btn.transform;
         brt.anchorMin = new Vector2(1f, 0.5f); brt.anchorMax = new Vector2(1f, 0.5f);
@@ -250,7 +265,16 @@ public class MagicStoneShopPanel : MonoBehaviour
         string id = info.id;
         btn.GetComponent<Button>().onClick.AddListener(() => OnBuyClicked(id));
 
-        _rows.Add(new CardRow { id = info.id, button = btn.GetComponent<Button>(), buttonLabel = label });
+        _rows.Add(new CardRow
+        {
+            id = info.id,
+            nameKo = info.name,
+            descKo = info.desc,
+            button = btn.GetComponent<Button>(),
+            buttonLabel = label,
+            nameText = nameT,
+            descText = descT
+        });
     }
 
     // ── UI 생성 헬퍼 ────────────────────────────────────────────

@@ -162,7 +162,15 @@ public static class LocalizationTable
         Add("거두는 자", "Reaper");
         Add("괴생물체", "Creature");
 
-        // 동료 직업명
+        // 동료 직업명 (표시 용)
+        Add("원소술사", "Elementalist");
+        Add("척살자", "Executioner");
+        Add("봉쇄병", "Blockade Soldier");
+        Add("돌격병", "Shock Trooper");
+        Add("치유사", "Healer");
+        Add("주술사", "Shaman");
+
+        // 동료 직업명 (내부 ID 폴백 키 — 표기 누락 대응)
         Add("캐스터", "Caster");
         Add("오펜더", "Offender");
         Add("디펜더", "Defender");
@@ -178,6 +186,75 @@ public static class LocalizationTable
         Add("{0} HP {1}", "{0} HP {1}");
         Add("{0} HP -{1} (사망 없음)", "{0} HP -{1} (no deaths)");
         Add("영혼석 {0}", "Soulstone {0}");
+
+        // 마석 상점 문자열
+        Add("마석", "ManaStone");
+        Add("보유 마석: {0}", "ManaStone: {0}");
+        Add("마석 +{0}", "ManaStone +{0}");
+        Add("마석 -{0}", "ManaStone -{0}");
+        Add("마석 0", "ManaStone 0");
+        Add("재화(영혼석/마석)", "Currency (Soulstone / ManaStone)");
+        Add("파워업", "Power-Up");
+        Add("해금 완료", "Unlocked");
+        Add("해금 ({0})", "Unlock ({0})");
+        Add("해금", "Unlock");
+        Add("닫기", "Close");
+        Add("전투 패시브", "Combat Passive");
+        Add("스킬 해금", "Skill Unlock");
+
+        // 마석 상점 — 패시브명
+        Add("비전 연쇄", "Arcane Chain");
+        Add("주문 증폭", "Spell Surge");
+        Add("멸절", "Annihilation");
+        Add("거합 집중", "Concentrated Focus");
+        Add("처형인", "Execution");
+        Add("일기당천", "Dual Finish");
+        Add("수호 결속", "Protective Bond");
+        Add("견고한 방벽", "Fortified Bulwark");
+        Add("불굴의 벽", "Unyielding Wall");
+        Add("배수의 진", "Overflowing Momentum");
+        Add("피의 갈망", "Blood Craving");
+        Add("투혼", "Warlike Spirit");
+        Add("정화의 빛", "Purifying Light");
+        Add("축복받은 손길", "Blessed Touch");
+        Add("수호 기도", "Protective Prayer");
+        Add("아이스스톰 해금", "Unlock Ice Storm");
+        Add("하늘가르기 해금", "Unlock Sky Slash");
+        Add("전장의 방패 해금", "Unlock War Shield");
+        Add("워크라이 해금", "Unlock War Cry");
+        Add("기원 해금", "Unlock Prayer");
+        Add("파이어볼 해금", "Unlock Fireball");
+        Add("월광베기 해금", "Unlock Moonlight Slash");
+        Add("전투 태세 해금", "Unlock Battle Stance");
+        Add("불굴 해금", "Unlock Indomitable");
+        Add("별부름 해금", "Unlock Starlight");
+
+        // 마석 상점 — 패시브/스킬 설명
+        Add("매직미사일로 적 처치 시 다른 적 1연쇄", "When a magic missile kills an enemy, it chains once to another enemy.");
+        Add("원소술사가 주는 모든 데미지 +15%", "All Elementalist damage +15%");
+        Add("광역 데미지 시 HP 최저 적에게 +50% 추가타", "Deals +50% bonus damage to the enemy with the lowest HP on area attacks.");
+        Add("같은 적 연속 공격 +20%/스택(최대 +60%)", "Same enemy consecutive attacks deal +20% per stack (up to +60%).");
+        Add("HP 30% 이하 적 공격 시 +50%", "Gain +50% damage when attacking enemies below 30% HP.");
+        Add("적 2마리 이하일 때 단일 데미지 +30%", "Single target damage +30% against two or fewer enemies.");
+        Add("실드 보유 중 다른 아군 피해의 25% 분담", "Share 25% of other allies' incoming damage while shield is active.");
+        Add("봉쇄병이 부여하는 실드 +30%", "Increase the shield granted by the Blockade Soldier by 30%.");
+        Add("봉쇄병 자신이 받는 피해 -20%", "Reduce damage the Blockade Soldier takes by 20%.");
+        Add("HP 낮을수록 주는 피해 증가(최대 +50%)", "Damage increases as HP drops (max +50%).");
+        Add("적 처치 시 자기 HP 15% 회복", "Restore 15% HP when defeating an enemy.");
+        Add("돌격병 생존 중 모든 아군 받는 피해 -10%", "When the Shock Trooper survives, allies take 10% less damage.");
+        Add("힐 시 대상 스트레스를 힐량의 50% 감소", "Reduce the target's stress by 50% of healing amount.");
+        Add("치유사 힐량 +25%", "Increase Healer healing by 25%.");
+        Add("힐 대상에게 힐량의 30%만큼 실드 부여", "Grant shield equal to 30% of the healing amount.");
+        Add("6코 광역 55 (스킬 풀에 추가)", "Cost 6 area 55 (added to skill pool).");
+        Add("10코 단일 75 (스킬 풀에 추가)", "Cost 10 single 75 (added to skill pool).");
+        Add("6코 데미지+전체실드 (스킬 풀에 추가)", "Cost 6 damage+total shield (added to skill pool).");
+        Add("5코 데미지+도발 (스킬 풀에 추가)", "Cost 5 damage+taunt (added to skill pool).");
+        Add("5코 전체힐 40 (스킬 풀에 추가)", "Cost 5 full heal 40 (added to skill pool).");
+        Add("3코 광역 35 (스킬 풀에 추가)", "Cost 3 area 35 (added to skill pool).");
+        Add("7코 단일 60 (스킬 풀에 추가)", "Cost 7 single 60 (added to skill pool).");
+        Add("5코 전체실드 40 (스킬 풀에 추가)", "Cost 5 full shield 40 (added to skill pool).");
+        Add("4코 전체힐 34 (스킬 풀에 추가)", "Cost 4 full heal 34 (added to skill pool).");
+        Add("3코 단일힐 35 (스킬 풀에 추가)", "Cost 3 single heal 35 (added to skill pool).");
 
         // ── 용병소 / 교회 / 화톳불 (서비스 라벨) ──
         Add("용병소", "Mercenary Post");

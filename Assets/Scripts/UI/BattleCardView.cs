@@ -50,7 +50,7 @@ public class BattleCardView : MonoBehaviour
     {
         Unbind();
         _fellow = fellow;
-        if (nameText != null) nameText.text = !string.IsNullOrEmpty(fellow.displayName) ? fellow.displayName : fellow.id;
+        if (nameText != null) nameText.text = !string.IsNullOrEmpty(fellow.displayName) ? Loc.Tr(fellow.displayName) : fellow.id;
         ResolveSlider();
         fellow.OnHpChanged     += OnFellowHpChanged;
         fellow.OnShieldChanged += OnShieldChanged;

@@ -87,7 +87,7 @@ public static class MetaPassiveManager
     {
         // 캐스터
         new Info{ id=CasterChain, kind=Kind.Passive, job="캐스터", name="비전 연쇄", desc="매직미사일로 적 처치 시 다른 적 1연쇄", cost=80 },
-        new Info{ id=CasterAmp,   kind=Kind.Passive, job="캐스터", name="주문 증폭", desc="캐스터가 주는 모든 데미지 +15%",       cost=80 },
+        new Info{ id=CasterAmp,   kind=Kind.Passive, job="캐스터", name="주문 증폭", desc="원소술사가 주는 모든 데미지 +15%",       cost=80 },
         new Info{ id=CasterExec,  kind=Kind.Passive, job="캐스터", name="멸절",     desc="광역 데미지 시 HP 최저 적에게 +50% 추가타", cost=90 },
         // 오펜더
         new Info{ id=OffenderCombo,   kind=Kind.Passive, job="오펜더", name="거합 집중", desc="같은 적 연속 공격 +20%/스택(최대 +60%)", cost=80 },
@@ -95,15 +95,15 @@ public static class MetaPassiveManager
         new Info{ id=OffenderDuel,    kind=Kind.Passive, job="오펜더", name="일기당천", desc="적 2마리 이하일 때 단일 데미지 +30%",   cost=80 },
         // 디펜더
         new Info{ id=DefenderBond,    kind=Kind.Passive, job="디펜더", name="수호 결속",   desc="실드 보유 중 다른 아군 피해의 25% 분담", cost=100 },
-        new Info{ id=DefenderBulwark, kind=Kind.Passive, job="디펜더", name="견고한 방벽", desc="디펜더가 부여하는 실드 +30%",          cost=80 },
-        new Info{ id=DefenderWall,    kind=Kind.Passive, job="디펜더", name="불굴의 벽",   desc="디펜더 자신이 받는 피해 -20%",         cost=80 },
+        new Info{ id=DefenderBulwark, kind=Kind.Passive, job="디펜더", name="견고한 방벽", desc="봉쇄병이 부여하는 실드 +30%",          cost=80 },
+        new Info{ id=DefenderWall,    kind=Kind.Passive, job="디펜더", name="불굴의 벽",   desc="봉쇄병 자신이 받는 피해 -20%",         cost=80 },
         // 어택커
         new Info{ id=AttackerFrenzy,    kind=Kind.Passive, job="어택커", name="배수의 진", desc="HP 낮을수록 주는 피해 증가(최대 +50%)", cost=90 },
         new Info{ id=AttackerLifesteal, kind=Kind.Passive, job="어택커", name="피의 갈망", desc="적 처치 시 자기 HP 15% 회복",          cost=80 },
-        new Info{ id=AttackerSpirit,    kind=Kind.Passive, job="어택커", name="투혼",     desc="어택커 생존 중 모든 아군 받는 피해 -10%", cost=90 },
+        new Info{ id=AttackerSpirit,    kind=Kind.Passive, job="어택커", name="투혼",     desc="돌격병 생존 중 모든 아군 받는 피해 -10%", cost=90 },
         // 프리스트
         new Info{ id=PriestCleanse,  kind=Kind.Passive, job="프리스트", name="정화의 빛",   desc="힐 시 대상 스트레스를 힐량의 50% 감소", cost=80 },
-        new Info{ id=PriestBlessing, kind=Kind.Passive, job="프리스트", name="축복받은 손길", desc="프리스트 힐량 +25%",                cost=80 },
+        new Info{ id=PriestBlessing, kind=Kind.Passive, job="프리스트", name="축복받은 손길", desc="치유사 힐량 +25%",                cost=80 },
         new Info{ id=PriestGuard,    kind=Kind.Passive, job="프리스트", name="수호 기도",   desc="힐 대상에게 힐량의 30%만큼 실드 부여",  cost=80 },
         // 스킬 해금
         new Info{ id=UnlockIceStorm,  kind=Kind.Skill, job="캐스터",  name="아이스스톰 해금", desc="6코 광역 55 (스킬 풀에 추가)",      cost=60, skillId="skill_ice_storm" },

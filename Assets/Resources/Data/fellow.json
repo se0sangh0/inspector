@@ -3,7 +3,7 @@
     {
       "id": "ally_caster_01",
       "jobClass": "캐스터",
-      "displayName": "캐스터",
+      "displayName": "원소술사",
       "role": "Dealer",
       "gender": "Female",
       "maxHp": 100,
@@ -19,7 +19,7 @@
     {
       "id": "ally_offender_01",
       "jobClass": "오펜더",
-      "displayName": "오펜더",
+      "displayName": "척살자",
       "role": "Dealer",
       "gender": "Male",
       "maxHp": 150,
@@ -35,7 +35,7 @@
     {
       "id": "ally_defender_01",
       "jobClass": "디펜더",
-      "displayName": "디펜더",
+      "displayName": "봉쇄병",
       "role": "Tanker",
       "gender": "Male",
       "maxHp": 200,
@@ -51,7 +51,7 @@
     {
       "id": "ally_attacker_01",
       "jobClass": "어택커",
-      "displayName": "어택커",
+      "displayName": "돌격병",
       "role": "Tanker",
       "gender": "Female",
       "maxHp": 150,
@@ -67,7 +67,7 @@
     {
       "id": "ally_priest_01",
       "jobClass": "프리스트",
-      "displayName": "프리스트",
+      "displayName": "치유사",
       "role": "Support",
       "gender": "Female",
       "maxHp": 100,
