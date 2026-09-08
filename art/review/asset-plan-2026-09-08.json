@@ -1,0 +1,2720 @@
+{
+  "schema": "inspector-art-review-v1",
+  "date": "2026-09-08",
+  "repo_head": "689b365d1ff889caa496147c73b5a161cb54e280",
+  "remote_head": "1a8c52d9711d8b927e1b46b4ac1ed9d4f790839b",
+  "scope": "현재 런타임 참조 + Notion16-G 프로토타입 제작군. 실제교체명령이아닌감사·제작계획.",
+  "counts": {
+    "production_files": 29,
+    "production_png": 19,
+    "production_remote_matches": 29,
+    "current_animator_png": 34,
+    "active_png": 24,
+    "active_clips": 24,
+    "unreferenced_png": 10,
+    "runtime_plan_items": 106,
+    "by_status": {
+      "제작 필요": 93,
+      "승인본 있음": 11,
+      "검토 대기": 2
+    },
+    "by_group": {
+      "배경": 8,
+      "경로 카드": 9,
+      "핵심 단서": 9,
+      "이벤트": 1,
+      "캐릭터 동작": 24,
+      "노드 아이콘": 8,
+      "스킬 아이콘": 20,
+      "상태 아이콘": 7,
+      "카드·배지": 6,
+      "시스템 아이콘": 8,
+      "UI 표면": 6
+    },
+    "vfx_sequences": 10,
+    "vfx_frames": 183
+  },
+  "items": [
+    {
+      "id": "BG-Title",
+      "group": "배경",
+      "name": "타이틀",
+      "existing": "Assets/Resources/BackGround/door_start_bg.jpg",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Backgrounds/Title.png",
+      "required_work": "새 경로 연결·명도·화면 비율 검증. 배경 기본 규격 1672×941 RGB. 기존 일반/엘리트 공용 배경과 4층 배경 분리 연결 필요.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/BackGround/door_start_bg.jpg",
+        "bytes": 121294,
+        "sha256": "08a219b1f3b7dfd532d87234dfc124e140a456023aa8eba632bce830978461ee",
+        "width": 768,
+        "height": 1024,
+        "mode": "RGB"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "BG-Map",
+      "group": "배경",
+      "name": "노드맵",
+      "existing": "Assets/Resources/BackGround/Node_BackGround_Image.jpeg",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Backgrounds/Map.png",
+      "required_work": "새 경로 연결·명도·화면 비율 검증. 배경 기본 규격 1672×941 RGB. 기존 일반/엘리트 공용 배경과 4층 배경 분리 연결 필요.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/BackGround/Node_BackGround_Image.jpeg",
+        "bytes": 5884154,
+        "sha256": "ae9d7b2de469f227e2b64721bb08d2fc5b39c04c3ab3267a5613e1225c8b4d57",
+        "width": 6783,
+        "height": 4361,
+        "mode": "RGB"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "BG-BattleForest",
+      "group": "배경",
+      "name": "2층 전투",
+      "existing": "Assets/Resources/BackGround/Battle_Normal.png",
+      "candidate": "art/production/graphics-remake/style-anchors/Battle_Forest_StyleAnchor_v1.png",
+      "status": "승인본 있음",
+      "proposed_target": "Assets/Resources/RemakeV1/Backgrounds/BattleForest.png",
+      "required_work": "새 경로 연결·명도·화면 비율 검증. 배경 기본 규격 1672×941 RGB. 기존 일반/엘리트 공용 배경과 4층 배경 분리 연결 필요.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/BackGround/Battle_Normal.png",
+        "bytes": 2810204,
+        "sha256": "04f5b080bfb22b4c1239e21445513cf7354e80368260c5ed52b838979d4e5efa",
+        "width": 1672,
+        "height": 941,
+        "mode": "RGB"
+      },
+      "candidate_info": {
+        "path": "art/production/graphics-remake/style-anchors/Battle_Forest_StyleAnchor_v1.png",
+        "bytes": 1981710,
+        "sha256": "6dee84c2d0f0f4b0943454b02a5a85a351396daaf0ec42ece830a37ff7109361",
+        "width": 1672,
+        "height": 941,
+        "mode": "RGB"
+      }
+    },
+    {
+      "id": "BG-BattleCanyon",
+      "group": "배경",
+      "name": "4층 전투",
+      "existing": null,
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Backgrounds/BattleCanyon.png",
+      "required_work": "새 경로 연결·명도·화면 비율 검증. 배경 기본 규격 1672×941 RGB. 기존 일반/엘리트 공용 배경과 4층 배경 분리 연결 필요.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": null,
+      "candidate_info": null
+    },
+    {
+      "id": "BG-Boss",
+      "group": "배경",
+      "name": "보스 전투",
+      "existing": "Assets/Resources/BackGround/Battle_Boss.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Backgrounds/Boss.png",
+      "required_work": "새 경로 연결·명도·화면 비율 검증. 배경 기본 규격 1672×941 RGB. 기존 일반/엘리트 공용 배경과 4층 배경 분리 연결 필요.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/BackGround/Battle_Boss.png",
+        "bytes": 3073741,
+        "sha256": "656440a462e4907f1d430ae4ebc6e852e16e7a50b77e3c85c1f45c3bec6e842d",
+        "width": 1536,
+        "height": 1024,
+        "mode": "RGB"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "BG-Mercenary",
+      "group": "배경",
+      "name": "용병소",
+      "existing": "Assets/Resources/BackGround/MercenaryRoot.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Backgrounds/Mercenary.png",
+      "required_work": "새 경로 연결·명도·화면 비율 검증. 배경 기본 규격 1672×941 RGB. 기존 일반/엘리트 공용 배경과 4층 배경 분리 연결 필요.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/BackGround/MercenaryRoot.png",
+        "bytes": 2357105,
+        "sha256": "11cb1a43534ba4fffad16876c249e2924616d05e83b3e889e45d51fad9f0b20e",
+        "width": 1672,
+        "height": 941,
+        "mode": "RGB"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "BG-Church",
+      "group": "배경",
+      "name": "교회",
+      "existing": null,
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Backgrounds/Church.png",
+      "required_work": "새 경로 연결·명도·화면 비율 검증. 배경 기본 규격 1672×941 RGB. 기존 일반/엘리트 공용 배경과 4층 배경 분리 연결 필요.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": null,
+      "candidate_info": null
+    },
+    {
+      "id": "BG-Camp",
+      "group": "배경",
+      "name": "화톳불",
+      "existing": "Assets/Resources/BackGround/FireCamp.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Backgrounds/Camp.png",
+      "required_work": "새 경로 연결·명도·화면 비율 검증. 배경 기본 규격 1672×941 RGB. 기존 일반/엘리트 공용 배경과 4층 배경 분리 연결 필요.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/BackGround/FireCamp.png",
+        "bytes": 3309226,
+        "sha256": "d3e3f40db0ee4cc10453c77992f5505ac356221d84b7944a3d39419e8af2df24",
+        "width": 1672,
+        "height": 941,
+        "mode": "RGBA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "R02-A",
+      "group": "경로 카드",
+      "name": "발자국이 남은 숲길",
+      "existing": null,
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Routes/R02-A.png",
+      "required_work": "경로별 이미지 1장 개별 제작. routeId→assetId→파일 연결; 선택 전 장소·결과를 확정해서 보여 주지 않음.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": null,
+      "candidate_info": null
+    },
+    {
+      "id": "R02-B",
+      "group": "경로 카드",
+      "name": "천막의 흔적",
+      "existing": null,
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Routes/R02-B.png",
+      "required_work": "경로별 이미지 1장 개별 제작. routeId→assetId→파일 연결; 선택 전 장소·결과를 확정해서 보여 주지 않음.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": null,
+      "candidate_info": null
+    },
+    {
+      "id": "R02-C",
+      "group": "경로 카드",
+      "name": "젖은 숲 가장자리",
+      "existing": null,
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Routes/R02-C.png",
+      "required_work": "경로별 이미지 1장 개별 제작. routeId→assetId→파일 연결; 선택 전 장소·결과를 확정해서 보여 주지 않음.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": null,
+      "candidate_info": null
+    },
+    {
+      "id": "R03-A",
+      "group": "경로 카드",
+      "name": "수레가 선 길",
+      "existing": null,
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Routes/R03-A.png",
+      "required_work": "경로별 이미지 1장 개별 제작. routeId→assetId→파일 연결; 선택 전 장소·결과를 확정해서 보여 주지 않음.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": null,
+      "candidate_info": null
+    },
+    {
+      "id": "R03-B",
+      "group": "경로 카드",
+      "name": "흰 천 표식",
+      "existing": null,
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Routes/R03-B.png",
+      "required_work": "경로별 이미지 1장 개별 제작. routeId→assetId→파일 연결; 선택 전 장소·결과를 확정해서 보여 주지 않음.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": null,
+      "candidate_info": null
+    },
+    {
+      "id": "R03-C",
+      "group": "경로 카드",
+      "name": "갈라진 비탈",
+      "existing": null,
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Routes/R03-C.png",
+      "required_work": "경로별 이미지 1장 개별 제작. routeId→assetId→파일 연결; 선택 전 장소·결과를 확정해서 보여 주지 않음.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": null,
+      "candidate_info": null
+    },
+    {
+      "id": "R04-A",
+      "group": "경로 카드",
+      "name": "수레 자국이 남은 길",
+      "existing": null,
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Routes/R04-A.png",
+      "required_work": "경로별 이미지 1장 개별 제작. routeId→assetId→파일 연결; 선택 전 장소·결과를 확정해서 보여 주지 않음.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": null,
+      "candidate_info": null
+    },
+    {
+      "id": "R04-B",
+      "group": "경로 카드",
+      "name": "좁은 협곡",
+      "existing": null,
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Routes/R04-B.png",
+      "required_work": "경로별 이미지 1장 개별 제작. routeId→assetId→파일 연결; 선택 전 장소·결과를 확정해서 보여 주지 않음.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": null,
+      "candidate_info": null
+    },
+    {
+      "id": "R04-C",
+      "group": "경로 카드",
+      "name": "도끼 자국 능선",
+      "existing": null,
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Routes/R04-C.png",
+      "required_work": "경로별 이미지 1장 개별 제작. routeId→assetId→파일 연결; 선택 전 장소·결과를 확정해서 보여 주지 않음.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": null,
+      "candidate_info": null
+    },
+    {
+      "id": "OBS_TORN_BASKET",
+      "group": "핵심 단서",
+      "name": "찢어진 바구니",
+      "existing": "Assets/Resources/ResultImage/Torn_Basket.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Clues/OBS_TORN_BASKET.png",
+      "required_work": "1024×1536 RGB, 2:3. 중심80% 단서·가장자리10% 여백. 자막과 상세는 동일 원본 공유. 기존2장도 통합 화풍으로 재제작.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/ResultImage/Torn_Basket.png",
+        "bytes": 2012305,
+        "sha256": "47a5c14d993edaf2201670f26982eb1b1d30905b7920d23de763c86bebe09d34",
+        "width": 1024,
+        "height": 1536,
+        "mode": "RGB"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "OBS_STONE_EDGED_SLOPE",
+      "group": "핵심 단서",
+      "name": "돌을 둘러놓은 비탈",
+      "existing": null,
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Clues/OBS_STONE_EDGED_SLOPE.png",
+      "required_work": "1024×1536 RGB, 2:3. 중심80% 단서·가장자리10% 여백. 자막과 상세는 동일 원본 공유. 기존2장도 통합 화풍으로 재제작.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": null,
+      "candidate_info": null
+    },
+    {
+      "id": "OBS_COVERED_ROCK_GAP",
+      "group": "핵심 단서",
+      "name": "나뭇가지로 덮은 바위 틈",
+      "existing": null,
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Clues/OBS_COVERED_ROCK_GAP.png",
+      "required_work": "1024×1536 RGB, 2:3. 중심80% 단서·가장자리10% 여백. 자막과 상세는 동일 원본 공유. 기존2장도 통합 화풍으로 재제작.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": null,
+      "candidate_info": null
+    },
+    {
+      "id": "OBS_HORN_KNOT",
+      "group": "핵심 단서",
+      "name": "밧줄에 매단 뿔",
+      "existing": null,
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Clues/OBS_HORN_KNOT.png",
+      "required_work": "1024×1536 RGB, 2:3. 중심80% 단서·가장자리10% 여백. 자막과 상세는 동일 원본 공유. 기존2장도 통합 화풍으로 재제작.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": null,
+      "candidate_info": null
+    },
+    {
+      "id": "OBS_LOW_PASSAGE_BARRIER",
+      "group": "핵심 단서",
+      "name": "길목의 낮은 장벽",
+      "existing": null,
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Clues/OBS_LOW_PASSAGE_BARRIER.png",
+      "required_work": "1024×1536 RGB, 2:3. 중심80% 단서·가장자리10% 여백. 자막과 상세는 동일 원본 공유. 기존2장도 통합 화풍으로 재제작.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": null,
+      "candidate_info": null
+    },
+    {
+      "id": "OBS_FOREST_BARRICADE",
+      "group": "핵심 단서",
+      "name": "숲을 향한 목책",
+      "existing": "Assets/Resources/ResultImage/Forest_Barricade.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Clues/OBS_FOREST_BARRICADE.png",
+      "required_work": "1024×1536 RGB, 2:3. 중심80% 단서·가장자리10% 여백. 자막과 상세는 동일 원본 공유. 기존2장도 통합 화풍으로 재제작.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/ResultImage/Forest_Barricade.png",
+        "bytes": 2699077,
+        "sha256": "0fa9467ad51757a526c2cf2ba09588d44209143d82e652bd5e08f948f5d1b8e9",
+        "width": 1024,
+        "height": 1536,
+        "mode": "RGB"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "OBS_SHRINE_WHEEL_TRACKS",
+      "group": "핵심 단서",
+      "name": "한 방향으로 이어진 바퀴 자국",
+      "existing": null,
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Clues/OBS_SHRINE_WHEEL_TRACKS.png",
+      "required_work": "1024×1536 RGB, 2:3. 중심80% 단서·가장자리10% 여백. 자막과 상세는 동일 원본 공유. 기존2장도 통합 화풍으로 재제작.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": null,
+      "candidate_info": null
+    },
+    {
+      "id": "OBS_COVERED_SPACE",
+      "group": "핵심 단서",
+      "name": "덮개로 가린 자리",
+      "existing": null,
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Clues/OBS_COVERED_SPACE.png",
+      "required_work": "1024×1536 RGB, 2:3. 중심80% 단서·가장자리10% 여백. 자막과 상세는 동일 원본 공유. 기존2장도 통합 화풍으로 재제작.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": null,
+      "candidate_info": null
+    },
+    {
+      "id": "OBS_FOOD_AND_BANDAGES",
+      "group": "핵심 단서",
+      "name": "남겨진 식량과 붕대",
+      "existing": null,
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Clues/OBS_FOOD_AND_BANDAGES.png",
+      "required_work": "1024×1536 RGB, 2:3. 중심80% 단서·가장자리10% 여백. 자막과 상세는 동일 원본 공유. 기존2장도 통합 화풍으로 재제작.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": null,
+      "candidate_info": null
+    },
+    {
+      "id": "EVT-01",
+      "group": "이벤트",
+      "name": "식어 있는 야영지",
+      "existing": null,
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Events/evt_cold_camp.png",
+      "required_work": "선택지3개가 공용 상단 삽화1장을 공유. 현재 EventDefinition에는 삽화필드가 없고 EventPanel은 선택지별 회색 더미이므로 모델·화면 연결 필요.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": null,
+      "candidate_info": null
+    },
+    {
+      "id": "CHAR-Crow-Idle",
+      "group": "캐릭터 동작",
+      "name": "까마귀 · Idle",
+      "existing": "Assets/Resources/Animators/Enemies/Crow/Crow_Idle.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Characters/Crow/Idle.png",
+      "required_work": "1536×512 RGBA·4×384×512. 기존 클립의 Sprite GUID·슬라이스·발 기준선·PPU·배율·좌우방향을 새 시트에 맞춰 검증. 같은 Attack 트리거를 여러 스킬이 공유할 수 있어 스킬별 분리 여부 확인.",
+      "basis": "Assets/Resources/Animators/Enemies/Crow/Idle.anim",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Animators/Enemies/Crow/Crow_Idle.png",
+        "bytes": 142173,
+        "sha256": "563f5bdca118eb9b6a92efb9a4325915a67c3a4f4d6232ada7a462c3e8b4afb2",
+        "width": 1062,
+        "height": 235,
+        "mode": "RGBA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "CHAR-Goblin-Attack",
+      "group": "캐릭터 동작",
+      "name": "고블린 · Attack",
+      "existing": "Assets/Resources/Animators/Enemies/Goblin/Goblin_Attack.png",
+      "candidate": "art/production/graphics-remake/wave-a/enemy-sheets/goblin/Goblin_Filtered_DaggerSwing_384x512x4_v1.png",
+      "status": "승인본 있음",
+      "proposed_target": "Assets/Resources/RemakeV1/Characters/Goblin/Attack.png",
+      "required_work": "1536×512 RGBA·4×384×512. 기존 클립의 Sprite GUID·슬라이스·발 기준선·PPU·배율·좌우방향을 새 시트에 맞춰 검증. 같은 Attack 트리거를 여러 스킬이 공유할 수 있어 스킬별 분리 여부 확인.",
+      "basis": "Assets/Resources/Animators/Enemies/Goblin/Attack.anim",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Animators/Enemies/Goblin/Goblin_Attack.png",
+        "bytes": 157492,
+        "sha256": "299e00521b19189e4f5ff3d58d0150e1ba5e4f42736b0c45382e690532a7b945",
+        "width": 677,
+        "height": 369,
+        "mode": "RGBA"
+      },
+      "candidate_info": {
+        "path": "art/production/graphics-remake/wave-a/enemy-sheets/goblin/Goblin_Filtered_DaggerSwing_384x512x4_v1.png",
+        "bytes": 676409,
+        "sha256": "d7d897715bbec7584299962426074f83900fc337532b54f526a4419193fe75b5",
+        "width": 1536,
+        "height": 512,
+        "mode": "RGBA"
+      }
+    },
+    {
+      "id": "CHAR-Goblin-Attack2",
+      "group": "캐릭터 동작",
+      "name": "고블린 · Attack2",
+      "existing": "Assets/Resources/Animators/Enemies/Goblin/Goblin_Attack2.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Characters/Goblin/Attack2.png",
+      "required_work": "1536×512 RGBA·4×384×512. 기존 클립의 Sprite GUID·슬라이스·발 기준선·PPU·배율·좌우방향을 새 시트에 맞춰 검증. 같은 Attack 트리거를 여러 스킬이 공유할 수 있어 스킬별 분리 여부 확인.",
+      "basis": "Assets/Resources/Animators/Enemies/Goblin/Attack2.anim",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Animators/Enemies/Goblin/Goblin_Attack2.png",
+        "bytes": 145518,
+        "sha256": "725ee8345c2296af58bd2ba83881d3f7918ade99ff831c6b974dc82bbf994930",
+        "width": 684,
+        "height": 365,
+        "mode": "RGBA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "CHAR-Goblin-Idle",
+      "group": "캐릭터 동작",
+      "name": "고블린 · Idle",
+      "existing": "Assets/Resources/Animators/Enemies/Goblin/Goblin_Idle.png",
+      "candidate": "art/production/graphics-remake/wave-a/enemy-sheets/goblin/Goblin_Filtered_Idle_384x512x4_v1.png",
+      "status": "승인본 있음",
+      "proposed_target": "Assets/Resources/RemakeV1/Characters/Goblin/Idle.png",
+      "required_work": "1536×512 RGBA·4×384×512. 기존 클립의 Sprite GUID·슬라이스·발 기준선·PPU·배율·좌우방향을 새 시트에 맞춰 검증. 같은 Attack 트리거를 여러 스킬이 공유할 수 있어 스킬별 분리 여부 확인.",
+      "basis": "Assets/Resources/Animators/Enemies/Goblin/Idle.anim",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Animators/Enemies/Goblin/Goblin_Idle.png",
+        "bytes": 173318,
+        "sha256": "712f7be4611d39380c0c637f72846567425abc8cd273fcacb7e6ef08881c13e7",
+        "width": 677,
+        "height": 369,
+        "mode": "RGBA"
+      },
+      "candidate_info": {
+        "path": "art/production/graphics-remake/wave-a/enemy-sheets/goblin/Goblin_Filtered_Idle_384x512x4_v1.png",
+        "bytes": 708854,
+        "sha256": "912c840b5492919c2a81080d49c742516859ea02bf6be7278c8de5c0b7495981",
+        "width": 1536,
+        "height": 512,
+        "mode": "RGBA"
+      }
+    },
+    {
+      "id": "CHAR-Scarecrow-Attack1",
+      "group": "캐릭터 동작",
+      "name": "거두는 자 · Attack1",
+      "existing": "Assets/Resources/Animators/Enemies/Scarecrow/Scarecrow_Attack.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Characters/Scarecrow/Attack1.png",
+      "required_work": "1536×512 RGBA·4×384×512. 기존 클립의 Sprite GUID·슬라이스·발 기준선·PPU·배율·좌우방향을 새 시트에 맞춰 검증. 같은 Attack 트리거를 여러 스킬이 공유할 수 있어 스킬별 분리 여부 확인.",
+      "basis": "Assets/Resources/Animators/Enemies/Scarecrow/Attack1.anim",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Animators/Enemies/Scarecrow/Scarecrow_Attack.png",
+        "bytes": 232156,
+        "sha256": "2aeb0806a09acc0c705285c3a77afb3386037ef3fa697edd760cf5fbe766f0b2",
+        "width": 498,
+        "height": 501,
+        "mode": "RGBA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "CHAR-Scarecrow-Attack2",
+      "group": "캐릭터 동작",
+      "name": "거두는 자 · Attack2",
+      "existing": "Assets/Resources/Animators/Enemies/Scarecrow/Scarecrow_Attack2.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Characters/Scarecrow/Attack2.png",
+      "required_work": "1536×512 RGBA·4×384×512. 기존 클립의 Sprite GUID·슬라이스·발 기준선·PPU·배율·좌우방향을 새 시트에 맞춰 검증. 같은 Attack 트리거를 여러 스킬이 공유할 수 있어 스킬별 분리 여부 확인.",
+      "basis": "Assets/Resources/Animators/Enemies/Scarecrow/Attack2.anim",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Animators/Enemies/Scarecrow/Scarecrow_Attack2.png",
+        "bytes": 226305,
+        "sha256": "cda9acdeadba5b56b192239c8dd4afd1296bd14929add48367f4d80fc5092e3d",
+        "width": 409,
+        "height": 610,
+        "mode": "RGBA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "CHAR-Scarecrow-Attack3",
+      "group": "캐릭터 동작",
+      "name": "거두는 자 · Attack3",
+      "existing": "Assets/Resources/Animators/Enemies/Scarecrow/Scarecrow_Attack3.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Characters/Scarecrow/Attack3.png",
+      "required_work": "1536×512 RGBA·4×384×512. 기존 클립의 Sprite GUID·슬라이스·발 기준선·PPU·배율·좌우방향을 새 시트에 맞춰 검증. 같은 Attack 트리거를 여러 스킬이 공유할 수 있어 스킬별 분리 여부 확인.",
+      "basis": "Assets/Resources/Animators/Enemies/Scarecrow/Attack3.anim",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Animators/Enemies/Scarecrow/Scarecrow_Attack3.png",
+        "bytes": 267518,
+        "sha256": "1d8e271607d289717305c7fee7122fe471484759facad7c476e2769ae17deefe",
+        "width": 409,
+        "height": 610,
+        "mode": "RGBA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "CHAR-Scarecrow-Attack4",
+      "group": "캐릭터 동작",
+      "name": "거두는 자 · Attack4",
+      "existing": "Assets/Resources/Animators/Enemies/Scarecrow/Scarecrow_Attack4.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Characters/Scarecrow/Attack4.png",
+      "required_work": "1536×512 RGBA·4×384×512. 기존 클립의 Sprite GUID·슬라이스·발 기준선·PPU·배율·좌우방향을 새 시트에 맞춰 검증. 같은 Attack 트리거를 여러 스킬이 공유할 수 있어 스킬별 분리 여부 확인.",
+      "basis": "Assets/Resources/Animators/Enemies/Scarecrow/Attack4.anim",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Animators/Enemies/Scarecrow/Scarecrow_Attack4.png",
+        "bytes": 255569,
+        "sha256": "b73de62b73939f3cd7092877ef2db1c2c0b06c104d568bf33fc2038804df23d8",
+        "width": 498,
+        "height": 501,
+        "mode": "RGBA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "CHAR-Scarecrow-Idle",
+      "group": "캐릭터 동작",
+      "name": "거두는 자 · Idle",
+      "existing": "Assets/Resources/Animators/Enemies/Scarecrow/Scarecrow_Idle.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Characters/Scarecrow/Idle.png",
+      "required_work": "1536×512 RGBA·4×384×512. 기존 클립의 Sprite GUID·슬라이스·발 기준선·PPU·배율·좌우방향을 새 시트에 맞춰 검증. 같은 Attack 트리거를 여러 스킬이 공유할 수 있어 스킬별 분리 여부 확인.",
+      "basis": "Assets/Resources/Animators/Enemies/Scarecrow/Idle.anim",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Animators/Enemies/Scarecrow/Scarecrow_Idle.png",
+        "bytes": 217996,
+        "sha256": "d9fe78dc77200495c300b46e019a78565c75ae5f26a821f81bf3083c659be4ce",
+        "width": 409,
+        "height": 610,
+        "mode": "RGBA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "CHAR-Wolf-Attack",
+      "group": "캐릭터 동작",
+      "name": "약탈자 · Attack",
+      "existing": "Assets/Resources/Animators/Enemies/Wolf/Wolf_Attack.png",
+      "candidate": "art/production/graphics-remake/wave-a/enemy-sheets/raider/Raider_Filtered_AxeSwing_384x512x4_v1.png",
+      "status": "검토 대기",
+      "proposed_target": "Assets/Resources/RemakeV1/Characters/Wolf/Attack.png",
+      "required_work": "1536×512 RGBA·4×384×512. 기존 클립의 Sprite GUID·슬라이스·발 기준선·PPU·배율·좌우방향을 새 시트에 맞춰 검증. 같은 Attack 트리거를 여러 스킬이 공유할 수 있어 스킬별 분리 여부 확인.",
+      "basis": "Assets/Resources/Animators/Enemies/Wolf/Attack.anim",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Animators/Enemies/Wolf/Wolf_Attack.png",
+        "bytes": 268540,
+        "sha256": "4998643acb3b8e9f09ef1e7a05bcf8d97b9b77ce5faddafefcaf88003ebf3fea",
+        "width": 481,
+        "height": 519,
+        "mode": "RGBA"
+      },
+      "candidate_info": {
+        "path": "art/production/graphics-remake/wave-a/enemy-sheets/raider/Raider_Filtered_AxeSwing_384x512x4_v1.png",
+        "bytes": 503576,
+        "sha256": "ad65c816ba34e294cc66d8b356839874779b58526a0a5fffabb0a5338f1e9f75",
+        "width": 1536,
+        "height": 512,
+        "mode": "RGBA"
+      }
+    },
+    {
+      "id": "CHAR-Wolf-Attack2",
+      "group": "캐릭터 동작",
+      "name": "약탈자 · Attack2",
+      "existing": "Assets/Resources/Animators/Enemies/Wolf/Wolf_Attack2.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Characters/Wolf/Attack2.png",
+      "required_work": "1536×512 RGBA·4×384×512. 기존 클립의 Sprite GUID·슬라이스·발 기준선·PPU·배율·좌우방향을 새 시트에 맞춰 검증. 같은 Attack 트리거를 여러 스킬이 공유할 수 있어 스킬별 분리 여부 확인.",
+      "basis": "Assets/Resources/Animators/Enemies/Wolf/Attack2.anim",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Animators/Enemies/Wolf/Wolf_Attack2.png",
+        "bytes": 255791,
+        "sha256": "f1a88c1159a6c8d7b2dbb32a11164aa75ab0ae66008f1b24f27bcd3756524367",
+        "width": 481,
+        "height": 519,
+        "mode": "RGBA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "CHAR-Wolf-Idle",
+      "group": "캐릭터 동작",
+      "name": "약탈자 · Idle",
+      "existing": "Assets/Resources/Animators/Enemies/Wolf/Wolf_Idle.png",
+      "candidate": "art/production/graphics-remake/wave-a/enemy-sheets/raider/Raider_Filtered_Idle_384x512x4_v1.png",
+      "status": "검토 대기",
+      "proposed_target": "Assets/Resources/RemakeV1/Characters/Wolf/Idle.png",
+      "required_work": "1536×512 RGBA·4×384×512. 기존 클립의 Sprite GUID·슬라이스·발 기준선·PPU·배율·좌우방향을 새 시트에 맞춰 검증. 같은 Attack 트리거를 여러 스킬이 공유할 수 있어 스킬별 분리 여부 확인.",
+      "basis": "Assets/Resources/Animators/Enemies/Wolf/Idle.anim",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Animators/Enemies/Wolf/Wolf_Idle.png",
+        "bytes": 268951,
+        "sha256": "7c4f4af93cb99cd7df361937ddca77ab4b8cf032d147a9ca346a49f8a0c0b705",
+        "width": 481,
+        "height": 519,
+        "mode": "RGBA"
+      },
+      "candidate_info": {
+        "path": "art/production/graphics-remake/wave-a/enemy-sheets/raider/Raider_Filtered_Idle_384x512x4_v1.png",
+        "bytes": 455924,
+        "sha256": "2ae22941718eddc23a106e8f3b5198507b42197cdbe2bb186049401f8b77a2dd",
+        "width": 1536,
+        "height": 512,
+        "mode": "RGBA"
+      }
+    },
+    {
+      "id": "CHAR-Attacker-Attack",
+      "group": "캐릭터 동작",
+      "name": "돌격병 · Attack",
+      "existing": "Assets/Resources/Animators/Fellows/Attacker/Attacker_Attack_1.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Characters/Attacker/Attack.png",
+      "required_work": "1536×512 RGBA·4×384×512. 기존 클립의 Sprite GUID·슬라이스·발 기준선·PPU·배율·좌우방향을 새 시트에 맞춰 검증. 같은 Attack 트리거를 여러 스킬이 공유할 수 있어 스킬별 분리 여부 확인.",
+      "basis": "Assets/Resources/Animators/Fellows/Attacker/Attack.anim",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Animators/Fellows/Attacker/Attacker_Attack_1.png",
+        "bytes": 184849,
+        "sha256": "52aefabb794853770c46f7de9573b3497a51f77c2773861d640c28bb3c71465e",
+        "width": 677,
+        "height": 369,
+        "mode": "RGBA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "CHAR-Attacker-Attack2",
+      "group": "캐릭터 동작",
+      "name": "돌격병 · Attack2",
+      "existing": "Assets/Resources/Animators/Fellows/Attacker/Attacker_Attack2.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Characters/Attacker/Attack2.png",
+      "required_work": "1536×512 RGBA·4×384×512. 기존 클립의 Sprite GUID·슬라이스·발 기준선·PPU·배율·좌우방향을 새 시트에 맞춰 검증. 같은 Attack 트리거를 여러 스킬이 공유할 수 있어 스킬별 분리 여부 확인.",
+      "basis": "Assets/Resources/Animators/Fellows/Attacker/Attack2.anim",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Animators/Fellows/Attacker/Attacker_Attack2.png",
+        "bytes": 197845,
+        "sha256": "5e30d8f012bd5f8aa61bbf5744a0a2371ec7f4787995ce968dd5697bbf05133f",
+        "width": 677,
+        "height": 369,
+        "mode": "RGBA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "CHAR-Attacker-Idle",
+      "group": "캐릭터 동작",
+      "name": "돌격병 · Idle",
+      "existing": "Assets/Resources/Animators/Fellows/Attacker/Attacker_Idle.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Characters/Attacker/Idle.png",
+      "required_work": "1536×512 RGBA·4×384×512. 기존 클립의 Sprite GUID·슬라이스·발 기준선·PPU·배율·좌우방향을 새 시트에 맞춰 검증. 같은 Attack 트리거를 여러 스킬이 공유할 수 있어 스킬별 분리 여부 확인.",
+      "basis": "Assets/Resources/Animators/Fellows/Attacker/Idle.anim",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Animators/Fellows/Attacker/Attacker_Idle.png",
+        "bytes": 224432,
+        "sha256": "eb8c91ea383ff2353e301b6e7f1355bee782be84a20cd7ab4c5294d8e3497982",
+        "width": 677,
+        "height": 369,
+        "mode": "RGBA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "CHAR-Caster-Attack",
+      "group": "캐릭터 동작",
+      "name": "원소술사 · Attack",
+      "existing": "Assets/Resources/Animators/Fellows/Caster/CasterSprite.png",
+      "candidate": "art/production/graphics-remake/wave-a/character-sheets/caster/Caster_Filtered_ElementalBolt_384x512x4_v2.png",
+      "status": "승인본 있음",
+      "proposed_target": "Assets/Resources/RemakeV1/Characters/Caster/Attack.png",
+      "required_work": "1536×512 RGBA·4×384×512. 기존 클립의 Sprite GUID·슬라이스·발 기준선·PPU·배율·좌우방향을 새 시트에 맞춰 검증. 같은 Attack 트리거를 여러 스킬이 공유할 수 있어 스킬별 분리 여부 확인.",
+      "basis": "Assets/Resources/Animators/Fellows/Caster/Attack.anim",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Animators/Fellows/Caster/CasterSprite.png",
+        "bytes": 181198,
+        "sha256": "a35626fe4b4d2c91d6298b562fdbf49c9ead261ea83f8a295bc24cc379d76a7d",
+        "width": 669,
+        "height": 373,
+        "mode": "RGBA"
+      },
+      "candidate_info": {
+        "path": "art/production/graphics-remake/wave-a/character-sheets/caster/Caster_Filtered_ElementalBolt_384x512x4_v2.png",
+        "bytes": 482576,
+        "sha256": "a7a7371fb20e8c466ef168f2f7345fe695b30fbd3ce3e9c1f3991bc5538ad098",
+        "width": 1536,
+        "height": 512,
+        "mode": "RGBA"
+      }
+    },
+    {
+      "id": "CHAR-Caster-Attack2",
+      "group": "캐릭터 동작",
+      "name": "원소술사 · Attack2",
+      "existing": "Assets/Resources/Animators/Fellows/Caster/Caster_Attack2.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Characters/Caster/Attack2.png",
+      "required_work": "1536×512 RGBA·4×384×512. 기존 클립의 Sprite GUID·슬라이스·발 기준선·PPU·배율·좌우방향을 새 시트에 맞춰 검증. 같은 Attack 트리거를 여러 스킬이 공유할 수 있어 스킬별 분리 여부 확인.",
+      "basis": "Assets/Resources/Animators/Fellows/Caster/Attack2.anim",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Animators/Fellows/Caster/Caster_Attack2.png",
+        "bytes": 209706,
+        "sha256": "703fcbf5c4d40c3e2eda6a97901662009d868057eefe704e08b8d05f406d9452",
+        "width": 669,
+        "height": 373,
+        "mode": "RGBA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "CHAR-Caster-Idle",
+      "group": "캐릭터 동작",
+      "name": "원소술사 · Idle",
+      "existing": "Assets/Resources/Animators/Fellows/Caster/Caster_Idle.png",
+      "candidate": "art/production/graphics-remake/wave-a/character-sheets/caster/Caster_Filtered_Idle_384x512x4_v2.png",
+      "status": "승인본 있음",
+      "proposed_target": "Assets/Resources/RemakeV1/Characters/Caster/Idle.png",
+      "required_work": "1536×512 RGBA·4×384×512. 기존 클립의 Sprite GUID·슬라이스·발 기준선·PPU·배율·좌우방향을 새 시트에 맞춰 검증. 같은 Attack 트리거를 여러 스킬이 공유할 수 있어 스킬별 분리 여부 확인.",
+      "basis": "Assets/Resources/Animators/Fellows/Caster/Idle.anim",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Animators/Fellows/Caster/Caster_Idle.png",
+        "bytes": 185886,
+        "sha256": "32b202a6065476fc0b1d8f0f863d47536b0f5b9e39e8f98409afc776717040cd",
+        "width": 669,
+        "height": 373,
+        "mode": "RGBA"
+      },
+      "candidate_info": {
+        "path": "art/production/graphics-remake/wave-a/character-sheets/caster/Caster_Filtered_Idle_384x512x4_v2.png",
+        "bytes": 675436,
+        "sha256": "807fe87833d7d3219451f0605810a0ca8401c4f3230c1b39729b72b9d29efaf1",
+        "width": 1536,
+        "height": 512,
+        "mode": "RGBA"
+      }
+    },
+    {
+      "id": "CHAR-Defender-Attack",
+      "group": "캐릭터 동작",
+      "name": "봉쇄병 · Attack",
+      "existing": "Assets/Resources/Animators/Fellows/Defender/Defender_Attack.png",
+      "candidate": "art/production/graphics-remake/wave-a/character-sheets/defender/Defender_Filtered_DeployBarrier_384x512x4_v2.png",
+      "status": "승인본 있음",
+      "proposed_target": "Assets/Resources/RemakeV1/Characters/Defender/Attack.png",
+      "required_work": "1536×512 RGBA·4×384×512. 기존 클립의 Sprite GUID·슬라이스·발 기준선·PPU·배율·좌우방향을 새 시트에 맞춰 검증. 같은 Attack 트리거를 여러 스킬이 공유할 수 있어 스킬별 분리 여부 확인.",
+      "basis": "Assets/Resources/Animators/Fellows/Defender/Attack.anim",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Animators/Fellows/Defender/Defender_Attack.png",
+        "bytes": 184172,
+        "sha256": "35d314496e2592abdd7d1f5be0026707602a1f718b8b8fc91785177446a38a13",
+        "width": 677,
+        "height": 369,
+        "mode": "RGBA"
+      },
+      "candidate_info": {
+        "path": "art/production/graphics-remake/wave-a/character-sheets/defender/Defender_Filtered_DeployBarrier_384x512x4_v2.png",
+        "bytes": 385804,
+        "sha256": "fa5c175473365b12cb732e5cb450f40b59f827ac18843ce5997b9bd6715bf9a3",
+        "width": 1536,
+        "height": 512,
+        "mode": "RGBA"
+      }
+    },
+    {
+      "id": "CHAR-Defender-Idle",
+      "group": "캐릭터 동작",
+      "name": "봉쇄병 · Idle",
+      "existing": "Assets/Resources/Animators/Fellows/Defender/Tanker_Idle.png",
+      "candidate": "art/production/graphics-remake/wave-a/character-sheets/defender/Defender_Filtered_Idle_384x512x4_v1.png",
+      "status": "승인본 있음",
+      "proposed_target": "Assets/Resources/RemakeV1/Characters/Defender/Idle.png",
+      "required_work": "1536×512 RGBA·4×384×512. 기존 클립의 Sprite GUID·슬라이스·발 기준선·PPU·배율·좌우방향을 새 시트에 맞춰 검증. 같은 Attack 트리거를 여러 스킬이 공유할 수 있어 스킬별 분리 여부 확인.",
+      "basis": "Assets/Resources/Animators/Fellows/Defender/Idle.anim",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Animators/Fellows/Defender/Tanker_Idle.png",
+        "bytes": 178050,
+        "sha256": "96dbde2c34ef9b0460b35a82eed85614cdec992e690bd40f489ff0f5c32b93bf",
+        "width": 677,
+        "height": 369,
+        "mode": "RGBA"
+      },
+      "candidate_info": {
+        "path": "art/production/graphics-remake/wave-a/character-sheets/defender/Defender_Filtered_Idle_384x512x4_v1.png",
+        "bytes": 215301,
+        "sha256": "da8f9e4db43f4e7963c8664af4696e44fd861a0d7674fb35667fa2eddb1f1e37",
+        "width": 1536,
+        "height": 512,
+        "mode": "RGBA"
+      }
+    },
+    {
+      "id": "CHAR-Offender-Attack",
+      "group": "캐릭터 동작",
+      "name": "척살자 · Attack",
+      "existing": "Assets/Resources/Animators/Fellows/Offender/Offender_Attack_2.png",
+      "candidate": "art/production/graphics-remake/wave-a/character-sheets/offender/Offender_Filtered_TargetPierce_384x512x4_v2.png",
+      "status": "승인본 있음",
+      "proposed_target": "Assets/Resources/RemakeV1/Characters/Offender/Attack.png",
+      "required_work": "1536×512 RGBA·4×384×512. 기존 클립의 Sprite GUID·슬라이스·발 기준선·PPU·배율·좌우방향을 새 시트에 맞춰 검증. 같은 Attack 트리거를 여러 스킬이 공유할 수 있어 스킬별 분리 여부 확인.",
+      "basis": "Assets/Resources/Animators/Fellows/Offender/Attack.anim",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Animators/Fellows/Offender/Offender_Attack_2.png",
+        "bytes": 176193,
+        "sha256": "22ef98fba05ce8a3b5d963a1871c0bb9dc3a342c83a11c2960e1bd23d541f1f2",
+        "width": 677,
+        "height": 369,
+        "mode": "RGBA"
+      },
+      "candidate_info": {
+        "path": "art/production/graphics-remake/wave-a/character-sheets/offender/Offender_Filtered_TargetPierce_384x512x4_v2.png",
+        "bytes": 299620,
+        "sha256": "a752ec4de25d7afdb7c58f31dc03ab346831f2513a19939ade65387b0ded9ba3",
+        "width": 1536,
+        "height": 512,
+        "mode": "RGBA"
+      }
+    },
+    {
+      "id": "CHAR-Offender-Idle",
+      "group": "캐릭터 동작",
+      "name": "척살자 · Idle",
+      "existing": "Assets/Resources/Animators/Fellows/Offender/Offender_Idle.png",
+      "candidate": "art/production/graphics-remake/wave-a/character-sheets/offender/Offender_Filtered_Idle_384x512x4_v2.png",
+      "status": "승인본 있음",
+      "proposed_target": "Assets/Resources/RemakeV1/Characters/Offender/Idle.png",
+      "required_work": "1536×512 RGBA·4×384×512. 기존 클립의 Sprite GUID·슬라이스·발 기준선·PPU·배율·좌우방향을 새 시트에 맞춰 검증. 같은 Attack 트리거를 여러 스킬이 공유할 수 있어 스킬별 분리 여부 확인.",
+      "basis": "Assets/Resources/Animators/Fellows/Offender/Idle.anim",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Animators/Fellows/Offender/Offender_Idle.png",
+        "bytes": 187652,
+        "sha256": "caebb9f0c0ea6273942652ace5e18c8b161e9972f4b509ff07a075b8aef984b5",
+        "width": 677,
+        "height": 369,
+        "mode": "RGBA"
+      },
+      "candidate_info": {
+        "path": "art/production/graphics-remake/wave-a/character-sheets/offender/Offender_Filtered_Idle_384x512x4_v2.png",
+        "bytes": 432406,
+        "sha256": "63fda332fec813b6d83eb052e9f885edcee1d34ee2d6951c2f7137b2cb71cffa",
+        "width": 1536,
+        "height": 512,
+        "mode": "RGBA"
+      }
+    },
+    {
+      "id": "CHAR-Priest-Attack",
+      "group": "캐릭터 동작",
+      "name": "치유사 · Attack",
+      "existing": "Assets/Resources/Animators/Fellows/Priest/Priest_Attack_3.png",
+      "candidate": "art/production/graphics-remake/wave-a/character-sheets/priest/Priest_Filtered_EmergencyTreatment_384x512x4_v1.png",
+      "status": "승인본 있음",
+      "proposed_target": "Assets/Resources/RemakeV1/Characters/Priest/Attack.png",
+      "required_work": "1536×512 RGBA·4×384×512. 기존 클립의 Sprite GUID·슬라이스·발 기준선·PPU·배율·좌우방향을 새 시트에 맞춰 검증. 같은 Attack 트리거를 여러 스킬이 공유할 수 있어 스킬별 분리 여부 확인.",
+      "basis": "Assets/Resources/Animators/Fellows/Priest/Attack.anim",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Animators/Fellows/Priest/Priest_Attack_3.png",
+        "bytes": 171420,
+        "sha256": "4e3717b1f612021d1b1104d386e8464724e5d9b5b52fea431ba65607687aa862",
+        "width": 677,
+        "height": 369,
+        "mode": "RGBA"
+      },
+      "candidate_info": {
+        "path": "art/production/graphics-remake/wave-a/character-sheets/priest/Priest_Filtered_EmergencyTreatment_384x512x4_v1.png",
+        "bytes": 429199,
+        "sha256": "563f986f9d3737cc5580eb7e9db7713cf37989d9a11e243259ca602f3e88f1d2",
+        "width": 1536,
+        "height": 512,
+        "mode": "RGBA"
+      }
+    },
+    {
+      "id": "CHAR-Priest-Idle",
+      "group": "캐릭터 동작",
+      "name": "치유사 · Idle",
+      "existing": "Assets/Resources/Animators/Fellows/Priest/Priest_Idle_5.png",
+      "candidate": "art/production/graphics-remake/wave-a/character-sheets/priest/Priest_Filtered_Idle_384x512x4_v1.png",
+      "status": "승인본 있음",
+      "proposed_target": "Assets/Resources/RemakeV1/Characters/Priest/Idle.png",
+      "required_work": "1536×512 RGBA·4×384×512. 기존 클립의 Sprite GUID·슬라이스·발 기준선·PPU·배율·좌우방향을 새 시트에 맞춰 검증. 같은 Attack 트리거를 여러 스킬이 공유할 수 있어 스킬별 분리 여부 확인.",
+      "basis": "Assets/Resources/Animators/Fellows/Priest/Idle.anim",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Animators/Fellows/Priest/Priest_Idle_5.png",
+        "bytes": 174474,
+        "sha256": "9660080c3b4ef9baccf3bc62f05815b884f019451b7314d381fe8ea5b46b46ab",
+        "width": 677,
+        "height": 369,
+        "mode": "RGBA"
+      },
+      "candidate_info": {
+        "path": "art/production/graphics-remake/wave-a/character-sheets/priest/Priest_Filtered_Idle_384x512x4_v1.png",
+        "bytes": 370384,
+        "sha256": "42bcbba98c870d90b8dcf3480a73b1d0767b4912c1721a23cca0806e6e83cfe9",
+        "width": 1536,
+        "height": 512,
+        "mode": "RGBA"
+      }
+    },
+    {
+      "id": "NODE-start",
+      "group": "노드 아이콘",
+      "name": "시작",
+      "existing": "Assets/Resources/Icons/node_start.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Nodes/node_start.png",
+      "required_work": "64×64 투명 PNG, Point 필터, 8px 이상 여백을 사용합니다. NodeSystem의 아이콘 경로를 함께 변경합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Icons/node_start.png",
+        "bytes": 136,
+        "sha256": "b415ec80c7f46e4a1008559b44f91a72e39e20871ccc07086c408e97355cca60",
+        "width": 14,
+        "height": 14,
+        "mode": "LA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "NODE-combat",
+      "group": "노드 아이콘",
+      "name": "전투",
+      "existing": "Assets/Resources/Icons/node_combat.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Nodes/node_combat.png",
+      "required_work": "64×64 투명 PNG, Point 필터, 8px 이상 여백을 사용합니다. NodeSystem의 아이콘 경로를 함께 변경합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Icons/node_combat.png",
+        "bytes": 144,
+        "sha256": "4e9dbf5c8facdd49de6989b686efe5af6b56c645ccdba30c778cfc466e671ba6",
+        "width": 14,
+        "height": 14,
+        "mode": "LA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "NODE-elite",
+      "group": "노드 아이콘",
+      "name": "엘리트",
+      "existing": "Assets/Resources/Icons/node_elite.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Nodes/node_elite.png",
+      "required_work": "64×64 투명 PNG, Point 필터, 8px 이상 여백을 사용합니다. NodeSystem의 아이콘 경로를 함께 변경합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Icons/node_elite.png",
+        "bytes": 157,
+        "sha256": "db8690dac183f9b155330f8d6ea4fc4a1c1bdec9a93cb446f57a4013ca6b8d96",
+        "width": 14,
+        "height": 15,
+        "mode": "LA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "NODE-shop",
+      "group": "노드 아이콘",
+      "name": "용병소",
+      "existing": "Assets/Resources/Icons/node_shop.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Nodes/node_shop.png",
+      "required_work": "64×64 투명 PNG, Point 필터, 8px 이상 여백을 사용합니다. NodeSystem의 아이콘 경로를 함께 변경합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Icons/node_shop.png",
+        "bytes": 152,
+        "sha256": "1efd8af0c8258ea3a3d299392c4e0303a2a8a7cc7724f366198dde58402efbde",
+        "width": 16,
+        "height": 16,
+        "mode": "LA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "NODE-boss",
+      "group": "노드 아이콘",
+      "name": "보스",
+      "existing": "Assets/Resources/Icons/node_boss.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Nodes/node_boss.png",
+      "required_work": "64×64 투명 PNG, Point 필터, 8px 이상 여백을 사용합니다. NodeSystem의 아이콘 경로를 함께 변경합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Icons/node_boss.png",
+        "bytes": 153,
+        "sha256": "0d632831d7e34df60e3ec87c9c06ef595ee12fb4e917a8c22f8f6b5d93e0567c",
+        "width": 15,
+        "height": 16,
+        "mode": "LA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "NODE-rest",
+      "group": "노드 아이콘",
+      "name": "화톳불",
+      "existing": "Assets/Resources/Icons/node_rest.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Nodes/node_rest.png",
+      "required_work": "64×64 투명 PNG, Point 필터, 8px 이상 여백을 사용합니다. NodeSystem의 아이콘 경로를 함께 변경합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Icons/node_rest.png",
+        "bytes": 146,
+        "sha256": "6e0da4c81e55e8032df21d4e1a8bc30c34b84cb4938a15f4047edd2d868ecbc5",
+        "width": 14,
+        "height": 16,
+        "mode": "LA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "NODE-event",
+      "group": "노드 아이콘",
+      "name": "이벤트",
+      "existing": "Assets/Resources/Icons/node_event.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Nodes/node_event.png",
+      "required_work": "64×64 투명 PNG, Point 필터, 8px 이상 여백을 사용합니다. NodeSystem의 아이콘 경로를 함께 변경합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Icons/node_event.png",
+        "bytes": 133,
+        "sha256": "98933f8accc18f4c37dc38d03b79fb15aaa1c3a03bbb95300a5971b8377326e1",
+        "width": 13,
+        "height": 13,
+        "mode": "LA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "NODE-church",
+      "group": "노드 아이콘",
+      "name": "교회",
+      "existing": "Assets/Resources/Icons/node_church.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Nodes/node_church.png",
+      "required_work": "64×64 투명 PNG, Point 필터, 8px 이상 여백을 사용합니다. NodeSystem의 아이콘 경로를 함께 변경합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Icons/node_church.png",
+        "bytes": 128,
+        "sha256": "384c5debbdeecca7de69741d59c2e18a074ce1b75485e95e1c4bbc59d2dd644c",
+        "width": 11,
+        "height": 14,
+        "mode": "LA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "ICON-skill_war_shield",
+      "group": "스킬 아이콘",
+      "name": "전장의 방패 · skill_war_shield",
+      "existing": "Assets/Resources/Sprites/Skills/skill_war_shield.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Skills/skill_war_shield.png",
+      "required_work": "현재 16×16 아이콘을 64×64 통합 규격으로 제작합니다. skills.json의 spritePath와 툴팁을 연결합니다. 이름은 현재 DB 표기이며 기획의 표시 스킬명과 따로 대조합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Sprites/Skills/skill_war_shield.png",
+        "bytes": 180,
+        "sha256": "91f1ff0d667269386d4362d71ec1938a1c06a705d60ebb2147848bda84fbdd02",
+        "width": 16,
+        "height": 16,
+        "mode": "P"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "ICON-skill_war_cry",
+      "group": "스킬 아이콘",
+      "name": "워크라이 · skill_war_cry",
+      "existing": "Assets/Resources/Sprites/Skills/skill_war_cry.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Skills/skill_war_cry.png",
+      "required_work": "현재 16×16 아이콘을 64×64 통합 규격으로 제작합니다. skills.json의 spritePath와 툴팁을 연결합니다. 이름은 현재 DB 표기이며 기획의 표시 스킬명과 따로 대조합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Sprites/Skills/skill_war_cry.png",
+        "bytes": 174,
+        "sha256": "13120d42fc7881ee0d76697eb2d7c5bf7c57718975765da2d2943b505a747218",
+        "width": 16,
+        "height": 16,
+        "mode": "P"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "ICON-skill_draw",
+      "group": "스킬 아이콘",
+      "name": "발도 · skill_draw",
+      "existing": "Assets/Resources/Sprites/Skills/skill_draw.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Skills/skill_draw.png",
+      "required_work": "현재 16×16 아이콘을 64×64 통합 규격으로 제작합니다. skills.json의 spritePath와 툴팁을 연결합니다. 이름은 현재 DB 표기이며 기획의 표시 스킬명과 따로 대조합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Sprites/Skills/skill_draw.png",
+        "bytes": 187,
+        "sha256": "6aeba841b28f9f3149af8337b25977b7e0706e06c0e1513769c54cdde2d58635",
+        "width": 16,
+        "height": 16,
+        "mode": "P"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "ICON-skill_fireball",
+      "group": "스킬 아이콘",
+      "name": "파이어볼 · skill_fireball",
+      "existing": "Assets/Resources/Sprites/Skills/skill_fireball.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Skills/skill_fireball.png",
+      "required_work": "현재 16×16 아이콘을 64×64 통합 규격으로 제작합니다. skills.json의 spritePath와 툴팁을 연결합니다. 이름은 현재 DB 표기이며 기획의 표시 스킬명과 따로 대조합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Sprites/Skills/skill_fireball.png",
+        "bytes": 177,
+        "sha256": "f7287b452f4dbd23c5330b82b7a6d057ffaa07bd616298bb6abb1b9a18251221",
+        "width": 16,
+        "height": 16,
+        "mode": "P"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "ICON-skill_flash",
+      "group": "스킬 아이콘",
+      "name": "일섬 · skill_flash",
+      "existing": "Assets/Resources/Sprites/Skills/skill_flash.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Skills/skill_flash.png",
+      "required_work": "현재 16×16 아이콘을 64×64 통합 규격으로 제작합니다. skills.json의 spritePath와 툴팁을 연결합니다. 이름은 현재 DB 표기이며 기획의 표시 스킬명과 따로 대조합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Sprites/Skills/skill_flash.png",
+        "bytes": 164,
+        "sha256": "f8479d0c2ddec647d36fad2245992247842e762960f71bd0cfc8198f24acf224",
+        "width": 16,
+        "height": 16,
+        "mode": "P"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "ICON-skill_magic_missile",
+      "group": "스킬 아이콘",
+      "name": "매직 미사일 · skill_magic_missile",
+      "existing": "Assets/Resources/Sprites/Skills/skill_magic_missile.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Skills/skill_magic_missile.png",
+      "required_work": "현재 16×16 아이콘을 64×64 통합 규격으로 제작합니다. skills.json의 spritePath와 툴팁을 연결합니다. 이름은 현재 DB 표기이며 기획의 표시 스킬명과 따로 대조합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Sprites/Skills/skill_magic_missile.png",
+        "bytes": 188,
+        "sha256": "845427ce6ed09a87a3ffb7f11cd52b33725be8b37872d1f26db0c059d06c246e",
+        "width": 16,
+        "height": 16,
+        "mode": "P"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "ICON-skill_battle_stance",
+      "group": "스킬 아이콘",
+      "name": "전투 태세 · skill_battle_stance",
+      "existing": "Assets/Resources/Sprites/Skills/skill_battle_stance.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Skills/skill_battle_stance.png",
+      "required_work": "현재 16×16 아이콘을 64×64 통합 규격으로 제작합니다. skills.json의 spritePath와 툴팁을 연결합니다. 이름은 현재 DB 표기이며 기획의 표시 스킬명과 따로 대조합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Sprites/Skills/skill_battle_stance.png",
+        "bytes": 160,
+        "sha256": "0800d80f33feee4d7cde1ac51c2feafa7a1e6fb84be770c6abe18f5a5bf83402",
+        "width": 16,
+        "height": 16,
+        "mode": "P"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "ICON-skill_guard",
+      "group": "스킬 아이콘",
+      "name": "방어 준비 · skill_guard",
+      "existing": "Assets/Resources/Sprites/Skills/skill_guard.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Skills/skill_guard.png",
+      "required_work": "현재 16×16 아이콘을 64×64 통합 규격으로 제작합니다. skills.json의 spritePath와 툴팁을 연결합니다. 이름은 현재 DB 표기이며 기획의 표시 스킬명과 따로 대조합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Sprites/Skills/skill_guard.png",
+        "bytes": 180,
+        "sha256": "71b1e629723c7e99e135e64b7bfdf2f2733af84ff22f23d6ee0957e95a06a6e6",
+        "width": 16,
+        "height": 16,
+        "mode": "P"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "ICON-skill_indomitable",
+      "group": "스킬 아이콘",
+      "name": "불굴 · skill_indomitable",
+      "existing": "Assets/Resources/Sprites/Skills/skill_indomitable.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Skills/skill_indomitable.png",
+      "required_work": "현재 16×16 아이콘을 64×64 통합 규격으로 제작합니다. skills.json의 spritePath와 툴팁을 연결합니다. 이름은 현재 DB 표기이며 기획의 표시 스킬명과 따로 대조합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Sprites/Skills/skill_indomitable.png",
+        "bytes": 159,
+        "sha256": "2fa958f1b59dd51495d875a86a53c8e9e3840dcbebb5791f03b40e4279467d99",
+        "width": 16,
+        "height": 16,
+        "mode": "P"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "ICON-skill_reckless",
+      "group": "스킬 아이콘",
+      "name": "무모한 강타 · skill_reckless",
+      "existing": "Assets/Resources/Sprites/Skills/skill_reckless.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Skills/skill_reckless.png",
+      "required_work": "현재 16×16 아이콘을 64×64 통합 규격으로 제작합니다. skills.json의 spritePath와 툴팁을 연결합니다. 이름은 현재 DB 표기이며 기획의 표시 스킬명과 따로 대조합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Sprites/Skills/skill_reckless.png",
+        "bytes": 171,
+        "sha256": "9d072c1772e5a4f2e63e9f26bd2243b8f6553531faad73d930e9eb62f8cd55b0",
+        "width": 16,
+        "height": 16,
+        "mode": "P"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "ICON-skill_prayer",
+      "group": "스킬 아이콘",
+      "name": "기원 · skill_prayer",
+      "existing": "Assets/Resources/Sprites/Skills/skill_prayer.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Skills/skill_prayer.png",
+      "required_work": "현재 16×16 아이콘을 64×64 통합 규격으로 제작합니다. skills.json의 spritePath와 툴팁을 연결합니다. 이름은 현재 DB 표기이며 기획의 표시 스킬명과 따로 대조합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Sprites/Skills/skill_prayer.png",
+        "bytes": 176,
+        "sha256": "5c9d055e9bdd8487397111b207e07106c0b14f2000e180d8c0a7b0169da53eea",
+        "width": 16,
+        "height": 16,
+        "mode": "P"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "ICON-skill_starlight",
+      "group": "스킬 아이콘",
+      "name": "별부름 · skill_starlight",
+      "existing": "Assets/Resources/Sprites/Skills/skill_starlight.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Skills/skill_starlight.png",
+      "required_work": "현재 16×16 아이콘을 64×64 통합 규격으로 제작합니다. skills.json의 spritePath와 툴팁을 연결합니다. 이름은 현재 DB 표기이며 기획의 표시 스킬명과 따로 대조합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Sprites/Skills/skill_starlight.png",
+        "bytes": 167,
+        "sha256": "7d2ee207321011825ce0053f91e2b82f10868e652c45a778ccd8c58e7682f56b",
+        "width": 16,
+        "height": 16,
+        "mode": "P"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "ICON-skill_magic_shield",
+      "group": "스킬 아이콘",
+      "name": "매직 실드 · skill_magic_shield",
+      "existing": "Assets/Resources/Sprites/Skills/skill_magic_shield.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Skills/skill_magic_shield.png",
+      "required_work": "현재 16×16 아이콘을 64×64 통합 규격으로 제작합니다. skills.json의 spritePath와 툴팁을 연결합니다. 이름은 현재 DB 표기이며 기획의 표시 스킬명과 따로 대조합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Sprites/Skills/skill_magic_shield.png",
+        "bytes": 185,
+        "sha256": "5f4b894e6bf6cb9294e25a8b15b6206f948714bebb4216e500362fcaa82822a1",
+        "width": 16,
+        "height": 16,
+        "mode": "P"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "ICON-skill_ice_storm",
+      "group": "스킬 아이콘",
+      "name": "아이스스톰 · skill_ice_storm",
+      "existing": "Assets/Resources/Sprites/Skills/skill_ice_storm.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Skills/skill_ice_storm.png",
+      "required_work": "현재 16×16 아이콘을 64×64 통합 규격으로 제작합니다. skills.json의 spritePath와 툴팁을 연결합니다. 이름은 현재 DB 표기이며 기획의 표시 스킬명과 따로 대조합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Sprites/Skills/skill_ice_storm.png",
+        "bytes": 184,
+        "sha256": "b151b22a90246a453a8870c8a3c525783f6a89f28178c6bf66c272ed5dce06f7",
+        "width": 16,
+        "height": 16,
+        "mode": "P"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "ICON-skill_sky_slash",
+      "group": "스킬 아이콘",
+      "name": "하늘가르기 · skill_sky_slash",
+      "existing": "Assets/Resources/Sprites/Skills/skill_sky_slash.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Skills/skill_sky_slash.png",
+      "required_work": "현재 16×16 아이콘을 64×64 통합 규격으로 제작합니다. skills.json의 spritePath와 툴팁을 연결합니다. 이름은 현재 DB 표기이며 기획의 표시 스킬명과 따로 대조합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Sprites/Skills/skill_sky_slash.png",
+        "bytes": 168,
+        "sha256": "a7f884c021730481b14b0630d86c0f595d9e0a288619b34ae989740aa675dfb6",
+        "width": 16,
+        "height": 16,
+        "mode": "P"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "ICON-skill_moonlight_slash",
+      "group": "스킬 아이콘",
+      "name": "월광베기 · skill_moonlight_slash",
+      "existing": "Assets/Resources/Sprites/Skills/skill_moonlight_slash.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Skills/skill_moonlight_slash.png",
+      "required_work": "현재 16×16 아이콘을 64×64 통합 규격으로 제작합니다. skills.json의 spritePath와 툴팁을 연결합니다. 이름은 현재 DB 표기이며 기획의 표시 스킬명과 따로 대조합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Sprites/Skills/skill_moonlight_slash.png",
+        "bytes": 181,
+        "sha256": "da5e3e8e4c4cb42f2e612c65a184d06a1d182515d1953061a9f0938b8d213dad",
+        "width": 16,
+        "height": 16,
+        "mode": "P"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "ICON-skill_shield_bash",
+      "group": "스킬 아이콘",
+      "name": "방패 밀치기 · skill_shield_bash",
+      "existing": "Assets/Resources/Sprites/Skills/skill_shield_bash.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Skills/skill_shield_bash.png",
+      "required_work": "현재 16×16 아이콘을 64×64 통합 규격으로 제작합니다. skills.json의 spritePath와 툴팁을 연결합니다. 이름은 현재 DB 표기이며 기획의 표시 스킬명과 따로 대조합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Sprites/Skills/skill_shield_bash.png",
+        "bytes": 168,
+        "sha256": "0868d10189beec2614335fdee8c061921ae48b14001f1c6654186f2838cd3944",
+        "width": 16,
+        "height": 16,
+        "mode": "P"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "ICON-skill_counter_flow",
+      "group": "스킬 아이콘",
+      "name": "역류 · skill_counter_flow",
+      "existing": "Assets/Resources/Sprites/Skills/skill_counter_flow.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Skills/skill_counter_flow.png",
+      "required_work": "현재 16×16 아이콘을 64×64 통합 규격으로 제작합니다. skills.json의 spritePath와 툴팁을 연결합니다. 이름은 현재 DB 표기이며 기획의 표시 스킬명과 따로 대조합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Sprites/Skills/skill_counter_flow.png",
+        "bytes": 177,
+        "sha256": "bc3d6f8ac48908930288491f1b865fc72f447de2f216234c972f49f0e9eb46c6",
+        "width": 16,
+        "height": 16,
+        "mode": "P"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "ICON-skill_consecration",
+      "group": "스킬 아이콘",
+      "name": "축성 · skill_consecration",
+      "existing": "Assets/Resources/Sprites/Skills/skill_consecration.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Skills/skill_consecration.png",
+      "required_work": "현재 16×16 아이콘을 64×64 통합 규격으로 제작합니다. skills.json의 spritePath와 툴팁을 연결합니다. 이름은 현재 DB 표기이며 기획의 표시 스킬명과 따로 대조합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Sprites/Skills/skill_consecration.png",
+        "bytes": 157,
+        "sha256": "d5360d73753d5865b74785326da14fa64646b7e6b52295e7313e2b680007f74a",
+        "width": 16,
+        "height": 16,
+        "mode": "P"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "ICON-skill_judgment",
+      "group": "스킬 아이콘",
+      "name": "심판 · skill_judgment",
+      "existing": "Assets/Resources/Sprites/Skills/skill_judgment.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Skills/skill_judgment.png",
+      "required_work": "현재 16×16 아이콘을 64×64 통합 규격으로 제작합니다. skills.json의 spritePath와 툴팁을 연결합니다. 이름은 현재 DB 표기이며 기획의 표시 스킬명과 따로 대조합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Sprites/Skills/skill_judgment.png",
+        "bytes": 173,
+        "sha256": "f469219f6e5d62764b87b2d8d517ae9fb3228bd33c1dee3f66f92d5fbae8024b",
+        "width": 16,
+        "height": 16,
+        "mode": "P"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "STATUS-poison",
+      "group": "상태 아이콘",
+      "name": "중독",
+      "existing": "Assets/Resources/Icons/status_poison.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Status/status_poison.png",
+      "required_work": "64×64 투명 PNG와 Point 필터를 사용하고 StatusVisual의 경로를 연결합니다. 실제 상태 기능의 포함 여부와 현재 로드 목록은 구분합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Icons/status_poison.png",
+        "bytes": 160,
+        "sha256": "7e38834a88c42fac0d96c4efa55a2de6206fe787c2e081fdf0336e969b13c8bb",
+        "width": 15,
+        "height": 16,
+        "mode": "LA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "STATUS-pressure",
+      "group": "상태 아이콘",
+      "name": "압박",
+      "existing": "Assets/Resources/Icons/status_pressure.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Status/status_pressure.png",
+      "required_work": "64×64 투명 PNG와 Point 필터를 사용하고 StatusVisual의 경로를 연결합니다. 실제 상태 기능의 포함 여부와 현재 로드 목록은 구분합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Icons/status_pressure.png",
+        "bytes": 128,
+        "sha256": "050d8d0d30e1b4c47cf8dcbfef5d9df4d33d3aa66946e8038d4597ff52fb3586",
+        "width": 12,
+        "height": 12,
+        "mode": "LA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "STATUS-panic",
+      "group": "상태 아이콘",
+      "name": "패닉",
+      "existing": "Assets/Resources/Icons/status_panic.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Status/status_panic.png",
+      "required_work": "64×64 투명 PNG와 Point 필터를 사용하고 StatusVisual의 경로를 연결합니다. 실제 상태 기능의 포함 여부와 현재 로드 목록은 구분합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Icons/status_panic.png",
+        "bytes": 127,
+        "sha256": "f83b3e84f9aba771cc82a9ab7944a7e68de71a136f5ff8c986be5ceca4edefc9",
+        "width": 12,
+        "height": 12,
+        "mode": "LA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "STATUS-frozen",
+      "group": "상태 아이콘",
+      "name": "경직",
+      "existing": "Assets/Resources/Icons/status_frozen.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Status/status_frozen.png",
+      "required_work": "64×64 투명 PNG와 Point 필터를 사용하고 StatusVisual의 경로를 연결합니다. 실제 상태 기능의 포함 여부와 현재 로드 목록은 구분합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Icons/status_frozen.png",
+        "bytes": 149,
+        "sha256": "5219bcea2f61c514c071bf340f5133009fe8893677aa7f54a01af08631ff2b41",
+        "width": 16,
+        "height": 13,
+        "mode": "LA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "STATUS-overbreath",
+      "group": "상태 아이콘",
+      "name": "과호흡",
+      "existing": "Assets/Resources/Icons/status_overbreath.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Status/status_overbreath.png",
+      "required_work": "64×64 투명 PNG와 Point 필터를 사용하고 StatusVisual의 경로를 연결합니다. 실제 상태 기능의 포함 여부와 현재 로드 목록은 구분합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Icons/status_overbreath.png",
+        "bytes": 154,
+        "sha256": "ab176e54596343469cb86da060afbc81fb41735c1b62f3484bff8a48e5181be8",
+        "width": 16,
+        "height": 14,
+        "mode": "LA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "STATUS-severe",
+      "group": "상태 아이콘",
+      "name": "중증",
+      "existing": "Assets/Resources/Icons/status_severe.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Status/status_severe.png",
+      "required_work": "64×64 투명 PNG와 Point 필터를 사용하고 StatusVisual의 경로를 연결합니다. 실제 상태 기능의 포함 여부와 현재 로드 목록은 구분합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Icons/status_severe.png",
+        "bytes": 151,
+        "sha256": "0e66f6d56966ae6ba9d5c35282675fb026cc907e719f6f26de2439351291abfb",
+        "width": 15,
+        "height": 15,
+        "mode": "LA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "STATUS-taunt",
+      "group": "상태 아이콘",
+      "name": "도발",
+      "existing": "Assets/Resources/Icons/status_taunt.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/Status/status_taunt.png",
+      "required_work": "64×64 투명 PNG와 Point 필터를 사용하고 StatusVisual의 경로를 연결합니다. 실제 상태 기능의 포함 여부와 현재 로드 목록은 구분합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Icons/status_taunt.png",
+        "bytes": 148,
+        "sha256": "ca2d4dc4aad6cc61b20bbd0517325c12cae87023c6813f1ef51a086b05efc257",
+        "width": 14,
+        "height": 14,
+        "mode": "LA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "CARD-공격-카드 배경",
+      "group": "카드·배지",
+      "name": "공격 카드 배경",
+      "existing": "Assets/Resources/Icons/sprite_sheet.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/UI/Cards/공격_카드 배경.png",
+      "required_work": "현재 카드의 공용 시트·생성 UI를 분리해 교체합니다. 공격·방어·지원의 배경과 배지 6종을 제작하며 문자와 수치는 이미지에 넣지 않습니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Icons/sprite_sheet.png",
+        "bytes": 33936,
+        "sha256": "4508c5f31b59d23ef12b36196a2779c3de54c188b538a4418de98d0e3f2a765e",
+        "width": 640,
+        "height": 816,
+        "mode": "RGBA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "CARD-공격-역할 배지",
+      "group": "카드·배지",
+      "name": "공격 역할 배지",
+      "existing": "Assets/Resources/Icons/sprite_sheet.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/UI/Cards/공격_역할 배지.png",
+      "required_work": "현재 카드의 공용 시트·생성 UI를 분리해 교체합니다. 공격·방어·지원의 배경과 배지 6종을 제작하며 문자와 수치는 이미지에 넣지 않습니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Icons/sprite_sheet.png",
+        "bytes": 33936,
+        "sha256": "4508c5f31b59d23ef12b36196a2779c3de54c188b538a4418de98d0e3f2a765e",
+        "width": 640,
+        "height": 816,
+        "mode": "RGBA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "CARD-방어-카드 배경",
+      "group": "카드·배지",
+      "name": "방어 카드 배경",
+      "existing": "Assets/Resources/Icons/sprite_sheet.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/UI/Cards/방어_카드 배경.png",
+      "required_work": "현재 카드의 공용 시트·생성 UI를 분리해 교체합니다. 공격·방어·지원의 배경과 배지 6종을 제작하며 문자와 수치는 이미지에 넣지 않습니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Icons/sprite_sheet.png",
+        "bytes": 33936,
+        "sha256": "4508c5f31b59d23ef12b36196a2779c3de54c188b538a4418de98d0e3f2a765e",
+        "width": 640,
+        "height": 816,
+        "mode": "RGBA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "CARD-방어-역할 배지",
+      "group": "카드·배지",
+      "name": "방어 역할 배지",
+      "existing": "Assets/Resources/Icons/sprite_sheet.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/UI/Cards/방어_역할 배지.png",
+      "required_work": "현재 카드의 공용 시트·생성 UI를 분리해 교체합니다. 공격·방어·지원의 배경과 배지 6종을 제작하며 문자와 수치는 이미지에 넣지 않습니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Icons/sprite_sheet.png",
+        "bytes": 33936,
+        "sha256": "4508c5f31b59d23ef12b36196a2779c3de54c188b538a4418de98d0e3f2a765e",
+        "width": 640,
+        "height": 816,
+        "mode": "RGBA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "CARD-지원-카드 배경",
+      "group": "카드·배지",
+      "name": "지원 카드 배경",
+      "existing": "Assets/Resources/Icons/sprite_sheet.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/UI/Cards/지원_카드 배경.png",
+      "required_work": "현재 카드의 공용 시트·생성 UI를 분리해 교체합니다. 공격·방어·지원의 배경과 배지 6종을 제작하며 문자와 수치는 이미지에 넣지 않습니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Icons/sprite_sheet.png",
+        "bytes": 33936,
+        "sha256": "4508c5f31b59d23ef12b36196a2779c3de54c188b538a4418de98d0e3f2a765e",
+        "width": 640,
+        "height": 816,
+        "mode": "RGBA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "CARD-지원-역할 배지",
+      "group": "카드·배지",
+      "name": "지원 역할 배지",
+      "existing": "Assets/Resources/Icons/sprite_sheet.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/UI/Cards/지원_역할 배지.png",
+      "required_work": "현재 카드의 공용 시트·생성 UI를 분리해 교체합니다. 공격·방어·지원의 배경과 배지 6종을 제작하며 문자와 수치는 이미지에 넣지 않습니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/Icons/sprite_sheet.png",
+        "bytes": 33936,
+        "sha256": "4508c5f31b59d23ef12b36196a2779c3de54c188b538a4418de98d0e3f2a765e",
+        "width": 640,
+        "height": 816,
+        "mode": "RGBA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "SYSTEM-영혼석",
+      "group": "시스템 아이콘",
+      "name": "영혼석",
+      "existing": null,
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/System/영혼석.png",
+      "required_work": "기존 텍스트·기호·임시 UI를 대신할 통합 아이콘입니다. 64×64 규격과 현재 기능의 진입점 노출 여부를 확인합니다. 마석 아이콘 제작이 프로토타입의 마석 기능 포함을 뜻하지는 않습니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": null,
+      "candidate_info": null
+    },
+    {
+      "id": "SYSTEM-마석",
+      "group": "시스템 아이콘",
+      "name": "마석",
+      "existing": null,
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/System/마석.png",
+      "required_work": "기존 텍스트·기호·임시 UI를 대신할 통합 아이콘입니다. 64×64 규격과 현재 기능의 진입점 노출 여부를 확인합니다. 마석 아이콘 제작이 프로토타입의 마석 기능 포함을 뜻하지는 않습니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": null,
+      "candidate_info": null
+    },
+    {
+      "id": "SYSTEM-조사관 수첩",
+      "group": "시스템 아이콘",
+      "name": "조사관 수첩",
+      "existing": null,
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/System/조사관 수첩.png",
+      "required_work": "기존 텍스트·기호·임시 UI를 대신할 통합 아이콘입니다. 64×64 규격과 현재 기능의 진입점 노출 여부를 확인합니다. 마석 아이콘 제작이 프로토타입의 마석 기능 포함을 뜻하지는 않습니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": null,
+      "candidate_info": null
+    },
+    {
+      "id": "SYSTEM-핵심 단서",
+      "group": "시스템 아이콘",
+      "name": "핵심 단서",
+      "existing": null,
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/System/핵심 단서.png",
+      "required_work": "기존 텍스트·기호·임시 UI를 대신할 통합 아이콘입니다. 64×64 규격과 현재 기능의 진입점 노출 여부를 확인합니다. 마석 아이콘 제작이 프로토타입의 마석 기능 포함을 뜻하지는 않습니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": null,
+      "candidate_info": null
+    },
+    {
+      "id": "SYSTEM-설정",
+      "group": "시스템 아이콘",
+      "name": "설정",
+      "existing": null,
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/System/설정.png",
+      "required_work": "기존 텍스트·기호·임시 UI를 대신할 통합 아이콘입니다. 64×64 규격과 현재 기능의 진입점 노출 여부를 확인합니다. 마석 아이콘 제작이 프로토타입의 마석 기능 포함을 뜻하지는 않습니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": null,
+      "candidate_info": null
+    },
+    {
+      "id": "SYSTEM-도움말",
+      "group": "시스템 아이콘",
+      "name": "도움말",
+      "existing": null,
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/System/도움말.png",
+      "required_work": "기존 텍스트·기호·임시 UI를 대신할 통합 아이콘입니다. 64×64 규격과 현재 기능의 진입점 노출 여부를 확인합니다. 마석 아이콘 제작이 프로토타입의 마석 기능 포함을 뜻하지는 않습니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": null,
+      "candidate_info": null
+    },
+    {
+      "id": "SYSTEM-뒤로",
+      "group": "시스템 아이콘",
+      "name": "뒤로",
+      "existing": null,
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/System/뒤로.png",
+      "required_work": "기존 텍스트·기호·임시 UI를 대신할 통합 아이콘입니다. 64×64 규격과 현재 기능의 진입점 노출 여부를 확인합니다. 마석 아이콘 제작이 프로토타입의 마석 기능 포함을 뜻하지는 않습니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": null,
+      "candidate_info": null
+    },
+    {
+      "id": "SYSTEM-닫기",
+      "group": "시스템 아이콘",
+      "name": "닫기",
+      "existing": null,
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/Icons/System/닫기.png",
+      "required_work": "기존 텍스트·기호·임시 UI를 대신할 통합 아이콘입니다. 64×64 규격과 현재 기능의 진입점 노출 여부를 확인합니다. 마석 아이콘 제작이 프로토타입의 마석 기능 포함을 뜻하지는 않습니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": null,
+      "candidate_info": null
+    },
+    {
+      "id": "UI-panel",
+      "group": "UI 표면",
+      "name": "기본 패널",
+      "existing": "Assets/Resources/UI/panel_1.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/UI/panel.png",
+      "required_work": "6종 통합 세트를 제작합니다. 패널·버튼의 9-slice 경계를 정하고 기존 코드 생성 도형은 필요한 부분만 교체합니다. 글자는 별도로 표시합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/UI/panel_1.png",
+        "bytes": 625135,
+        "sha256": "d79e675ea06a715410bbc632b17c6bf09f4fdc1523e6db2a17521976acb1a92d",
+        "width": 989,
+        "height": 656,
+        "mode": "RGBA"
+      },
+      "candidate_info": null
+    },
+    {
+      "id": "UI-paper",
+      "group": "UI 표면",
+      "name": "수첩·문서 종이",
+      "existing": null,
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/UI/paper.png",
+      "required_work": "6종 통합 세트를 제작합니다. 패널·버튼의 9-slice 경계를 정하고 기존 코드 생성 도형은 필요한 부분만 교체합니다. 글자는 별도로 표시합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": null,
+      "candidate_info": null
+    },
+    {
+      "id": "UI-button",
+      "group": "UI 표면",
+      "name": "기본 버튼",
+      "existing": null,
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/UI/button.png",
+      "required_work": "6종 통합 세트를 제작합니다. 패널·버튼의 9-slice 경계를 정하고 기존 코드 생성 도형은 필요한 부분만 교체합니다. 글자는 별도로 표시합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": null,
+      "candidate_info": null
+    },
+    {
+      "id": "UI-danger",
+      "group": "UI 표면",
+      "name": "위험·닫기 버튼",
+      "existing": null,
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/UI/danger.png",
+      "required_work": "6종 통합 세트를 제작합니다. 패널·버튼의 9-slice 경계를 정하고 기존 코드 생성 도형은 필요한 부분만 교체합니다. 글자는 별도로 표시합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": null,
+      "candidate_info": null
+    },
+    {
+      "id": "UI-currency",
+      "group": "UI 표면",
+      "name": "재화 배지 배경",
+      "existing": null,
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/UI/currency.png",
+      "required_work": "6종 통합 세트를 제작합니다. 패널·버튼의 9-slice 경계를 정하고 기존 코드 생성 도형은 필요한 부분만 교체합니다. 글자는 별도로 표시합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": null,
+      "candidate_info": null
+    },
+    {
+      "id": "UI-spinner",
+      "group": "UI 표면",
+      "name": "로딩 스피너",
+      "existing": "Assets/Resources/UI/loading_spinner.png",
+      "candidate": null,
+      "status": "제작 필요",
+      "proposed_target": "Assets/Resources/RemakeV1/UI/spinner.png",
+      "required_work": "6종 통합 세트를 제작합니다. 패널·버튼의 9-slice 경계를 정하고 기존 코드 생성 도형은 필요한 부분만 교체합니다. 글자는 별도로 표시합니다.",
+      "basis": "현재 런타임·16-G",
+      "scope": "프로토타입",
+      "existing_info": {
+        "path": "Assets/Resources/UI/loading_spinner.png",
+        "bytes": 179,
+        "sha256": "eabf90f5397599d1ccd36e5f58df157f33da07246ba16395b61817c8aa0a2a5d",
+        "width": 16,
+        "height": 16,
+        "mode": "P"
+      },
+      "candidate_info": null
+    }
+  ],
+  "production_files": [
+    {
+      "path": "art/production/graphics-remake/style-anchors/Battle_Forest_StyleAnchor_v1.md",
+      "bytes": 3177,
+      "sha256": "281a32b97588fa270176dc7701177c04f6ce3640f0a84357ca0515a09f5a18c1",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/style-anchors/Battle_Forest_StyleAnchor_v1.png",
+      "bytes": 1981710,
+      "sha256": "6dee84c2d0f0f4b0943454b02a5a85a351396daaf0ec42ece830a37ff7109361",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/style-anchors/Battle_Forest_StyleAnchor_v1_preview.svg",
+      "bytes": 122253,
+      "sha256": "1b6d8233fa008efe806fcb75bc6fae36bfc5ff072accc46604f378d7e2db51a4",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/character-anchors/Caster_Filtered_IdleAnchor_v2.png",
+      "bytes": 962915,
+      "sha256": "70b6bf41b2b5befea49d5c3a6637383bbe1d1acf0deade18b4ed48dc17dba9f5",
+      "width": 1199,
+      "height": 1312,
+      "mode": "RGBA",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/character-anchors/Defender_Filtered_IdleAnchor_v1.png",
+      "bytes": 847748,
+      "sha256": "df83622e53730e2614b6a93d377ad2c62f636a46c4767b15c2bcb0956ceccf0e",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/character-anchors/Offender_Filtered_IdleAnchor_v2.png",
+      "bytes": 918527,
+      "sha256": "d021d891cd1f0d2505459e7c3747b793b47ace1fd551c86e4a3335c0fca68d60",
+      "width": 1182,
+      "height": 1330,
+      "mode": "RGBA",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/character-anchors/Priest_Filtered_IdleAnchor_v1.png",
+      "bytes": 798863,
+      "sha256": "d7fa058dc42f1d54a71187339c8cb6a89a2450b497a2a5bc838ca269a8e2cd2d",
+      "width": 1177,
+      "height": 1337,
+      "mode": "RGBA",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/character-anchors/WaveA_InitialParty_CharacterAnchors_v1.md",
+      "bytes": 7520,
+      "sha256": "cb8911aabb14829f7b3d9c80f4cd1366cc6b0e5e4384f4ef548d4321217c66dd",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/character-sheets/caster/Caster_Filtered_ElementalBolt_384x512x4_v2.png",
+      "bytes": 482576,
+      "sha256": "a7a7371fb20e8c466ef168f2f7345fe695b30fbd3ce3e9c1f3991bc5538ad098",
+      "width": 1536,
+      "height": 512,
+      "mode": "RGBA",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/character-sheets/caster/Caster_Filtered_Idle_384x512x4_v2.png",
+      "bytes": 675436,
+      "sha256": "807fe87833d7d3219451f0605810a0ca8401c4f3230c1b39729b72b9d29efaf1",
+      "width": 1536,
+      "height": 512,
+      "mode": "RGBA",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/character-sheets/caster/Caster_Filtered_Sheets_v2.md",
+      "bytes": 4211,
+      "sha256": "6bccbf7d4abeba3da229db36cb98e0c1145a29b3c4645d4a8e5a983b8001c136",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/character-sheets/defender/Defender_Filtered_DeployBarrier_384x512x4_v2.png",
+      "bytes": 385804,
+      "sha256": "fa5c175473365b12cb732e5cb450f40b59f827ac18843ce5997b9bd6715bf9a3",
+      "width": 1536,
+      "height": 512,
+      "mode": "RGBA",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/character-sheets/defender/Defender_Filtered_Idle_384x512x4_v1.png",
+      "bytes": 215301,
+      "sha256": "da8f9e4db43f4e7963c8664af4696e44fd861a0d7674fb35667fa2eddb1f1e37",
+      "width": 1536,
+      "height": 512,
+      "mode": "RGBA",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/character-sheets/defender/Defender_Filtered_Sheets_v2.md",
+      "bytes": 4489,
+      "sha256": "300890dd41a5aeae7bac3f7e38f691c9e350e8dca93f5fdc3e5bf295dc3bfedb",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/character-sheets/offender/Offender_Filtered_Idle_384x512x4_v2.png",
+      "bytes": 432406,
+      "sha256": "63fda332fec813b6d83eb052e9f885edcee1d34ee2d6951c2f7137b2cb71cffa",
+      "width": 1536,
+      "height": 512,
+      "mode": "RGBA",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/character-sheets/offender/Offender_Filtered_Sheets_v2.md",
+      "bytes": 4244,
+      "sha256": "0354c8fb59efded0d35e5d36fe397c5975513c882d8d6fed1f722eebb4983879",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/character-sheets/offender/Offender_Filtered_TargetPierce_384x512x4_v2.png",
+      "bytes": 299620,
+      "sha256": "a752ec4de25d7afdb7c58f31dc03ab346831f2513a19939ade65387b0ded9ba3",
+      "width": 1536,
+      "height": 512,
+      "mode": "RGBA",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/character-sheets/priest/Priest_Filtered_EmergencyTreatment_384x512x4_v1.png",
+      "bytes": 429199,
+      "sha256": "563f986f9d3737cc5580eb7e9db7713cf37989d9a11e243259ca602f3e88f1d2",
+      "width": 1536,
+      "height": 512,
+      "mode": "RGBA",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/character-sheets/priest/Priest_Filtered_Idle_384x512x4_v1.png",
+      "bytes": 370384,
+      "sha256": "42bcbba98c870d90b8dcf3480a73b1d0767b4912c1721a23cca0806e6e83cfe9",
+      "width": 1536,
+      "height": 512,
+      "mode": "RGBA",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/character-sheets/priest/Priest_Filtered_Sheets_v1.md",
+      "bytes": 4050,
+      "sha256": "a185d05ad2c183a85360bd4cffddb1a23f7ffb738ad6f305649e3109f6aba54b",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/enemy-anchors/Goblin_Filtered_IdleAnchor_v2.png",
+      "bytes": 1480273,
+      "sha256": "1f3beba1a5741406e985bfcfebc94efdb79bd702352884bd42fef6429195c319",
+      "width": 1290,
+      "height": 1219,
+      "mode": "RGBA",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/enemy-anchors/Raider_Filtered_IdleAnchor_v1.png",
+      "bytes": 1063080,
+      "sha256": "286a5877110ee63281873647b9ba6a64de5fb89df37d4c3c2c82e552c7fb420b",
+      "width": 1200,
+      "height": 1310,
+      "mode": "RGBA",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/enemy-anchors/WaveA_Enemy_Anchors_v1.md",
+      "bytes": 6972,
+      "sha256": "45984392240a557da2cb08c0bc09ee00b09ea72e56e7a37fd5fec76e2cdd4b81",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/enemy-sheets/goblin/Goblin_Filtered_DaggerSwing_384x512x4_v1.png",
+      "bytes": 676409,
+      "sha256": "d7d897715bbec7584299962426074f83900fc337532b54f526a4419193fe75b5",
+      "width": 1536,
+      "height": 512,
+      "mode": "RGBA",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/enemy-sheets/goblin/Goblin_Filtered_Idle_384x512x4_v1.png",
+      "bytes": 708854,
+      "sha256": "912c840b5492919c2a81080d49c742516859ea02bf6be7278c8de5c0b7495981",
+      "width": 1536,
+      "height": 512,
+      "mode": "RGBA",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/enemy-sheets/goblin/Goblin_Filtered_Sheets_v1.md",
+      "bytes": 3851,
+      "sha256": "f3ea94e443134154081b52adfb582655ba7aaa2f059fe8b9f18a0358016f49d6",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/enemy-sheets/raider/Raider_Filtered_AxeSwing_384x512x4_v1.png",
+      "bytes": 503576,
+      "sha256": "ad65c816ba34e294cc66d8b356839874779b58526a0a5fffabb0a5338f1e9f75",
+      "width": 1536,
+      "height": 512,
+      "mode": "RGBA",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/enemy-sheets/raider/Raider_Filtered_Idle_384x512x4_v1.png",
+      "bytes": 455924,
+      "sha256": "2ae22941718eddc23a106e8f3b5198507b42197cdbe2bb186049401f8b77a2dd",
+      "width": 1536,
+      "height": 512,
+      "mode": "RGBA",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/enemy-sheets/raider/Raider_Filtered_Sheets_v1.md",
+      "bytes": 6474,
+      "sha256": "cbe01a324449c680b579050a66e38a15c3131f3985785d210f099af1a2b88399",
+      "remote_matches": true
+    }
+  ],
+  "approval_inventory": [
+    {
+      "path": "art/production/graphics-remake/style-anchors/Battle_Forest_StyleAnchor_v1.png",
+      "size": {
+        "width": 1672,
+        "height": 941
+      },
+      "mode": "RGB",
+      "sha256": "6dee84c2d0f0f4b0943454b02a5a85a351396daaf0ec42ece830a37ff7109361",
+      "tracked": true,
+      "status": "approved_style_anchor_unity_unconnected",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/style-anchors/Battle_Forest_StyleAnchor_v1_preview.svg",
+      "size": {
+        "bytes": 122253
+      },
+      "mode": "SVG",
+      "sha256": "1b6d8233fa008efe806fcb75bc6fae36bfc5ff072accc46604f378d7e2db51a4",
+      "tracked": true,
+      "status": "approved_style_anchor_unity_unconnected",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/character-anchors/Caster_Filtered_IdleAnchor_v2.png",
+      "size": {
+        "width": 1199,
+        "height": 1312
+      },
+      "mode": "RGBA",
+      "sha256": "70b6bf41b2b5befea49d5c3a6637383bbe1d1acf0deade18b4ed48dc17dba9f5",
+      "tracked": true,
+      "status": "approved_anchor",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/character-anchors/Defender_Filtered_IdleAnchor_v1.png",
+      "size": {
+        "width": 1254,
+        "height": 1254
+      },
+      "mode": "RGBA",
+      "sha256": "df83622e53730e2614b6a93d377ad2c62f636a46c4767b15c2bcb0956ceccf0e",
+      "tracked": true,
+      "status": "approved_anchor",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/character-anchors/Offender_Filtered_IdleAnchor_v2.png",
+      "size": {
+        "width": 1182,
+        "height": 1330
+      },
+      "mode": "RGBA",
+      "sha256": "d021d891cd1f0d2505459e7c3747b793b47ace1fd551c86e4a3335c0fca68d60",
+      "tracked": true,
+      "status": "approved_anchor",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/character-anchors/Priest_Filtered_IdleAnchor_v1.png",
+      "size": {
+        "width": 1177,
+        "height": 1337
+      },
+      "mode": "RGBA",
+      "sha256": "d7fa058dc42f1d54a71187339c8cb6a89a2450b497a2a5bc838ca269a8e2cd2d",
+      "tracked": true,
+      "status": "approved_anchor",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/character-sheets/caster/Caster_Filtered_ElementalBolt_384x512x4_v2.png",
+      "size": {
+        "width": 1536,
+        "height": 512
+      },
+      "mode": "RGBA",
+      "sha256": "a7a7371fb20e8c466ef168f2f7345fe695b30fbd3ce3e9c1f3991bc5538ad098",
+      "tracked": true,
+      "status": "approved_sheet",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/character-sheets/caster/Caster_Filtered_Idle_384x512x4_v2.png",
+      "size": {
+        "width": 1536,
+        "height": 512
+      },
+      "mode": "RGBA",
+      "sha256": "807fe87833d7d3219451f0605810a0ca8401c4f3230c1b39729b72b9d29efaf1",
+      "tracked": true,
+      "status": "approved_sheet",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/character-sheets/defender/Defender_Filtered_DeployBarrier_384x512x4_v2.png",
+      "size": {
+        "width": 1536,
+        "height": 512
+      },
+      "mode": "RGBA",
+      "sha256": "fa5c175473365b12cb732e5cb450f40b59f827ac18843ce5997b9bd6715bf9a3",
+      "tracked": true,
+      "status": "approved_sheet",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/character-sheets/defender/Defender_Filtered_Idle_384x512x4_v1.png",
+      "size": {
+        "width": 1536,
+        "height": 512
+      },
+      "mode": "RGBA",
+      "sha256": "da8f9e4db43f4e7963c8664af4696e44fd861a0d7674fb35667fa2eddb1f1e37",
+      "tracked": true,
+      "status": "approved_sheet",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/character-sheets/offender/Offender_Filtered_Idle_384x512x4_v2.png",
+      "size": {
+        "width": 1536,
+        "height": 512
+      },
+      "mode": "RGBA",
+      "sha256": "63fda332fec813b6d83eb052e9f885edcee1d34ee2d6951c2f7137b2cb71cffa",
+      "tracked": true,
+      "status": "approved_sheet",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/character-sheets/offender/Offender_Filtered_TargetPierce_384x512x4_v2.png",
+      "size": {
+        "width": 1536,
+        "height": 512
+      },
+      "mode": "RGBA",
+      "sha256": "a752ec4de25d7afdb7c58f31dc03ab346831f2513a19939ade65387b0ded9ba3",
+      "tracked": true,
+      "status": "approved_sheet",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/character-sheets/priest/Priest_Filtered_EmergencyTreatment_384x512x4_v1.png",
+      "size": {
+        "width": 1536,
+        "height": 512
+      },
+      "mode": "RGBA",
+      "sha256": "563f986f9d3737cc5580eb7e9db7713cf37989d9a11e243259ca602f3e88f1d2",
+      "tracked": true,
+      "status": "approved_sheet",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/character-sheets/priest/Priest_Filtered_Idle_384x512x4_v1.png",
+      "size": {
+        "width": 1536,
+        "height": 512
+      },
+      "mode": "RGBA",
+      "sha256": "42bcbba98c870d90b8dcf3480a73b1d0767b4912c1721a23cca0806e6e83cfe9",
+      "tracked": true,
+      "status": "approved_sheet",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/enemy-anchors/Goblin_Filtered_IdleAnchor_v2.png",
+      "size": {
+        "width": 1290,
+        "height": 1219
+      },
+      "mode": "RGBA",
+      "sha256": "1f3beba1a5741406e985bfcfebc94efdb79bd702352884bd42fef6429195c319",
+      "tracked": true,
+      "status": "approved_anchor",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/enemy-anchors/Raider_Filtered_IdleAnchor_v1.png",
+      "size": {
+        "width": 1200,
+        "height": 1310
+      },
+      "mode": "RGBA",
+      "sha256": "286a5877110ee63281873647b9ba6a64de5fb89df37d4c3c2c82e552c7fb420b",
+      "tracked": true,
+      "status": "approved_anchor",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/enemy-sheets/goblin/Goblin_Filtered_DaggerSwing_384x512x4_v1.png",
+      "size": {
+        "width": 1536,
+        "height": 512
+      },
+      "mode": "RGBA",
+      "sha256": "d7d897715bbec7584299962426074f83900fc337532b54f526a4419193fe75b5",
+      "tracked": true,
+      "status": "approved_sheet",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/enemy-sheets/goblin/Goblin_Filtered_Idle_384x512x4_v1.png",
+      "size": {
+        "width": 1536,
+        "height": 512
+      },
+      "mode": "RGBA",
+      "sha256": "912c840b5492919c2a81080d49c742516859ea02bf6be7278c8de5c0b7495981",
+      "tracked": true,
+      "status": "approved_sheet",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/enemy-sheets/raider/Raider_Filtered_AxeSwing_384x512x4_v1.png",
+      "size": {
+        "width": 1536,
+        "height": 512
+      },
+      "mode": "RGBA",
+      "sha256": "ad65c816ba34e294cc66d8b356839874779b58526a0a5fffabb0a5338f1e9f75",
+      "tracked": true,
+      "status": "review_candidate_sheet",
+      "remote_matches": true
+    },
+    {
+      "path": "art/production/graphics-remake/wave-a/enemy-sheets/raider/Raider_Filtered_Idle_384x512x4_v1.png",
+      "size": {
+        "width": 1536,
+        "height": 512
+      },
+      "mode": "RGBA",
+      "sha256": "2ae22941718eddc23a106e8f3b5198507b42197cdbe2bb186049401f8b77a2dd",
+      "tracked": true,
+      "status": "review_candidate_sheet",
+      "remote_matches": true
+    }
+  ],
+  "unreferenced_animation_png": [
+    "Assets/Resources/Animators/Fellows/Defender/Tanker_Attack.png",
+    "Assets/Resources/Animators/Fellows/Offender/Offender_Attack.png",
+    "Assets/Resources/Animators/Fellows/Offender/Offender_Attack_1.png",
+    "Assets/Resources/Animators/Fellows/Offender/Offender_Damaged.png",
+    "Assets/Resources/Animators/Fellows/Priest/Priest_Attack.png",
+    "Assets/Resources/Animators/Fellows/Priest/Priest_Damaged.png",
+    "Assets/Resources/Animators/Fellows/Priest/Priest_Idle.png",
+    "Assets/Resources/Animators/Fellows/Priest/Priest_Idle_2.png",
+    "Assets/Resources/Animators/Fellows/Priest/Priest_Idle_3.png",
+    "Assets/Resources/Animators/Fellows/Priest/Priest_Idle_4.png"
+  ],
+  "vfx": [
+    {
+      "key": "battle_stance",
+      "frame_count": 25,
+      "sample": "Assets/Resources/SkillFX/battle_stance/f_01.png",
+      "status": "별도 제작",
+      "work": "개별프레임PNG배열·파일명정렬·fps·worldHeight·좌우방향계약유지또는승인된시트로더변경필요"
+    },
+    {
+      "key": "defense_ready",
+      "frame_count": 19,
+      "sample": "Assets/Resources/SkillFX/defense_ready/f_01.png",
+      "status": "별도 제작",
+      "work": "개별프레임PNG배열·파일명정렬·fps·worldHeight·좌우방향계약유지또는승인된시트로더변경필요"
+    },
+    {
+      "key": "fireball",
+      "frame_count": 27,
+      "sample": "Assets/Resources/SkillFX/fireball/f_01.png",
+      "status": "별도 제작",
+      "work": "개별프레임PNG배열·파일명정렬·fps·worldHeight·좌우방향계약유지또는승인된시트로더변경필요"
+    },
+    {
+      "key": "flash_slash",
+      "frame_count": 6,
+      "sample": "Assets/Resources/SkillFX/flash_slash/f_01.png",
+      "status": "별도 제작",
+      "work": "개별프레임PNG배열·파일명정렬·fps·worldHeight·좌우방향계약유지또는승인된시트로더변경필요"
+    },
+    {
+      "key": "iaido",
+      "frame_count": 14,
+      "sample": "Assets/Resources/SkillFX/iaido/f_01.png",
+      "status": "별도 제작",
+      "work": "개별프레임PNG배열·파일명정렬·fps·worldHeight·좌우방향계약유지또는승인된시트로더변경필요"
+    },
+    {
+      "key": "indomitable",
+      "frame_count": 33,
+      "sample": "Assets/Resources/SkillFX/indomitable/f_01.png",
+      "status": "별도 제작",
+      "work": "개별프레임PNG배열·파일명정렬·fps·worldHeight·좌우방향계약유지또는승인된시트로더변경필요"
+    },
+    {
+      "key": "magic_missile",
+      "frame_count": 10,
+      "sample": "Assets/Resources/SkillFX/magic_missile/f_01.png",
+      "status": "별도 제작",
+      "work": "개별프레임PNG배열·파일명정렬·fps·worldHeight·좌우방향계약유지또는승인된시트로더변경필요"
+    },
+    {
+      "key": "prayer",
+      "frame_count": 17,
+      "sample": "Assets/Resources/SkillFX/prayer/f_01.png",
+      "status": "별도 제작",
+      "work": "개별프레임PNG배열·파일명정렬·fps·worldHeight·좌우방향계약유지또는승인된시트로더변경필요"
+    },
+    {
+      "key": "reckless_strike",
+      "frame_count": 11,
+      "sample": "Assets/Resources/SkillFX/reckless_strike/f_01.png",
+      "status": "별도 제작",
+      "work": "개별프레임PNG배열·파일명정렬·fps·worldHeight·좌우방향계약유지또는승인된시트로더변경필요"
+    },
+    {
+      "key": "star_call",
+      "frame_count": 21,
+      "sample": "Assets/Resources/SkillFX/star_call/f_01.png",
+      "status": "별도 제작",
+      "work": "개별프레임PNG배열·파일명정렬·fps·worldHeight·좌우방향계약유지또는승인된시트로더변경필요"
+    }
+  ],
+  "future_scope": [
+    {
+      "name": "주술사",
+      "scope": "연결 전 설계/신규 역할",
+      "needs": "외형 앵커·Idle·기본 스킬 동작·아이콘. 현재fellow.json에없으며스킬명세결정후연결."
+    },
+    {
+      "name": "정화 기능",
+      "scope": "정식판 상세 설계",
+      "needs": "정화아이콘·발동연출·전투설정우선순위표시. 대상/비용/스킬통합결정후확정제작."
+    },
+    {
+      "name": "오염도·재인식",
+      "scope": "정식판",
+      "needs": "누적게이지·재인식화면·교정전환·상태오버레이. 후반부오버플로우연출은별도초안."
+    },
+    {
+      "name": "오브제",
+      "scope": "정식판",
+      "needs": "현재16종효과초안의아이콘,동료10슬롯·대체선택·합성초과선택UI. 세부효과결정후자산개수확정."
+    }
+  ],
+  "master_count_note": "16-G 최소118개와별도비교: 현재34시트중실제참조24개,미참조10개. 현재사용동작24개기준목록은106개. 샤먼2동작추가시108개. 앵커·추가동작단위를다시정해마스터총량을재산정해야하며이감사로기획범위를자동변경하지않음."
+}
