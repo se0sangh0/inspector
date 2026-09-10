@@ -1,0 +1,247 @@
+{
+  "date": "2026-09-10",
+  "scope": "Landing page web derivatives; user explicitly requested use of the normalized animations. No Unity approval inferred.",
+  "source_storage": "Source paths refer to the local art production workspace. This landing release publishes the WebP derivatives; source-art batches are maintained separately.",
+  "items": [
+    {
+      "id": "caster_idle_8f",
+      "source": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/caster_idle_8f_384x512x8_v1.png",
+      "source_sha256": "7150e29d9c0732db9a6924145d41e21c7c1a43e7b8d37816fe3c7591705fc059",
+      "sheet": "assets/animations/caster-idle.webp",
+      "sheet_bytes": 727414,
+      "sheet_sha256": "38d6d193627fcb14a6d5781adb4508cc023d9eff9e87a1205678f47ef3f4f35f",
+      "poster": "assets/animations/caster-idle-poster.webp",
+      "poster_bytes": 87602,
+      "rgba_pixels_identical": true,
+      "frame_size": [
+        384,
+        512
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "frame_count": 8
+    },
+    {
+      "id": "caster_attack_8f",
+      "source": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/caster_attack_8f_384x512x8_v1.png",
+      "source_sha256": "d0cbd1766c468ca5f0964a51a8750a7ae80ffda21fc0ab527e8c343eee772e20",
+      "sheet": "assets/animations/caster-attack.webp",
+      "sheet_bytes": 570148,
+      "sheet_sha256": "5a638d995d1065ceb03dbad2e83f03ff5af66521a4eb7c709cf6fbe95e545d27",
+      "poster": "assets/animations/caster-attack-poster.webp",
+      "poster_bytes": 70366,
+      "rgba_pixels_identical": true,
+      "frame_size": [
+        384,
+        512
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "frame_count": 8
+    },
+    {
+      "id": "defender_idle_8f",
+      "source": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/defender_idle_8f_384x512x8_v1.png",
+      "source_sha256": "c750d5747c821dac14fb88a02eb6d19f5606d3ba16b091ffd6082bf84c543abe",
+      "sheet": "assets/animations/defender-idle.webp",
+      "sheet_bytes": 577360,
+      "sheet_sha256": "705a50a2d44c0e21b3a08ad06a0050ee595deb86ee0ed05e978d8fdeed4d7102",
+      "poster": "assets/animations/defender-idle-poster.webp",
+      "poster_bytes": 69452,
+      "rgba_pixels_identical": true,
+      "frame_size": [
+        384,
+        512
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "frame_count": 8
+    },
+    {
+      "id": "defender_attack_8f",
+      "source": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/defender_attack_8f_384x512x8_v1.png",
+      "source_sha256": "1ec047f332fa8a1f405bf551a46296ff11c84f02daba7aced9be5425a419d990",
+      "sheet": "assets/animations/defender-attack.webp",
+      "sheet_bytes": 620140,
+      "sheet_sha256": "54f0296e815e53d74d27ab8cc140e525fcc614ccaacd1249527ea01211363716",
+      "poster": "assets/animations/defender-attack-poster.webp",
+      "poster_bytes": 76740,
+      "rgba_pixels_identical": true,
+      "frame_size": [
+        384,
+        512
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "frame_count": 8
+    },
+    {
+      "id": "offender_idle_8f",
+      "source": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/offender_idle_8f_384x512x8_v1.png",
+      "source_sha256": "b173c1667ffcde2ae459934fa9c47a5f4b153cde72f76da1c04d3d647de74442",
+      "sheet": "assets/animations/offender-idle.webp",
+      "sheet_bytes": 476034,
+      "sheet_sha256": "51799a2a42600bd4caa2e59536e0726359ff021a8adb33644d08d25b026e8b4c",
+      "poster": "assets/animations/offender-idle-poster.webp",
+      "poster_bytes": 57332,
+      "rgba_pixels_identical": true,
+      "frame_size": [
+        384,
+        512
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "frame_count": 8
+    },
+    {
+      "id": "offender_attack_8f",
+      "source": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/offender_attack_8f_384x512x8_v1.png",
+      "source_sha256": "b574ff052ffd28b1744b6d78e533593f8e8fa31b66218a017b6c090e0bcc4707",
+      "sheet": "assets/animations/offender-attack.webp",
+      "sheet_bytes": 382626,
+      "sheet_sha256": "8b642efa26a1d27c429974278605f7036f43ff45f30742b166c782cfcb2408f4",
+      "poster": "assets/animations/offender-attack-poster.webp",
+      "poster_bytes": 46946,
+      "rgba_pixels_identical": true,
+      "frame_size": [
+        384,
+        512
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "frame_count": 8
+    },
+    {
+      "id": "priest_idle_8f",
+      "source": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/priest_idle_8f_384x512x8_v1.png",
+      "source_sha256": "70476f3f6d47e7d2427d9c4189e22fdbc9a5a42d2c6b91f1b4102bac78c7e48c",
+      "sheet": "assets/animations/priest-idle.webp",
+      "sheet_bytes": 550672,
+      "sheet_sha256": "f7a6419eee5118b34b6f3a3f19400d9ec36cf170af6f9d1e23fef7f78491647b",
+      "poster": "assets/animations/priest-idle-poster.webp",
+      "poster_bytes": 65830,
+      "rgba_pixels_identical": true,
+      "frame_size": [
+        384,
+        512
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "frame_count": 8
+    },
+    {
+      "id": "priest_attack_8f",
+      "source": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/priest_attack_8f_384x512x8_v1.png",
+      "source_sha256": "c4c926309702f82155b41b5c457e6311113b8b8c524ab16fdc558091ca08bb3c",
+      "sheet": "assets/animations/priest-attack.webp",
+      "sheet_bytes": 604146,
+      "sheet_sha256": "c14409aabfb643e9ef954a40042e59f9dc854db96e25e4ed7023a531ce105bf1",
+      "poster": "assets/animations/priest-attack-poster.webp",
+      "poster_bytes": 74148,
+      "rgba_pixels_identical": true,
+      "frame_size": [
+        384,
+        512
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "frame_count": 8
+    },
+    {
+      "id": "goblin_idle_8f",
+      "source": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/goblin_idle_8f_384x512x8_v1.png",
+      "source_sha256": "9a12e73e2e62f59d8f1f2094edef0dad44a309f83ee07bbd84e5735fe01ed102",
+      "sheet": "assets/animations/goblin-idle.webp",
+      "sheet_bytes": 912254,
+      "sheet_sha256": "c5eac11bd1612ce90f27a4dde53a60f1ae27c1ce8254c6e35491ad95bea53a60",
+      "poster": "assets/animations/goblin-idle-poster.webp",
+      "poster_bytes": 111558,
+      "rgba_pixels_identical": true,
+      "frame_size": [
+        384,
+        512
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "frame_count": 8
+    },
+    {
+      "id": "goblin_attack_8f",
+      "source": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/goblin_attack_8f_384x512x8_v1.png",
+      "source_sha256": "7a25d673c0e407ded50e41b9930e328a2546f13290dc43b198bde8897aa04c50",
+      "sheet": "assets/animations/goblin-attack.webp",
+      "sheet_bytes": 830580,
+      "sheet_sha256": "d99d2ee0c25bc06f804e418445a139d21c250c50662d238c5dc23d7bdedd240b",
+      "poster": "assets/animations/goblin-attack-poster.webp",
+      "poster_bytes": 107812,
+      "rgba_pixels_identical": true,
+      "frame_size": [
+        384,
+        512
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "frame_count": 8
+    },
+    {
+      "id": "raider_idle_8f",
+      "source": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/raider_idle_8f_384x512x8_v1.png",
+      "source_sha256": "098615772621c73c52eecef2f3c6355120bfb4647c4d5585d30eb619028329fc",
+      "sheet": "assets/animations/raider-idle.webp",
+      "sheet_bytes": 731744,
+      "sheet_sha256": "07ef5667c6feb8ac4e80871058818cf6813d856518496adc5fe945a23e09a815",
+      "poster": "assets/animations/raider-idle-poster.webp",
+      "poster_bytes": 88792,
+      "rgba_pixels_identical": true,
+      "frame_size": [
+        384,
+        512
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "frame_count": 8
+    },
+    {
+      "id": "raider_attack_8f",
+      "source": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/raider_attack_8f_384x512x8_v1.png",
+      "source_sha256": "09ef651d039b9ab9c0b1e67cd02abc7e7899371060a9876d38d19f3c88f0a83e",
+      "sheet": "assets/animations/raider-attack.webp",
+      "sheet_bytes": 560880,
+      "sheet_sha256": "580df5964a909fb132295c40831565a7ee6f81515c87bd9368c708fbc41a7c2c",
+      "poster": "assets/animations/raider-attack-poster.webp",
+      "poster_bytes": 70852,
+      "rgba_pixels_identical": true,
+      "frame_size": [
+        384,
+        512
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "frame_count": 8
+    }
+  ]
+}

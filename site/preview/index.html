@@ -588,13 +588,93 @@
       min-width: 0;
     }
 
-    #inspector-expo-mockup .inspector-action-strip img {
+    #inspector-expo-mockup .inspector-sprite-player {
+      display: grid;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    #inspector-expo-mockup .inspector-sprite-viewport {
+      position: relative;
+      width: min(100%, 384px);
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      background: var(--inspector-bg-deep);
+      border: 1px solid var(--inspector-line-soft);
+    }
+
+    #inspector-expo-mockup .inspector-sprite-poster,
+    #inspector-expo-mockup .inspector-sprite-sheet {
+      position: absolute;
+      inset: 0;
       display: block;
       width: 100%;
-      max-width: 320px;
-      height: auto;
-      padding: 8px 8px 0;
-      background: linear-gradient(180deg, rgb(32 38 49 / 0.32), rgb(11 13 17 / 0.15));
+      height: 100%;
+    }
+
+    #inspector-expo-mockup .inspector-sprite-viewport .inspector-sprite-poster {
+      width: 100%;
+      max-width: none;
+      height: 100%;
+      object-fit: contain;
+      padding: 0;
+      background: none;
+    }
+
+    #inspector-expo-mockup .inspector-sprite-sheet {
+      opacity: 0;
+      background-repeat: no-repeat;
+      background-position: 0 0;
+      background-size: 400% 200%;
+      image-rendering: pixelated;
+      transition: opacity 120ms ease;
+    }
+
+    #inspector-expo-mockup .inspector-sprite-player[data-loaded="true"] .inspector-sprite-sheet {
+      opacity: 1;
+    }
+
+    #inspector-expo-mockup .inspector-sprite-player[data-loaded="true"] .inspector-sprite-poster {
+      opacity: 0;
+    }
+
+    #inspector-expo-mockup .inspector-sprite-controls {
+      display: none;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    #inspector-expo-mockup.inspector-js .inspector-sprite-controls {
+      display: flex;
+    }
+
+    #inspector-expo-mockup .inspector-sprite-button {
+      min-height: 44px;
+      padding: 7px 12px;
+      color: var(--inspector-muted);
+      background: transparent;
+      border: 1px solid var(--inspector-line-soft);
+      border-radius: 2px;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    #inspector-expo-mockup .inspector-sprite-button:hover,
+    #inspector-expo-mockup .inspector-sprite-button[aria-pressed="true"] {
+      color: var(--inspector-brass);
+      border-color: var(--inspector-brass);
+      background: rgb(195 154 82 / 0.1);
+    }
+
+    #inspector-expo-mockup .inspector-sprite-button:disabled {
+      cursor: wait;
+      opacity: 0.65;
+    }
+
+    #inspector-expo-mockup .inspector-agent .inspector-sprite-player,
+    #inspector-expo-mockup .inspector-enemy-plate .inspector-sprite-player {
+      width: min(100%, 260px);
+      justify-items: center;
     }
 
     #inspector-expo-mockup .inspector-action-strip h3 {
@@ -629,8 +709,10 @@
     #inspector-expo-mockup .inspector-roster-stage {
       position: relative;
       width: min(100%, 420px);
-      height: clamp(300px, 32vw, 400px);
-      overflow: hidden;
+      height: auto;
+      min-height: 0;
+      overflow: visible;
+      display: grid;
       background:
         linear-gradient(180deg, rgb(32 38 49 / 0.3), rgb(11 13 17 / 0.92)),
         var(--inspector-bg-soft);
@@ -638,32 +720,27 @@
     }
 
     #inspector-expo-mockup .inspector-agent {
-      position: absolute;
-      inset: 0;
-      display: flex;
+      position: static;
+      display: none;
+      flex-direction: column;
       align-items: flex-end;
       justify-content: center;
       margin: 0;
-      padding: 22px 22px 64px;
+      padding: 22px;
+    }
+
+    #inspector-expo-mockup .inspector-agent:not([hidden]) {
+      display: flex;
+      align-items: center;
     }
 
     #inspector-expo-mockup .inspector-agent[hidden] {
       display: none;
     }
 
-    #inspector-expo-mockup .inspector-agent img {
-      display: block;
-      width: auto;
-      height: auto;
-      max-width: 100%;
-      max-height: 100%;
-    }
-
     #inspector-expo-mockup .inspector-agent figcaption {
-      position: absolute;
-      left: 22px;
-      right: 22px;
-      bottom: 16px;
+      width: 100%;
+      margin-top: 14px;
       color: var(--inspector-text);
       font-family: var(--inspector-font-display);
       font-size: 18px;
@@ -800,20 +877,12 @@
 
     #inspector-expo-mockup .inspector-enemy-plate {
       display: flex;
-      align-items: flex-end;
+      align-items: flex-start;
       justify-content: center;
-      height: clamp(168px, 17vw, 210px);
-      padding: 14px 14px 0;
+      height: auto;
+      padding: 14px;
       background: linear-gradient(180deg, rgb(32 38 49 / 0.3), rgb(11 13 17 / 0.85));
       border: 1px solid var(--inspector-line-soft);
-    }
-
-    #inspector-expo-mockup .inspector-enemy img {
-      display: block;
-      width: auto;
-      height: auto;
-      max-width: 100%;
-      max-height: 100%;
     }
 
     #inspector-expo-mockup .inspector-event-layout {
@@ -1194,10 +1263,6 @@
         gap: 30px;
       }
 
-      #inspector-expo-mockup .inspector-roster-stage {
-        height: min(360px, 88vw);
-      }
-
       #inspector-expo-mockup .inspector-hero-meta > div,
       #inspector-expo-mockup .inspector-ledger-row {
         grid-template-columns: minmax(0, 1fr);
@@ -1318,11 +1383,31 @@
           </ol>
           <div class="inspector-action-strips">
             <figure class="inspector-action-strip" data-reveal>
-              <img src="assets/action-caster.webp" data-copy-alt="casterActionAlt" alt="元素術士四格攻擊動作">
+              <div class="inspector-sprite-player" data-sprite-player data-character="caster" data-default-motion="attack" data-motion="attack" data-copy-aria="casterPlayerLabel" data-loaded="false">
+                <div class="inspector-sprite-viewport" data-sprite-viewport role="img" data-copy-aria="casterPlayerLabel" aria-label="元素術士動作預覽">
+                  <img class="inspector-sprite-poster" loading="lazy" src="assets/animations/caster-attack-poster.webp" aria-hidden="true" alt="">
+                  <span class="inspector-sprite-sheet" data-sprite-sheet aria-hidden="true"></span>
+                </div>
+                <div class="inspector-sprite-controls" role="group" data-copy-aria="motionControlsLabel">
+                  <button class="inspector-sprite-button" type="button" data-motion="idle" data-copy="idleMotion" aria-pressed="false">대기</button>
+                  <button class="inspector-sprite-button" type="button" data-motion="attack" data-copy="attackMotion" aria-pressed="true">기본 동작</button>
+                  <button class="inspector-sprite-button" type="button" data-sprite-play data-copy="playMotion">재생</button>
+                </div>
+              </div>
               <h3 data-copy="casterActionLabel">元素術士行動序列</h3>
             </figure>
             <figure class="inspector-action-strip" data-reveal>
-              <img src="assets/action-goblin.webp" data-copy-alt="goblinActionAlt" alt="哥布林四格短刃攻擊動作">
+              <div class="inspector-sprite-player" data-sprite-player data-character="goblin" data-default-motion="attack" data-motion="attack" data-loaded="false">
+                <div class="inspector-sprite-viewport" data-sprite-viewport role="img" data-copy-aria="goblinPlayerLabel" aria-label="哥布林動作預覽">
+                  <img class="inspector-sprite-poster" loading="lazy" src="assets/animations/goblin-attack-poster.webp" aria-hidden="true" alt="">
+                  <span class="inspector-sprite-sheet" data-sprite-sheet aria-hidden="true"></span>
+                </div>
+                <div class="inspector-sprite-controls" role="group" data-copy-aria="motionControlsLabel">
+                  <button class="inspector-sprite-button" type="button" data-motion="idle" data-copy="idleMotion" aria-pressed="false">대기</button>
+                  <button class="inspector-sprite-button" type="button" data-motion="attack" data-copy="attackMotion" aria-pressed="true">기본 동작</button>
+                  <button class="inspector-sprite-button" type="button" data-sprite-play data-copy="playMotion">재생</button>
+                </div>
+              </div>
               <h3 data-copy="goblinActionLabel">哥布林行動序列</h3>
             </figure>
           </div>
@@ -1339,19 +1424,19 @@
           <div class="inspector-roster" data-companion-slider data-reveal role="region" aria-labelledby="inspector-party-title" aria-roledescription="輪播" tabindex="0">
             <div class="inspector-roster-stage inspector-frame" id="inspector-companion-stage">
             <figure class="inspector-agent" data-companion-slide role="group" aria-label="封鎖兵，第 1 位，共 4 位">
-              <img src="assets/companion-defender.webp" data-copy-alt="defenderAlt" alt="手持盾牌與短矛的封鎖兵">
+              <div class="inspector-sprite-player" data-sprite-player data-character="defender" data-default-motion="idle" data-motion="idle" data-loaded="false"><div class="inspector-sprite-viewport" data-sprite-viewport role="img" data-copy-aria="defenderPlayerLabel" aria-label="封鎖兵動作預覽"><img class="inspector-sprite-poster" loading="lazy" src="assets/animations/defender-idle-poster.webp" aria-hidden="true" alt=""><span class="inspector-sprite-sheet" data-sprite-sheet aria-hidden="true"></span></div><div class="inspector-sprite-controls" role="group" data-copy-aria="motionControlsLabel"><button class="inspector-sprite-button" type="button" data-motion="idle" data-copy="idleMotion" aria-pressed="true">대기</button><button class="inspector-sprite-button" type="button" data-motion="attack" data-copy="attackMotion" aria-pressed="false">기본 동작</button><button class="inspector-sprite-button" type="button" data-sprite-play data-copy="playMotion">재생</button></div></div>
               <figcaption data-copy="defenderRole">封鎖兵</figcaption>
             </figure>
             <figure class="inspector-agent" data-companion-slide role="group" aria-label="元素術士，第 2 位，共 4 位" hidden>
-              <img src="assets/companion-caster.webp" data-copy-alt="casterAlt" alt="戴著面具並持有觀測杖的元素術士">
+              <div class="inspector-sprite-player" data-sprite-player data-character="caster" data-default-motion="idle" data-motion="idle" data-loaded="false"><div class="inspector-sprite-viewport" data-sprite-viewport role="img" data-copy-aria="casterPlayerLabel" aria-label="元素術士動作預覽"><img class="inspector-sprite-poster" loading="lazy" src="assets/animations/caster-idle-poster.webp" aria-hidden="true" alt=""><span class="inspector-sprite-sheet" data-sprite-sheet aria-hidden="true"></span></div><div class="inspector-sprite-controls" role="group" data-copy-aria="motionControlsLabel"><button class="inspector-sprite-button" type="button" data-motion="idle" data-copy="idleMotion" aria-pressed="true">대기</button><button class="inspector-sprite-button" type="button" data-motion="attack" data-copy="attackMotion" aria-pressed="false">기본 동작</button><button class="inspector-sprite-button" type="button" data-sprite-play data-copy="playMotion">재생</button></div></div>
               <figcaption data-copy="casterRole">元素術士</figcaption>
             </figure>
             <figure class="inspector-agent" data-companion-slide role="group" aria-label="追獵者，第 3 位，共 4 位" hidden>
-              <img src="assets/companion-offender.webp" data-copy-alt="offenderAlt" alt="手持狩獵長槍的追獵者">
+              <div class="inspector-sprite-player" data-sprite-player data-character="offender" data-default-motion="idle" data-motion="idle" data-loaded="false"><div class="inspector-sprite-viewport" data-sprite-viewport role="img" data-copy-aria="offenderPlayerLabel" aria-label="追獵者動作預覽"><img class="inspector-sprite-poster" loading="lazy" src="assets/animations/offender-idle-poster.webp" aria-hidden="true" alt=""><span class="inspector-sprite-sheet" data-sprite-sheet aria-hidden="true"></span></div><div class="inspector-sprite-controls" role="group" data-copy-aria="motionControlsLabel"><button class="inspector-sprite-button" type="button" data-motion="idle" data-copy="idleMotion" aria-pressed="true">대기</button><button class="inspector-sprite-button" type="button" data-motion="attack" data-copy="attackMotion" aria-pressed="false">기본 동작</button><button class="inspector-sprite-button" type="button" data-sprite-play data-copy="playMotion">재생</button></div></div>
               <figcaption data-copy="offenderRole">追獵者</figcaption>
             </figure>
             <figure class="inspector-agent" data-companion-slide role="group" aria-label="治療師，第 4 位，共 4 位" hidden>
-              <img src="assets/companion-priest.webp" data-copy-alt="priestAlt" alt="攜帶治療工具的治療師">
+              <div class="inspector-sprite-player" data-sprite-player data-character="priest" data-default-motion="idle" data-motion="idle" data-loaded="false"><div class="inspector-sprite-viewport" data-sprite-viewport role="img" data-copy-aria="priestPlayerLabel" aria-label="治療師動作預覽"><img class="inspector-sprite-poster" loading="lazy" src="assets/animations/priest-idle-poster.webp" aria-hidden="true" alt=""><span class="inspector-sprite-sheet" data-sprite-sheet aria-hidden="true"></span></div><div class="inspector-sprite-controls" role="group" data-copy-aria="motionControlsLabel"><button class="inspector-sprite-button" type="button" data-motion="idle" data-copy="idleMotion" aria-pressed="true">대기</button><button class="inspector-sprite-button" type="button" data-motion="attack" data-copy="attackMotion" aria-pressed="false">기본 동작</button><button class="inspector-sprite-button" type="button" data-sprite-play data-copy="playMotion">재생</button></div></div>
               <figcaption data-copy="priestRole">治療師</figcaption>
             </figure>
             </div>
@@ -1386,13 +1471,13 @@
           <div class="inspector-enemies">
             <figure class="inspector-enemy" data-reveal>
               <div class="inspector-enemy-plate">
-                <img src="assets/enemy-goblin.webp" data-copy-alt="goblinAlt" alt="壓低姿勢並持有短刃的哥布林">
+                <div class="inspector-sprite-player" data-sprite-player data-character="goblin" data-default-motion="idle" data-motion="idle" data-loaded="false"><div class="inspector-sprite-viewport" data-sprite-viewport role="img" data-copy-aria="goblinPlayerLabel" aria-label="哥布林動作預覽"><img class="inspector-sprite-poster" loading="lazy" src="assets/animations/goblin-idle-poster.webp" aria-hidden="true" alt=""><span class="inspector-sprite-sheet" data-sprite-sheet aria-hidden="true"></span></div><div class="inspector-sprite-controls" role="group" data-copy-aria="motionControlsLabel"><button class="inspector-sprite-button" type="button" data-motion="idle" data-copy="idleMotion" aria-pressed="true">대기</button><button class="inspector-sprite-button" type="button" data-motion="attack" data-copy="attackMotion" aria-pressed="false">기본 동작</button><button class="inspector-sprite-button" type="button" data-sprite-play data-copy="playMotion">재생</button></div></div>
               </div>
               <figcaption data-copy="goblinLabel">哥布林</figcaption>
             </figure>
             <figure class="inspector-enemy" data-reveal>
               <div class="inspector-enemy-plate">
-                <img src="assets/enemy-raider.webp" data-copy-alt="raiderAlt" alt="遮住面孔並持有單手斧的掠奪者">
+                <div class="inspector-sprite-player" data-sprite-player data-character="raider" data-default-motion="idle" data-motion="idle" data-loaded="false"><div class="inspector-sprite-viewport" data-sprite-viewport role="img" data-copy-aria="raiderPlayerLabel" aria-label="掠奪者動作預覽"><img class="inspector-sprite-poster" loading="lazy" src="assets/animations/raider-idle-poster.webp" aria-hidden="true" alt=""><span class="inspector-sprite-sheet" data-sprite-sheet aria-hidden="true"></span></div><div class="inspector-sprite-controls" role="group" data-copy-aria="motionControlsLabel"><button class="inspector-sprite-button" type="button" data-motion="idle" data-copy="idleMotion" aria-pressed="true">대기</button><button class="inspector-sprite-button" type="button" data-motion="attack" data-copy="attackMotion" aria-pressed="false">기본 동작</button><button class="inspector-sprite-button" type="button" data-sprite-play data-copy="playMotion">재생</button></div></div>
               </div>
               <figcaption data-copy="raiderLabel">掠奪者</figcaption>
             </figure>
@@ -1487,10 +1572,23 @@
           flowStepTwoBody: "全隊共用同一組角色資源。",
           flowStepThree: "同伴行動",
           flowStepThreeBody: "自動戰鬥讓每次選擇留下結果。",
-          casterActionAlt: "元素術士四格攻擊動作",
-          goblinActionAlt: "哥布林四格短刃攻擊動作",
+          casterActionAlt: "元素術士基本動作預覽",
+          goblinActionAlt: "哥布林基本動作預覽",
           casterActionLabel: "元素術士行動序列",
           goblinActionLabel: "哥布林行動序列",
+          idleMotion: "待機",
+          attackMotion: "基本動作",
+          playMotion: "播放",
+          pauseMotion: "暫停",
+          loadingMotion: "載入中…",
+          retryMotion: "重試播放",
+          motionControlsLabel: "動作預覽控制",
+          casterPlayerLabel: "元素術士動作預覽",
+          goblinPlayerLabel: "哥布林動作預覽",
+          defenderPlayerLabel: "封鎖兵動作預覽",
+          offenderPlayerLabel: "追獵者動作預覽",
+          priestPlayerLabel: "治療師動作預覽",
+          raiderPlayerLabel: "掠奪者動作預覽",
           partyKicker: "02 · 調查隊編成",
           partyTitle: "多種職能，一支調查隊",
           partyBody: "調查員不直接揮動武器，而是透過卡牌引導同伴的下一個行動。",
@@ -1559,10 +1657,23 @@
           flowStepTwoBody: "The whole formation shares the same resources.",
           flowStepThree: "Companions act",
           flowStepThreeBody: "Automatic combat makes every choice leave a result.",
-          casterActionAlt: "Four-frame Elementalist attack action",
-          goblinActionAlt: "Four-frame Goblin short-blade attack action",
+          casterActionAlt: "Elementalist basic action preview",
+          goblinActionAlt: "Goblin basic action preview",
           casterActionLabel: "Elementalist action sequence",
           goblinActionLabel: "Goblin action sequence",
+          idleMotion: "Idle",
+          attackMotion: "Basic action",
+          playMotion: "Play",
+          pauseMotion: "Pause",
+          loadingMotion: "Loading…",
+          retryMotion: "Retry play",
+          motionControlsLabel: "Motion preview controls",
+          casterPlayerLabel: "Elementalist motion preview",
+          goblinPlayerLabel: "Goblin motion preview",
+          defenderPlayerLabel: "Blockade Soldier motion preview",
+          offenderPlayerLabel: "Executioner motion preview",
+          priestPlayerLabel: "Healer motion preview",
+          raiderPlayerLabel: "Raider motion preview",
           partyKicker: "02 · The Team",
           partyTitle: "Many roles. One investigation team.",
           partyBody: "The Investigator does not swing the weapon. Cards guide each companion toward its next action.",
@@ -1631,10 +1742,23 @@
           flowStepTwoBody: "모든 동료가 같은 자원을 공유합니다.",
           flowStepThree: "동료 행동",
           flowStepThreeBody: "자동 전투에서는 모든 선택이 결과로 이어집니다.",
-          casterActionAlt: "원소술사의 4프레임 공격 동작",
-          goblinActionAlt: "고블린의 4프레임 단검 공격 동작",
+          casterActionAlt: "원소술사 기본 동작 미리보기",
+          goblinActionAlt: "고블린 기본 동작 미리보기",
           casterActionLabel: "원소술사 동작 흐름",
           goblinActionLabel: "고블린 동작 흐름",
+          idleMotion: "대기",
+          attackMotion: "기본 동작",
+          playMotion: "재생",
+          pauseMotion: "일시정지",
+          loadingMotion: "불러오는 중…",
+          retryMotion: "다시 재생",
+          motionControlsLabel: "동작 미리보기 조작",
+          casterPlayerLabel: "원소술사 동작 미리보기",
+          goblinPlayerLabel: "고블린 동작 미리보기",
+          defenderPlayerLabel: "봉쇄병 동작 미리보기",
+          offenderPlayerLabel: "척살자 동작 미리보기",
+          priestPlayerLabel: "치유사 동작 미리보기",
+          raiderPlayerLabel: "약탈자 동작 미리보기",
           partyKicker: "02 · 조사대 구성",
           partyTitle: "다양한 역할, 하나의 조사대",
           partyBody: "조사관은 직접 무기를 휘두르지 않습니다. 카드로 동료의 다음 행동을 정합니다.",
@@ -1689,7 +1813,130 @@
       const companionNext = root.querySelector("[data-companion-next]");
       const companionStatus = root.querySelector("[data-companion-status]");
       const companionSelectors = Array.from(root.querySelectorAll("[data-companion-select]"));
+      const spritePlayers = Array.from(root.querySelectorAll("[data-sprite-player]"));
+      const motionSheetBase = "assets/animations";
+      const spriteDuration = { idle: 1600, attack: 900 };
+      let spriteFrameLoop = 0;
+      const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
       let activeCompanionIndex = 0;
+
+      const selectedCopy = () => copy[select.value] || copy.zh;
+      const spriteText = (key) => selectedCopy()[key] || key;
+      const updateSpriteButton = (player) => {
+        const playButton = player.querySelector("[data-sprite-play]");
+        if (!playButton) return;
+        const label = player.dataset.loading === "true"
+          ? "loadingMotion"
+          : player.dataset.error === "true"
+            ? "retryMotion"
+            : player.dataset.playing === "true" ? "pauseMotion" : "playMotion";
+        playButton.textContent = spriteText(label);
+        playButton.disabled = player.dataset.loading === "true";
+        playButton.setAttribute("aria-pressed", player.dataset.playing === "true" ? "true" : "false");
+      };
+      const paintSpriteFrame = (player) => {
+        const sheet = player.querySelector("[data-sprite-sheet]");
+        if (!sheet) return;
+        const frame = Number(player.dataset.frame || 0);
+        sheet.style.backgroundPosition = `${(frame % 4) * 100 / 3}% ${Math.floor(frame / 4) * 100}%`;
+      };
+      const stopSprite = (player, reset = true) => {
+        player.dataset.loadToken = String(Number(player.dataset.loadToken || 0) + 1);
+        player.dataset.loading = "false";
+        player.dataset.playing = "false";
+        if (reset) player.dataset.frame = "0";
+        paintSpriteFrame(player);
+        updateSpriteButton(player);
+      };
+      const startSpriteLoop = () => {
+        if (spriteFrameLoop) return;
+        const loop = (now) => {
+          spriteFrameLoop = 0;
+          let active = false;
+          spritePlayers.forEach((player) => {
+            if (player.dataset.playing !== "true" || player.dataset.visible === "false" || document.hidden) return;
+            active = true;
+            const duration = spriteDuration[player.dataset.motion] || spriteDuration.idle;
+            const elapsed = now - Number(player.dataset.startedAt || now);
+            player.dataset.frame = String(Math.floor((elapsed / duration) * 8) % 8);
+            paintSpriteFrame(player);
+          });
+          if (active) spriteFrameLoop = window.requestAnimationFrame(loop);
+        };
+        spriteFrameLoop = window.requestAnimationFrame(loop);
+      };
+      const loadSpriteSheet = (player, onReady) => {
+        if (player.dataset.loaded === "true") return onReady();
+        if (player.dataset.loading === "true") return;
+        const motion = player.dataset.motion;
+        const token = String(Number(player.dataset.loadToken || 0) + 1);
+        player.dataset.loadToken = token;
+        player.dataset.loading = "true";
+        player.dataset.error = "false";
+        updateSpriteButton(player);
+        const image = new Image();
+        image.onload = () => {
+          if (player.dataset.loadToken !== token || player.dataset.motion !== motion || player.dataset.visible === "false" || document.hidden) return;
+          const sheet = player.querySelector("[data-sprite-sheet]");
+          player.dataset.loading = "false";
+          player.dataset.loaded = "true";
+          player.dataset.error = "false";
+          sheet.style.backgroundImage = `url("${image.src}")`;
+          updateSpriteButton(player);
+          onReady();
+        };
+        image.onerror = () => {
+          if (player.dataset.loadToken !== token) return;
+          player.dataset.loading = "false";
+          player.dataset.error = "true";
+          stopSprite(player);
+          player.dataset.error = "true";
+          updateSpriteButton(player);
+        };
+        image.src = `${motionSheetBase}/${player.dataset.character}-${motion}.webp`;
+      };
+      const playSprite = (player) => {
+        if (player.dataset.visible === "false" || document.hidden) return;
+        loadSpriteSheet(player, () => {
+          if (player.dataset.visible === "false" || document.hidden) return;
+          player.dataset.playing = "true";
+          player.dataset.startedAt = String(performance.now() - (Number(player.dataset.frame || 0) / 8) * (spriteDuration[player.dataset.motion] || spriteDuration.idle));
+          updateSpriteButton(player);
+          startSpriteLoop();
+        });
+      };
+      const setSpriteMotion = (player, motion) => {
+        stopSprite(player);
+        player.dataset.motion = motion;
+        player.dataset.loaded = "false";
+        player.dataset.error = "false";
+        const sheet = player.querySelector("[data-sprite-sheet]");
+        const poster = player.querySelector(".inspector-sprite-poster");
+        if (sheet) sheet.style.backgroundImage = "none";
+        if (poster) poster.src = `${motionSheetBase}/${player.dataset.character}-${motion}-poster.webp`;
+        player.querySelectorAll("[data-motion]").forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.motion === motion)));
+        updateSpriteButton(player);
+      };
+      spritePlayers.forEach((player) => {
+        player.dataset.playing = "false";
+        player.dataset.frame = "0";
+        player.dataset.visible = "true";
+        player.dataset.loadToken = "0";
+        player.dataset.loading = "false";
+        player.dataset.error = "false";
+        player.querySelectorAll("[data-motion]").forEach((button) => button.addEventListener("click", () => setSpriteMotion(player, button.dataset.motion)));
+        player.querySelector("[data-sprite-play]")?.addEventListener("click", () => player.dataset.playing === "true" ? stopSprite(player, false) : playSprite(player));
+        paintSpriteFrame(player);
+      });
+      if ("IntersectionObserver" in window) {
+        const spriteObserver = new IntersectionObserver((entries) => entries.forEach((entry) => {
+          entry.target.dataset.visible = String(entry.isIntersecting);
+          if (!entry.isIntersecting) stopSprite(entry.target, false);
+        }), { threshold: 0.01 });
+        spritePlayers.forEach((player) => spriteObserver.observe(player));
+      }
+      document.addEventListener("visibilitychange", () => { if (document.hidden) spritePlayers.forEach((player) => stopSprite(player, false)); });
+      reducedMotionQuery.addEventListener?.("change", (event) => { if (event.matches) spritePlayers.forEach((player) => stopSprite(player, false)); });
 
       const formatCompanionText = (template, name, current, total) => template
         .replace("{name}", name)
@@ -1706,6 +1953,7 @@
           const name = slide.querySelector("figcaption")?.textContent.trim() || "";
           slide.hidden = !isActive;
           slide.setAttribute("aria-label", formatCompanionText(selected.companionSlideAria, name, index + 1, total));
+          if (!isActive) slide.querySelectorAll("[data-sprite-player]").forEach((player) => stopSprite(player));
         });
 
         companionSelectors.forEach((button, index) => {
@@ -1740,6 +1988,7 @@
           if (selected[key] !== undefined) element.setAttribute("aria-label", selected[key]);
         });
         select.setAttribute("aria-label", selected.languageLabel);
+        spritePlayers.forEach((player) => updateSpriteButton(player));
         updateCompanionSlider(selected);
       };
 
@@ -1760,6 +2009,7 @@
         });
       });
       companionSlider?.addEventListener("keydown", (event) => {
+        if (event.target instanceof Element && event.target.closest("[data-sprite-player]")) return;
         const roleButton = event.target instanceof Element
           ? event.target.closest("[data-companion-select]")
           : null;
