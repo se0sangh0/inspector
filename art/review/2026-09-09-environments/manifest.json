@@ -1,0 +1,89 @@
+{
+  "date": "2026-09-09",
+  "status": "review_pending",
+  "generation": "Codex built-in image_gen",
+  "sources": [
+    "https://app.notion.com/p/3c06aef5baac8133a093dd0f57a043d4",
+    "https://app.notion.com/p/3c86aef5baac81109a6aceee14273f4e",
+    "https://app.notion.com/p/3cc6aef5baac81a5a228f2d8562cf292"
+  ],
+  "source_basis": "16-E의 EVT-01 본문과 R02-A/B/C 선택 전 환경·징조, 16-F 공용 삽화 계약, 16-G 시각 문법",
+  "reference_image": "art/production/graphics-remake/style-anchors/Battle_Forest_StyleAnchor_v1.png",
+  "assets": [
+    {
+      "assetId": "EVT-01",
+      "contentId": "evt_cold_camp",
+      "title": "식어 있는 야영지",
+      "file": "art/production/graphics-remake/wave-a/event-illustrations/2026-09-09/EVT-01_Cold_Camp_v1.png",
+      "source_file": "/Users/seosangho/.codex/generated_images/01a07a09-295c-7462-8fd2-6bcc15031e5c/exec-eb967fa8-6178-49b4-ba51-46da95e2039b.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "faedf2fc237cd09decb14744e80db130ae768a346c29b00668cad04f9d32c265",
+      "prompt_key": "evt_camp_prompt",
+      "approval": "review_pending",
+      "unity_connected": false
+    },
+    {
+      "assetId": "R02-A",
+      "contentId": "R02-A",
+      "title": "발자국이 남은 숲길",
+      "file": "art/production/graphics-remake/wave-b/route-illustrations/2026-09-09/R02-A_Footprint_Path_v1.png",
+      "source_file": "/Users/seosangho/.codex/generated_images/01a07a09-295c-7462-8fd2-6bcc15031e5c/exec-f3993ee4-2753-4c50-9ca1-36c42f51e05e.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGB",
+      "sha256": "146d8d0eac7c08ab31d6c73854129dcbbd5c093369474b6889110ed9ccb2a526",
+      "prompt_key": "route_R02-A_prompt",
+      "approval": "review_pending",
+      "unity_connected": false
+    },
+    {
+      "assetId": "R02-B",
+      "contentId": "R02-B",
+      "title": "천막의 흔적",
+      "file": "art/production/graphics-remake/wave-b/route-illustrations/2026-09-09/R02-B_Canvas_Traces_v1.png",
+      "source_file": "/Users/seosangho/.codex/generated_images/01a07a09-295c-7462-8fd2-6bcc15031e5c/exec-22fef727-0cdf-41bf-b234-7128964a8d1a.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGB",
+      "sha256": "0d8784ef411e4afc4fad20a916c5432b0c23e67ac127e33555b3d61445959fa5",
+      "prompt_key": "route_R02-B_prompt",
+      "approval": "review_pending",
+      "unity_connected": false
+    },
+    {
+      "assetId": "R02-C",
+      "contentId": "R02-C",
+      "title": "젖은 숲 가장자리",
+      "file": "art/production/graphics-remake/wave-b/route-illustrations/2026-09-09/R02-C_Wet_Roots_v1.png",
+      "source_file": "/Users/seosangho/.codex/generated_images/01a07a09-295c-7462-8fd2-6bcc15031e5c/exec-1902d019-6639-43aa-b7fd-223e1022f0b1.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGB",
+      "sha256": "05ff51dc7c5f1b9c2df44f003752834f874ff369a4034207244d2ef47e08672e",
+      "prompt_key": "route_R02-C_prompt",
+      "approval": "review_pending",
+      "unity_connected": false
+    }
+  ],
+  "remaining": [
+    "User visual approval",
+    "Confirm final route display crop and size",
+    "Implement event art field/shared upper-image UI separately",
+    "Unity connections and 1280x720/1920x1080 play inspection"
+  ],
+  "skill_icons_hold": "Existing data names and new approved animation names require mapping confirmation before new skill icons are assigned. No skill ID or gameplay data changed.",
+  "visual_review": {
+    "date": "2026-09-09",
+    "image_loading": "all four loaded",
+    "page_horizontal_overflow": false,
+    "route_small_preview_width_px": 144,
+    "observations": [
+      "R02-A footprint path, R02-B draped cloth, R02-C roots remain distinguishable in the review thumbnail.",
+      "Fine severed-vine details and wet texture still need inspection at final game card size and brightness.",
+      "EVT-01 hearth ash, herbs and soil-covered tools visible; no character or choice outcome shown."
+    ],
+    "unity_tested": false
+  }
+}

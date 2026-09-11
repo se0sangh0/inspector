@@ -1,0 +1,174 @@
+{
+  "date": "2026-09-09",
+  "generation": "Codex built-in image_gen",
+  "approval": "pending",
+  "unity_integrated": false,
+  "source_notion": "https://app.notion.com/p/3cc6aef5baac81a5a228f2d8562cf292",
+  "source_notion_last_edited": "2026-09-08",
+  "basis": [
+    "Assets/Scripts/StackCardController.cs",
+    "Assets/Prefab/UI/GamePlayScene_RightMainArea.prefab",
+    "art/review/asset-plan-2026-09-08.json"
+  ],
+  "assets": [
+    {
+      "assetId": "CARD-공격-카드 배경",
+      "file": "Card_Attack_Background_v1.png",
+      "label": "공격 카드 배경",
+      "status": "review_pending",
+      "source_file": "/Users/seosangho/.codex/generated_images/01a07a09-295c-7462-8fd2-6bcc15031e5c/exec-7a84b01f-7ccb-405b-8481-fba6e027110c.png",
+      "size": [
+        984,
+        1599
+      ],
+      "mode": "RGB",
+      "sha256": "015ffa7f2c449459a69bc9cb3e5680e8dfc6d9f606d21020c756b6611d7312fd",
+      "alpha_extrema": null,
+      "visible_bbox_alpha128": null,
+      "prompt_key": "card_attack_clean_prompt",
+      "runtime_ready": false,
+      "reference_images": [
+        "art/production/graphics-remake/style-anchors/Battle_Forest_StyleAnchor_v1.png",
+        "_workspace/graphics-remake/rejected/card-ui-2026-09-09/Card_Attack_WithFalseTransparency_v0.png"
+      ]
+    },
+    {
+      "assetId": "CARD-방어-카드 배경",
+      "file": "Card_Defense_Background_v1.png",
+      "label": "방어 카드 배경",
+      "status": "review_pending",
+      "source_file": "/Users/seosangho/.codex/generated_images/01a07a09-295c-7462-8fd2-6bcc15031e5c/exec-5edc1000-f669-45f8-b2d6-617c65d069e6.png",
+      "size": [
+        984,
+        1599
+      ],
+      "mode": "RGB",
+      "sha256": "06244ab4c141ac8d6febe83bc95b089c0efab43c88e4b690d2224eca16016f94",
+      "alpha_extrema": null,
+      "visible_bbox_alpha128": null,
+      "prompt_key": "card_defense_prompt",
+      "runtime_ready": false,
+      "reference_images": [
+        "Card_Attack_Background_v1.png"
+      ]
+    },
+    {
+      "assetId": "CARD-지원-카드 배경",
+      "file": "Card_Support_Background_v1.png",
+      "label": "지원 카드 배경",
+      "status": "review_pending",
+      "source_file": "/Users/seosangho/.codex/generated_images/01a07a09-295c-7462-8fd2-6bcc15031e5c/exec-435ca8b3-7c15-4e31-bb2d-a1003c792b28.png",
+      "size": [
+        984,
+        1599
+      ],
+      "mode": "RGB",
+      "sha256": "30ac697b840aca04b71ab93d624e1e2f3af68e574b731888ea879040fecd97ba",
+      "alpha_extrema": null,
+      "visible_bbox_alpha128": null,
+      "prompt_key": "card_support_prompt",
+      "runtime_ready": false,
+      "reference_images": [
+        "Card_Attack_Background_v1.png"
+      ]
+    },
+    {
+      "assetId": "CARD-공격-역할 배지",
+      "file": "Badge_Attack_Sword_v1.png",
+      "label": "공격 배지 · 검",
+      "status": "review_pending",
+      "source_file": "/Users/seosangho/.codex/generated_images/01a07a09-295c-7462-8fd2-6bcc15031e5c/exec-d07e98cb-ec8e-4068-903d-48b03d2053cf.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "sha256": "90b8da57061c18d53da5c1119e829d04e73433204a196e292d3c3847eeb816e9",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha128": [
+        294,
+        283,
+        980,
+        979
+      ],
+      "prompt_key": "badge_attack_prompt",
+      "runtime_ready": false,
+      "reference_images": []
+    },
+    {
+      "assetId": "CARD-방어-역할 배지",
+      "file": "Badge_Defense_Shield_v1.png",
+      "label": "방어 배지 · 방패",
+      "status": "review_pending",
+      "source_file": "/Users/seosangho/.codex/generated_images/01a07a09-295c-7462-8fd2-6bcc15031e5c/exec-9537deb1-85d8-4039-8c59-53b4813b3e05.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "sha256": "d6233c179570da1f69c5d7a105f0d7550c750ba3fc51d7196a4e5ed32fb97dd2",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha128": [
+        274,
+        278,
+        980,
+        973
+      ],
+      "prompt_key": "badge_defense_fresh_prompt",
+      "runtime_ready": false,
+      "reference_images": []
+    },
+    {
+      "assetId": "CARD-지원-역할 배지",
+      "file": "Badge_Support_Heart_v1.png",
+      "label": "지원 배지 · 하트",
+      "status": "review_pending",
+      "source_file": "/Users/seosangho/.codex/generated_images/01a07a09-295c-7462-8fd2-6bcc15031e5c/exec-b03ad377-af77-449b-8d44-1df406236777.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "sha256": "deeab9c92cf4d34b42d021c8b870e0ea08d9143d0c6b82a7a998c6dcd3e2e340",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha128": [
+        361,
+        424,
+        893,
+        896
+      ],
+      "prompt_key": "badge_support_prompt",
+      "runtime_ready": false,
+      "reference_images": [
+        "Badge_Attack_Sword_v1.png"
+      ]
+    }
+  ],
+  "remaining": [
+    "User visual approval",
+    "Exact 64x64 badge export and common pixel grid / alpha cleanup",
+    "Card target pixel size, 9-slice borders and runtime geometry",
+    "Unity display at 1280x720 and 1920x1080"
+  ],
+  "notes": [
+    "Backgrounds are opaque by design; badges have verified alpha.",
+    "Images contain no game copy or numbers.",
+    "High-resolution review originals; not final 64px sprites.",
+    "No original runtime asset or GUID was modified."
+  ],
+  "technical_reject_directory": "_workspace/graphics-remake/rejected/card-ui-2026-09-09",
+  "technical_reject_reason": "RGB image with painted checkerboard instead of real transparency; replaced by selected review candidates.",
+  "visual_review": {
+    "browser_comparison": "passed for image loading, alpha on dark/light surfaces and background-text legibility",
+    "runtime_scale_note": "At current 26px display the unnormalized badge artwork is too small; normalize glyph bounds and common 64px grid before Unity use."
+  }
+}

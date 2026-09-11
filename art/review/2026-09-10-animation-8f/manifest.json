@@ -1,0 +1,3126 @@
+{
+  "date": "2026-09-10",
+  "scope": "existing6characters x Idle/basic action =12 sequences,8frames each",
+  "generation": "Codex built-in image_gen",
+  "postprocessing_authorization": "User approved code processing on 2026-09-10.",
+  "source_originals_preserved": true,
+  "unity_changed": false,
+  "items": [
+    {
+      "id": "caster_idle_8f",
+      "character": "caster",
+      "label": "원소술사",
+      "motion": "idle",
+      "motion_label": "대기",
+      "facing": "right",
+      "raw_file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/raw/caster_idle_8f_raw_v1.png",
+      "source_file": "/Users/seosangho/.codex/generated_images/01a07a09-295c-7462-8fd2-6bcc15031e5c/exec-9459406e-7fe4-47b3-b16d-eff8efb78f72.png",
+      "reference_file": "art/production/graphics-remake/wave-a/character-sheets/caster/Caster_Filtered_Idle_384x512x4_v2.png",
+      "reference_sha256": "807fe87833d7d3219451f0605810a0ca8401c4f3230c1b39729b72b9d29efaf1",
+      "raw_sha256": "10ce1b2150b1378ef7b85b4eba9da095b37938ad98fc86d7a654054c6fbe3383",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "has_real_alpha": false,
+      "grid": [
+        4,
+        2
+      ],
+      "frame_cell": [
+        384,
+        512
+      ],
+      "frames": 8,
+      "approval": "review_pending",
+      "runtime_ready": false,
+      "generation_reference_file": "art/production/graphics-remake/wave-a/character-sheets/caster/Caster_Filtered_Idle_384x512x4_v2.png",
+      "normalized_file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/caster_idle_8f_384x512x8_v1.png",
+      "normalized_sha256": "7150e29d9c0732db9a6924145d41e21c7c1a43e7b8d37816fe3c7591705fc059",
+      "frames_files": [
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/caster_idle_8f/01.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/caster_idle_8f/02.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/caster_idle_8f/03.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/caster_idle_8f/04.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/caster_idle_8f/05.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/caster_idle_8f/06.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/caster_idle_8f/07.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/caster_idle_8f/08.png"
+      ],
+      "processing": {
+        "scale": 0.9121577146169172,
+        "pivot_x": 134,
+        "baseline_y": 500,
+        "reference_idle_height": 414.0,
+        "key_chroma": 16,
+        "key_luminance": 100,
+        "enclosed_bg_regions": [
+          {
+            "area": 3814,
+            "box": [
+              1006,
+              273,
+              1050,
+              477
+            ]
+          },
+          {
+            "area": 3798,
+            "box": [
+              1389,
+              273,
+              1434,
+              477
+            ]
+          },
+          {
+            "area": 3894,
+            "box": [
+              238,
+              274,
+              282,
+              477
+            ]
+          },
+          {
+            "area": 3959,
+            "box": [
+              622,
+              274,
+              666,
+              477
+            ]
+          },
+          {
+            "area": 3975,
+            "box": [
+              1389,
+              785,
+              1434,
+              985
+            ]
+          },
+          {
+            "area": 3889,
+            "box": [
+              238,
+              786,
+              282,
+              989
+            ]
+          },
+          {
+            "area": 3956,
+            "box": [
+              622,
+              786,
+              666,
+              989
+            ]
+          },
+          {
+            "area": 3785,
+            "box": [
+              1005,
+              786,
+              1050,
+              989
+            ]
+          }
+        ],
+        "ignored_island_pixels": 2,
+        "alpha_verified": true,
+        "resampling": "nearest",
+        "frame_records": [
+          {
+            "frame": 1,
+            "source_box": [
+              59,
+              87,
+              339,
+              502
+            ],
+            "source_foot_x": 190.4322014144722,
+            "normalized_box": [
+              14,
+              122,
+              269,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/caster_idle_8f/01.png",
+            "sha256": "b7ede6a774e4174aec4118799832ca945c6365f93c22171663d0a681953ed610"
+          },
+          {
+            "frame": 2,
+            "source_box": [
+              443,
+              87,
+              723,
+              502
+            ],
+            "source_foot_x": 574.2248495041738,
+            "normalized_box": [
+              14,
+              122,
+              269,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/caster_idle_8f/02.png",
+            "sha256": "d7d6a2319d397aa0b7a163cbfaea92af45d424a68a37304ccdd2426f1428204c"
+          },
+          {
+            "frame": 3,
+            "source_box": [
+              825,
+              87,
+              1107,
+              502
+            ],
+            "source_foot_x": 958.1554051149797,
+            "normalized_box": [
+              13,
+              122,
+              270,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/caster_idle_8f/03.png",
+            "sha256": "744eba6fa2ccb627dcd3debc2df8d6a5c8ce1ebeabbe285662dc11316afce2d1"
+          },
+          {
+            "frame": 4,
+            "source_box": [
+              1208,
+              87,
+              1490,
+              502
+            ],
+            "source_foot_x": 1341.9111681501277,
+            "normalized_box": [
+              12,
+              122,
+              269,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/caster_idle_8f/04.png",
+            "sha256": "dae785f6c22c3f943c334f4c86163ca914a528df75d5ae03a632cc5d3d849447"
+          },
+          {
+            "frame": 5,
+            "source_box": [
+              59,
+              600,
+              339,
+              1014
+            ],
+            "source_foot_x": 190.4109016973126,
+            "normalized_box": [
+              14,
+              123,
+              269,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/caster_idle_8f/05.png",
+            "sha256": "7315fcea2c499330efdd0565076eb99188e006b6ac44d8f32ec47ea864ef599a"
+          },
+          {
+            "frame": 6,
+            "source_box": [
+              444,
+              599,
+              723,
+              1014
+            ],
+            "source_foot_x": 574.2592492635289,
+            "normalized_box": [
+              15,
+              122,
+              269,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/caster_idle_8f/06.png",
+            "sha256": "aaf334995fd74dd0c152126b1e5b22898f874efcef784ed239e5ff11265da40e"
+          },
+          {
+            "frame": 7,
+            "source_box": [
+              827,
+              600,
+              1107,
+              1014
+            ],
+            "source_foot_x": 957.9822526840678,
+            "normalized_box": [
+              15,
+              123,
+              270,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/caster_idle_8f/07.png",
+            "sha256": "16853870bb80844e57c6c7d48d4f64a11a49578cb0f4dc01a2e8e8ef305004b8"
+          },
+          {
+            "frame": 8,
+            "source_box": [
+              1212,
+              599,
+              1491,
+              1014
+            ],
+            "source_foot_x": 1341.9389040134777,
+            "normalized_box": [
+              15,
+              122,
+              269,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/caster_idle_8f/08.png",
+            "sha256": "2ee35b9bfb85a9ccd001e1332221a4bc9861efbc41979aced8da880a4e55c19f"
+          }
+        ],
+        "unity_pivot_suggestion": [
+          0.3489583333333333,
+          0.021484375
+        ],
+        "status": "technical_review_candidate"
+      },
+      "normalized_mode": "RGBA",
+      "normalized_has_real_alpha": true,
+      "has_real_alpha_applies_to": "raw_file"
+    },
+    {
+      "id": "caster_attack_8f",
+      "character": "caster",
+      "label": "원소술사",
+      "motion": "attack",
+      "motion_label": "원소탄",
+      "facing": "right",
+      "raw_file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/raw/caster_attack_8f_raw_v1.png",
+      "source_file": "/Users/seosangho/.codex/generated_images/01a07a09-295c-7462-8fd2-6bcc15031e5c/exec-4c2e06e9-2c23-4a82-b13f-7a6023b4aac2.png",
+      "reference_file": "art/production/graphics-remake/wave-a/character-sheets/caster/Caster_Filtered_ElementalBolt_384x512x4_v2.png",
+      "reference_sha256": "a7a7371fb20e8c466ef168f2f7345fe695b30fbd3ce3e9c1f3991bc5538ad098",
+      "raw_sha256": "f4886c95ceacf202364009baf3da85806727ebff6aa6b7e389bb7022c15fc020",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "has_real_alpha": false,
+      "grid": [
+        4,
+        2
+      ],
+      "frame_cell": [
+        384,
+        512
+      ],
+      "frames": 8,
+      "approval": "review_pending",
+      "runtime_ready": false,
+      "generation_reference_file": "art/production/graphics-remake/wave-a/character-sheets/caster/Caster_Filtered_ElementalBolt_384x512x4_v2.png",
+      "normalized_file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/caster_attack_8f_384x512x8_v1.png",
+      "normalized_sha256": "d0cbd1766c468ca5f0964a51a8750a7ae80ffda21fc0ab527e8c343eee772e20",
+      "frames_files": [
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/caster_attack_8f/01.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/caster_attack_8f/02.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/caster_attack_8f/03.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/caster_attack_8f/04.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/caster_attack_8f/05.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/caster_attack_8f/06.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/caster_attack_8f/07.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/caster_attack_8f/08.png"
+      ],
+      "processing": {
+        "scale": 0.9121577146169172,
+        "pivot_x": 134,
+        "baseline_y": 500,
+        "reference_idle_height": 414.0,
+        "key_chroma": 16,
+        "key_luminance": 100,
+        "enclosed_bg_regions": [
+          {
+            "area": 69,
+            "box": [
+              640,
+              209,
+              645,
+              225
+            ]
+          },
+          {
+            "area": 12,
+            "box": [
+              276,
+              245,
+              279,
+              249
+            ]
+          },
+          {
+            "area": 133,
+            "box": [
+              1374,
+              269,
+              1393,
+              278
+            ]
+          },
+          {
+            "area": 362,
+            "box": [
+              1354,
+              295,
+              1372,
+              327
+            ]
+          },
+          {
+            "area": 138,
+            "box": [
+              245,
+              307,
+              251,
+              337
+            ]
+          },
+          {
+            "area": 464,
+            "box": [
+              223,
+              382,
+              240,
+              451
+            ]
+          },
+          {
+            "area": 73,
+            "box": [
+              709,
+              686,
+              716,
+              699
+            ]
+          },
+          {
+            "area": 9,
+            "box": [
+              711,
+              702,
+              714,
+              705
+            ]
+          }
+        ],
+        "ignored_island_pixels": 0,
+        "alpha_verified": true,
+        "resampling": "nearest",
+        "frame_records": [
+          {
+            "frame": 1,
+            "source_box": [
+              77,
+              96,
+              312,
+              481
+            ],
+            "source_foot_x": 179.31602603235513,
+            "normalized_box": [
+              41,
+              150,
+              255,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/caster_attack_8f/01.png",
+            "sha256": "f15d98e4b3735c6c5382566e5ef40481f11067d593664e89e56d7c49b8f67ac4"
+          },
+          {
+            "frame": 2,
+            "source_box": [
+              433,
+              111,
+              669,
+              481
+            ],
+            "source_foot_x": 545.5159850139397,
+            "normalized_box": [
+              31,
+              164,
+              246,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/caster_attack_8f/02.png",
+            "sha256": "2df410d5f3a714009682395df6f294b97c8543d737b9c4a9ed5023b61fab8884"
+          },
+          {
+            "frame": 3,
+            "source_box": [
+              793,
+              112,
+              1033,
+              481
+            ],
+            "source_foot_x": 913.221441452328,
+            "normalized_box": [
+              24,
+              164,
+              243,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/caster_attack_8f/03.png",
+            "sha256": "6fdd2144bb345e35aadbfc606b5c8820d4d63f2d8d0f362c60fc57da938fbeb9"
+          },
+          {
+            "frame": 4,
+            "source_box": [
+              1174,
+              127,
+              1489,
+              481
+            ],
+            "source_foot_x": 1305.3329705076644,
+            "normalized_box": [
+              15,
+              178,
+              301,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/caster_attack_8f/04.png",
+            "sha256": "ef44e1f1a64895ba604f38e7fb473140eaf2c78751cfbd3ebc889713f9c0c342"
+          },
+          {
+            "frame": 5,
+            "source_box": [
+              51,
+              638,
+              436,
+              958
+            ],
+            "source_foot_x": 175.24257714753907,
+            "normalized_box": [
+              21,
+              209,
+              372,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/caster_attack_8f/05.png",
+            "sha256": "8859e387f1bb6e295b33c253e784bf9c462438bd1622a207d19840c7bbafe325"
+          },
+          {
+            "frame": 6,
+            "source_box": [
+              428,
+              609,
+              782,
+              962
+            ],
+            "source_foot_x": 557.3864795172741,
+            "normalized_box": [
+              16,
+              179,
+              339,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/caster_attack_8f/06.png",
+            "sha256": "411188ff980919b418716c4501b7a05e0b68f58849f0d3e2a94822caa6e39fcb"
+          },
+          {
+            "frame": 7,
+            "source_box": [
+              826,
+              561,
+              1076,
+              962
+            ],
+            "source_foot_x": 953.6551135594472,
+            "normalized_box": [
+              18,
+              135,
+              246,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/caster_attack_8f/07.png",
+            "sha256": "5c2985cfb5e044dacc4733304355d9da094f2cbceb0df8b980e2df0d8810dd58"
+          },
+          {
+            "frame": 8,
+            "source_box": [
+              1220,
+              582,
+              1442,
+              960
+            ],
+            "source_foot_x": 1327.4905076703749,
+            "normalized_box": [
+              36,
+              156,
+              238,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/caster_attack_8f/08.png",
+            "sha256": "31d448262fd51f62292d99d8392ec6bb95274a3e80a8fbded3682a7344df052b"
+          }
+        ],
+        "unity_pivot_suggestion": [
+          0.3489583333333333,
+          0.021484375
+        ],
+        "status": "technical_review_candidate"
+      },
+      "normalized_mode": "RGBA",
+      "normalized_has_real_alpha": true,
+      "has_real_alpha_applies_to": "raw_file"
+    },
+    {
+      "id": "defender_idle_8f",
+      "character": "defender",
+      "label": "봉쇄병",
+      "motion": "idle",
+      "motion_label": "대기",
+      "facing": "right",
+      "raw_file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/raw/defender_idle_8f_raw_v1.png",
+      "source_file": "/Users/seosangho/.codex/generated_images/01a07a09-295c-7462-8fd2-6bcc15031e5c/exec-ebb04903-65ff-496e-97f1-da61587c6519.png",
+      "reference_file": "art/production/graphics-remake/wave-a/character-sheets/defender/Defender_Filtered_Idle_384x512x4_v1.png",
+      "reference_sha256": "da8f9e4db43f4e7963c8664af4696e44fd861a0d7674fb35667fa2eddb1f1e37",
+      "raw_sha256": "1dd96a6452e1244da608d150218db69327f83a6473f936c8ecaabb216b670944",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "has_real_alpha": false,
+      "grid": [
+        4,
+        2
+      ],
+      "frame_cell": [
+        384,
+        512
+      ],
+      "frames": 8,
+      "approval": "review_pending",
+      "runtime_ready": false,
+      "generation_reference_file": "art/production/graphics-remake/wave-a/character-sheets/defender/Defender_Filtered_DeployBarrier_384x512x4_v2.png",
+      "normalized_file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/defender_idle_8f_384x512x8_v1.png",
+      "normalized_sha256": "c750d5747c821dac14fb88a02eb6d19f5606d3ba16b091ffd6082bf84c543abe",
+      "frames_files": [
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/defender_idle_8f/01.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/defender_idle_8f/02.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/defender_idle_8f/03.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/defender_idle_8f/04.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/defender_idle_8f/05.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/defender_idle_8f/06.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/defender_idle_8f/07.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/defender_idle_8f/08.png"
+      ],
+      "processing": {
+        "scale": 0.963076923076923,
+        "pivot_x": 198,
+        "baseline_y": 500,
+        "reference_idle_height": 313.0,
+        "key_chroma": 16,
+        "key_luminance": 100,
+        "enclosed_bg_regions": [],
+        "ignored_island_pixels": 0,
+        "alpha_verified": true,
+        "resampling": "nearest",
+        "frame_records": [
+          {
+            "frame": 1,
+            "source_box": [
+              41,
+              156,
+              341,
+              481
+            ],
+            "source_foot_x": 208.35270199161258,
+            "normalized_box": [
+              37,
+              188,
+              326,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/defender_idle_8f/01.png",
+            "sha256": "aa3f79df5cf01d9f43cd29c41024fa58766237fdc9eda8107ee598ba352c6ef0"
+          },
+          {
+            "frame": 2,
+            "source_box": [
+              422,
+              147,
+              725,
+              481
+            ],
+            "source_foot_x": 592.3128832303953,
+            "normalized_box": [
+              34,
+              179,
+              326,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/defender_idle_8f/02.png",
+            "sha256": "7e8f30e312ffd8356ec0e65c6df54b6623ea9b133008cd8266fc78338245f471"
+          },
+          {
+            "frame": 3,
+            "source_box": [
+              806,
+              144,
+              1109,
+              481
+            ],
+            "source_foot_x": 976.1462569150083,
+            "normalized_box": [
+              34,
+              176,
+              326,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/defender_idle_8f/03.png",
+            "sha256": "431e536b357580217eaccf911a157cae76fef5891e6a6a2c930ed336586939a8"
+          },
+          {
+            "frame": 4,
+            "source_box": [
+              1190,
+              144,
+              1493,
+              481
+            ],
+            "source_foot_x": 1360.3186496485387,
+            "normalized_box": [
+              34,
+              176,
+              326,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/defender_idle_8f/04.png",
+            "sha256": "41712b219b3929d273b6885212ece8fc36e7deba0e8fac502a2e0cfe43f8e70d"
+          },
+          {
+            "frame": 5,
+            "source_box": [
+              41,
+              640,
+              342,
+              961
+            ],
+            "source_foot_x": 208.33416764821357,
+            "normalized_box": [
+              37,
+              192,
+              327,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/defender_idle_8f/05.png",
+            "sha256": "fe40f3b682bf189a56a17523cbc233032b2ca2f52562b01f96dafe785ebe8699"
+          },
+          {
+            "frame": 6,
+            "source_box": [
+              422,
+              647,
+              726,
+              961
+            ],
+            "source_foot_x": 592.1647452788757,
+            "normalized_box": [
+              34,
+              199,
+              327,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/defender_idle_8f/06.png",
+            "sha256": "7b61dcd29872f9b42b04f36a0274a09f0db2407eee6f6a9a0f8b7fe3b1c01d52"
+          },
+          {
+            "frame": 7,
+            "source_box": [
+              807,
+              652,
+              1110,
+              961
+            ],
+            "source_foot_x": 976.0791613887609,
+            "normalized_box": [
+              35,
+              203,
+              327,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/defender_idle_8f/07.png",
+            "sha256": "f8c9700115f406c2a9773af790a91524d2144b4c161877b718f6b3c5904b9c07"
+          },
+          {
+            "frame": 8,
+            "source_box": [
+              1191,
+              636,
+              1491,
+              961
+            ],
+            "source_foot_x": 1360.282893940901,
+            "normalized_box": [
+              35,
+              188,
+              324,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/defender_idle_8f/08.png",
+            "sha256": "87023763b12f5c4739ea26eea99da9ab5b7d11b12edb9729ad91f81dca2f03cc"
+          }
+        ],
+        "unity_pivot_suggestion": [
+          0.515625,
+          0.021484375
+        ],
+        "status": "technical_review_candidate"
+      },
+      "normalized_mode": "RGBA",
+      "normalized_has_real_alpha": true,
+      "has_real_alpha_applies_to": "raw_file"
+    },
+    {
+      "id": "defender_attack_8f",
+      "character": "defender",
+      "label": "봉쇄병",
+      "motion": "attack",
+      "motion_label": "방벽 전개",
+      "facing": "right",
+      "raw_file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/raw/defender_attack_8f_raw_v1.png",
+      "source_file": "/Users/seosangho/.codex/generated_images/01a07a09-295c-7462-8fd2-6bcc15031e5c/exec-7ead735f-5ee4-485c-94d3-eb32494fd22a.png",
+      "reference_file": "art/production/graphics-remake/wave-a/character-sheets/defender/Defender_Filtered_DeployBarrier_384x512x4_v2.png",
+      "reference_sha256": "fa5c175473365b12cb732e5cb450f40b59f827ac18843ce5997b9bd6715bf9a3",
+      "raw_sha256": "54a47b669b07ea25a22d317d49ae45ba7ccaf4cfbd7e2a3a1557dd9770a3ec8d",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "has_real_alpha": false,
+      "grid": [
+        4,
+        2
+      ],
+      "frame_cell": [
+        384,
+        512
+      ],
+      "frames": 8,
+      "approval": "review_pending",
+      "runtime_ready": false,
+      "generation_reference_file": "art/production/graphics-remake/wave-a/character-sheets/defender/Defender_Filtered_DeployBarrier_384x512x4_v2.png",
+      "normalized_file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/defender_attack_8f_384x512x8_v1.png",
+      "normalized_sha256": "1ec047f332fa8a1f405bf551a46296ff11c84f02daba7aced9be5425a419d990",
+      "frames_files": [
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/defender_attack_8f/01.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/defender_attack_8f/02.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/defender_attack_8f/03.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/defender_attack_8f/04.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/defender_attack_8f/05.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/defender_attack_8f/06.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/defender_attack_8f/07.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/defender_attack_8f/08.png"
+      ],
+      "processing": {
+        "scale": 0.963076923076923,
+        "pivot_x": 198,
+        "baseline_y": 500,
+        "reference_idle_height": 313.0,
+        "key_chroma": 16,
+        "key_luminance": 100,
+        "enclosed_bg_regions": [],
+        "ignored_island_pixels": 0,
+        "alpha_verified": true,
+        "resampling": "nearest",
+        "frame_records": [
+          {
+            "frame": 1,
+            "source_box": [
+              19,
+              146,
+              328,
+              486
+            ],
+            "source_foot_x": 198.26423434699944,
+            "normalized_box": [
+              25,
+              174,
+              323,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/defender_attack_8f/01.png",
+            "sha256": "e14a965fcbbc49bc125f42236d78cf5fe8cdf61099c657bb91d21143038befb6"
+          },
+          {
+            "frame": 2,
+            "source_box": [
+              435,
+              175,
+              700,
+              485
+            ],
+            "source_foot_x": 560.5293082524272,
+            "normalized_box": [
+              77,
+              202,
+              332,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/defender_attack_8f/02.png",
+            "sha256": "5821741a128e621c8e7a8140d24d44ba367615fc20f880426556a27a5da8eeea"
+          },
+          {
+            "frame": 3,
+            "source_box": [
+              811,
+              213,
+              1103,
+              486
+            ],
+            "source_foot_x": 944.2395557990918,
+            "normalized_box": [
+              70,
+              238,
+              351,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/defender_attack_8f/03.png",
+            "sha256": "7d668a7634cc115cc496ec6304115afca7c7b8bd41ba8e4189edb7178da5b4c3"
+          },
+          {
+            "frame": 4,
+            "source_box": [
+              1171,
+              175,
+              1527,
+              486
+            ],
+            "source_foot_x": 1355.6636985081273,
+            "normalized_box": [
+              20,
+              201,
+              363,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/defender_attack_8f/04.png",
+            "sha256": "bff958844dd0dd2d13dd76badee97ab259e194be4d1dc83ffe57f79828e8f2f0"
+          },
+          {
+            "frame": 5,
+            "source_box": [
+              23,
+              624,
+              313,
+              957
+            ],
+            "source_foot_x": 195.6011237627862,
+            "normalized_box": [
+              32,
+              180,
+              311,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/defender_attack_8f/05.png",
+            "sha256": "47f5dbda64652ff04343877d88b7bff4313f38be0b260d3f7433f2485de0412f"
+          },
+          {
+            "frame": 6,
+            "source_box": [
+              442,
+              624,
+              690,
+              957
+            ],
+            "source_foot_x": 563.7281177284506,
+            "normalized_box": [
+              81,
+              180,
+              320,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/defender_attack_8f/06.png",
+            "sha256": "d8b152fe9f1c7981b54353151ab7a02c55a837580a28a29ccaaebe1a6b6ccbeb"
+          },
+          {
+            "frame": 7,
+            "source_box": [
+              791,
+              634,
+              1123,
+              958
+            ],
+            "source_foot_x": 965.6638444794198,
+            "normalized_box": [
+              30,
+              189,
+              350,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/defender_attack_8f/07.png",
+            "sha256": "459af826230cde83dd0775d534c51e452b1c71694b8c047d764b225c54d4c182"
+          },
+          {
+            "frame": 8,
+            "source_box": [
+              1179,
+              624,
+              1484,
+              958
+            ],
+            "source_foot_x": 1348.5402771913189,
+            "normalized_box": [
+              35,
+              179,
+              329,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/defender_attack_8f/08.png",
+            "sha256": "2fcd89a4c60a766db7abe5aeadc8ca9b98f65777e6882c5873c1a99ed519d0d6"
+          }
+        ],
+        "unity_pivot_suggestion": [
+          0.515625,
+          0.021484375
+        ],
+        "status": "technical_review_candidate"
+      },
+      "normalized_mode": "RGBA",
+      "normalized_has_real_alpha": true,
+      "has_real_alpha_applies_to": "raw_file"
+    },
+    {
+      "id": "offender_idle_8f",
+      "character": "offender",
+      "label": "척살자",
+      "motion": "idle",
+      "motion_label": "대기",
+      "facing": "right",
+      "raw_file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/raw/offender_idle_8f_raw_v1.png",
+      "source_file": "/Users/seosangho/.codex/generated_images/01a07a09-295c-7462-8fd2-6bcc15031e5c/exec-0e44731c-a1b9-4e13-b905-d58956c91e4b.png",
+      "reference_file": "art/production/graphics-remake/wave-a/character-sheets/offender/Offender_Filtered_Idle_384x512x4_v2.png",
+      "reference_sha256": "63fda332fec813b6d83eb052e9f885edcee1d34ee2d6951c2f7137b2cb71cffa",
+      "raw_sha256": "f415036236f0f59d3c28b3111589d8a197c03feddc4b6c1099ef5c5b93517419",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "has_real_alpha": false,
+      "grid": [
+        4,
+        2
+      ],
+      "frame_cell": [
+        384,
+        512
+      ],
+      "frames": 8,
+      "approval": "review_pending",
+      "runtime_ready": false,
+      "generation_reference_file": "art/production/graphics-remake/wave-a/character-sheets/offender/Offender_Filtered_TargetPierce_384x512x4_v2.png",
+      "normalized_file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/offender_idle_8f_384x512x8_v1.png",
+      "normalized_sha256": "b173c1667ffcde2ae459934fa9c47a5f4b153cde72f76da1c04d3d647de74442",
+      "frames_files": [
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/offender_idle_8f/01.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/offender_idle_8f/02.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/offender_idle_8f/03.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/offender_idle_8f/04.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/offender_idle_8f/05.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/offender_idle_8f/06.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/offender_idle_8f/07.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/offender_idle_8f/08.png"
+      ],
+      "processing": {
+        "scale": 0.8870647121476573,
+        "pivot_x": 131,
+        "baseline_y": 500,
+        "reference_idle_height": 368.5,
+        "key_chroma": 16,
+        "key_luminance": 100,
+        "enclosed_bg_regions": [
+          {
+            "area": 59,
+            "box": [
+              1299,
+              378,
+              1307,
+              390
+            ]
+          },
+          {
+            "area": 9,
+            "box": [
+              206,
+              804,
+              209,
+              807
+            ]
+          },
+          {
+            "area": 12,
+            "box": [
+              1356,
+              805,
+              1360,
+              808
+            ]
+          },
+          {
+            "area": 9,
+            "box": [
+              41,
+              839,
+              44,
+              842
+            ]
+          },
+          {
+            "area": 9,
+            "box": [
+              1222,
+              859,
+              1225,
+              862
+            ]
+          }
+        ],
+        "ignored_island_pixels": 0,
+        "alpha_verified": true,
+        "resampling": "nearest",
+        "frame_records": [
+          {
+            "frame": 1,
+            "source_box": [
+              21,
+              153,
+              351,
+              485
+            ],
+            "source_foot_x": 154.379629514166,
+            "normalized_box": [
+              13,
+              206,
+              306,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/offender_idle_8f/01.png",
+            "sha256": "82cd4b25d3cb63f126bc389ff49aaacfb8e61372765af73a4a15ec92815e60f7"
+          },
+          {
+            "frame": 2,
+            "source_box": [
+              405,
+              149,
+              736,
+              485
+            ],
+            "source_foot_x": 538.4151652540094,
+            "normalized_box": [
+              13,
+              203,
+              307,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/offender_idle_8f/02.png",
+            "sha256": "7024c4ea24f551d99dcb137597959e4d0d2df389a9254acb049997e8c24e6b9f"
+          },
+          {
+            "frame": 3,
+            "source_box": [
+              789,
+              146,
+              1118,
+              485
+            ],
+            "source_foot_x": 922.6148373951786,
+            "normalized_box": [
+              12,
+              200,
+              304,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/offender_idle_8f/03.png",
+            "sha256": "eb843c840fc2831951f497dad10f21bb53997b71b94d32c0333bf71a7126da54"
+          },
+          {
+            "frame": 4,
+            "source_box": [
+              1173,
+              148,
+              1503,
+              485
+            ],
+            "source_foot_x": 1306.6484525053138,
+            "normalized_box": [
+              12,
+              202,
+              305,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/offender_idle_8f/04.png",
+            "sha256": "136c56a67001a8fae7467723cd05f593b5d9cfab23390ab1c7ca15350b609401"
+          },
+          {
+            "frame": 5,
+            "source_box": [
+              20,
+              654,
+              356,
+              981
+            ],
+            "source_foot_x": 154.58835820895524,
+            "normalized_box": [
+              12,
+              211,
+              310,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/offender_idle_8f/05.png",
+            "sha256": "f13af73f5955fea895cea9a1b640521926200f7821334d9156a04c481d9f18dc"
+          },
+          {
+            "frame": 6,
+            "source_box": [
+              404,
+              655,
+              739,
+              981
+            ],
+            "source_foot_x": 538.5373891197817,
+            "normalized_box": [
+              12,
+              212,
+              309,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/offender_idle_8f/06.png",
+            "sha256": "634cdd8fdd47bdcfcbf32459867e157cd41847abd5f38e70d32074ac2ee3890d"
+          },
+          {
+            "frame": 7,
+            "source_box": [
+              789,
+              654,
+              1124,
+              981
+            ],
+            "source_foot_x": 922.4860657112088,
+            "normalized_box": [
+              13,
+              211,
+              310,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/offender_idle_8f/07.png",
+            "sha256": "c737605abf019c7b84dcf9b56eb815675319c5347e148d7c2af92b11d5a395b7"
+          },
+          {
+            "frame": 8,
+            "source_box": [
+              1172,
+              655,
+              1508,
+              981
+            ],
+            "source_foot_x": 1306.522741897128,
+            "normalized_box": [
+              12,
+              212,
+              310,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/offender_idle_8f/08.png",
+            "sha256": "a19e54e864509af6b6d8d32413c71f269836f02100ef07f61b5e646e64934d2d"
+          }
+        ],
+        "unity_pivot_suggestion": [
+          0.3411458333333333,
+          0.021484375
+        ],
+        "status": "technical_review_candidate"
+      },
+      "normalized_mode": "RGBA",
+      "normalized_has_real_alpha": true,
+      "has_real_alpha_applies_to": "raw_file"
+    },
+    {
+      "id": "offender_attack_8f",
+      "character": "offender",
+      "label": "척살자",
+      "motion": "attack",
+      "motion_label": "표적 관통",
+      "facing": "right",
+      "raw_file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/raw/offender_attack_8f_raw_v1.png",
+      "source_file": "/Users/seosangho/.codex/generated_images/01a07a09-295c-7462-8fd2-6bcc15031e5c/exec-c48ff8d6-25e8-4896-aea8-489bcaa95082.png",
+      "reference_file": "art/production/graphics-remake/wave-a/character-sheets/offender/Offender_Filtered_TargetPierce_384x512x4_v2.png",
+      "reference_sha256": "a752ec4de25d7afdb7c58f31dc03ab346831f2513a19939ade65387b0ded9ba3",
+      "raw_sha256": "9084ba60e23e5ec226da30c538d2e92cd65386f94127ed101c1de680f8293e05",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "has_real_alpha": false,
+      "grid": [
+        4,
+        2
+      ],
+      "frame_cell": [
+        384,
+        512
+      ],
+      "frames": 8,
+      "approval": "review_pending",
+      "runtime_ready": false,
+      "generation_reference_file": "art/production/graphics-remake/wave-a/character-sheets/offender/Offender_Filtered_TargetPierce_384x512x4_v2.png",
+      "normalized_file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/offender_attack_8f_384x512x8_v1.png",
+      "normalized_sha256": "b574ff052ffd28b1744b6d78e533593f8e8fa31b66218a017b6c090e0bcc4707",
+      "frames_files": [
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/offender_attack_8f/01.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/offender_attack_8f/02.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/offender_attack_8f/03.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/offender_attack_8f/04.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/offender_attack_8f/05.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/offender_attack_8f/06.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/offender_attack_8f/07.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/offender_attack_8f/08.png"
+      ],
+      "processing": {
+        "scale": 0.8870647121476573,
+        "pivot_x": 131,
+        "baseline_y": 500,
+        "reference_idle_height": 368.5,
+        "key_chroma": 16,
+        "key_luminance": 100,
+        "enclosed_bg_regions": [],
+        "ignored_island_pixels": 0,
+        "alpha_verified": true,
+        "resampling": "nearest",
+        "frame_records": [
+          {
+            "frame": 1,
+            "source_box": [
+              42,
+              203,
+              319,
+              484
+            ],
+            "source_foot_x": 164.53698357921832,
+            "normalized_box": [
+              22,
+              252,
+              268,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/offender_attack_8f/01.png",
+            "sha256": "18c051c86b56ca4daf67cb2aa646625877c4306071b67e875b9f4272f2c82a2d"
+          },
+          {
+            "frame": 2,
+            "source_box": [
+              427,
+              212,
+              736,
+              483
+            ],
+            "source_foot_x": 537.7567044213497,
+            "normalized_box": [
+              33,
+              261,
+              307,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/offender_attack_8f/02.png",
+            "sha256": "81550a98dd2010507c811e72f9eb8f7e45ceea3c878cca6879d787f5e9a46dcf"
+          },
+          {
+            "frame": 3,
+            "source_box": [
+              810,
+              218,
+              1113,
+              483
+            ],
+            "source_foot_x": 907.314962774843,
+            "normalized_box": [
+              45,
+              266,
+              314,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/offender_attack_8f/03.png",
+            "sha256": "9c95f0a68105bc38522d8af256c787abfbc437831e5345cc15e94ec341048341"
+          },
+          {
+            "frame": 4,
+            "source_box": [
+              1199,
+              211,
+              1515,
+              483
+            ],
+            "source_foot_x": 1300.5897713867307,
+            "normalized_box": [
+              41,
+              260,
+              321,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/offender_attack_8f/04.png",
+            "sha256": "8bd0fc888e0b95aa3378df7715ff886ac7c663a797ed40302eaf8139b3982347"
+          },
+          {
+            "frame": 5,
+            "source_box": [
+              34,
+              690,
+              410,
+              949
+            ],
+            "source_foot_x": 138.75550850804657,
+            "normalized_box": [
+              38,
+              271,
+              372,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/offender_attack_8f/05.png",
+            "sha256": "18dc6a4b5ee42ca2c330989eab9a64ff89f6e6fb40846fed3e76ec025c9b9e12"
+          },
+          {
+            "frame": 6,
+            "source_box": [
+              426,
+              687,
+              786,
+              949
+            ],
+            "source_foot_x": 536.2329208669092,
+            "normalized_box": [
+              33,
+              269,
+              352,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/offender_attack_8f/06.png",
+            "sha256": "a9b4e366f0db3eac95c0f44b5efa60160dae6926e2bd62a33e076f350253792c"
+          },
+          {
+            "frame": 7,
+            "source_box": [
+              833,
+              683,
+              1122,
+              949
+            ],
+            "source_foot_x": 925.6707499290472,
+            "normalized_box": [
+              49,
+              265,
+              305,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/offender_attack_8f/07.png",
+            "sha256": "2bc112e334a324b4399bafdc1e3947da1e80b5d5a715597fbbc1a6f113a8a3d9"
+          },
+          {
+            "frame": 8,
+            "source_box": [
+              1198,
+              680,
+              1472,
+              949
+            ],
+            "source_foot_x": 1319.185042993644,
+            "normalized_box": [
+              24,
+              262,
+              267,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/offender_attack_8f/08.png",
+            "sha256": "3d9615541ea250b3c628b53a9800aa1342b23760f56188fc0e83ca0da9efd9aa"
+          }
+        ],
+        "unity_pivot_suggestion": [
+          0.3411458333333333,
+          0.021484375
+        ],
+        "status": "technical_review_candidate"
+      },
+      "normalized_mode": "RGBA",
+      "normalized_has_real_alpha": true,
+      "has_real_alpha_applies_to": "raw_file"
+    },
+    {
+      "id": "priest_idle_8f",
+      "character": "priest",
+      "label": "치유사",
+      "motion": "idle",
+      "motion_label": "대기",
+      "facing": "right",
+      "raw_file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/raw/priest_idle_8f_raw_v1.png",
+      "source_file": "/Users/seosangho/.codex/generated_images/01a07a09-295c-7462-8fd2-6bcc15031e5c/exec-572c3bc3-c7f8-4f8a-aa41-f3cbad8b38ba.png",
+      "reference_file": "art/production/graphics-remake/wave-a/character-sheets/priest/Priest_Filtered_Idle_384x512x4_v1.png",
+      "reference_sha256": "42bcbba98c870d90b8dcf3480a73b1d0767b4912c1721a23cca0806e6e83cfe9",
+      "raw_sha256": "00985f6916dfaa98608ee54f7c824d12ab2b9d555ef4e5c61d85e3169d151b66",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "has_real_alpha": false,
+      "grid": [
+        4,
+        2
+      ],
+      "frame_cell": [
+        384,
+        512
+      ],
+      "frames": 8,
+      "approval": "review_pending",
+      "runtime_ready": false,
+      "generation_reference_file": "art/production/graphics-remake/wave-a/character-sheets/priest/Priest_Filtered_EmergencyTreatment_384x512x4_v1.png",
+      "normalized_file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/priest_idle_8f_384x512x8_v1.png",
+      "normalized_sha256": "70476f3f6d47e7d2427d9c4189e22fdbc9a5a42d2c6b91f1b4102bac78c7e48c",
+      "frames_files": [
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/priest_idle_8f/01.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/priest_idle_8f/02.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/priest_idle_8f/03.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/priest_idle_8f/04.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/priest_idle_8f/05.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/priest_idle_8f/06.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/priest_idle_8f/07.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/priest_idle_8f/08.png"
+      ],
+      "processing": {
+        "scale": 0.9255874673629243,
+        "pivot_x": 152,
+        "baseline_y": 500,
+        "reference_idle_height": 354.5,
+        "key_chroma": 16,
+        "key_luminance": 100,
+        "enclosed_bg_regions": [
+          {
+            "area": 79,
+            "box": [
+              1304,
+              258,
+              1316,
+              271
+            ]
+          },
+          {
+            "area": 99,
+            "box": [
+              247,
+              345,
+              255,
+              362
+            ]
+          },
+          {
+            "area": 84,
+            "box": [
+              1403,
+              346,
+              1410,
+              362
+            ]
+          },
+          {
+            "area": 92,
+            "box": [
+              1019,
+              347,
+              1027,
+              363
+            ]
+          },
+          {
+            "area": 101,
+            "box": [
+              633,
+              825,
+              641,
+              841
+            ]
+          }
+        ],
+        "ignored_island_pixels": 0,
+        "alpha_verified": true,
+        "resampling": "nearest",
+        "frame_records": [
+          {
+            "frame": 1,
+            "source_box": [
+              77,
+              117,
+              314,
+              500
+            ],
+            "source_foot_x": 176.0611289459604,
+            "normalized_box": [
+              60,
+              147,
+              279,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/priest_idle_8f/01.png",
+            "sha256": "832e7622a1718eaaa26ad65b83c7be0bd3ed21039082fe4318756b2a338754b9"
+          },
+          {
+            "frame": 2,
+            "source_box": [
+              463,
+              114,
+              700,
+              500
+            ],
+            "source_foot_x": 559.9643691432475,
+            "normalized_box": [
+              62,
+              144,
+              281,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/priest_idle_8f/02.png",
+            "sha256": "beb6180ee0c3a0d8af544bf5c82dd31fb0cf1a00032937ee863784d610c9a1c8"
+          },
+          {
+            "frame": 3,
+            "source_box": [
+              846,
+              114,
+              1083,
+              500
+            ],
+            "source_foot_x": 943.3458166529376,
+            "normalized_box": [
+              62,
+              144,
+              281,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/priest_idle_8f/03.png",
+            "sha256": "341be757fec83665a7e3a22a8f598a3cc5e9e95b17742a3a59ab802c7da55f3e"
+          },
+          {
+            "frame": 4,
+            "source_box": [
+              1229,
+              114,
+              1467,
+              500
+            ],
+            "source_foot_x": 1327.3268607984176,
+            "normalized_box": [
+              61,
+              144,
+              281,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/priest_idle_8f/04.png",
+            "sha256": "866a496e440b6e6eb76526dcd58b10b64728bcede5481057fa88069218a83156"
+          },
+          {
+            "frame": 5,
+            "source_box": [
+              78,
+              596,
+              315,
+              979
+            ],
+            "source_foot_x": 175.9906314058108,
+            "normalized_box": [
+              61,
+              147,
+              280,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/priest_idle_8f/05.png",
+            "sha256": "1975771ce20360a48c955ef0d6640c737887e43e6b75be85e1dbd7f8bba3d30c"
+          },
+          {
+            "frame": 6,
+            "source_box": [
+              461,
+              598,
+              700,
+              979
+            ],
+            "source_foot_x": 559.8289025908958,
+            "normalized_box": [
+              61,
+              148,
+              282,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/priest_idle_8f/06.png",
+            "sha256": "0b325778ae3837586d48a9516e18c22035e0d6b54998abc7ffa6091fdde4f28c"
+          },
+          {
+            "frame": 7,
+            "source_box": [
+              845,
+              596,
+              1083,
+              979
+            ],
+            "source_foot_x": 943.3351399091135,
+            "normalized_box": [
+              61,
+              147,
+              281,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/priest_idle_8f/07.png",
+            "sha256": "920affee0a8c975c8ea76bd9d4da80615532f2d182790dd742756644a3bee241"
+          },
+          {
+            "frame": 8,
+            "source_box": [
+              1228,
+              596,
+              1466,
+              979
+            ],
+            "source_foot_x": 1327.1546339643858,
+            "normalized_box": [
+              60,
+              147,
+              280,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/priest_idle_8f/08.png",
+            "sha256": "7f7a9bc6d6f59f25eec8ff38201ff9e7d99c3d2d31b989422d0990f9ac7d4547"
+          }
+        ],
+        "unity_pivot_suggestion": [
+          0.3958333333333333,
+          0.021484375
+        ],
+        "status": "technical_review_candidate"
+      },
+      "normalized_mode": "RGBA",
+      "normalized_has_real_alpha": true,
+      "has_real_alpha_applies_to": "raw_file"
+    },
+    {
+      "id": "priest_attack_8f",
+      "character": "priest",
+      "label": "치유사",
+      "motion": "attack",
+      "motion_label": "응급 처치",
+      "facing": "right",
+      "raw_file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/raw/priest_attack_8f_raw_v1.png",
+      "source_file": "/Users/seosangho/.codex/generated_images/01a07a09-295c-7462-8fd2-6bcc15031e5c/exec-bc8b9382-b454-4c5b-a192-59b1e8df3636.png",
+      "reference_file": "art/production/graphics-remake/wave-a/character-sheets/priest/Priest_Filtered_EmergencyTreatment_384x512x4_v1.png",
+      "reference_sha256": "563f986f9d3737cc5580eb7e9db7713cf37989d9a11e243259ca602f3e88f1d2",
+      "raw_sha256": "ef08665ad18c9d82ca58e56caeac0d09318bed4162145a94c9e6130ed0a5063b",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "has_real_alpha": false,
+      "grid": [
+        4,
+        2
+      ],
+      "frame_cell": [
+        384,
+        512
+      ],
+      "frames": 8,
+      "approval": "review_pending",
+      "runtime_ready": false,
+      "generation_reference_file": "art/production/graphics-remake/wave-a/character-sheets/priest/Priest_Filtered_EmergencyTreatment_384x512x4_v1.png",
+      "normalized_file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/priest_attack_8f_384x512x8_v1.png",
+      "normalized_sha256": "c4c926309702f82155b41b5c457e6311113b8b8c524ab16fdc558091ca08bb3c",
+      "frames_files": [
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/priest_attack_8f/01.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/priest_attack_8f/02.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/priest_attack_8f/03.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/priest_attack_8f/04.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/priest_attack_8f/05.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/priest_attack_8f/06.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/priest_attack_8f/07.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/priest_attack_8f/08.png"
+      ],
+      "processing": {
+        "scale": 0.9255874673629243,
+        "pivot_x": 152,
+        "baseline_y": 500,
+        "reference_idle_height": 354.5,
+        "key_chroma": 16,
+        "key_luminance": 100,
+        "enclosed_bg_regions": [
+          {
+            "area": 571,
+            "box": [
+              1008,
+              208,
+              1033,
+              247
+            ]
+          },
+          {
+            "area": 239,
+            "box": [
+              521,
+              232,
+              535,
+              258
+            ]
+          },
+          {
+            "area": 54,
+            "box": [
+              248,
+              345,
+              254,
+              358
+            ]
+          },
+          {
+            "area": 9,
+            "box": [
+              1390,
+              756,
+              1393,
+              759
+            ]
+          },
+          {
+            "area": 62,
+            "box": [
+              1400,
+              825,
+              1406,
+              839
+            ]
+          }
+        ],
+        "ignored_island_pixels": 0,
+        "alpha_verified": true,
+        "resampling": "nearest",
+        "frame_records": [
+          {
+            "frame": 1,
+            "source_box": [
+              80,
+              108,
+              307,
+              496
+            ],
+            "source_foot_x": 178.5136546641613,
+            "normalized_box": [
+              61,
+              142,
+              271,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/priest_attack_8f/01.png",
+            "sha256": "f53aebd81cd6a5ceaf9bfe33a0737bc91a653b1b2df35cce67818beefc6f535b"
+          },
+          {
+            "frame": 2,
+            "source_box": [
+              466,
+              115,
+              680,
+              496
+            ],
+            "source_foot_x": 565.4883265729804,
+            "normalized_box": [
+              60,
+              148,
+              258,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/priest_attack_8f/02.png",
+            "sha256": "b8966664042276c5ff2937841e339de4474257d5eabfe8f7b656c81c482a0f6d"
+          },
+          {
+            "frame": 3,
+            "source_box": [
+              847,
+              108,
+              1077,
+              496
+            ],
+            "source_foot_x": 944.5407537774724,
+            "normalized_box": [
+              62,
+              142,
+              275,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/priest_attack_8f/03.png",
+            "sha256": "e83197a5923167fa0e854eda8a4fb145e61b9e374b34c0760b342a68e489db34"
+          },
+          {
+            "frame": 4,
+            "source_box": [
+              1224,
+              112,
+              1475,
+              497
+            ],
+            "source_foot_x": 1328.558577334506,
+            "normalized_box": [
+              55,
+              145,
+              287,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/priest_attack_8f/04.png",
+            "sha256": "3c2bd21c7e30e9285da12871a7e311d7626f4b9060e65cfafacf37854f15f673"
+          },
+          {
+            "frame": 5,
+            "source_box": [
+              68,
+              596,
+              359,
+              973
+            ],
+            "source_foot_x": 167.30867902324212,
+            "normalized_box": [
+              60,
+              152,
+              329,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/priest_attack_8f/05.png",
+            "sha256": "c180903e44914a4a05341c9215514b535ce455ac3a7ddd1bb8599f59b8c5b406"
+          },
+          {
+            "frame": 6,
+            "source_box": [
+              458,
+              611,
+              699,
+              972
+            ],
+            "source_foot_x": 563.3577922158045,
+            "normalized_box": [
+              54,
+              167,
+              277,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/priest_attack_8f/06.png",
+            "sha256": "83dba8e94837798b0c9fb55cb36b1adc927ba7316776601ff1256e3fc9c3109a"
+          },
+          {
+            "frame": 7,
+            "source_box": [
+              838,
+              595,
+              1074,
+              973
+            ],
+            "source_foot_x": 942.2408805717678,
+            "normalized_box": [
+              56,
+              151,
+              274,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/priest_attack_8f/07.png",
+            "sha256": "7af35a33cfd642b19f3e56f6858f3f56f3e490c718c0fb164abdb0d7a159eff6"
+          },
+          {
+            "frame": 8,
+            "source_box": [
+              1233,
+              591,
+              1459,
+              976
+            ],
+            "source_foot_x": 1330.925264288799,
+            "normalized_box": [
+              61,
+              145,
+              270,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/priest_attack_8f/08.png",
+            "sha256": "273b853558d0a63c7846b797c3b0e3aea758e3426e200de5f641d8748357a1be"
+          }
+        ],
+        "unity_pivot_suggestion": [
+          0.3958333333333333,
+          0.021484375
+        ],
+        "status": "technical_review_candidate"
+      },
+      "normalized_mode": "RGBA",
+      "normalized_has_real_alpha": true,
+      "has_real_alpha_applies_to": "raw_file"
+    },
+    {
+      "id": "goblin_idle_8f",
+      "character": "goblin",
+      "label": "고블린",
+      "motion": "idle",
+      "motion_label": "대기",
+      "facing": "left",
+      "raw_file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/raw/goblin_idle_8f_raw_v1.png",
+      "source_file": "/Users/seosangho/.codex/generated_images/01a07a09-295c-7462-8fd2-6bcc15031e5c/exec-42f4bac1-e497-4a41-ba09-00cb832c222c.png",
+      "reference_file": "art/production/graphics-remake/wave-a/enemy-sheets/goblin/Goblin_Filtered_Idle_384x512x4_v1.png",
+      "reference_sha256": "912c840b5492919c2a81080d49c742516859ea02bf6be7278c8de5c0b7495981",
+      "raw_sha256": "b3013fa5adfc9db382113ccde011db7004cf42015a035a4ee1066da0f2fe9dc4",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "has_real_alpha": false,
+      "grid": [
+        4,
+        2
+      ],
+      "frame_cell": [
+        384,
+        512
+      ],
+      "frames": 8,
+      "approval": "review_pending",
+      "runtime_ready": false,
+      "generation_reference_file": "art/production/graphics-remake/wave-a/enemy-sheets/goblin/Goblin_Filtered_DaggerSwing_384x512x4_v1.png",
+      "normalized_file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/goblin_idle_8f_384x512x8_v1.png",
+      "normalized_sha256": "9a12e73e2e62f59d8f1f2094edef0dad44a309f83ee07bbd84e5735fe01ed102",
+      "frames_files": [
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/goblin_idle_8f/01.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/goblin_idle_8f/02.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/goblin_idle_8f/03.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/goblin_idle_8f/04.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/goblin_idle_8f/05.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/goblin_idle_8f/06.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/goblin_idle_8f/07.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/goblin_idle_8f/08.png"
+      ],
+      "processing": {
+        "scale": 0.9350930328040394,
+        "pivot_x": 243,
+        "baseline_y": 500,
+        "reference_idle_height": 354.0,
+        "key_chroma": 16,
+        "key_luminance": 100,
+        "enclosed_bg_regions": [
+          {
+            "area": 27,
+            "box": [
+              1314,
+              187,
+              1318,
+              195
+            ]
+          },
+          {
+            "area": 12,
+            "box": [
+              1461,
+              405,
+              1465,
+              408
+            ]
+          },
+          {
+            "area": 19,
+            "box": [
+              680,
+              413,
+              684,
+              419
+            ]
+          },
+          {
+            "area": 20,
+            "box": [
+              1443,
+              422,
+              1448,
+              428
+            ]
+          },
+          {
+            "area": 30,
+            "box": [
+              197,
+              438,
+              202,
+              446
+            ]
+          },
+          {
+            "area": 9,
+            "box": [
+              701,
+              851,
+              704,
+              854
+            ]
+          }
+        ],
+        "ignored_island_pixels": 0,
+        "alpha_verified": true,
+        "resampling": "nearest",
+        "frame_records": [
+          {
+            "frame": 1,
+            "source_box": [
+              38,
+              165,
+              348,
+              505
+            ],
+            "source_foot_x": 215.7418271159246,
+            "normalized_box": [
+              77,
+              183,
+              367,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/goblin_idle_8f/01.png",
+            "sha256": "b82a8fa604f4c118dd661bd95ec9e6cab29517e2ff4d92a2e0c0f5ead8ab8a72"
+          },
+          {
+            "frame": 2,
+            "source_box": [
+              424,
+              158,
+              722,
+              503
+            ],
+            "source_foot_x": 587.4462595419848,
+            "normalized_box": [
+              90,
+              178,
+              369,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/goblin_idle_8f/02.png",
+            "sha256": "1648e8fef3860b80a4b5210ad33fe5e3d320a3ec93e8f01b9ab7ebbb9b76989e"
+          },
+          {
+            "frame": 3,
+            "source_box": [
+              807,
+              146,
+              1113,
+              504
+            ],
+            "source_foot_x": 980.6378230922423,
+            "normalized_box": [
+              81,
+              166,
+              367,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/goblin_idle_8f/03.png",
+            "sha256": "0d50be96be3c2900ce7e0a656f06f256e6d27baa89ccacfcd0e40aaec170ec99"
+          },
+          {
+            "frame": 4,
+            "source_box": [
+              1192,
+              141,
+              1496,
+              505
+            ],
+            "source_foot_x": 1364.5017098840135,
+            "normalized_box": [
+              82,
+              161,
+              366,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/goblin_idle_8f/04.png",
+            "sha256": "7eff980ceb455f650d3745e06e09881ff2652aa6d2f92569ddabfcebf424f212"
+          },
+          {
+            "frame": 5,
+            "source_box": [
+              36,
+              626,
+              347,
+              972
+            ],
+            "source_foot_x": 215.33188856549754,
+            "normalized_box": [
+              75,
+              177,
+              366,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/goblin_idle_8f/05.png",
+            "sha256": "f5679e76f3402c2e57d540974fc6d14fff9f326cac14e19d492f38c5cf73b913"
+          },
+          {
+            "frame": 6,
+            "source_box": [
+              420,
+              626,
+              725,
+              971
+            ],
+            "source_foot_x": 593.379003203187,
+            "normalized_box": [
+              81,
+              178,
+              366,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/goblin_idle_8f/06.png",
+            "sha256": "ae85f5c89e18dd36c956287e6276eaf2f58829fb93191e8aee84db3f85ea679c"
+          },
+          {
+            "frame": 7,
+            "source_box": [
+              805,
+              639,
+              1111,
+              968
+            ],
+            "source_foot_x": 983.9017893217894,
+            "normalized_box": [
+              76,
+              193,
+              362,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/goblin_idle_8f/07.png",
+            "sha256": "010f049113519f1efc772d3741f9ce3f86f4f279aaee552eaf06d8e40a0a1590"
+          },
+          {
+            "frame": 8,
+            "source_box": [
+              1188,
+              626,
+              1498,
+              971
+            ],
+            "source_foot_x": 1366.7151990049751,
+            "normalized_box": [
+              76,
+              178,
+              366,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/goblin_idle_8f/08.png",
+            "sha256": "c7c792921aeafc53e7e7cc53220f85be8ac0b59db5bbc39dc945882f2285a976"
+          }
+        ],
+        "unity_pivot_suggestion": [
+          0.6328125,
+          0.021484375
+        ],
+        "status": "technical_review_candidate"
+      },
+      "normalized_mode": "RGBA",
+      "normalized_has_real_alpha": true,
+      "has_real_alpha_applies_to": "raw_file"
+    },
+    {
+      "id": "goblin_attack_8f",
+      "character": "goblin",
+      "label": "고블린",
+      "motion": "attack",
+      "motion_label": "단검 휘두르기",
+      "facing": "left",
+      "raw_file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/raw/goblin_attack_8f_raw_v1.png",
+      "source_file": "/Users/seosangho/.codex/generated_images/01a07a09-295c-7462-8fd2-6bcc15031e5c/exec-2f353a86-d278-4da7-8d9f-19ce3c704abc.png",
+      "reference_file": "art/production/graphics-remake/wave-a/enemy-sheets/goblin/Goblin_Filtered_DaggerSwing_384x512x4_v1.png",
+      "reference_sha256": "d7d897715bbec7584299962426074f83900fc337532b54f526a4419193fe75b5",
+      "raw_sha256": "9fcad9631f5599a7c275b6359a7317ca8ac92d6b68e442e2ea8bc236091998bb",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "has_real_alpha": false,
+      "grid": [
+        4,
+        2
+      ],
+      "frame_cell": [
+        384,
+        512
+      ],
+      "frames": 8,
+      "approval": "review_pending",
+      "runtime_ready": false,
+      "generation_reference_file": "art/production/graphics-remake/wave-a/enemy-sheets/goblin/Goblin_Filtered_DaggerSwing_384x512x4_v1.png",
+      "normalized_file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/goblin_attack_8f_384x512x8_v1.png",
+      "normalized_sha256": "7a25d673c0e407ded50e41b9930e328a2546f13290dc43b198bde8897aa04c50",
+      "frames_files": [
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/goblin_attack_8f/01.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/goblin_attack_8f/02.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/goblin_attack_8f/03.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/goblin_attack_8f/04.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/goblin_attack_8f/05.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/goblin_attack_8f/06.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/goblin_attack_8f/07.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/goblin_attack_8f/08.png"
+      ],
+      "processing": {
+        "scale": 0.9350930328040394,
+        "pivot_x": 243,
+        "baseline_y": 500,
+        "reference_idle_height": 354.0,
+        "key_chroma": 16,
+        "key_luminance": 100,
+        "enclosed_bg_regions": [
+          {
+            "area": 17,
+            "box": [
+              930,
+              205,
+              934,
+              210
+            ]
+          },
+          {
+            "area": 9,
+            "box": [
+              511,
+              388,
+              514,
+              391
+            ]
+          },
+          {
+            "area": 17,
+            "box": [
+              304,
+              429,
+              308,
+              434
+            ]
+          },
+          {
+            "area": 9,
+            "box": [
+              952,
+              695,
+              955,
+              698
+            ]
+          },
+          {
+            "area": 64,
+            "box": [
+              343,
+              858,
+              354,
+              871
+            ]
+          },
+          {
+            "area": 15,
+            "box": [
+              331,
+              895,
+              335,
+              899
+            ]
+          },
+          {
+            "area": 9,
+            "box": [
+              1354,
+              922,
+              1357,
+              925
+            ]
+          }
+        ],
+        "ignored_island_pixels": 0,
+        "alpha_verified": true,
+        "resampling": "nearest",
+        "frame_records": [
+          {
+            "frame": 1,
+            "source_box": [
+              44,
+              170,
+              346,
+              501
+            ],
+            "source_foot_x": 221.72235145726262,
+            "normalized_box": [
+              77,
+              191,
+              359,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/goblin_attack_8f/01.png",
+            "sha256": "883641a6b3a53188a7e89432ce2fc1370fbf98cf6b002f0c5c396181928d5574"
+          },
+          {
+            "frame": 2,
+            "source_box": [
+              439,
+              193,
+              716,
+              501
+            ],
+            "source_foot_x": 592.2678027838235,
+            "normalized_box": [
+              100,
+              213,
+              359,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/goblin_attack_8f/02.png",
+            "sha256": "08e92d7c35d1a570518e59545110d19f8a25598fa2899526e756cb86ce30ffd6"
+          },
+          {
+            "frame": 3,
+            "source_box": [
+              838,
+              167,
+              1130,
+              501
+            ],
+            "source_foot_x": 992.5181094508224,
+            "normalized_box": [
+              99,
+              189,
+              372,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/goblin_attack_8f/03.png",
+            "sha256": "e39b0a56c968d9dfc18ead74b4a188541cacb847686bda1c556bba2883eccc9e"
+          },
+          {
+            "frame": 4,
+            "source_box": [
+              1134,
+              175,
+              1486,
+              501
+            ],
+            "source_foot_x": 1381.5065409446142,
+            "normalized_box": [
+              12,
+              196,
+              341,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/goblin_attack_8f/04.png",
+            "sha256": "22c0fcbf603779c868ff4e757c20b6b60137b3a0564a9e36ad78867e11141292"
+          },
+          {
+            "frame": 5,
+            "source_box": [
+              22,
+              658,
+              366,
+              968
+            ],
+            "source_foot_x": 252.08270646968464,
+            "normalized_box": [
+              28,
+              211,
+              350,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/goblin_attack_8f/05.png",
+            "sha256": "f2eefeb2fceb9b651f52af9f6ee52f2acf173868befae26ef6fd45762bf65247"
+          },
+          {
+            "frame": 6,
+            "source_box": [
+              400,
+              660,
+              741,
+              969
+            ],
+            "source_foot_x": 631.0189012693601,
+            "normalized_box": [
+              27,
+              212,
+              346,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/goblin_attack_8f/06.png",
+            "sha256": "659ef8553b668a3903510e468530dbad75e97171acfe8ff77c7d6b3beb59f5fa"
+          },
+          {
+            "frame": 7,
+            "source_box": [
+              838,
+              657,
+              1113,
+              971
+            ],
+            "source_foot_x": 990.7831254935509,
+            "normalized_box": [
+              100,
+              207,
+              357,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/goblin_attack_8f/07.png",
+            "sha256": "97fcbf37711e586c431118cba3ff0874b23433942248409ad03dbbed0d166a15"
+          },
+          {
+            "frame": 8,
+            "source_box": [
+              1214,
+              657,
+              1492,
+              969
+            ],
+            "source_foot_x": 1374.8308574593398,
+            "normalized_box": [
+              93,
+              209,
+              353,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/goblin_attack_8f/08.png",
+            "sha256": "66b39fe800ca6963b899af3cf5f2b424ce940c2b4b6e8849b18bf0cf6f8f9163"
+          }
+        ],
+        "unity_pivot_suggestion": [
+          0.6328125,
+          0.021484375
+        ],
+        "status": "technical_review_candidate"
+      },
+      "normalized_mode": "RGBA",
+      "normalized_has_real_alpha": true,
+      "has_real_alpha_applies_to": "raw_file"
+    },
+    {
+      "id": "raider_idle_8f",
+      "character": "raider",
+      "label": "약탈자",
+      "motion": "idle",
+      "motion_label": "대기",
+      "facing": "left",
+      "raw_file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/raw/raider_idle_8f_raw_v1.png",
+      "source_file": "/Users/seosangho/.codex/generated_images/01a07a09-295c-7462-8fd2-6bcc15031e5c/exec-edb80c48-8b96-4ce0-b6f4-280ae98c2025.png",
+      "reference_file": "art/production/graphics-remake/wave-a/enemy-sheets/raider/Raider_Filtered_Idle_384x512x4_v1.png",
+      "reference_sha256": "2ae22941718eddc23a106e8f3b5198507b42197cdbe2bb186049401f8b77a2dd",
+      "raw_sha256": "ce5b2f0ec4c819287a2c0cbfc9969af338eff3215641dd1f0716c2b796ee72bd",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "has_real_alpha": false,
+      "grid": [
+        4,
+        2
+      ],
+      "frame_cell": [
+        384,
+        512
+      ],
+      "frames": 8,
+      "approval": "review_pending",
+      "runtime_ready": false,
+      "generation_reference_file": "art/production/graphics-remake/wave-a/enemy-sheets/raider/Raider_Filtered_AxeSwing_384x512x4_v1.png",
+      "normalized_file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/raider_idle_8f_384x512x8_v1.png",
+      "normalized_sha256": "098615772621c73c52eecef2f3c6355120bfb4647c4d5585d30eb619028329fc",
+      "frames_files": [
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/raider_idle_8f/01.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/raider_idle_8f/02.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/raider_idle_8f/03.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/raider_idle_8f/04.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/raider_idle_8f/05.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/raider_idle_8f/06.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/raider_idle_8f/07.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/raider_idle_8f/08.png"
+      ],
+      "processing": {
+        "scale": 0.9546599496221663,
+        "pivot_x": 228,
+        "baseline_y": 500,
+        "reference_idle_height": 379.0,
+        "key_chroma": 16,
+        "key_luminance": 100,
+        "enclosed_bg_regions": [
+          {
+            "area": 210,
+            "box": [
+              898,
+              287,
+              919,
+              315
+            ]
+          },
+          {
+            "area": 225,
+            "box": [
+              517,
+              288,
+              537,
+              316
+            ]
+          },
+          {
+            "area": 208,
+            "box": [
+              1281,
+              290,
+              1301,
+              316
+            ]
+          },
+          {
+            "area": 297,
+            "box": [
+              515,
+              786,
+              541,
+              820
+            ]
+          },
+          {
+            "area": 302,
+            "box": [
+              897,
+              788,
+              922,
+              820
+            ]
+          },
+          {
+            "area": 297,
+            "box": [
+              131,
+              789,
+              155,
+              821
+            ]
+          },
+          {
+            "area": 282,
+            "box": [
+              1282,
+              789,
+              1306,
+              820
+            ]
+          }
+        ],
+        "ignored_island_pixels": 0,
+        "alpha_verified": true,
+        "resampling": "nearest",
+        "frame_records": [
+          {
+            "frame": 1,
+            "source_box": [
+              34,
+              93,
+              348,
+              494
+            ],
+            "source_foot_x": 230.51626751870828,
+            "normalized_box": [
+              40,
+              118,
+              340,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/raider_idle_8f/01.png",
+            "sha256": "494cfc6b9754babf9b48d9dd4b3cf674618f580341a666dfa41c3d2502e3a5cb"
+          },
+          {
+            "frame": 2,
+            "source_box": [
+              420,
+              93,
+              731,
+              494
+            ],
+            "source_foot_x": 613.7938899837939,
+            "normalized_box": [
+              43,
+              118,
+              340,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/raider_idle_8f/02.png",
+            "sha256": "068ccb2e59a9dc49bb9602aec8e6e699db1f88584b4ada7bf17c5510cfcb24d8"
+          },
+          {
+            "frame": 3,
+            "source_box": [
+              802,
+              85,
+              1114,
+              494
+            ],
+            "source_foot_x": 995.4590758008478,
+            "normalized_box": [
+              43,
+              111,
+              341,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/raider_idle_8f/03.png",
+            "sha256": "10ad46260a4328eb935548624c1781132dc3f4c44a0267d1dd88ee0c2c80873e"
+          },
+          {
+            "frame": 4,
+            "source_box": [
+              1184,
+              83,
+              1496,
+              494
+            ],
+            "source_foot_x": 1378.7092154124982,
+            "normalized_box": [
+              42,
+              109,
+              340,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/raider_idle_8f/04.png",
+            "sha256": "12d9408307d9339eebe8617095b22a2f82df5b84a958084e2b1507413cca72c7"
+          },
+          {
+            "frame": 5,
+            "source_box": [
+              34,
+              597,
+              345,
+              990
+            ],
+            "source_foot_x": 228.76992457649584,
+            "normalized_box": [
+              42,
+              126,
+              339,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/raider_idle_8f/05.png",
+            "sha256": "791b876e22994baf5e6ae96489745e82ead1927cc4dec6b45eccaf9d2839b656"
+          },
+          {
+            "frame": 6,
+            "source_box": [
+              420,
+              601,
+              728,
+              990
+            ],
+            "source_foot_x": 612.3394993164729,
+            "normalized_box": [
+              44,
+              130,
+              338,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/raider_idle_8f/06.png",
+            "sha256": "adc4cee6efa5d4341cc5dc0d05b4f8e776e3fecb6db4f2fea9d9adb590d951e4"
+          },
+          {
+            "frame": 7,
+            "source_box": [
+              803,
+              598,
+              1112,
+              990
+            ],
+            "source_foot_x": 995.5797324881821,
+            "normalized_box": [
+              44,
+              127,
+              339,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/raider_idle_8f/07.png",
+            "sha256": "ebf763eef48c195d2e02e05834ee4290a4f9c6222c1b45caed504bf6307753b2"
+          },
+          {
+            "frame": 8,
+            "source_box": [
+              1187,
+              597,
+              1496,
+              990
+            ],
+            "source_foot_x": 1379.1502271252434,
+            "normalized_box": [
+              45,
+              126,
+              340,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/raider_idle_8f/08.png",
+            "sha256": "92db7ad831a1a48a67bbacd7872b9a19d7efc5ff0346d66cd1857dde411f1872"
+          }
+        ],
+        "unity_pivot_suggestion": [
+          0.59375,
+          0.021484375
+        ],
+        "status": "technical_review_candidate"
+      },
+      "normalized_mode": "RGBA",
+      "normalized_has_real_alpha": true,
+      "has_real_alpha_applies_to": "raw_file"
+    },
+    {
+      "id": "raider_attack_8f",
+      "character": "raider",
+      "label": "약탈자",
+      "motion": "attack",
+      "motion_label": "도끼 휘두르기",
+      "facing": "left",
+      "raw_file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/raw/raider_attack_8f_raw_v1.png",
+      "source_file": "/Users/seosangho/.codex/generated_images/01a07a09-295c-7462-8fd2-6bcc15031e5c/exec-992eefff-1cc8-4de6-a0d6-a51781de19a2.png",
+      "reference_file": "art/production/graphics-remake/wave-a/enemy-sheets/raider/Raider_Filtered_AxeSwing_384x512x4_v1.png",
+      "reference_sha256": "ad65c816ba34e294cc66d8b356839874779b58526a0a5fffabb0a5338f1e9f75",
+      "raw_sha256": "fc8b752dac79bc95437c4a2c6a6d07c234aa8ffaa692529d608fba110768b33a",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "has_real_alpha": false,
+      "grid": [
+        4,
+        2
+      ],
+      "frame_cell": [
+        384,
+        512
+      ],
+      "frames": 8,
+      "approval": "review_pending",
+      "runtime_ready": false,
+      "generation_reference_file": "art/production/graphics-remake/wave-a/enemy-sheets/raider/Raider_Filtered_AxeSwing_384x512x4_v1.png",
+      "normalized_file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/raider_attack_8f_384x512x8_v1.png",
+      "normalized_sha256": "09ef651d039b9ab9c0b1e67cd02abc7e7899371060a9876d38d19f3c88f0a83e",
+      "frames_files": [
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/raider_attack_8f/01.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/raider_attack_8f/02.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/raider_attack_8f/03.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/raider_attack_8f/04.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/raider_attack_8f/05.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/raider_attack_8f/06.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/raider_attack_8f/07.png",
+        "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/raider_attack_8f/08.png"
+      ],
+      "processing": {
+        "scale": 0.9546599496221663,
+        "pivot_x": 228,
+        "baseline_y": 500,
+        "reference_idle_height": 379.0,
+        "key_chroma": 16,
+        "key_luminance": 100,
+        "enclosed_bg_regions": [
+          {
+            "area": 738,
+            "box": [
+              897,
+              146,
+              924,
+              192
+            ]
+          },
+          {
+            "area": 194,
+            "box": [
+              150,
+              332,
+              175,
+              362
+            ]
+          },
+          {
+            "area": 508,
+            "box": [
+              1421,
+              741,
+              1447,
+              788
+            ]
+          },
+          {
+            "area": 519,
+            "box": [
+              1292,
+              768,
+              1329,
+              813
+            ]
+          }
+        ],
+        "ignored_island_pixels": 0,
+        "alpha_verified": true,
+        "resampling": "nearest",
+        "frame_records": [
+          {
+            "frame": 1,
+            "source_box": [
+              38,
+              160,
+              345,
+              512
+            ],
+            "source_foot_x": 235.21489784309517,
+            "normalized_box": [
+              40,
+              165,
+              333,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/raider_attack_8f/01.png",
+            "sha256": "6b71214f1605949d1875f184965f1fd3b1d0c6e5e1793cd85328ddd612482a83"
+          },
+          {
+            "frame": 2,
+            "source_box": [
+              472,
+              141,
+              726,
+              512
+            ],
+            "source_foot_x": 598.3783907782303,
+            "normalized_box": [
+              107,
+              147,
+              349,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/raider_attack_8f/02.png",
+            "sha256": "30e5969620803c701e273bba97808704c623e602a61e37511f5699cf178f29b8"
+          },
+          {
+            "frame": 3,
+            "source_box": [
+              853,
+              42,
+              1089,
+              513
+            ],
+            "source_foot_x": 979.6083537975635,
+            "normalized_box": [
+              107,
+              51,
+              332,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/raider_attack_8f/03.png",
+            "sha256": "f2a12e9e98f5aabf320851ee7e8f1b19a0448745c02286bc2bb56cfeaba91fdd"
+          },
+          {
+            "frame": 4,
+            "source_box": [
+              1207,
+              147,
+              1505,
+              513
+            ],
+            "source_foot_x": 1382.7918478862211,
+            "normalized_box": [
+              60,
+              152,
+              344,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/raider_attack_8f/04.png",
+            "sha256": "6729e325864f3fe1dada0f97e3ada4537bb44e9e9b29f909db3a477dceb7d60f"
+          },
+          {
+            "frame": 5,
+            "source_box": [
+              56,
+              633,
+              373,
+              968
+            ],
+            "source_foot_x": 254.66263526469018,
+            "normalized_box": [
+              38,
+              181,
+              341,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/raider_attack_8f/05.png",
+            "sha256": "0122ee3c9cbf909f639b60ebed2dd426a9c1f554e940bb887049c91b190ed45a"
+          },
+          {
+            "frame": 6,
+            "source_box": [
+              436,
+              624,
+              740,
+              968
+            ],
+            "source_foot_x": 622.9794550801194,
+            "normalized_box": [
+              49,
+              173,
+              339,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/raider_attack_8f/06.png",
+            "sha256": "1d5976e655d3a191b2a7a738b30777013cdc6cd003ceba62a1f0691fa2c09b81"
+          },
+          {
+            "frame": 7,
+            "source_box": [
+              800,
+              629,
+              1118,
+              970
+            ],
+            "source_foot_x": 1002.551156814534,
+            "normalized_box": [
+              35,
+              175,
+              339,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/raider_attack_8f/07.png",
+            "sha256": "b6aea30c32124a73a8447a2999658d6143a458897b9916a1eed6ddc964742988"
+          },
+          {
+            "frame": 8,
+            "source_box": [
+              1185,
+              609,
+              1496,
+              970
+            ],
+            "source_foot_x": 1379.995062466773,
+            "normalized_box": [
+              42,
+              156,
+              339,
+              501
+            ],
+            "file": "art/production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/frames/raider_attack_8f/08.png",
+            "sha256": "5748c56c7cb802b9e049b3a8a26e2b0bc24fa8bc5b77bc7ef254602b9878d05b"
+          }
+        ],
+        "unity_pivot_suggestion": [
+          0.59375,
+          0.021484375
+        ],
+        "status": "technical_review_candidate"
+      },
+      "normalized_mode": "RGBA",
+      "normalized_has_real_alpha": true,
+      "has_real_alpha_applies_to": "raw_file"
+    }
+  ],
+  "known_issues": [
+    "Raw source files still contain painted checkerboards; use normalized_file for corrected sprites.",
+    "Generated pose/face/cloth consistency still requires visual approval; technical normalization does not redraw these.",
+    "Unity Sprite pivot/PPU, actual clip duration and impact timing have not been changed or play-tested."
+  ],
+  "runtime_notes": [
+    "Old production reference sheets are4frames, but actual legacy Unity .anim keys vary by character.",
+    "Frame count must not automatically double clip duration.",
+    "Damage/heal/shield is applied by combat coroutine delays; no animation-event retiming performed.",
+    "8frame attack key pose nearframe5 is a visual proposal, not a new combat timing rule."
+  ],
+  "normalization": {
+    "cell": [
+      384,
+      512
+    ],
+    "grid": [
+      4,
+      2
+    ],
+    "baseline": 500,
+    "source_pixels_redrawn": false,
+    "method": "connected neutral-background mask, conservative internal checker detection, eight components, per-character common nearest-neighbor scale and foot anchor",
+    "characters": {
+      "caster": {
+        "scale": 0.9121577146169172,
+        "pivot_x": 134,
+        "baseline_y": 500,
+        "reference_idle_height": 414.0
+      },
+      "defender": {
+        "scale": 0.963076923076923,
+        "pivot_x": 198,
+        "baseline_y": 500,
+        "reference_idle_height": 313.0
+      },
+      "goblin": {
+        "scale": 0.9350930328040394,
+        "pivot_x": 243,
+        "baseline_y": 500,
+        "reference_idle_height": 354.0
+      },
+      "offender": {
+        "scale": 0.8870647121476573,
+        "pivot_x": 131,
+        "baseline_y": 500,
+        "reference_idle_height": 368.5
+      },
+      "priest": {
+        "scale": 0.9255874673629243,
+        "pivot_x": 152,
+        "baseline_y": 500,
+        "reference_idle_height": 354.5
+      },
+      "raider": {
+        "scale": 0.9546599496221663,
+        "pivot_x": 228,
+        "baseline_y": 500,
+        "reference_idle_height": 379.0
+      }
+    }
+  },
+  "postprocessing_status": "complete_for_review",
+  "validation": {
+    "sheets": 12,
+    "individual_frames": 96,
+    "all_rgba": true,
+    "alpha_values": [
+      0,
+      255
+    ],
+    "sheet_frame_pixel_match": true,
+    "raw_and_reference_hashes_unchanged": true,
+    "all_edge_alpha_zero": true,
+    "opaque_baseline_y": 500,
+    "minimum_margins_ltrb": [
+      12,
+      51,
+      12,
+      11
+    ],
+    "unique_frames_per_sequence": 8,
+    "independent_reader_pass": true,
+    "browser_all_12_normalized_loaded": true,
+    "browser_source_modes_and_3_background_modes_pass": true,
+    "unity_tested": false
+  },
+  "raw_preview_validation": {
+    "all_12_selections_loaded": true,
+    "manual_frame_8_reached": true,
+    "play_pause_frame_progression_observed": true,
+    "same_cycle_duration_comparison": true,
+    "normalization_done": false,
+    "note": "원본의 가짜 격자 배경과 기준선 차이가 남아 있으므로 투명 처리·최종 애니메이션 검증 완료로 보지 않는다."
+  },
+  "preview_validation": {
+    "normalization_done": true,
+    "all_12_normalized_selections_loaded": true,
+    "source_mode_and_background_combinations": 6,
+    "sprite_background_sizes_correct": true,
+    "play_pause_and_manual_frames_pass": true,
+    "same_cycle_duration_comparison": true,
+    "game_playtest": false
+  }
+}

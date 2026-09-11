@@ -1,0 +1,60 @@
+{
+  "date": "2026-09-09",
+  "generation": "Codex built-in image_gen",
+  "reference_image": "art/production/graphics-remake/style-anchors/Battle_Forest_StyleAnchor_v1.png",
+  "source_notion": "https://app.notion.com/p/3c06aef5baac8133a093dd0f57a043d4",
+  "source_last_edited": "2026-09-07T13:44:36.449Z",
+  "assets": [
+    {
+      "assetId": "OBS_TORN_BASKET",
+      "routeId": "R02-A",
+      "title": "찢어진 바구니",
+      "file": "art/production/graphics-remake/wave-b/clue-illustrations/2026-09-09/OBS_TORN_BASKET_v1.png",
+      "source_file": "/Users/seosangho/.codex/generated_images/01a07a09-295c-7462-8fd2-6bcc15031e5c/exec-1a289e11-9570-45a3-842d-b6620c14f471.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGB",
+      "sha256": "dd97142a6628ac282870fac21b6e8cc4db9fef3fb07598e8f64bb4a9ecc36312",
+      "required_features": "찢어진 바구니, 약초, 열매, 땔감",
+      "approval": "review_pending",
+      "unity_connected": false,
+      "prompt_key": "clue_OBS_TORN_BASKET_prompt"
+    },
+    {
+      "assetId": "OBS_STONE_EDGED_SLOPE",
+      "routeId": "R02-B",
+      "title": "돌을 둘러놓은 비탈",
+      "file": "art/production/graphics-remake/wave-b/clue-illustrations/2026-09-09/OBS_STONE_EDGED_SLOPE_v1.png",
+      "source_file": "/Users/seosangho/.codex/generated_images/01a07a09-295c-7462-8fd2-6bcc15031e5c/exec-759c1b02-0163-4318-9796-a7ae86026549.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGB",
+      "sha256": "07bbb35e8371be33b3c9fc3db9c3aa064ab5e730f4f8413e7c0230423a8daf1e",
+      "required_features": "낮은 돌테두리, 손질한 흙, 잡아맨 덩굴",
+      "approval": "review_pending",
+      "unity_connected": false,
+      "prompt_key": "clue_OBS_STONE_EDGED_SLOPE_prompt"
+    },
+    {
+      "assetId": "OBS_COVERED_ROCK_GAP",
+      "routeId": "R02-C",
+      "title": "나뭇가지로 덮은 바위 틈",
+      "file": "art/production/graphics-remake/wave-b/clue-illustrations/2026-09-09/OBS_COVERED_ROCK_GAP_v1.png",
+      "source_file": "/Users/seosangho/.codex/generated_images/01a07a09-295c-7462-8fd2-6bcc15031e5c/exec-f5e28023-f2e7-4180-9822-6f1f193c488f.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGB",
+      "sha256": "fe5d3da71e9341822e9e137f3a201a306f7e01759ec5dcd71e2f69ba74a884d7",
+      "required_features": "바위 틈의 구덩이, 마른 가지 덮개, 견과와 말린 과일이 든 자루",
+      "approval": "review_pending",
+      "unity_connected": false,
+      "prompt_key": "clue_OBS_COVERED_ROCK_GAP_prompt"
+    }
+  ],
+  "display_contract": "Same original for discovery caption and clue-detail view; central80% crop preview is CSS-only, not a duplicate asset.",
+  "remaining": [
+    "User visual approval",
+    "Final caption crop, detail view and text legibility in Unity",
+    "Approved RemakeV1 import/GUID/assetId routing and play inspection"
+  ]
+}
