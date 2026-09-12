@@ -898,14 +898,34 @@
 
     #inspector-expo-mockup .inspector-event-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 320px);
-      gap: clamp(34px, 6vw, 88px);
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.35fr);
+      gap: clamp(34px, 5vw, 72px);
       align-items: center;
     }
 
     #inspector-expo-mockup .inspector-event-copy,
     #inspector-expo-mockup .inspector-event-figure {
       min-width: 0;
+    }
+
+    #inspector-expo-mockup .inspector-event-art {
+      border: 1px solid var(--inspector-line-soft);
+      background: var(--inspector-bg-deep);
+    }
+
+    #inspector-expo-mockup .inspector-event-art img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    #inspector-expo-mockup .inspector-event-figure figcaption {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid var(--inspector-hair);
+      color: var(--inspector-muted);
+      font-size: 13px;
+      line-height: 1.6;
     }
 
     #inspector-expo-mockup .inspector-pending {
@@ -929,17 +949,6 @@
       font-size: 14px;
       letter-spacing: 0.02em;
       line-height: 1.6;
-    }
-
-    #inspector-expo-mockup .inspector-pending-plate {
-      display: flex;
-      align-items: flex-end;
-      width: min(100%, 320px);
-      aspect-ratio: 4 / 5;
-      padding: 20px;
-      background:
-        linear-gradient(rgb(11 13 17 / 0.84), rgb(11 13 17 / 0.94)),
-        url("assets/forest-scene.webp") center / cover no-repeat;
     }
 
     #inspector-expo-mockup .inspector-pending-band {
@@ -1224,7 +1233,6 @@
         margin: 14px 0 18px;
       }
 
-      #inspector-expo-mockup .inspector-event-figure,
       #inspector-expo-mockup .inspector-pending-band {
         margin-top: 34px;
       }
@@ -1517,11 +1525,10 @@
             <p class="inspector-section-intro" data-copy="eventBody" data-reveal>事件迫使調查員在情報、資源與風險之間做出選擇，並帶著結果繼續深入。</p>
           </div>
           <figure class="inspector-event-figure" data-reveal>
-            <div class="inspector-pending inspector-pending-plate" role="img" data-copy-aria="eventArtAlt" aria-label="EVT-01 專用插畫預定區域">
-              <span class="inspector-pending-mark" aria-hidden="true"></span>
-              <span class="inspector-pending-text" data-copy="eventArtPlaceholder">EVT-01 專用插畫預定</span>
+            <div class="inspector-event-art inspector-frame">
+              <img src="assets/event-cold-camp.webp" width="1400" height="788" loading="lazy" decoding="async" data-copy-alt="eventArtAlt" alt="森林峽谷營地中的營火灰燼與遺留工具">
             </div>
-            <figcaption data-copy="eventArtCaption">正式版本將替換為 EVT-01 插畫。</figcaption>
+            <figcaption data-copy="eventArtCaption">事件插畫 · 冷清的營地</figcaption>
           </figure>
         </div>
       </section>
@@ -1655,9 +1662,8 @@
           eventKicker: "04 · 事件抉擇",
           eventTitle: "每次探索都要取捨",
           eventBody: "事件迫使調查員在情報、資源與風險之間做出選擇，並帶著結果繼續深入。",
-          eventArtAlt: "EVT-01 專用插畫預定區域",
-          eventArtPlaceholder: "EVT-01 專用插畫預定",
-          eventArtCaption: "正式版本將替換為 EVT-01 插畫。",
+          eventArtAlt: "森林峽谷營地中的營火灰燼與遺留工具",
+          eventArtCaption: "事件插畫 · 冷清的營地",
           videoKicker: "05 · 核心玩法",
           videoTitle: "用 30 秒看見核心玩法",
           videoBody: "正式頁面將依序呈現卡牌輸入、自動戰鬥、事件選擇與收割者概念畫面。",
@@ -1733,9 +1739,8 @@
           eventKicker: "04 · Events",
           eventTitle: "Every expedition demands a choice",
           eventBody: "Events force the Investigator to weigh information, resources, and risk, then carry the result deeper into the rift.",
-          eventArtAlt: "Reserved area for the EVT-01 illustration",
-          eventArtPlaceholder: "EVT-01 illustration coming soon",
-          eventArtCaption: "The final version will use the EVT-01 illustration.",
+          eventArtAlt: "Campfire ashes and tools left at a campsite in a forest gorge",
+          eventArtCaption: "Event illustration · A Cold Campsite",
           videoKicker: "05 · Preview",
           videoTitle: "See the core loop in 30 seconds",
           videoBody: "The final page will show card input, automatic combat, an event choice, and the Reaper concept in sequence.",
@@ -1811,9 +1816,8 @@
           eventKicker: "04 · 사건과 선택",
           eventTitle: "탐사마다 선택의 대가가 따른다",
           eventBody: "사건은 정보, 자원, 위험 사이의 선택을 요구합니다. 조사관은 그 결과를 안고 균열 안쪽으로 나아갑니다.",
-          eventArtAlt: "EVT-01 전용 삽화가 들어갈 예정 영역",
-          eventArtPlaceholder: "EVT-01 전용 삽화 배치 예정",
-          eventArtCaption: "정식 페이지에서는 EVT-01 삽화로 교체합니다.",
+          eventArtAlt: "숲속 협곡의 야영지에 남은 모닥불 재와 도구",
+          eventArtCaption: "사건 삽화 · 식어 있는 야영지",
           videoKicker: "05 · 핵심 플레이",
           videoTitle: "30초로 보는 핵심 플레이",
           videoBody: "정식 페이지에서는 카드 사용, 자동 전투, 사건 선택, 거두는 자 콘셉트를 순서대로 보여 줍니다.",
