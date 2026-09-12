@@ -13,11 +13,17 @@
   <meta property="og:locale" content="zh_TW">
   <meta property="og:locale:alternate" content="en_US">
   <meta property="og:locale:alternate" content="ko_KR">
+  <meta property="og:image" content="https://davi-dev.uk/assets/og-cover.webp">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="調查隊與怪異在森林戰場對峙的開發中概念視覺">
+  <meta name="twitter:card" content="summary_large_image">
   <title>怪異探查局 · INSPECTOR</title>
   <link rel="icon" type="image/svg+xml" href="./favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     html {
       color-scheme: dark;
@@ -43,6 +49,8 @@
       --inspector-hair: rgb(195 154 82 / 0.24);
       --inspector-title-tracking: -0.02em;
       --inspector-title-leading: 1.08;
+      --inspector-label-tracking: 0.14em;
+      --inspector-label-tracking-wide: 0.2em;
       --inspector-brass: #c39a52;
       --inspector-brass-soft: #8d6c36;
       --inspector-text: #e6e0d6;
@@ -68,6 +76,8 @@
     #inspector-expo-mockup:lang(zh-Hant) {
       --inspector-title-tracking: 0;
       --inspector-title-leading: 1.26;
+      --inspector-label-tracking: 0.01em;
+      --inspector-label-tracking-wide: 0.01em;
     }
 
     #inspector-expo-mockup:lang(ko) {
@@ -123,6 +133,7 @@
     }
 
     #inspector-expo-mockup .inspector-language {
+      width: 112px;
       min-height: 44px;
       color: var(--inspector-text);
       background: var(--inspector-bg-soft);
@@ -180,7 +191,7 @@
       font-family: var(--inspector-font-mono);
       font-size: 13px;
       font-weight: 500;
-      letter-spacing: 0.2em;
+      letter-spacing: var(--inspector-label-tracking-wide);
       text-transform: uppercase;
     }
 
@@ -249,7 +260,7 @@
       color: var(--inspector-dim);
       font-family: var(--inspector-font-mono);
       font-size: 12px;
-      letter-spacing: 0.14em;
+      letter-spacing: var(--inspector-label-tracking);
       text-transform: uppercase;
       line-height: 1.9;
     }
@@ -997,7 +1008,7 @@
       font-family: var(--inspector-font-mono);
       font-size: 12px;
       font-weight: 500;
-      letter-spacing: 0.14em;
+      letter-spacing: var(--inspector-label-tracking);
       text-transform: uppercase;
       line-height: 2;
     }
@@ -1011,7 +1022,20 @@
       justify-content: space-between;
       gap: 20px;
       flex-wrap: wrap;
+      align-items: center;
       font-size: 13px;
+    }
+
+    #inspector-expo-mockup .inspector-footer-contact {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 44px;
+      min-height: 44px;
+      padding: 0 8px;
+      color: var(--inspector-brass);
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
     #inspector-expo-mockup .inspector-copy-layer {
@@ -1060,7 +1084,7 @@
       font-family: var(--inspector-font-mono);
       font-size: 13px;
       font-weight: 500;
-      letter-spacing: 0.14em;
+      letter-spacing: var(--inspector-label-tracking);
       text-transform: uppercase;
     }
 
@@ -1464,7 +1488,7 @@
           </div>
           <figure class="inspector-reaper" data-reveal>
             <div class="inspector-reaper-plate inspector-frame">
-              <img src="assets/reaper-scene.webp" data-copy-alt="reaperAlt" alt="調查隊在木石祭壇前與收割者對峙">
+              <img src="assets/reaper-scene.webp" loading="lazy" width="420" height="630" data-copy-alt="reaperAlt" alt="調查隊在木石祭壇前與收割者對峙">
             </div>
             <figcaption data-copy="reaperLabel">收割者</figcaption>
           </figure>
@@ -1538,6 +1562,7 @@
         <footer class="inspector-shell inspector-footer">
           <span data-copy="footerLeft">怪異探查局 2026</span>
           <span data-copy="footerRight">由 Team 578 開發中</span>
+          <a class="inspector-footer-contact" href="mailto:hirasawa224@gmail.com" data-copy="footerContact">聯絡</a>
         </footer>
       </section>
     </main>
@@ -1549,6 +1574,27 @@
       const select = document.getElementById("inspector-language-select");
       const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       root.classList.add("inspector-js");
+      const languageStorageKey = "inspector-landing-language";
+      const supportedLanguages = new Set(["zh", "en", "ko"]);
+      const getInitialLanguage = () => {
+        try {
+          const savedLanguage = localStorage.getItem(languageStorageKey);
+          if (supportedLanguages.has(savedLanguage)) return savedLanguage;
+        } catch {
+          // Language selection remains available when browser storage is blocked.
+        }
+        const browserLanguages = typeof navigator === "undefined" ? []
+          : Array.isArray(navigator.languages) ? navigator.languages : [navigator.language];
+        for (const tag of browserLanguages) {
+          if (typeof tag !== "string") continue;
+          const language = tag.toLowerCase();
+          if (["zh-tw", "zh-hant", "zh-hk"].some(prefix => language.startsWith(prefix))) return "zh";
+          if (language.startsWith("ko")) return "ko";
+          if (language.startsWith("en")) return "en";
+        }
+        return "zh";
+      };
+
       const copy = {
         zh: {
           lang: "zh-Hant",
@@ -1572,8 +1618,6 @@
           flowStepTwoBody: "全隊共用同一組角色資源。",
           flowStepThree: "同伴行動",
           flowStepThreeBody: "自動戰鬥讓每次選擇留下結果。",
-          casterActionAlt: "元素術士基本動作預覽",
-          goblinActionAlt: "哥布林基本動作預覽",
           casterActionLabel: "元素術士行動序列",
           goblinActionLabel: "哥布林行動序列",
           idleMotion: "待機",
@@ -1597,10 +1641,6 @@
           nextCompanion: "下一位",
           currentCompanion: "目前顯示",
           companionSlideAria: "{name}，第 {current} 位，共 {total} 位",
-          defenderAlt: "手持盾牌與短矛的封鎖兵",
-          casterAlt: "戴著面具並持有觀測杖的元素術士",
-          offenderAlt: "手持狩獵長槍的追獵者",
-          priestAlt: "攜帶治療工具的治療師",
           defenderRole: "封鎖兵",
           casterRole: "元素術士",
           offenderRole: "追獵者",
@@ -1609,8 +1649,6 @@
           encounterTitle: "怪異正在回望",
           encounterBody: "哥布林、掠奪者與收割者只是目前公開的威脅，其餘紀錄仍等待調查員確認。",
           reaperAlt: "調查隊在木石祭壇前與收割者對峙",
-          goblinAlt: "壓低姿勢並持有短刃的哥布林",
-          raiderAlt: "遮住面孔並持有單手斧的掠奪者",
           reaperLabel: "收割者",
           goblinLabel: "哥布林",
           raiderLabel: "掠奪者",
@@ -1633,7 +1671,8 @@
           statusLabel: "狀態",
           statusValue: "開發中",
           footerLeft: "怪異探查局 2026",
-          footerRight: "由 Team 578 開發中"
+          footerRight: "由 Team 578 開發中",
+          footerContact: "聯絡"
         },
         en: {
           lang: "en",
@@ -1657,8 +1696,6 @@
           flowStepTwoBody: "The whole formation shares the same resources.",
           flowStepThree: "Companions act",
           flowStepThreeBody: "Automatic combat makes every choice leave a result.",
-          casterActionAlt: "Elementalist basic action preview",
-          goblinActionAlt: "Goblin basic action preview",
           casterActionLabel: "Elementalist action sequence",
           goblinActionLabel: "Goblin action sequence",
           idleMotion: "Idle",
@@ -1682,10 +1719,6 @@
           nextCompanion: "Next",
           currentCompanion: "Showing",
           companionSlideAria: "{name}, slide {current} of {total}",
-          defenderAlt: "Blockade Soldier carrying a shield and short spear",
-          casterAlt: "Masked Elementalist carrying an observation staff",
-          offenderAlt: "Executioner carrying a practical hunting spear",
-          priestAlt: "Healer carrying field treatment tools",
           defenderRole: "Blockade Soldier",
           casterRole: "Elementalist",
           offenderRole: "Executioner",
@@ -1694,8 +1727,6 @@
           encounterTitle: "The unknown looks back",
           encounterBody: "Goblins, Raiders, and the Reaper are only the threats revealed so far. The remaining records await the Investigator.",
           reaperAlt: "Investigation team confronting the Reaper before a timber and stone altar",
-          goblinAlt: "Low-crouched Goblin holding a short blade",
-          raiderAlt: "Hooded Raider holding a one-handed axe",
           reaperLabel: "The Reaper",
           goblinLabel: "Goblin",
           raiderLabel: "Raider",
@@ -1718,7 +1749,8 @@
           statusLabel: "Status",
           statusValue: "In development",
           footerLeft: "INSPECTOR 2026",
-          footerRight: "In development by Team 578"
+          footerRight: "In development by Team 578",
+          footerContact: "Contact"
         },
         ko: {
           lang: "ko",
@@ -1742,8 +1774,6 @@
           flowStepTwoBody: "모든 동료가 같은 자원을 공유합니다.",
           flowStepThree: "동료 행동",
           flowStepThreeBody: "자동 전투에서는 모든 선택이 결과로 이어집니다.",
-          casterActionAlt: "원소술사 기본 동작 미리보기",
-          goblinActionAlt: "고블린 기본 동작 미리보기",
           casterActionLabel: "원소술사 동작 흐름",
           goblinActionLabel: "고블린 동작 흐름",
           idleMotion: "대기",
@@ -1767,10 +1797,6 @@
           nextCompanion: "다음",
           currentCompanion: "현재 동료",
           companionSlideAria: "{name}, 전체 {total}명 중 {current}번째",
-          defenderAlt: "방패와 짧은 창을 든 봉쇄병",
-          casterAlt: "가면과 관측봉을 지닌 원소술사",
-          offenderAlt: "실용적인 사냥창을 든 척살자",
-          priestAlt: "현장 치료 도구를 든 치유사",
           defenderRole: "봉쇄병",
           casterRole: "원소술사",
           offenderRole: "척살자",
@@ -1779,8 +1805,6 @@
           encounterTitle: "괴이가 이쪽을 바라본다",
           encounterBody: "고블린과 약탈자, 거두는 자는 현재 공개된 위협의 일부입니다. 나머지 기록은 조사관의 확인을 기다립니다.",
           reaperAlt: "석재 제단 앞에서 거두는 자와 대치하는 조사대",
-          goblinAlt: "낮은 자세로 단검을 든 고블린",
-          raiderAlt: "두건으로 얼굴을 가리고 한 손 도끼를 든 약탈자",
           reaperLabel: "거두는 자",
           goblinLabel: "고블린",
           raiderLabel: "약탈자",
@@ -1803,7 +1827,8 @@
           statusLabel: "상태",
           statusValue: "개발 중",
           footerLeft: "괴이탐사국 2026",
-          footerRight: "팀 578에서 개발 중"
+          footerRight: "팀 578에서 개발 중",
+          footerContact: "문의"
         }
       };
 
@@ -1993,6 +2018,11 @@
       };
 
       select.addEventListener("change", () => {
+        try {
+          localStorage.setItem(languageStorageKey, select.value);
+        } catch {
+          // A storage failure must not prevent the visible language change.
+        }
         root.classList.add("inspector-changing");
         window.setTimeout(() => {
           updateCopy(select.value);
@@ -2055,7 +2085,9 @@
         revealTargets.forEach((element) => element.classList.add("is-visible"));
       }
 
-      updateCopy("zh");
+      const initialLanguage = getInitialLanguage();
+      select.value = initialLanguage;
+      updateCopy(initialLanguage);
     })();
   </script>
 </div>
