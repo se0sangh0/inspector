@@ -1,0 +1,162 @@
+{
+  "format": "guitamsa.spritesheet/1",
+  "note": "Project-local format. No engine imports this directly.",
+  "name": "reaper_idle_float_v3_fringe",
+  "sheet": "reaper_idle_float_8f_v3_fringe.png",
+  "sheetSize": [
+    1536,
+    1024
+  ],
+  "cell": [
+    384,
+    512
+  ],
+  "cols": 4,
+  "rows": 2,
+  "margin": 0,
+  "spacing": 0,
+  "frameCount": 8,
+  "loop": true,
+  "totalDurationMs": 1600,
+  "sourceFrameFolder": "/Users/seosangho/Library/CloudStorage/GoogleDrive-hirasawa224@gmail.com/내 드라이브/괴이탐사국/괴이탐사국_깃허브/art/review/2026-09-13-reaper-animation/production-drafts/reaper/rgba_v3_fringe/frames",
+  "frames": [
+    {
+      "index": 0,
+      "file": "01.png",
+      "col": 0,
+      "row": 0,
+      "x": 0,
+      "y": 0,
+      "w": 384,
+      "h": 512,
+      "durationMs": 200,
+      "opaqueBBox": [
+        46,
+        55,
+        338,
+        459
+      ]
+    },
+    {
+      "index": 1,
+      "file": "02.png",
+      "col": 1,
+      "row": 0,
+      "x": 384,
+      "y": 0,
+      "w": 384,
+      "h": 512,
+      "durationMs": 200,
+      "opaqueBBox": [
+        46,
+        55,
+        339,
+        455
+      ]
+    },
+    {
+      "index": 2,
+      "file": "03.png",
+      "col": 2,
+      "row": 0,
+      "x": 768,
+      "y": 0,
+      "w": 384,
+      "h": 512,
+      "durationMs": 200,
+      "opaqueBBox": [
+        46,
+        55,
+        341,
+        445
+      ]
+    },
+    {
+      "index": 3,
+      "file": "04.png",
+      "col": 3,
+      "row": 0,
+      "x": 1152,
+      "y": 0,
+      "w": 384,
+      "h": 512,
+      "durationMs": 200,
+      "opaqueBBox": [
+        45,
+        53,
+        343,
+        446
+      ]
+    },
+    {
+      "index": 4,
+      "file": "05.png",
+      "col": 0,
+      "row": 1,
+      "x": 0,
+      "y": 512,
+      "w": 384,
+      "h": 512,
+      "durationMs": 200,
+      "opaqueBBox": [
+        45,
+        50,
+        345,
+        449
+      ]
+    },
+    {
+      "index": 5,
+      "file": "06.png",
+      "col": 1,
+      "row": 1,
+      "x": 384,
+      "y": 512,
+      "w": 384,
+      "h": 512,
+      "durationMs": 200,
+      "opaqueBBox": [
+        45,
+        49,
+        339,
+        449
+      ]
+    },
+    {
+      "index": 6,
+      "file": "07.png",
+      "col": 2,
+      "row": 1,
+      "x": 768,
+      "y": 512,
+      "w": 384,
+      "h": 512,
+      "durationMs": 200,
+      "opaqueBBox": [
+        45,
+        47,
+        339,
+        454
+      ]
+    },
+    {
+      "index": 7,
+      "file": "08.png",
+      "col": 3,
+      "row": 1,
+      "x": 1152,
+      "y": 512,
+      "w": 384,
+      "h": 512,
+      "durationMs": 200,
+      "opaqueBBox": [
+        45,
+        46,
+        339,
+        450
+      ]
+    }
+  ],
+  "emptyFrames": [],
+  "sheetSha256": "e4c203db2c93e80ec5d5ae9b146534665bba6fddb42ab58aa4fb1583233714ab"
+}

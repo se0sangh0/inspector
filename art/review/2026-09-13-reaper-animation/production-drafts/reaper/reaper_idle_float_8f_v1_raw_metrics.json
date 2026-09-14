@@ -1,0 +1,154 @@
+{
+  "status": "raw generation draft; not alpha-ready; visual animation review pending",
+  "generation": "built-in image_gen",
+  "sheet": "reaper_idle_float_8f_v1_raw.png",
+  "size": [
+    1536,
+    1024
+  ],
+  "mode": "RGB",
+  "alpha": false,
+  "cell": [
+    384,
+    512
+  ],
+  "grid": [
+    4,
+    2
+  ],
+  "frameCount": 8,
+  "uniqueRgbFrames": 8,
+  "reference": "reaper_anchor_v2_blade_left_raw.png",
+  "bladeDirection": "viewer-left, outward; character-right hand",
+  "note": "Bboxes are a rough min(R,G,B)<190 measurement on RGB, not alpha clipping proof. No background pixels were edited. Cell decomposition here was for read-only measurement only.",
+  "frames": [
+    {
+      "frame": 1,
+      "rgbSha256": "2174e73bc668286baaee123b5ad63706ac5ba113b55582b34aa16f431b9fba0a",
+      "darkPixelBbox": [
+        21,
+        19,
+        363,
+        494
+      ],
+      "darkPixelMargins": [
+        21,
+        19,
+        21,
+        18
+      ]
+    },
+    {
+      "frame": 2,
+      "rgbSha256": "97e14cb3b46abf2829bca467a3627aa70b58e9dea607c8dee70e2a3201d438d7",
+      "darkPixelBbox": [
+        21,
+        19,
+        364,
+        490
+      ],
+      "darkPixelMargins": [
+        21,
+        19,
+        20,
+        22
+      ]
+    },
+    {
+      "frame": 3,
+      "rgbSha256": "0f56450e12168a3726f9a6c69db8cca9c316799e014443cac52fe738d808d0aa",
+      "darkPixelBbox": [
+        21,
+        19,
+        367,
+        479
+      ],
+      "darkPixelMargins": [
+        21,
+        19,
+        17,
+        33
+      ]
+    },
+    {
+      "frame": 4,
+      "rgbSha256": "e4eac90cf3d6bcc3f2181dece489bca4aaa09a197f16df44af7f8a412c58d06c",
+      "darkPixelBbox": [
+        20,
+        18,
+        369,
+        479
+      ],
+      "darkPixelMargins": [
+        20,
+        18,
+        15,
+        33
+      ]
+    },
+    {
+      "frame": 5,
+      "rgbSha256": "f9123c35cd366d1a93e3fcc4df12c9911608511d06054ef01814242714bf6b9e",
+      "darkPixelBbox": [
+        20,
+        14,
+        372,
+        482
+      ],
+      "darkPixelMargins": [
+        20,
+        14,
+        12,
+        30
+      ]
+    },
+    {
+      "frame": 6,
+      "rgbSha256": "6d2b990f626f35abf74341b4717939c3526ec74fe042d1654dedc0708d5095e0",
+      "darkPixelBbox": [
+        18,
+        13,
+        366,
+        482
+      ],
+      "darkPixelMargins": [
+        18,
+        13,
+        18,
+        30
+      ]
+    },
+    {
+      "frame": 7,
+      "rgbSha256": "2cf62972fb42c2f127b7bc6c9a93f6520e05f0f4c67d2a9e23e4981ddf7ba5ff",
+      "darkPixelBbox": [
+        18,
+        11,
+        365,
+        488
+      ],
+      "darkPixelMargins": [
+        18,
+        11,
+        19,
+        24
+      ]
+    },
+    {
+      "frame": 8,
+      "rgbSha256": "b30a602766ed649988ff3781c44e2da9baa864cdc5c0c4ab8a7285a15186b20d",
+      "darkPixelBbox": [
+        18,
+        10,
+        365,
+        484
+      ],
+      "darkPixelMargins": [
+        18,
+        10,
+        19,
+        28
+      ]
+    }
+  ]
+}

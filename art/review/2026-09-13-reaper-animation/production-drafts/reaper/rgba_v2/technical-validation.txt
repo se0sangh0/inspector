@@ -1,0 +1,14 @@
+sheet  /Users/seosangho/Library/CloudStorage/GoogleDrive-hirasawa224@gmail.com/내 드라이브/괴이탐사국/괴이탐사국_깃허브/art/review/2026-09-13-reaper-animation/production-drafts/reaper/rgba_v2/reaper_idle_float_8f_v2.png  1536x1024  4x2 cells
+json   /Users/seosangho/Library/CloudStorage/GoogleDrive-hirasawa224@gmail.com/내 드라이브/괴이탐사국/괴이탐사국_깃허브/art/review/2026-09-13-reaper-animation/production-drafts/reaper/rgba_v2/reaper_idle_float_8f_v2.json  8 frames  1600 ms total
+PASS  metadata parses as JSON
+PASS  metadata carries all required keys (7)
+PASS  sheet opens (reaper_idle_float_8f_v2.png)
+PASS  sheet size matches JSON (1536x1024)
+PASS  RGBA with a real alpha channel (min 0, max 255)
+PASS  cell geometry consistent (4x2 cells of 384x512)
+PASS  frameCount matches the frames list (8)
+PASS  durations are positive and sum to 1600 ms
+PASS  sheetSha256 matches the sheet on disk
+PASS  every sheet region is byte-identical to its source frame (8)
+
+10 passed, 0 failed, 0 skipped

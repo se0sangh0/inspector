@@ -1,0 +1,271 @@
+{
+  "status": "partial positional correction candidate; independent visual review pending",
+  "authorization": "User explicitly approved moving only the existing upper-scythe pixels on 2026-09-14",
+  "sourceVersion": "rgba_v3_fringe",
+  "method": "Translate existing blade/binding pixels; nearest-neighbour resample original plain-wood rows y125..141 to join unchanged shaft at y142. All y>=142 pixels including hands/body/robe/lower pole preserved exactly. No new colours or new pose generation.",
+  "grid": [
+    4,
+    2
+  ],
+  "cell": [
+    384,
+    512
+  ],
+  "frameCount": 8,
+  "durationMs": 200,
+  "loop": true,
+  "scytheDirection": "viewer-left outward; character-right hand",
+  "plainWoodSourceInterval": [
+    125,
+    142
+  ],
+  "sourceTipStepsIncludingLoop": [
+    0.0,
+    0.0,
+    -1.5,
+    -3.5,
+    -1.0,
+    -1.0,
+    -2.0,
+    9.0
+  ],
+  "correctedTipStepsIncludingLoop": [
+    -3.0,
+    -4.0,
+    -3.5,
+    1.5,
+    2.0,
+    4.0,
+    0.0,
+    3.0
+  ],
+  "sourceLoopTipJump": 9.0,
+  "correctedLoopTipJump": 3.0,
+  "maximumCorrectedTipVsHandDeviation": 2.0,
+  "frames": [
+    {
+      "frame": 1,
+      "upperWeaponShiftY": 0,
+      "sourceSha256": "324637e9badc1da03a93b9b6939bdd445aa2c5f19c35ed74f4cc11aa2b08bbeb",
+      "sourceTip": {
+        "x": 46,
+        "y": 78.0
+      },
+      "correctedTip": {
+        "x": 46,
+        "y": 78.0
+      },
+      "handMotionY_fromPriorIndependentReview": 0,
+      "changedPixelCount": 0,
+      "sourceWeaponPixelCount": 3314,
+      "bodyHandsLowerPoleBytePreserved": true,
+      "allOpaquePixelsOutsideWeaponPreserved": true,
+      "bladePixelsRigidTranslationVerified": true,
+      "alphaBBox": [
+        46,
+        55,
+        338,
+        459
+      ],
+      "sourceTipVsHandOffset": 0.0,
+      "correctedTipVsHandOffset": 0.0,
+      "sha256": "324637e9badc1da03a93b9b6939bdd445aa2c5f19c35ed74f4cc11aa2b08bbeb"
+    },
+    {
+      "frame": 2,
+      "upperWeaponShiftY": -3,
+      "sourceSha256": "dd6ceaef24d19df50417be6a07bed02a23f63ac9c278dca0e7ff2272ed45954b",
+      "sourceTip": {
+        "x": 46,
+        "y": 78.0
+      },
+      "correctedTip": {
+        "x": 46,
+        "y": 75.0
+      },
+      "handMotionY_fromPriorIndependentReview": -3,
+      "changedPixelCount": 3777,
+      "sourceWeaponPixelCount": 3318,
+      "bodyHandsLowerPoleBytePreserved": true,
+      "allOpaquePixelsOutsideWeaponPreserved": true,
+      "bladePixelsRigidTranslationVerified": true,
+      "alphaBBox": [
+        46,
+        52,
+        339,
+        455
+      ],
+      "sourceTipVsHandOffset": 3.0,
+      "correctedTipVsHandOffset": 0.0,
+      "sha256": "65fa92c4581006227c0d6c38f6b97dfe9c5d8d5fa87e85dc50c8cfd87fe767d0"
+    },
+    {
+      "frame": 3,
+      "upperWeaponShiftY": -7,
+      "sourceSha256": "98c6aa34c56ff3746a4b836d6c77e2e0c8d1411ec260b30b988860e5bca4c451",
+      "sourceTip": {
+        "x": 46,
+        "y": 78.0
+      },
+      "correctedTip": {
+        "x": 46,
+        "y": 71.0
+      },
+      "handMotionY_fromPriorIndependentReview": -7,
+      "changedPixelCount": 4356,
+      "sourceWeaponPixelCount": 3307,
+      "bodyHandsLowerPoleBytePreserved": true,
+      "allOpaquePixelsOutsideWeaponPreserved": true,
+      "bladePixelsRigidTranslationVerified": true,
+      "alphaBBox": [
+        46,
+        48,
+        341,
+        445
+      ],
+      "sourceTipVsHandOffset": 7.0,
+      "correctedTipVsHandOffset": 0.0,
+      "sha256": "814a6d995d85637bc1697d9feb0e340e21815526574c5f848d40a35a2752146a"
+    },
+    {
+      "frame": 4,
+      "upperWeaponShiftY": -9,
+      "sourceSha256": "3422f2622efbb6aae489d68f9af9dc04e9dc5e0f8028012521071884cc6588f7",
+      "sourceTip": {
+        "x": 45,
+        "y": 76.5
+      },
+      "correctedTip": {
+        "x": 45,
+        "y": 67.5
+      },
+      "handMotionY_fromPriorIndependentReview": -10,
+      "changedPixelCount": 4655,
+      "sourceWeaponPixelCount": 3345,
+      "bodyHandsLowerPoleBytePreserved": true,
+      "allOpaquePixelsOutsideWeaponPreserved": true,
+      "bladePixelsRigidTranslationVerified": true,
+      "alphaBBox": [
+        45,
+        44,
+        343,
+        446
+      ],
+      "sourceTipVsHandOffset": 8.5,
+      "correctedTipVsHandOffset": -0.5,
+      "sha256": "3ec5e0037d31cef40924d249e23f2873c7c5bb9fbf40e6ba0bdd7ff3305f61b9"
+    },
+    {
+      "frame": 5,
+      "upperWeaponShiftY": -4,
+      "sourceSha256": "778ead4a1c4314fb83c1e85ed08258314d0f2a39e597dc1ce5ecbd1e176115a3",
+      "sourceTip": {
+        "x": 45,
+        "y": 73.0
+      },
+      "correctedTip": {
+        "x": 45,
+        "y": 69.0
+      },
+      "handMotionY_fromPriorIndependentReview": -8,
+      "changedPixelCount": 4017,
+      "sourceWeaponPixelCount": 3408,
+      "bodyHandsLowerPoleBytePreserved": true,
+      "allOpaquePixelsOutsideWeaponPreserved": true,
+      "bladePixelsRigidTranslationVerified": true,
+      "alphaBBox": [
+        45,
+        46,
+        345,
+        449
+      ],
+      "sourceTipVsHandOffset": 3.0,
+      "correctedTipVsHandOffset": -1.0,
+      "sha256": "4b88dbd9b5263ca5a5ecd8cfff77c60c2ff101934fb190cdbee28773357ed380"
+    },
+    {
+      "frame": 6,
+      "upperWeaponShiftY": -1,
+      "sourceSha256": "bfe7fec351231eb43c3bfbbdc263352c3315c814aeb869dfafb100e8ba188ad4",
+      "sourceTip": {
+        "x": 45,
+        "y": 72.0
+      },
+      "correctedTip": {
+        "x": 45,
+        "y": 71.0
+      },
+      "handMotionY_fromPriorIndependentReview": -5,
+      "changedPixelCount": 3528,
+      "sourceWeaponPixelCount": 3477,
+      "bodyHandsLowerPoleBytePreserved": true,
+      "allOpaquePixelsOutsideWeaponPreserved": true,
+      "bladePixelsRigidTranslationVerified": true,
+      "alphaBBox": [
+        45,
+        48,
+        339,
+        449
+      ],
+      "sourceTipVsHandOffset": -1.0,
+      "correctedTipVsHandOffset": -2.0,
+      "sha256": "28d7167a1fcc73976e2a284982e59701e38f0988b7934cfe3d7da2a0efd37c50"
+    },
+    {
+      "frame": 7,
+      "upperWeaponShiftY": 4,
+      "sourceSha256": "a525000621de6d0252761325791cff8261fba24d1bb27a78c4408410ba386e66",
+      "sourceTip": {
+        "x": 45,
+        "y": 71.0
+      },
+      "correctedTip": {
+        "x": 45,
+        "y": 75.0
+      },
+      "handMotionY_fromPriorIndependentReview": -2,
+      "changedPixelCount": 4102,
+      "sourceWeaponPixelCount": 3532,
+      "bodyHandsLowerPoleBytePreserved": true,
+      "allOpaquePixelsOutsideWeaponPreserved": true,
+      "bladePixelsRigidTranslationVerified": true,
+      "alphaBBox": [
+        45,
+        51,
+        339,
+        454
+      ],
+      "sourceTipVsHandOffset": -5.0,
+      "correctedTipVsHandOffset": -1.0,
+      "sha256": "a5f4a600ae8681cc9d5aba90ded6abfbebcc12a87d5f8b4d32240ddfcef3dd41"
+    },
+    {
+      "frame": 8,
+      "upperWeaponShiftY": 6,
+      "sourceSha256": "3c1b4f5fc095af15ef3eb6484bb16ebbf3831a93c7ed5e1fcb8453b073043e9f",
+      "sourceTip": {
+        "x": 45,
+        "y": 69.0
+      },
+      "correctedTip": {
+        "x": 45,
+        "y": 75.0
+      },
+      "handMotionY_fromPriorIndependentReview": -1,
+      "changedPixelCount": 4393,
+      "sourceWeaponPixelCount": 3545,
+      "bodyHandsLowerPoleBytePreserved": true,
+      "allOpaquePixelsOutsideWeaponPreserved": true,
+      "bladePixelsRigidTranslationVerified": true,
+      "alphaBBox": [
+        45,
+        52,
+        339,
+        450
+      ],
+      "sourceTipVsHandOffset": -8.0,
+      "correctedTipVsHandOffset": -2.0,
+      "sha256": "98e1ee18c67d11669899f84d3d368e6c546082340f94f77087aed92efba8980c"
+    }
+  ]
+}

@@ -1,0 +1,213 @@
+{
+  "status": "technical checks passed; visual loop review pending; not user approved or integrated",
+  "source": "reaper_idle_float_8f_v1_raw.png",
+  "sourceSha256": "65fd922ba65f611c13e96d44fc1371dc1d1ab760bd1e759a9ac299f82a19c475",
+  "method": "Reused normalize_sheets.extract (no main call); preserved original positions within each cell; one shared nearest-neighbour affine scale and translation; no foot alignment for floating character.",
+  "postprocessingAuthorization": "User explicitly approved existing postprocessing tools for transparent PNG conversion.",
+  "scale": 0.8522727272727273,
+  "offset": [
+    28.363636363636374,
+    37.81818181818181
+  ],
+  "cell": [
+    384,
+    512
+  ],
+  "loop": true,
+  "frameDurationMs": 200,
+  "pixelRedrawing": false,
+  "backgroundExtraction": {
+    "key_chroma": 16,
+    "key_luminance": 100,
+    "enclosed_bg_regions": [],
+    "ignored_island_pixels": 0
+  },
+  "frameCount": 8,
+  "uniqueFrames": 8,
+  "frames": [
+    {
+      "frame": 1,
+      "file": "01.png",
+      "sourceBox": [
+        21,
+        20,
+        363,
+        494
+      ],
+      "alphaBBox": [
+        46,
+        55,
+        338,
+        459
+      ],
+      "margins": [
+        46,
+        55,
+        46,
+        53
+      ],
+      "sha256": "1e1f7d8713d8ff3ecc182bfb160167c6ba2323d870d327df6d6bef726b338cf7"
+    },
+    {
+      "frame": 2,
+      "file": "02.png",
+      "sourceBox": [
+        405,
+        20,
+        749,
+        489
+      ],
+      "alphaBBox": [
+        46,
+        55,
+        339,
+        455
+      ],
+      "margins": [
+        46,
+        55,
+        45,
+        57
+      ],
+      "sha256": "69cdbcf33216ac85c95f2a51d9cf66c83b9550df58b4e41dae62160cd0433471"
+    },
+    {
+      "frame": 3,
+      "file": "03.png",
+      "sourceBox": [
+        789,
+        20,
+        1135,
+        478
+      ],
+      "alphaBBox": [
+        46,
+        55,
+        341,
+        445
+      ],
+      "margins": [
+        46,
+        55,
+        43,
+        67
+      ],
+      "sha256": "92e1389c9d1d7ae603fcca530c64e857a33283ba079033d087217d23350eb360"
+    },
+    {
+      "frame": 4,
+      "file": "04.png",
+      "sourceBox": [
+        1172,
+        18,
+        1521,
+        479
+      ],
+      "alphaBBox": [
+        45,
+        53,
+        343,
+        446
+      ],
+      "margins": [
+        45,
+        53,
+        41,
+        66
+      ],
+      "sha256": "506ed02d2563e27f1ae3a9ce1efe510fd8c2d7887e4e0a02f0351981eca57e90"
+    },
+    {
+      "frame": 5,
+      "file": "05.png",
+      "sourceBox": [
+        20,
+        526,
+        372,
+        994
+      ],
+      "alphaBBox": [
+        45,
+        50,
+        345,
+        449
+      ],
+      "margins": [
+        45,
+        50,
+        39,
+        63
+      ],
+      "sha256": "ebe466f1c5772b14fca882147754f2dec39eefcdb602d98ecc987ccf14479fd9"
+    },
+    {
+      "frame": 6,
+      "file": "06.png",
+      "sourceBox": [
+        403,
+        525,
+        749,
+        994
+      ],
+      "alphaBBox": [
+        45,
+        49,
+        339,
+        449
+      ],
+      "margins": [
+        45,
+        49,
+        45,
+        63
+      ],
+      "sha256": "290c9702f80c45d5b56602e27946c56367a5a4845673d17231c4ea62f97b0ae2"
+    },
+    {
+      "frame": 7,
+      "file": "07.png",
+      "sourceBox": [
+        787,
+        523,
+        1132,
+        1000
+      ],
+      "alphaBBox": [
+        45,
+        47,
+        339,
+        454
+      ],
+      "margins": [
+        45,
+        47,
+        45,
+        58
+      ],
+      "sha256": "c15fa67edc665b7e5738cf3f57733830469d13145904ca621f631b2fb5151366"
+    },
+    {
+      "frame": 8,
+      "file": "08.png",
+      "sourceBox": [
+        1171,
+        522,
+        1517,
+        996
+      ],
+      "alphaBBox": [
+        45,
+        46,
+        339,
+        450
+      ],
+      "margins": [
+        45,
+        46,
+        45,
+        62
+      ],
+      "sha256": "709d8dcef70e8556346bd2476a3e193f37e673a60068e616584ace2e948d717e"
+    }
+  ]
+}

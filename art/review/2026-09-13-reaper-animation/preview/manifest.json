@@ -1,0 +1,420 @@
+{
+  "format": "guitamsa.previewmanifest/1",
+  "note": "Preview-page input only. Not an engine import format.",
+  "cell": [
+    384,
+    512
+  ],
+  "animations": [
+    {
+      "id": "caster_attack_8f_384x512x8_v1",
+      "label": "caster attack 8f 384x512x8 v1",
+      "sheet": "../../../production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/caster_attack_8f_384x512x8_v1.png",
+      "cell": [
+        384,
+        512
+      ],
+      "cols": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "loop": false,
+      "hasAlpha": true,
+      "pivot": [
+        134,
+        500
+      ],
+      "pivotSource": "measured",
+      "durations": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "status": "기술 검수 통과 · 검수 통과 후보"
+    },
+    {
+      "id": "caster_idle_8f_384x512x8_v1",
+      "label": "caster idle 8f 384x512x8 v1",
+      "sheet": "../../../production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/caster_idle_8f_384x512x8_v1.png",
+      "cell": [
+        384,
+        512
+      ],
+      "cols": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "loop": true,
+      "hasAlpha": true,
+      "pivot": [
+        134,
+        500
+      ],
+      "pivotSource": "measured",
+      "durations": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "status": "기술 검수 통과 · 검수 통과 후보"
+    },
+    {
+      "id": "defender_attack_8f_384x512x8_v1",
+      "label": "defender attack 8f 384x512x8 v1",
+      "sheet": "../../../production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/defender_attack_8f_384x512x8_v1.png",
+      "cell": [
+        384,
+        512
+      ],
+      "cols": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "loop": false,
+      "hasAlpha": true,
+      "pivot": [
+        198,
+        500
+      ],
+      "pivotSource": "measured",
+      "durations": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "status": "기술 검수 통과 · 판단 보류 — 동작 가독성"
+    },
+    {
+      "id": "defender_idle_8f_384x512x8_v1",
+      "label": "defender idle 8f 384x512x8 v1",
+      "sheet": "../../../production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/defender_idle_8f_384x512x8_v1.png",
+      "cell": [
+        384,
+        512
+      ],
+      "cols": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "loop": true,
+      "hasAlpha": true,
+      "pivot": [
+        198,
+        500
+      ],
+      "pivotSource": "measured",
+      "durations": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "status": "기술 검수 통과 · 검수 통과 후보"
+    },
+    {
+      "id": "goblin_attack_8f_384x512x8_v1",
+      "label": "goblin attack 8f 384x512x8 v1",
+      "sheet": "../../../production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/goblin_attack_8f_384x512x8_v1.png",
+      "cell": [
+        384,
+        512
+      ],
+      "cols": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "loop": false,
+      "hasAlpha": true,
+      "pivot": [
+        243,
+        500
+      ],
+      "pivotSource": "measured",
+      "durations": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "status": "기술 검수 통과 · 검수 통과 후보"
+    },
+    {
+      "id": "goblin_idle_8f_384x512x8_v1",
+      "label": "goblin idle 8f 384x512x8 v1",
+      "sheet": "../../../production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/goblin_idle_8f_384x512x8_v1.png",
+      "cell": [
+        384,
+        512
+      ],
+      "cols": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "loop": true,
+      "hasAlpha": true,
+      "pivot": [
+        243,
+        500
+      ],
+      "pivotSource": "measured",
+      "durations": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "status": "기술 검수 통과 · 검수 통과 후보"
+    },
+    {
+      "id": "offender_attack_8f_384x512x8_v1",
+      "label": "offender attack 8f 384x512x8 v1",
+      "sheet": "../../../production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/offender_attack_8f_384x512x8_v1.png",
+      "cell": [
+        384,
+        512
+      ],
+      "cols": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "loop": false,
+      "hasAlpha": true,
+      "pivot": [
+        131,
+        500
+      ],
+      "pivotSource": "measured",
+      "durations": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "status": "기술 검수 통과 · 검수 통과 후보"
+    },
+    {
+      "id": "offender_idle_8f_384x512x8_v1",
+      "label": "offender idle 8f 384x512x8 v1",
+      "sheet": "../../../production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/offender_idle_8f_384x512x8_v1.png",
+      "cell": [
+        384,
+        512
+      ],
+      "cols": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "loop": true,
+      "hasAlpha": true,
+      "pivot": [
+        131,
+        500
+      ],
+      "pivotSource": "measured",
+      "durations": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "status": "기술 검수 통과 · 검수 통과 후보"
+    },
+    {
+      "id": "priest_attack_8f_384x512x8_v1",
+      "label": "priest attack 8f 384x512x8 v1",
+      "sheet": "../../../production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/priest_attack_8f_384x512x8_v1.png",
+      "cell": [
+        384,
+        512
+      ],
+      "cols": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "loop": false,
+      "hasAlpha": true,
+      "pivot": [
+        152,
+        500
+      ],
+      "pivotSource": "measured",
+      "durations": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "status": "기술 검수 통과 · 검수 통과 후보"
+    },
+    {
+      "id": "priest_idle_8f_384x512x8_v1",
+      "label": "priest idle 8f 384x512x8 v1",
+      "sheet": "../../../production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/priest_idle_8f_384x512x8_v1.png",
+      "cell": [
+        384,
+        512
+      ],
+      "cols": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "loop": true,
+      "hasAlpha": true,
+      "pivot": [
+        152,
+        500
+      ],
+      "pivotSource": "measured",
+      "durations": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "status": "기술 검수 통과 · 검수 통과 후보"
+    },
+    {
+      "id": "raider_attack_8f_384x512x8_v1",
+      "label": "raider attack 8f 384x512x8 v1",
+      "sheet": "../../../production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/raider_attack_8f_384x512x8_v1.png",
+      "cell": [
+        384,
+        512
+      ],
+      "cols": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "loop": false,
+      "hasAlpha": true,
+      "pivot": [
+        228,
+        500
+      ],
+      "pivotSource": "measured",
+      "durations": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "status": "기술 검수 통과 · 검수 통과 후보"
+    },
+    {
+      "id": "raider_idle_8f_384x512x8_v1",
+      "label": "raider idle 8f 384x512x8 v1",
+      "sheet": "../../../production/graphics-remake/wave-a/animation-8f/2026-09-10/normalized_v1/raider_idle_8f_384x512x8_v1.png",
+      "cell": [
+        384,
+        512
+      ],
+      "cols": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "loop": true,
+      "hasAlpha": true,
+      "pivot": [
+        228,
+        500
+      ],
+      "pivotSource": "measured",
+      "durations": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "status": "기술 검수 통과 · 검수 통과 후보"
+    },
+    {
+      "id": "reaper_idle_float_8f_v4",
+      "label": "거두는 자 · 부유 대기 v4 (보정 시안)",
+      "sheet": "../production-drafts/reaper/rgba_v4_scythe/reaper_idle_float_8f_v4.png",
+      "cell": [
+        384,
+        512
+      ],
+      "cols": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "loop": true,
+      "hasAlpha": true,
+      "pivot": [
+        192,
+        256
+      ],
+      "pivotSource": "fallback: cell centre — 부유 캐릭터 기준점 미정",
+      "durations": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "status": "보정 시안/동작 재검수"
+    }
+  ],
+  "pending": [
+    {
+      "id": "reaper_attack_two_hand",
+      "label": "거두는 자 · 양손 공격",
+      "status": "이미지 미등록 — 앵커 검토 시안만 있음(RGB·격자 구움). 모션 프레임 없음",
+      "frameCount": 12
+    },
+    {
+      "id": "reaper_attack_one_hand",
+      "label": "거두는 자 · 한손 공격",
+      "status": "이미지 미등록 — 앵커 검토 시안만 있음(RGB·격자 구움). 모션 프레임 없음",
+      "frameCount": 10
+    },
+    {
+      "id": "reaper_gesture_point",
+      "label": "거두는 자 · 반대편 가리키기",
+      "status": "이미지 미등록 — 앵커 검토 시안만 있음(RGB·격자 구움). 모션 프레임 없음",
+      "frameCount": 8
+    }
+  ]
+}

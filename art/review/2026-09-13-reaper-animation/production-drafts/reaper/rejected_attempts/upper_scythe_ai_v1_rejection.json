@@ -1,0 +1,13 @@
+{
+  "status": "rejected; not current production candidate",
+  "reason": [
+    "Tool returned RGB with black background instead of retaining alpha or using the requested pure white fallback",
+    "Protected opaque body pixels below local y=225 changed by more than 10/255 in 157429 of 198279 pixels, 79.4%; fails preservation requirement"
+  ],
+  "protectedRegionDefinition": "Each source frame: opaque pixels below local y=225",
+  "source": "rgba_v3_fringe/reaper_idle_float_8f_v3_fringe.png",
+  "candidate": "upper_scythe_ai_v1_raw.png",
+  "bodyOpaquePixels": 198279,
+  "changedOver10": 157429,
+  "changedRatio": 0.7939771735786443
+}

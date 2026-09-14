@@ -1,0 +1,40 @@
+{
+  "format": "guitamsa.previewmanifest/1",
+  "note": "거두는 자 부유 대기 · 낫 부분 보정 v4 · 검토 시안",
+  "cell": [
+    384,
+    512
+  ],
+  "animations": [
+    {
+      "id": "reaper_idle_float_v4",
+      "label": "거두는 자 · 낫 부분 보정 v4",
+      "sheet": "../reaper_idle_float_8f_v4.png",
+      "cell": [
+        384,
+        512
+      ],
+      "cols": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "loop": true,
+      "hasAlpha": true,
+      "pivot": [
+        192,
+        256
+      ],
+      "pivotSource": "cell centre fallback; not an engine pivot",
+      "durations": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "status": "기술 검사 통과 · 루프·이음매 시각 검수 중"
+    }
+  ]
+}

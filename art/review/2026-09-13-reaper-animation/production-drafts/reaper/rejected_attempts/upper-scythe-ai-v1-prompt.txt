@@ -1,0 +1,17 @@
+Precise positional repair of this existing eight-frame sprite sheet. Preserve its 1536x1024 canvas, four columns by two rows, 384x512 cells, all character scale and all eight poses. This is NOT a redraw, NOT new animation poses, and NOT a new character sheet.
+
+Repair ONLY the upper scythe (the blade, its binding and the shaft ABOVE the gripping fist) in frames 2 through 8. Frame numbers are 1,2,3,4 across the top row, 5,6,7,8 across the bottom row.
+Frame 1 is the rigid weapon reference and must remain unchanged.
+Compared with the supplied sheet, the upper weapon's required vertical shifts are:
+F2: UP 3 pixels.
+F3: UP 7 pixels.
+F4: UP 9 pixels.
+F5: UP 4 pixels.
+F6: UP 1 pixel.
+F7: DOWN 4 pixels.
+F8: DOWN 6 pixels.
+Keep horizontal positions unchanged. Keep the blade's shape, thickness, length, rotation and its point extending LEFT away from the hood identical to frame 1. The upper scythe and gripping hand must now travel together, with constant hand-to-blade distance, so F8 connects smoothly back to F1 instead of the blade jumping down.
+
+Preserve all pixels outside the narrowly repaired upper weapon region: hood and its black featureless interior, straw collar, face void, both hands, body, robe, beads, lower rag strips, and pole BELOW the fist. Do not move the hand, rotate the character, change the robe, or change the lower pole. At the junction above the fist, make the wooden shaft continuous with no gap, double edge or kink. It is a rigid staff held at one fixed grip, never rubber or telescoping.
+
+Keep the same crisp small-scale pixel-art rendering and earthy colors. No eyes, glow, particles, ground shadow, border, text or frame labels. Retain real transparency if possible. If alpha output is unavailable, use perfectly flat PURE WHITE background without any checkerboard, gradient, texture or gray marks. Do not enlarge the figures or recompose the grid.

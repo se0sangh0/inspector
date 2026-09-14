@@ -1,0 +1,20 @@
+Use case: stylized game animation spritesheet.
+Use the supplied reaper as the strict character design reference and create an EIGHT-FRAME FLOATING IDLE animation sheet, not another single-character portrait.
+Output landscape 1536x1024 pixels, exactly FOUR equal columns and TWO equal rows; eight equal 384x512 cells, read left to right on top row then left to right on bottom row. No visible cell borders, no labels, no numbers, no text. Every cell contains the complete reaper plus the full outward-facing scythe. Keep all pixels inside each cell with at least 24px blank padding. One figure only in each cell.
+
+BACKGROUND: use one perfectly flat pure WHITE (#ffffff) background throughout the sheet for later sprite preparation. Do NOT paint any checkerboard or transparency grid. This is a source animation sheet, not an engine-ready alpha asset.
+
+Character invariants:
+Exactly the reference reaper: tapered weathered hood with a completely black, featureless opaque void inside (no face, eyes or light); asymmetric straw-and-twig collar fuller on CHARACTER LEFT / VIEWER RIGHT; layered desaturated gray-olive/bone ragged robe, crossed rope and beads at waist, rag-strip lower hem, no feet or legs visible. Keep its proportions and garment pieces stable across all eight cells, crisp clustered pixel-art-like shading and rugged contours as the reference. Do not simplify into a cartoon or alter the palette.
+The CHARACTER RIGHT hand holds the same nearly straight wooden shaft on VIEWER LEFT. The long curved steel scythe blade at the top extends OUTWARD TOWARD VIEWER LEFT, away from the hood, and the pointed tip always points LEFT. Do not flip the blade over the hood or mirror the character. The free CHARACTER LEFT hand on viewer right remains empty and relaxed. No new jewelry, props, particles, magic effects, floor or shadows.
+
+Animation: a gentle seamless supernatural hovering idle. Fixed camera, fixed scale and horizontal body alignment in every cell. The whole figure plus weapon fits within roughly 300x410 px in each 384x512 cell. Keep the same hand-to-shaft grip and rigid scythe length.
+F1: neutral hovering level, robe strips resting downward.
+F2: torso rises about 4 px; lower rag tips lag and remain slightly lower.
+F3: torso rises another 4 px; cloth starts following upward, the free hand bends very slightly with the sleeve.
+F4: torso at about 12 px above starting level; collar's outer twig tips lag subtly downward, free hand relaxed.
+F5: torso just begins sinking from the apex; collar and lower rag tips still drift upward slightly, creating visible secondary movement.
+F6: torso descends to about 8 px above start; rag strips curl/sway a little inward, shoulder straw starts settling.
+F7: torso at about 4 px above start; cloth follows downward, free hand and sleeve recover.
+F8: torso close to F1 height; cloth nearly settles so F8 connects naturally into F1.
+This must be eight individually drawn coherent animation poses: visible gentle body hover plus restrained cloth, straw and sleeve follow-through. Do not merely duplicate a still sprite eight times. Avoid random changing rag shapes, moving grip, weapon rotation, anatomy morphing, independent scaling or unnecessary whole-body turning.

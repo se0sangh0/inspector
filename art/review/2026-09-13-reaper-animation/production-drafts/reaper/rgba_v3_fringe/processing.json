@@ -1,0 +1,149 @@
+{
+  "status": "fringe-only correction candidate; scythe-motion issue remains",
+  "method": "Remove connected near-white neutral components touching transparency below y=150. Preserve all other RGBA pixels and entire blade-highlight area above y=150. No pose, scale, timing or frame-order change.",
+  "postprocessingAuthorization": "User approved existing postprocessing tools for background removal and transparent PNG conversion.",
+  "sourceVersion": "rgba_v2",
+  "frameCount": 8,
+  "cell": [
+    384,
+    512
+  ],
+  "frames": [
+    {
+      "frame": 1,
+      "sourceSha256": "4ee757ecafb27ae5375158e487dd62cd1692bde8b76ff9d8b5c014f4dfe3792e",
+      "sha256": "324637e9badc1da03a93b9b6939bdd445aa2c5f19c35ed74f4cc11aa2b08bbeb",
+      "detectedWhitePixels": 237,
+      "edgeWhiteBefore": 177,
+      "removedPixels": 222,
+      "edgeWhiteAfter": 0,
+      "alphaBBox": [
+        46,
+        55,
+        338,
+        459
+      ],
+      "preservedPixelsOutsideMask": true,
+      "bladeHighlightRegionYLess150Preserved": true
+    },
+    {
+      "frame": 2,
+      "sourceSha256": "c5543d0a8ce50b1977d275898fe8d038298363624b9ce5c306fee24da10c139a",
+      "sha256": "dd6ceaef24d19df50417be6a07bed02a23f63ac9c278dca0e7ff2272ed45954b",
+      "detectedWhitePixels": 237,
+      "edgeWhiteBefore": 173,
+      "removedPixels": 216,
+      "edgeWhiteAfter": 0,
+      "alphaBBox": [
+        46,
+        55,
+        339,
+        455
+      ],
+      "preservedPixelsOutsideMask": true,
+      "bladeHighlightRegionYLess150Preserved": true
+    },
+    {
+      "frame": 3,
+      "sourceSha256": "127b17d70a41fed847f534a85b46a5dca6dec3732b342c1218676bbdea8df0d7",
+      "sha256": "98c6aa34c56ff3746a4b836d6c77e2e0c8d1411ec260b30b988860e5bca4c451",
+      "detectedWhitePixels": 218,
+      "edgeWhiteBefore": 169,
+      "removedPixels": 196,
+      "edgeWhiteAfter": 0,
+      "alphaBBox": [
+        46,
+        55,
+        341,
+        445
+      ],
+      "preservedPixelsOutsideMask": true,
+      "bladeHighlightRegionYLess150Preserved": true
+    },
+    {
+      "frame": 4,
+      "sourceSha256": "59e5cc520765dae1af27f66fd33536cb91f6b07386af8cd027cce9ddf2d8af7b",
+      "sha256": "3422f2622efbb6aae489d68f9af9dc04e9dc5e0f8028012521071884cc6588f7",
+      "detectedWhitePixels": 223,
+      "edgeWhiteBefore": 158,
+      "removedPixels": 204,
+      "edgeWhiteAfter": 0,
+      "alphaBBox": [
+        45,
+        53,
+        343,
+        446
+      ],
+      "preservedPixelsOutsideMask": true,
+      "bladeHighlightRegionYLess150Preserved": true
+    },
+    {
+      "frame": 5,
+      "sourceSha256": "49bab5a0ea692d38609162ad6f275a67902709fc9eb0fd100132d7b615ca304e",
+      "sha256": "778ead4a1c4314fb83c1e85ed08258314d0f2a39e597dc1ce5ecbd1e176115a3",
+      "detectedWhitePixels": 199,
+      "edgeWhiteBefore": 150,
+      "removedPixels": 179,
+      "edgeWhiteAfter": 0,
+      "alphaBBox": [
+        45,
+        50,
+        345,
+        449
+      ],
+      "preservedPixelsOutsideMask": true,
+      "bladeHighlightRegionYLess150Preserved": true
+    },
+    {
+      "frame": 6,
+      "sourceSha256": "2947fda4d41f82ee3bac913f733d30a34737d80490fe3dcbaa6fdd5cfa22cec6",
+      "sha256": "bfe7fec351231eb43c3bfbbdc263352c3315c814aeb869dfafb100e8ba188ad4",
+      "detectedWhitePixels": 192,
+      "edgeWhiteBefore": 126,
+      "removedPixels": 165,
+      "edgeWhiteAfter": 0,
+      "alphaBBox": [
+        45,
+        49,
+        339,
+        449
+      ],
+      "preservedPixelsOutsideMask": true,
+      "bladeHighlightRegionYLess150Preserved": true
+    },
+    {
+      "frame": 7,
+      "sourceSha256": "2fca17aab8f591cb960f56e1b618e55f052868100c5f9f3f19f93bc90c86db77",
+      "sha256": "a525000621de6d0252761325791cff8261fba24d1bb27a78c4408410ba386e66",
+      "detectedWhitePixels": 236,
+      "edgeWhiteBefore": 177,
+      "removedPixels": 215,
+      "edgeWhiteAfter": 0,
+      "alphaBBox": [
+        45,
+        47,
+        339,
+        454
+      ],
+      "preservedPixelsOutsideMask": true,
+      "bladeHighlightRegionYLess150Preserved": true
+    },
+    {
+      "frame": 8,
+      "sourceSha256": "fe0616019bb291303241fae46b54102e62fc8f90349bb4f24e167d1137fabd5c",
+      "sha256": "3c1b4f5fc095af15ef3eb6484bb16ebbf3831a93c7ed5e1fcb8453b073043e9f",
+      "detectedWhitePixels": 229,
+      "edgeWhiteBefore": 167,
+      "removedPixels": 204,
+      "edgeWhiteAfter": 0,
+      "alphaBBox": [
+        45,
+        46,
+        339,
+        450
+      ],
+      "preservedPixelsOutsideMask": true,
+      "bladeHighlightRegionYLess150Preserved": true
+    }
+  ]
+}

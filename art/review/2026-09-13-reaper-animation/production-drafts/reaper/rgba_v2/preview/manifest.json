@@ -1,0 +1,40 @@
+{
+  "format": "guitamsa.previewmanifest/1",
+  "note": "거두는 자 부유 대기 · 검토 시안 · 200ms × 8프레임",
+  "cell": [
+    384,
+    512
+  ],
+  "animations": [
+    {
+      "id": "reaper_idle_float_v2",
+      "label": "거두는 자 · 부유 대기 v2",
+      "sheet": "../reaper_idle_float_8f_v2.png",
+      "cell": [
+        384,
+        512
+      ],
+      "cols": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "loop": true,
+      "hasAlpha": true,
+      "pivot": [
+        192,
+        256
+      ],
+      "pivotSource": "cell-centre fallback; torso pivot not assigned",
+      "durations": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "status": "기술 검사 10/10 · 동작 검토용 시안"
+    }
+  ]
+}

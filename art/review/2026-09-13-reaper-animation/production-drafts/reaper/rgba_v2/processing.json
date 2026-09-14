@@ -1,0 +1,1668 @@
+{
+  "status": "technical checks passed; v2 matte cleanup; visual loop review pending",
+  "source": "reaper_idle_float_8f_v1_raw.png",
+  "sourceSha256": "65fd922ba65f611c13e96d44fc1371dc1d1ab760bd1e759a9ac299f82a19c475",
+  "method": "Reused normalize_sheets.extract (no main call); preserved original positions within each cell; one shared nearest-neighbour affine scale and translation; no foot alignment for floating character.",
+  "postprocessingAuthorization": "User explicitly approved existing postprocessing tools for transparent PNG conversion.",
+  "scale": 0.8522727272727273,
+  "offset": [
+    28.363636363636374,
+    37.81818181818181
+  ],
+  "cell": [
+    384,
+    512
+  ],
+  "loop": true,
+  "frameDurationMs": 200,
+  "pixelRedrawing": false,
+  "backgroundExtraction": {
+    "key_chroma": 16,
+    "key_luminance": 100,
+    "enclosed_bg_regions": [],
+    "ignored_island_pixels": 0
+  },
+  "frameCount": 8,
+  "uniqueFrames": 8,
+  "frames": [
+    {
+      "frame": 1,
+      "removedWhiteBackgroundRegions": [
+        {
+          "pixels": 3,
+          "mean": 243.67
+        },
+        {
+          "pixels": 45,
+          "mean": 248.69
+        },
+        {
+          "pixels": 3,
+          "mean": 247.78
+        },
+        {
+          "pixels": 15,
+          "mean": 251.93
+        },
+        {
+          "pixels": 3,
+          "mean": 244.56
+        },
+        {
+          "pixels": 17,
+          "mean": 250.18
+        },
+        {
+          "pixels": 7,
+          "mean": 249.62
+        },
+        {
+          "pixels": 52,
+          "mean": 248.87
+        },
+        {
+          "pixels": 7,
+          "mean": 252.14
+        },
+        {
+          "pixels": 5,
+          "mean": 251.13
+        },
+        {
+          "pixels": 350,
+          "mean": 249.52
+        },
+        {
+          "pixels": 12,
+          "mean": 249.25
+        },
+        {
+          "pixels": 342,
+          "mean": 249.54
+        },
+        {
+          "pixels": 18,
+          "mean": 249.7
+        },
+        {
+          "pixels": 3,
+          "mean": 254.89
+        },
+        {
+          "pixels": 4,
+          "mean": 254.25
+        },
+        {
+          "pixels": 4,
+          "mean": 248.58
+        },
+        {
+          "pixels": 3,
+          "mean": 249.33
+        },
+        {
+          "pixels": 5,
+          "mean": 247.87
+        },
+        {
+          "pixels": 4,
+          "mean": 244.08
+        },
+        {
+          "pixels": 7,
+          "mean": 246.1
+        }
+      ],
+      "removedPixels": 909,
+      "alphaBBox": [
+        46,
+        55,
+        338,
+        459
+      ],
+      "sha256": "4ee757ecafb27ae5375158e487dd62cd1692bde8b76ff9d8b5c014f4dfe3792e"
+    },
+    {
+      "frame": 2,
+      "removedWhiteBackgroundRegions": [
+        {
+          "pixels": 54,
+          "mean": 250.67
+        },
+        {
+          "pixels": 5,
+          "mean": 245.2
+        },
+        {
+          "pixels": 18,
+          "mean": 252.31
+        },
+        {
+          "pixels": 29,
+          "mean": 251.0
+        },
+        {
+          "pixels": 3,
+          "mean": 251.22
+        },
+        {
+          "pixels": 44,
+          "mean": 250.0
+        },
+        {
+          "pixels": 4,
+          "mean": 254.08
+        },
+        {
+          "pixels": 3,
+          "mean": 245.78
+        },
+        {
+          "pixels": 347,
+          "mean": 249.7
+        },
+        {
+          "pixels": 5,
+          "mean": 246.8
+        },
+        {
+          "pixels": 3,
+          "mean": 246.67
+        },
+        {
+          "pixels": 11,
+          "mean": 250.61
+        },
+        {
+          "pixels": 359,
+          "mean": 249.72
+        },
+        {
+          "pixels": 5,
+          "mean": 249.33
+        },
+        {
+          "pixels": 3,
+          "mean": 247.56
+        },
+        {
+          "pixels": 3,
+          "mean": 251.0
+        },
+        {
+          "pixels": 3,
+          "mean": 250.78
+        },
+        {
+          "pixels": 5,
+          "mean": 252.27
+        },
+        {
+          "pixels": 4,
+          "mean": 243.58
+        },
+        {
+          "pixels": 3,
+          "mean": 245.11
+        },
+        {
+          "pixels": 5,
+          "mean": 254.73
+        },
+        {
+          "pixels": 4,
+          "mean": 255.0
+        },
+        {
+          "pixels": 5,
+          "mean": 250.47
+        },
+        {
+          "pixels": 10,
+          "mean": 247.77
+        },
+        {
+          "pixels": 3,
+          "mean": 249.0
+        }
+      ],
+      "removedPixels": 938,
+      "alphaBBox": [
+        46,
+        55,
+        339,
+        455
+      ],
+      "sha256": "c5543d0a8ce50b1977d275898fe8d038298363624b9ce5c306fee24da10c139a"
+    },
+    {
+      "frame": 3,
+      "removedWhiteBackgroundRegions": [
+        {
+          "pixels": 3,
+          "mean": 245.89
+        },
+        {
+          "pixels": 3,
+          "mean": 251.44
+        },
+        {
+          "pixels": 40,
+          "mean": 251.27
+        },
+        {
+          "pixels": 22,
+          "mean": 249.29
+        },
+        {
+          "pixels": 24,
+          "mean": 250.97
+        },
+        {
+          "pixels": 22,
+          "mean": 252.41
+        },
+        {
+          "pixels": 54,
+          "mean": 249.69
+        },
+        {
+          "pixels": 3,
+          "mean": 251.44
+        },
+        {
+          "pixels": 6,
+          "mean": 246.11
+        },
+        {
+          "pixels": 4,
+          "mean": 251.67
+        },
+        {
+          "pixels": 303,
+          "mean": 249.04
+        },
+        {
+          "pixels": 5,
+          "mean": 245.67
+        },
+        {
+          "pixels": 4,
+          "mean": 249.42
+        },
+        {
+          "pixels": 14,
+          "mean": 249.74
+        },
+        {
+          "pixels": 408,
+          "mean": 249.78
+        },
+        {
+          "pixels": 4,
+          "mean": 255.0
+        },
+        {
+          "pixels": 22,
+          "mean": 248.55
+        },
+        {
+          "pixels": 3,
+          "mean": 249.78
+        },
+        {
+          "pixels": 5,
+          "mean": 252.87
+        },
+        {
+          "pixels": 4,
+          "mean": 247.83
+        },
+        {
+          "pixels": 6,
+          "mean": 252.94
+        },
+        {
+          "pixels": 4,
+          "mean": 250.83
+        },
+        {
+          "pixels": 26,
+          "mean": 249.04
+        },
+        {
+          "pixels": 4,
+          "mean": 248.92
+        },
+        {
+          "pixels": 3,
+          "mean": 250.89
+        }
+      ],
+      "removedPixels": 996,
+      "alphaBBox": [
+        46,
+        55,
+        341,
+        445
+      ],
+      "sha256": "127b17d70a41fed847f534a85b46a5dca6dec3732b342c1218676bbdea8df0d7"
+    },
+    {
+      "frame": 4,
+      "removedWhiteBackgroundRegions": [
+        {
+          "pixels": 39,
+          "mean": 251.99
+        },
+        {
+          "pixels": 23,
+          "mean": 248.0
+        },
+        {
+          "pixels": 3,
+          "mean": 254.11
+        },
+        {
+          "pixels": 3,
+          "mean": 251.22
+        },
+        {
+          "pixels": 22,
+          "mean": 248.77
+        },
+        {
+          "pixels": 4,
+          "mean": 254.67
+        },
+        {
+          "pixels": 63,
+          "mean": 248.68
+        },
+        {
+          "pixels": 4,
+          "mean": 248.92
+        },
+        {
+          "pixels": 3,
+          "mean": 247.11
+        },
+        {
+          "pixels": 6,
+          "mean": 247.17
+        },
+        {
+          "pixels": 298,
+          "mean": 248.92
+        },
+        {
+          "pixels": 4,
+          "mean": 247.5
+        },
+        {
+          "pixels": 3,
+          "mean": 250.67
+        },
+        {
+          "pixels": 392,
+          "mean": 250.26
+        },
+        {
+          "pixels": 5,
+          "mean": 254.13
+        },
+        {
+          "pixels": 5,
+          "mean": 247.93
+        },
+        {
+          "pixels": 25,
+          "mean": 252.33
+        },
+        {
+          "pixels": 4,
+          "mean": 246.25
+        },
+        {
+          "pixels": 3,
+          "mean": 246.44
+        },
+        {
+          "pixels": 4,
+          "mean": 252.67
+        }
+      ],
+      "removedPixels": 913,
+      "alphaBBox": [
+        45,
+        53,
+        343,
+        446
+      ],
+      "sha256": "59e5cc520765dae1af27f66fd33536cb91f6b07386af8cd027cce9ddf2d8af7b"
+    },
+    {
+      "frame": 5,
+      "removedWhiteBackgroundRegions": [
+        {
+          "pixels": 3,
+          "mean": 248.0
+        },
+        {
+          "pixels": 37,
+          "mean": 249.89
+        },
+        {
+          "pixels": 4,
+          "mean": 251.58
+        },
+        {
+          "pixels": 18,
+          "mean": 251.54
+        },
+        {
+          "pixels": 15,
+          "mean": 251.51
+        },
+        {
+          "pixels": 19,
+          "mean": 251.56
+        },
+        {
+          "pixels": 45,
+          "mean": 247.96
+        },
+        {
+          "pixels": 6,
+          "mean": 250.94
+        },
+        {
+          "pixels": 5,
+          "mean": 253.27
+        },
+        {
+          "pixels": 229,
+          "mean": 248.84
+        },
+        {
+          "pixels": 4,
+          "mean": 246.58
+        },
+        {
+          "pixels": 3,
+          "mean": 249.44
+        },
+        {
+          "pixels": 366,
+          "mean": 249.81
+        },
+        {
+          "pixels": 3,
+          "mean": 252.56
+        },
+        {
+          "pixels": 5,
+          "mean": 251.0
+        },
+        {
+          "pixels": 4,
+          "mean": 250.83
+        }
+      ],
+      "removedPixels": 766,
+      "alphaBBox": [
+        45,
+        50,
+        345,
+        449
+      ],
+      "sha256": "49bab5a0ea692d38609162ad6f275a67902709fc9eb0fd100132d7b615ca304e"
+    },
+    {
+      "frame": 6,
+      "removedWhiteBackgroundRegions": [
+        {
+          "pixels": 3,
+          "mean": 249.33
+        },
+        {
+          "pixels": 3,
+          "mean": 251.56
+        },
+        {
+          "pixels": 46,
+          "mean": 250.93
+        },
+        {
+          "pixels": 3,
+          "mean": 247.0
+        },
+        {
+          "pixels": 18,
+          "mean": 246.87
+        },
+        {
+          "pixels": 19,
+          "mean": 251.54
+        },
+        {
+          "pixels": 4,
+          "mean": 250.17
+        },
+        {
+          "pixels": 61,
+          "mean": 246.85
+        },
+        {
+          "pixels": 12,
+          "mean": 246.36
+        },
+        {
+          "pixels": 3,
+          "mean": 250.56
+        },
+        {
+          "pixels": 9,
+          "mean": 250.48
+        },
+        {
+          "pixels": 16,
+          "mean": 251.71
+        },
+        {
+          "pixels": 232,
+          "mean": 248.74
+        },
+        {
+          "pixels": 3,
+          "mean": 246.78
+        },
+        {
+          "pixels": 3,
+          "mean": 247.89
+        },
+        {
+          "pixels": 5,
+          "mean": 249.6
+        },
+        {
+          "pixels": 15,
+          "mean": 249.84
+        },
+        {
+          "pixels": 322,
+          "mean": 249.91
+        },
+        {
+          "pixels": 3,
+          "mean": 245.11
+        },
+        {
+          "pixels": 3,
+          "mean": 243.44
+        },
+        {
+          "pixels": 3,
+          "mean": 245.78
+        },
+        {
+          "pixels": 3,
+          "mean": 253.0
+        },
+        {
+          "pixels": 5,
+          "mean": 251.6
+        },
+        {
+          "pixels": 3,
+          "mean": 245.67
+        }
+      ],
+      "removedPixels": 797,
+      "alphaBBox": [
+        45,
+        49,
+        339,
+        449
+      ],
+      "sha256": "2947fda4d41f82ee3bac913f733d30a34737d80490fe3dcbaa6fdd5cfa22cec6"
+    },
+    {
+      "frame": 7,
+      "removedWhiteBackgroundRegions": [
+        {
+          "pixels": 6,
+          "mean": 250.78
+        },
+        {
+          "pixels": 52,
+          "mean": 250.96
+        },
+        {
+          "pixels": 3,
+          "mean": 245.44
+        },
+        {
+          "pixels": 21,
+          "mean": 252.16
+        },
+        {
+          "pixels": 22,
+          "mean": 249.8
+        },
+        {
+          "pixels": 20,
+          "mean": 251.93
+        },
+        {
+          "pixels": 56,
+          "mean": 248.95
+        },
+        {
+          "pixels": 4,
+          "mean": 250.83
+        },
+        {
+          "pixels": 3,
+          "mean": 249.11
+        },
+        {
+          "pixels": 4,
+          "mean": 250.75
+        },
+        {
+          "pixels": 354,
+          "mean": 249.88
+        },
+        {
+          "pixels": 3,
+          "mean": 244.56
+        },
+        {
+          "pixels": 10,
+          "mean": 250.27
+        },
+        {
+          "pixels": 349,
+          "mean": 250.03
+        },
+        {
+          "pixels": 4,
+          "mean": 249.0
+        },
+        {
+          "pixels": 3,
+          "mean": 254.44
+        },
+        {
+          "pixels": 6,
+          "mean": 248.56
+        },
+        {
+          "pixels": 3,
+          "mean": 250.89
+        },
+        {
+          "pixels": 3,
+          "mean": 244.56
+        },
+        {
+          "pixels": 30,
+          "mean": 250.1
+        },
+        {
+          "pixels": 9,
+          "mean": 246.11
+        },
+        {
+          "pixels": 3,
+          "mean": 245.44
+        }
+      ],
+      "removedPixels": 968,
+      "alphaBBox": [
+        45,
+        47,
+        339,
+        454
+      ],
+      "sha256": "2fca17aab8f591cb960f56e1b618e55f052868100c5f9f3f19f93bc90c86db77"
+    },
+    {
+      "frame": 8,
+      "removedWhiteBackgroundRegions": [
+        {
+          "pixels": 4,
+          "mean": 251.67
+        },
+        {
+          "pixels": 4,
+          "mean": 248.33
+        },
+        {
+          "pixels": 55,
+          "mean": 250.1
+        },
+        {
+          "pixels": 4,
+          "mean": 250.25
+        },
+        {
+          "pixels": 25,
+          "mean": 252.33
+        },
+        {
+          "pixels": 21,
+          "mean": 248.25
+        },
+        {
+          "pixels": 6,
+          "mean": 250.78
+        },
+        {
+          "pixels": 56,
+          "mean": 248.72
+        },
+        {
+          "pixels": 3,
+          "mean": 252.11
+        },
+        {
+          "pixels": 3,
+          "mean": 249.67
+        },
+        {
+          "pixels": 330,
+          "mean": 249.81
+        },
+        {
+          "pixels": 3,
+          "mean": 245.22
+        },
+        {
+          "pixels": 4,
+          "mean": 249.58
+        },
+        {
+          "pixels": 3,
+          "mean": 243.67
+        },
+        {
+          "pixels": 13,
+          "mean": 250.74
+        },
+        {
+          "pixels": 373,
+          "mean": 249.81
+        },
+        {
+          "pixels": 17,
+          "mean": 249.73
+        },
+        {
+          "pixels": 3,
+          "mean": 251.11
+        },
+        {
+          "pixels": 5,
+          "mean": 252.13
+        },
+        {
+          "pixels": 3,
+          "mean": 252.33
+        },
+        {
+          "pixels": 3,
+          "mean": 249.78
+        },
+        {
+          "pixels": 3,
+          "mean": 255.0
+        },
+        {
+          "pixels": 4,
+          "mean": 249.58
+        },
+        {
+          "pixels": 4,
+          "mean": 250.17
+        },
+        {
+          "pixels": 3,
+          "mean": 248.78
+        }
+      ],
+      "removedPixels": 952,
+      "alphaBBox": [
+        45,
+        46,
+        339,
+        450
+      ],
+      "sha256": "fe0616019bb291303241fae46b54102e62fc8f90349bb4f24e167d1137fabd5c"
+    }
+  ],
+  "previousVersion": "rgba_v1",
+  "whiteGapCleanup": {
+    "reason": "Dark-background inspection revealed enclosed pure-white background gaps retained by checkerboard-specific extractor",
+    "method": "Remove connected bright-neutral regions: all channels >=235, chroma<=16, component >=3px and mean>=243; no opaque-colour replacement or geometric redraw",
+    "frames": [
+      {
+        "frame": 1,
+        "removedWhiteBackgroundRegions": [
+          {
+            "pixels": 3,
+            "mean": 243.67
+          },
+          {
+            "pixels": 45,
+            "mean": 248.69
+          },
+          {
+            "pixels": 3,
+            "mean": 247.78
+          },
+          {
+            "pixels": 15,
+            "mean": 251.93
+          },
+          {
+            "pixels": 3,
+            "mean": 244.56
+          },
+          {
+            "pixels": 17,
+            "mean": 250.18
+          },
+          {
+            "pixels": 7,
+            "mean": 249.62
+          },
+          {
+            "pixels": 52,
+            "mean": 248.87
+          },
+          {
+            "pixels": 7,
+            "mean": 252.14
+          },
+          {
+            "pixels": 5,
+            "mean": 251.13
+          },
+          {
+            "pixels": 350,
+            "mean": 249.52
+          },
+          {
+            "pixels": 12,
+            "mean": 249.25
+          },
+          {
+            "pixels": 342,
+            "mean": 249.54
+          },
+          {
+            "pixels": 18,
+            "mean": 249.7
+          },
+          {
+            "pixels": 3,
+            "mean": 254.89
+          },
+          {
+            "pixels": 4,
+            "mean": 254.25
+          },
+          {
+            "pixels": 4,
+            "mean": 248.58
+          },
+          {
+            "pixels": 3,
+            "mean": 249.33
+          },
+          {
+            "pixels": 5,
+            "mean": 247.87
+          },
+          {
+            "pixels": 4,
+            "mean": 244.08
+          },
+          {
+            "pixels": 7,
+            "mean": 246.1
+          }
+        ],
+        "removedPixels": 909,
+        "alphaBBox": [
+          46,
+          55,
+          338,
+          459
+        ],
+        "sha256": "4ee757ecafb27ae5375158e487dd62cd1692bde8b76ff9d8b5c014f4dfe3792e"
+      },
+      {
+        "frame": 2,
+        "removedWhiteBackgroundRegions": [
+          {
+            "pixels": 54,
+            "mean": 250.67
+          },
+          {
+            "pixels": 5,
+            "mean": 245.2
+          },
+          {
+            "pixels": 18,
+            "mean": 252.31
+          },
+          {
+            "pixels": 29,
+            "mean": 251.0
+          },
+          {
+            "pixels": 3,
+            "mean": 251.22
+          },
+          {
+            "pixels": 44,
+            "mean": 250.0
+          },
+          {
+            "pixels": 4,
+            "mean": 254.08
+          },
+          {
+            "pixels": 3,
+            "mean": 245.78
+          },
+          {
+            "pixels": 347,
+            "mean": 249.7
+          },
+          {
+            "pixels": 5,
+            "mean": 246.8
+          },
+          {
+            "pixels": 3,
+            "mean": 246.67
+          },
+          {
+            "pixels": 11,
+            "mean": 250.61
+          },
+          {
+            "pixels": 359,
+            "mean": 249.72
+          },
+          {
+            "pixels": 5,
+            "mean": 249.33
+          },
+          {
+            "pixels": 3,
+            "mean": 247.56
+          },
+          {
+            "pixels": 3,
+            "mean": 251.0
+          },
+          {
+            "pixels": 3,
+            "mean": 250.78
+          },
+          {
+            "pixels": 5,
+            "mean": 252.27
+          },
+          {
+            "pixels": 4,
+            "mean": 243.58
+          },
+          {
+            "pixels": 3,
+            "mean": 245.11
+          },
+          {
+            "pixels": 5,
+            "mean": 254.73
+          },
+          {
+            "pixels": 4,
+            "mean": 255.0
+          },
+          {
+            "pixels": 5,
+            "mean": 250.47
+          },
+          {
+            "pixels": 10,
+            "mean": 247.77
+          },
+          {
+            "pixels": 3,
+            "mean": 249.0
+          }
+        ],
+        "removedPixels": 938,
+        "alphaBBox": [
+          46,
+          55,
+          339,
+          455
+        ],
+        "sha256": "c5543d0a8ce50b1977d275898fe8d038298363624b9ce5c306fee24da10c139a"
+      },
+      {
+        "frame": 3,
+        "removedWhiteBackgroundRegions": [
+          {
+            "pixels": 3,
+            "mean": 245.89
+          },
+          {
+            "pixels": 3,
+            "mean": 251.44
+          },
+          {
+            "pixels": 40,
+            "mean": 251.27
+          },
+          {
+            "pixels": 22,
+            "mean": 249.29
+          },
+          {
+            "pixels": 24,
+            "mean": 250.97
+          },
+          {
+            "pixels": 22,
+            "mean": 252.41
+          },
+          {
+            "pixels": 54,
+            "mean": 249.69
+          },
+          {
+            "pixels": 3,
+            "mean": 251.44
+          },
+          {
+            "pixels": 6,
+            "mean": 246.11
+          },
+          {
+            "pixels": 4,
+            "mean": 251.67
+          },
+          {
+            "pixels": 303,
+            "mean": 249.04
+          },
+          {
+            "pixels": 5,
+            "mean": 245.67
+          },
+          {
+            "pixels": 4,
+            "mean": 249.42
+          },
+          {
+            "pixels": 14,
+            "mean": 249.74
+          },
+          {
+            "pixels": 408,
+            "mean": 249.78
+          },
+          {
+            "pixels": 4,
+            "mean": 255.0
+          },
+          {
+            "pixels": 22,
+            "mean": 248.55
+          },
+          {
+            "pixels": 3,
+            "mean": 249.78
+          },
+          {
+            "pixels": 5,
+            "mean": 252.87
+          },
+          {
+            "pixels": 4,
+            "mean": 247.83
+          },
+          {
+            "pixels": 6,
+            "mean": 252.94
+          },
+          {
+            "pixels": 4,
+            "mean": 250.83
+          },
+          {
+            "pixels": 26,
+            "mean": 249.04
+          },
+          {
+            "pixels": 4,
+            "mean": 248.92
+          },
+          {
+            "pixels": 3,
+            "mean": 250.89
+          }
+        ],
+        "removedPixels": 996,
+        "alphaBBox": [
+          46,
+          55,
+          341,
+          445
+        ],
+        "sha256": "127b17d70a41fed847f534a85b46a5dca6dec3732b342c1218676bbdea8df0d7"
+      },
+      {
+        "frame": 4,
+        "removedWhiteBackgroundRegions": [
+          {
+            "pixels": 39,
+            "mean": 251.99
+          },
+          {
+            "pixels": 23,
+            "mean": 248.0
+          },
+          {
+            "pixels": 3,
+            "mean": 254.11
+          },
+          {
+            "pixels": 3,
+            "mean": 251.22
+          },
+          {
+            "pixels": 22,
+            "mean": 248.77
+          },
+          {
+            "pixels": 4,
+            "mean": 254.67
+          },
+          {
+            "pixels": 63,
+            "mean": 248.68
+          },
+          {
+            "pixels": 4,
+            "mean": 248.92
+          },
+          {
+            "pixels": 3,
+            "mean": 247.11
+          },
+          {
+            "pixels": 6,
+            "mean": 247.17
+          },
+          {
+            "pixels": 298,
+            "mean": 248.92
+          },
+          {
+            "pixels": 4,
+            "mean": 247.5
+          },
+          {
+            "pixels": 3,
+            "mean": 250.67
+          },
+          {
+            "pixels": 392,
+            "mean": 250.26
+          },
+          {
+            "pixels": 5,
+            "mean": 254.13
+          },
+          {
+            "pixels": 5,
+            "mean": 247.93
+          },
+          {
+            "pixels": 25,
+            "mean": 252.33
+          },
+          {
+            "pixels": 4,
+            "mean": 246.25
+          },
+          {
+            "pixels": 3,
+            "mean": 246.44
+          },
+          {
+            "pixels": 4,
+            "mean": 252.67
+          }
+        ],
+        "removedPixels": 913,
+        "alphaBBox": [
+          45,
+          53,
+          343,
+          446
+        ],
+        "sha256": "59e5cc520765dae1af27f66fd33536cb91f6b07386af8cd027cce9ddf2d8af7b"
+      },
+      {
+        "frame": 5,
+        "removedWhiteBackgroundRegions": [
+          {
+            "pixels": 3,
+            "mean": 248.0
+          },
+          {
+            "pixels": 37,
+            "mean": 249.89
+          },
+          {
+            "pixels": 4,
+            "mean": 251.58
+          },
+          {
+            "pixels": 18,
+            "mean": 251.54
+          },
+          {
+            "pixels": 15,
+            "mean": 251.51
+          },
+          {
+            "pixels": 19,
+            "mean": 251.56
+          },
+          {
+            "pixels": 45,
+            "mean": 247.96
+          },
+          {
+            "pixels": 6,
+            "mean": 250.94
+          },
+          {
+            "pixels": 5,
+            "mean": 253.27
+          },
+          {
+            "pixels": 229,
+            "mean": 248.84
+          },
+          {
+            "pixels": 4,
+            "mean": 246.58
+          },
+          {
+            "pixels": 3,
+            "mean": 249.44
+          },
+          {
+            "pixels": 366,
+            "mean": 249.81
+          },
+          {
+            "pixels": 3,
+            "mean": 252.56
+          },
+          {
+            "pixels": 5,
+            "mean": 251.0
+          },
+          {
+            "pixels": 4,
+            "mean": 250.83
+          }
+        ],
+        "removedPixels": 766,
+        "alphaBBox": [
+          45,
+          50,
+          345,
+          449
+        ],
+        "sha256": "49bab5a0ea692d38609162ad6f275a67902709fc9eb0fd100132d7b615ca304e"
+      },
+      {
+        "frame": 6,
+        "removedWhiteBackgroundRegions": [
+          {
+            "pixels": 3,
+            "mean": 249.33
+          },
+          {
+            "pixels": 3,
+            "mean": 251.56
+          },
+          {
+            "pixels": 46,
+            "mean": 250.93
+          },
+          {
+            "pixels": 3,
+            "mean": 247.0
+          },
+          {
+            "pixels": 18,
+            "mean": 246.87
+          },
+          {
+            "pixels": 19,
+            "mean": 251.54
+          },
+          {
+            "pixels": 4,
+            "mean": 250.17
+          },
+          {
+            "pixels": 61,
+            "mean": 246.85
+          },
+          {
+            "pixels": 12,
+            "mean": 246.36
+          },
+          {
+            "pixels": 3,
+            "mean": 250.56
+          },
+          {
+            "pixels": 9,
+            "mean": 250.48
+          },
+          {
+            "pixels": 16,
+            "mean": 251.71
+          },
+          {
+            "pixels": 232,
+            "mean": 248.74
+          },
+          {
+            "pixels": 3,
+            "mean": 246.78
+          },
+          {
+            "pixels": 3,
+            "mean": 247.89
+          },
+          {
+            "pixels": 5,
+            "mean": 249.6
+          },
+          {
+            "pixels": 15,
+            "mean": 249.84
+          },
+          {
+            "pixels": 322,
+            "mean": 249.91
+          },
+          {
+            "pixels": 3,
+            "mean": 245.11
+          },
+          {
+            "pixels": 3,
+            "mean": 243.44
+          },
+          {
+            "pixels": 3,
+            "mean": 245.78
+          },
+          {
+            "pixels": 3,
+            "mean": 253.0
+          },
+          {
+            "pixels": 5,
+            "mean": 251.6
+          },
+          {
+            "pixels": 3,
+            "mean": 245.67
+          }
+        ],
+        "removedPixels": 797,
+        "alphaBBox": [
+          45,
+          49,
+          339,
+          449
+        ],
+        "sha256": "2947fda4d41f82ee3bac913f733d30a34737d80490fe3dcbaa6fdd5cfa22cec6"
+      },
+      {
+        "frame": 7,
+        "removedWhiteBackgroundRegions": [
+          {
+            "pixels": 6,
+            "mean": 250.78
+          },
+          {
+            "pixels": 52,
+            "mean": 250.96
+          },
+          {
+            "pixels": 3,
+            "mean": 245.44
+          },
+          {
+            "pixels": 21,
+            "mean": 252.16
+          },
+          {
+            "pixels": 22,
+            "mean": 249.8
+          },
+          {
+            "pixels": 20,
+            "mean": 251.93
+          },
+          {
+            "pixels": 56,
+            "mean": 248.95
+          },
+          {
+            "pixels": 4,
+            "mean": 250.83
+          },
+          {
+            "pixels": 3,
+            "mean": 249.11
+          },
+          {
+            "pixels": 4,
+            "mean": 250.75
+          },
+          {
+            "pixels": 354,
+            "mean": 249.88
+          },
+          {
+            "pixels": 3,
+            "mean": 244.56
+          },
+          {
+            "pixels": 10,
+            "mean": 250.27
+          },
+          {
+            "pixels": 349,
+            "mean": 250.03
+          },
+          {
+            "pixels": 4,
+            "mean": 249.0
+          },
+          {
+            "pixels": 3,
+            "mean": 254.44
+          },
+          {
+            "pixels": 6,
+            "mean": 248.56
+          },
+          {
+            "pixels": 3,
+            "mean": 250.89
+          },
+          {
+            "pixels": 3,
+            "mean": 244.56
+          },
+          {
+            "pixels": 30,
+            "mean": 250.1
+          },
+          {
+            "pixels": 9,
+            "mean": 246.11
+          },
+          {
+            "pixels": 3,
+            "mean": 245.44
+          }
+        ],
+        "removedPixels": 968,
+        "alphaBBox": [
+          45,
+          47,
+          339,
+          454
+        ],
+        "sha256": "2fca17aab8f591cb960f56e1b618e55f052868100c5f9f3f19f93bc90c86db77"
+      },
+      {
+        "frame": 8,
+        "removedWhiteBackgroundRegions": [
+          {
+            "pixels": 4,
+            "mean": 251.67
+          },
+          {
+            "pixels": 4,
+            "mean": 248.33
+          },
+          {
+            "pixels": 55,
+            "mean": 250.1
+          },
+          {
+            "pixels": 4,
+            "mean": 250.25
+          },
+          {
+            "pixels": 25,
+            "mean": 252.33
+          },
+          {
+            "pixels": 21,
+            "mean": 248.25
+          },
+          {
+            "pixels": 6,
+            "mean": 250.78
+          },
+          {
+            "pixels": 56,
+            "mean": 248.72
+          },
+          {
+            "pixels": 3,
+            "mean": 252.11
+          },
+          {
+            "pixels": 3,
+            "mean": 249.67
+          },
+          {
+            "pixels": 330,
+            "mean": 249.81
+          },
+          {
+            "pixels": 3,
+            "mean": 245.22
+          },
+          {
+            "pixels": 4,
+            "mean": 249.58
+          },
+          {
+            "pixels": 3,
+            "mean": 243.67
+          },
+          {
+            "pixels": 13,
+            "mean": 250.74
+          },
+          {
+            "pixels": 373,
+            "mean": 249.81
+          },
+          {
+            "pixels": 17,
+            "mean": 249.73
+          },
+          {
+            "pixels": 3,
+            "mean": 251.11
+          },
+          {
+            "pixels": 5,
+            "mean": 252.13
+          },
+          {
+            "pixels": 3,
+            "mean": 252.33
+          },
+          {
+            "pixels": 3,
+            "mean": 249.78
+          },
+          {
+            "pixels": 3,
+            "mean": 255.0
+          },
+          {
+            "pixels": 4,
+            "mean": 249.58
+          },
+          {
+            "pixels": 4,
+            "mean": 250.17
+          },
+          {
+            "pixels": 3,
+            "mean": 248.78
+          }
+        ],
+        "removedPixels": 952,
+        "alphaBBox": [
+          45,
+          46,
+          339,
+          450
+        ],
+        "sha256": "fe0616019bb291303241fae46b54102e62fc8f90349bb4f24e167d1137fabd5c"
+      }
+    ]
+  }
+}
