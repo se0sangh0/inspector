@@ -73,7 +73,7 @@ public abstract class PanelBase : MonoBehaviour
         }
 
         // OnOpened 가 예외를 던져도 페이드/입력 상태는 유지 — 화면 잠금 방지
-        try { OnOpened(); }
+        try { OnOpened(); Loc.Localize(gameObject); }
         catch (System.Exception e) { Debug.LogException(e); }
     }
 

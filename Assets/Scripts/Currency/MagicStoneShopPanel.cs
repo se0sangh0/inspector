@@ -96,7 +96,7 @@ public class MagicStoneShopPanel : MonoBehaviour
         int mana = ManastoneManager.Instance != null ? ManastoneManager.Instance.Amount : 0;
         if (_balanceText != null)
         {
-            _balanceText.text = Loc.Tr("보유 마석: {0}", mana);
+            Loc.Set(_balanceText, "보유 마석: {0}", mana);
             Loc.AutoFit(_balanceText);
         }
 
@@ -106,19 +106,19 @@ public class MagicStoneShopPanel : MonoBehaviour
             int  cost     = MetaPassiveManager.EffectiveCostOf(row.id);   // 누진 할증가 (2026-06-13 QA)
             bool canAfford = mana >= cost;
 
-            if (row.nameText != null) row.nameText.text = Loc.Tr(row.nameKo);
+            if (row.nameText != null) Loc.Set(row.nameText, row.nameKo);
             if (row.nameText != null) Loc.AutoFit(row.nameText);
-            if (row.descText != null) { row.descText.text = Loc.Tr(row.descKo); Loc.AutoFit(row.descText); }
+            if (row.descText != null) { Loc.Set(row.descText, row.descKo); Loc.AutoFit(row.descText); }
 
             if (unlocked)
             {
                 row.button.interactable = false;
-                row.buttonLabel.text = Loc.Tr("해금 완료");
+                Loc.Set(row.buttonLabel, "해금 완료");
             }
             else
             {
                 row.button.interactable = canAfford;
-                row.buttonLabel.text = Loc.Tr("해금 ({0})", cost);
+                Loc.Set(row.buttonLabel, "해금 ({0})", cost);
             }
         }
     }

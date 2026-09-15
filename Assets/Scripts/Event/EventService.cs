@@ -25,10 +25,10 @@ public static class EventService
 {
     // 이번 선택으로 적용된 변화의 '집계' 요약 (예: "생존 동료 스트레스 +5", "영혼석 +15").
     // 결과 창(EventPanel)에 표시하는 상세이며, 조사관 수첩에는 넣지 않는다 (수첩은 12 §1-5 기본 양식).
-    private static readonly List<string> _effectSummary = new();
+    private static readonly List<LocalizedMessage> _effectSummary = new();
 
     /// <summary>직전 ResolveChoice 에서 적용된 효과 집계 요약. EventPanel 결과 창 표시용.</summary>
-    public static IReadOnlyList<string> LastEffectSummary => _effectSummary;
+    public static IReadOnlyList<LocalizedMessage> LastEffectSummary => _effectSummary;
 
     /// <summary>영혼석 코스트를 지불할 수 있는지. (HP/스트레스 코스트는 항상 지불 가능으로 본다)</summary>
     public static bool CanAfford(EventChoice choice)
@@ -71,13 +71,13 @@ public static class EventService
         var session = RunSessionManager.Instance;
         if (session == null || !session.IsRunActive) return;
 
-        var lines = new List<string>
+        var lines = new List<LocalizedMessage>
         {
-            Loc.Tr("확인 장소: {0}", evt != null ? Loc.Tr(evt.title) : Loc.Tr("미상")),
-            Loc.Tr("조치: {0}", Loc.Tr(choice.label)),
+            Loc.Message("확인 장소: {0}", evt != null ? Loc.Message(evt.title) : Loc.Message("미상")),
+            Loc.Message("조치: {0}", Loc.Message(choice.label)),
         };
         if (!string.IsNullOrEmpty(outcome.resultText))
-            lines.Add(Loc.Tr("결과: {0}", Loc.Tr(outcome.resultText)));
+            lines.Add(Loc.Message("결과: {0}", Loc.Message(outcome.resultText)));
 
         // 표제는 비운다 — 헤더 [O층 | 제 N구역] 아래 확인 장소/조치/결과 항목만 표시.
         session.AddRecord(RunRecordType.ChoiceResolved, "", lines,
@@ -94,10 +94,10 @@ public static class EventService
                 if (SoulstoneManager.Instance == null) return false;
                 if (!SoulstoneManager.Instance.Use(choice.costAmount))
                 {
-                    GameLog.Event($"영혼석 부족 (필요 {choice.costAmount}).", LogCategory.Default);
+                    GameLog.Formatted($"영혼석 부족 (필요 {choice.costAmount}).", LogCategory.Default);
                     return false;
                 }
-                GameLog.Event($"영혼석 -{choice.costAmount}", LogCategory.Reward);
+                GameLog.Formatted($"영혼석 -{choice.costAmount}", LogCategory.Reward);
                 return true;
 
             case EventCostType.Hp:
@@ -144,10 +144,10 @@ public static class EventService
                 break;
 
             case EventEffectType.SoulStone:
-                if (eff.value > 0) { SoulstoneManager.Instance?.Add(eff.value); GameLog.Event($"영혼석 +{eff.value}", LogCategory.Reward); }
-                else if (eff.value < 0) { SoulstoneManager.Instance?.Use(-eff.value); GameLog.Event($"영혼석 {eff.value}", LogCategory.Reward); }
+                if (eff.value > 0) { SoulstoneManager.Instance?.Add(eff.value); GameLog.Formatted($"영혼석 +{eff.value}", LogCategory.Reward); }
+                else if (eff.value < 0) { SoulstoneManager.Instance?.Use(-eff.value); GameLog.Formatted($"영혼석 {eff.value}", LogCategory.Reward); }
                 if (eff.value != 0)
-                    _effectSummary.Add(Loc.Tr("영혼석 {0}", (eff.value > 0 ? "+" : "") + eff.value));
+                    _effectSummary.Add(Loc.Message("영혼석 {0}", (eff.value > 0 ? "+" : "") + eff.value));
                 break;
 
             case EventEffectType.Stress:
@@ -169,27 +169,27 @@ public static class EventService
 
             // ── 미결/별도 연동 필요 — 로그만 남긴다 (TODO) ──
             case EventEffectType.RecruitRandom:
-                GameLog.Event("[TODO] 동료 합류 효과 — 용병소 모집 로직 연동 예정.", LogCategory.Reward);
+                GameLog.Event("동료 합류 효과는 아직 사용할 수 없습니다.", LogCategory.Reward);
                 Debug.Log($"[EventService] TODO RecruitRandom (성급 {eff.value}) — PartyManager 연동 필요.");
                 break;
 
             case EventEffectType.NextBattleStack:
-                GameLog.Event($"[TODO] 다음 전투 스택 선지급 +{eff.value} — 전투 초기 스택 연동 예정.", LogCategory.Status);
+                GameLog.Formatted($"다음 전투 스택 선지급 효과는 아직 사용할 수 없습니다.", LogCategory.Status);
                 Debug.Log($"[EventService] TODO NextBattleStack (+{eff.value}).");
                 break;
 
             case EventEffectType.RerollAffinity:
-                GameLog.Event("[TODO] 성향 재굴림 — 대상 선택 UI + Affinity 재설정 연동 예정.", LogCategory.Status);
+                GameLog.Event("성향 재굴림 효과는 아직 사용할 수 없습니다.", LogCategory.Status);
                 Debug.Log("[EventService] TODO RerollAffinity — 대상 선택 필요.");
                 break;
 
             case EventEffectType.ObtainObject:
-                GameLog.Event($"[TODO] 오브제 획득 (OBJ-{eff.value:00}) — §09 오브제 시스템 연동 예정.", LogCategory.Reward);
+                GameLog.Formatted($"오브제 획득 효과는 아직 사용할 수 없습니다.", LogCategory.Reward);
                 Debug.Log($"[EventService] TODO ObtainObject id={eff.value}.");
                 break;
 
             case EventEffectType.Corruption:
-                GameLog.Event($"[TODO] 오염도 {(eff.value >= 0 ? "+" : "")}{eff.value} — §10 오염도 시스템(백로그).", LogCategory.Status);
+                GameLog.Formatted($"오염도 변경 효과는 아직 사용할 수 없습니다.", LogCategory.Status);
                 Debug.Log($"[EventService] TODO Corruption {eff.value}.");
                 break;
 
@@ -207,8 +207,8 @@ public static class EventService
         if (targets.Count == 0) return;
         foreach (var f in targets) f.currentStress += delta;
         string sign = delta >= 0 ? "+" : "";
-        _effectSummary.Add(Loc.Tr("{0} 스트레스 {1}", TargetLabel(target, targets.Count), sign + delta));
-        GameLog.Event($"{targets.Count}명 스트레스 {sign}{delta}", LogCategory.Status);
+        _effectSummary.Add(Loc.Message("{0} 스트레스 {1}", TargetLabel(target, targets.Count), sign + delta));
+        GameLog.Formatted($"{targets.Count}명 스트레스 {sign}{delta}", LogCategory.Status);
     }
 
     // ── 파티 대상 HP (+면 회복 / -면 피해) ──────────────────────
@@ -219,8 +219,8 @@ public static class EventService
         if (targets.Count == 0) return;
         foreach (var f in targets) f.CurrentHp += delta;
         string sign = delta >= 0 ? "+" : "";
-        _effectSummary.Add(Loc.Tr("{0} HP {1}", TargetLabel(target, targets.Count), sign + delta));
-        GameLog.Event($"{targets.Count}명 HP {sign}{delta}", delta >= 0 ? LogCategory.Heal : LogCategory.Damage);
+        _effectSummary.Add(Loc.Message("{0} HP {1}", TargetLabel(target, targets.Count), sign + delta));
+        GameLog.Formatted($"{targets.Count}명 HP {sign}{delta}", delta >= 0 ? LogCategory.Heal : LogCategory.Damage);
     }
 
     // ── EVT-01 계약형 HP 피해 — 적용 후 HP = max(1, HP - amount) (16-A §4) ──
@@ -232,8 +232,8 @@ public static class EventService
         if (targets.Count == 0) return;
         foreach (var f in targets)
             f.CurrentHp = Mathf.Max(1, f.CurrentHp - amount); // setter 가 0 도달 시 사망 처리하므로 최소 1 보장
-        _effectSummary.Add(Loc.Tr("{0} HP -{1} (사망 없음)", TargetLabel(target, targets.Count), amount));
-        GameLog.Event($"{targets.Count}명 HP -{amount} (사망 없음)", LogCategory.Damage);
+        _effectSummary.Add(Loc.Message("{0} HP -{1} (사망 없음)", TargetLabel(target, targets.Count), amount));
+        GameLog.Formatted($"{targets.Count}명 HP -{amount} (사망 없음)", LogCategory.Damage);
     }
 
     // ── EVT-01 계약형 스트레스 증가 — 적용 후 = min(99, +amount) (16-A §4) ──
@@ -246,13 +246,13 @@ public static class EventService
         if (targets.Count == 0) return;
         foreach (var f in targets)
             f.currentStress = Mathf.Min(99, f.currentStress + amount);
-        _effectSummary.Add(Loc.Tr("{0} 스트레스 +{1}", TargetLabel(target, targets.Count), amount));
-        GameLog.Event($"{targets.Count}명 스트레스 +{amount}", LogCategory.Status);
+        _effectSummary.Add(Loc.Message("{0} 스트레스 +{1}", TargetLabel(target, targets.Count), amount));
+        GameLog.Formatted($"{targets.Count}명 스트레스 +{amount}", LogCategory.Status);
     }
 
     /// <summary>효과 대상 표기 — 전원/1명 등 집계 라벨 (결과 창 요약용, 현재 언어).</summary>
-    private static string TargetLabel(EventTarget target, int count)
-        => target == EventTarget.All ? Loc.Tr("생존 동료") : Loc.Tr("동료 {0}명", count);
+    private static LocalizedMessage TargetLabel(EventTarget target, int count)
+        => target == EventTarget.All ? Loc.Message("생존 동료") : Loc.Message("동료 {0}명", count);
 
     /// <summary>효과 대상 동료 목록. ChosenOne 은 (선택 UI 미구현) RandomOne 으로 폴백.</summary>
     private static List<FellowData> ResolveTargets(EventTarget target)

@@ -131,12 +131,12 @@ public static class StatusVisual
     }
 
     /// <summary>호버 툴팁 한 줄: "라벨 — 설명 (N턴 남음)". 턴 0이면 턴 표기 생략.</summary>
-    public static string TooltipText(StatusKind k, int turns)
+    public static LocalizedMessage TooltipText(StatusKind k, int turns)
     {
         string label = LabelOf(k);
         if (string.IsNullOrEmpty(label)) return "";
         string desc = DescOf(k);
-        string head = string.IsNullOrEmpty(desc) ? label : $"<b>{label}</b> — {desc}";
-        return turns > 0 ? $"{head}  ({turns}턴 남음)" : head;
+        LocalizedMessage head = string.IsNullOrEmpty(desc) ? Loc.Message(label) : Loc.Message("<b>{0}</b> — {1}", Loc.Message(label), Loc.Message(desc));
+        return turns > 0 ? Loc.Message("{0}  ({1}턴 남음)", head, turns) : head;
     }
 }

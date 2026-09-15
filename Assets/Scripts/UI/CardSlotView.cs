@@ -69,21 +69,21 @@ public class CardSlotView : MonoBehaviour
         gameObject.SetActive(true);
 
         // 정적 정보
-        if (nameText != null)      { nameText.text = !string.IsNullOrEmpty(_fellow.displayName) ? Loc.Tr(_fellow.displayName) : _fellow.id; ApplyAutoFit(nameText, 20f, 12f); }
+        if (nameText != null)      { Loc.Set(nameText, !string.IsNullOrEmpty(_fellow.displayName) ? _fellow.displayName : _fellow.id); ApplyAutoFit(nameText, 20f, 12f); }
         if (iconImage != null)     iconImage.sprite   = _fellow.portrait != null ? _fellow.portrait : _fellow.fellowSprite;
         // Job 자리에 활성 메타 패시브 표시 (기획 §16). 미배정/미해금이면 "패시브 잠금".
         // 긴 패시브명이 칸을 넘치지 않도록 폰트 자동 축소 (max=기본 20, min=11).
         if (jobTagText != null)
         {
             string pn = MetaPassiveManager.NameOf(_fellow.activePassiveId);
-            jobTagText.text = string.IsNullOrEmpty(pn) ? "패시브 잠금" : pn;
+            Loc.Set(jobTagText, string.IsNullOrEmpty(pn) ? "패시브 잠금" : pn);
             jobTagText.enableAutoSizing = true;
             jobTagText.fontSizeMax = 20f;
             jobTagText.fontSizeMin = 11f;
             jobTagText.enableWordWrapping = false;
             jobTagText.overflowMode = TMPro.TextOverflowModes.Ellipsis;
         }
-        if (affinityTagText != null) { affinityTagText.text = _fellow.AffinityLabel; ApplyAutoFit(affinityTagText, 15f, 9f); }
+        if (affinityTagText != null) { Loc.Set(affinityTagText, _fellow.AffinityLabel); ApplyAutoFit(affinityTagText, 15f, 9f); }
         if (affinityTagBg != null) affinityTagBg.color   = _fellow.AffinityColor;
 
         // 스킬
@@ -366,7 +366,7 @@ public class CardSlotView : MonoBehaviour
         if (nameLabel != null)
         {
             nameLabel.gameObject.SetActive(true);
-            nameLabel.text = skill.displayName;
+            Loc.Set(nameLabel, skill.displayName);
             ApplyAutoFit(nameLabel, 15f, 9f); // 칸에 맞게 자동 축소
         }
         if (box != null) SkillTooltipTrigger.Ensure(box).SetSkills(skill); // 칸 전체 호버 툴팁(타입/power/범위/설명)

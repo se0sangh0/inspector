@@ -49,6 +49,7 @@ public class SettingPopup : PanelBase
         new Vector2Int(1600,  900),
         new Vector2Int(1366,  768),
         new Vector2Int(1280,  720), // HD
+        new Vector2Int(2732, 2048), // iPad Pro 12.9 (2018); preserve saved indices
     };
 
     [Header("음량")]
@@ -82,6 +83,7 @@ public class SettingPopup : PanelBase
         }
 
         EnsureLanguageDropdown(); // 언어 드롭다운 준비 (BindListeners 전에)
+        ConfigureLayout();
 
         if (screenModeDropdown != null)
         {
@@ -166,6 +168,65 @@ public class SettingPopup : PanelBase
         _langDrop.RefreshShownValue();
     }
 
+    // The authored dropdown clone overlapped the screen-mode heading.
+    // Five explicit rows reserve space for both languages within the FHD canvas.
+    private void ConfigureLayout()
+    {
+        var panel = transform.Find("Panel") as RectTransform;
+        if (panel == null) return;
+        panel.anchorMin = panel.anchorMax = panel.pivot = new Vector2(0.5f, 0.5f);
+        panel.anchoredPosition = Vector2.zero;
+        panel.sizeDelta = new Vector2(1240, 920);
+        LayoutSettingRow(panel, bgmSlider, -310);
+        LayoutSettingRow(panel, sfxSlider, -430);
+        LayoutSettingRow(panel, screenModeDropdown, -550);
+        LayoutSettingRow(panel, resolutionDropdown, -670);
+        if (_langDrop != null)
+        {
+            PlaceSettingControl(panel, (RectTransform)_langDrop.transform, new Vector2(160, -190), new Vector2(650, 60));
+            var label = panel.Find("LanguageLabel")?.GetComponent<TMP_Text>();
+            if (label == null)
+            {
+                var go = new GameObject("LanguageLabel", typeof(RectTransform));
+                label = go.AddComponent<TextMeshProUGUI>();
+                label.font = _langDrop.captionText != null ? _langDrop.captionText.font : TMP_Settings.defaultFontAsset;
+                label.fontSize = 30;
+                label.color = Color.white;
+                label.raycastTarget = false;
+            }
+            PlaceSettingControl(panel, label.rectTransform, new Vector2(-370, -190), new Vector2(300, 60));
+            label.alignment = TextAlignmentOptions.MidlineLeft;
+            Loc.Set(label, "언어");
+        }
+    }
+
+    private static void LayoutSettingRow(RectTransform panel, Component control, float y)
+    {
+        if (control == null) return;
+        // Preserve each authored label when moving controls out of their placeholder row.
+        string labelName = control.name + "Heading";
+        var label = panel.Find(labelName) as RectTransform;
+        if (label == null && control.transform.parent != panel)
+            label = control.transform.parent.Find("Label") as RectTransform;
+        if (label != null)
+        {
+            label.name = labelName;
+            PlaceSettingControl(panel, label, new Vector2(-370, y), new Vector2(300, 60));
+            var text = label.GetComponent<TMP_Text>();
+            if (text != null) text.alignment = TextAlignmentOptions.MidlineLeft;
+        }
+        PlaceSettingControl(panel, (RectTransform)control.transform, new Vector2(160, y), new Vector2(650, 60));
+    }
+
+    private static void PlaceSettingControl(RectTransform panel, RectTransform control, Vector2 position, Vector2 size)
+    {
+        control.SetParent(panel, false);
+        control.anchorMin = control.anchorMax = new Vector2(0.5f, 1);
+        control.pivot = new Vector2(0.5f, 0.5f);
+        control.anchoredPosition = position;
+        control.sizeDelta = size;
+    }
+
     // ── 닫히기 직전 리스너 해제 ────────────────────────────────────
     protected override void OnClosed() => BindListeners(false);
 
@@ -238,6 +299,12 @@ public class SettingPopup : PanelBase
     private void OnLanguageChanged(int idx)
     {
         LocalizationManager.SetLanguage((Language)Mathf.Clamp(idx, 0, 1));
+        if (screenModeDropdown != null)
+        {
+            for (int i = 0; i < screenModeDropdown.options.Count && i < ScreenModeLabels.Length; i++)
+                screenModeDropdown.options[i].text = Loc.Tr(ScreenModeLabels[i]);
+            screenModeDropdown.RefreshShownValue();
+        }
     }
 
     private Vector2Int GetCurrentResolution()

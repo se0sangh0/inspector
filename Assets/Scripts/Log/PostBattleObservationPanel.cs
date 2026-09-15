@@ -158,6 +158,7 @@ public class PostBattleObservationPanel : MonoBehaviour
         var canvasGo = new GameObject("ObservationCanvas", typeof(Canvas), typeof(CanvasGroup), typeof(GraphicRaycaster));
         canvasGo.transform.SetParent(transform, false);
         var canvas = canvasGo.GetComponent<Canvas>();
+        ResponsiveUi.Configure(canvas);
         canvas.renderMode  = RenderMode.ScreenSpaceOverlay;
         canvas.sortingOrder = 10000; // BattleResultScreen(9990) 위 — 승리 팝업 다음 순서로 표시
         _group = canvasGo.GetComponent<CanvasGroup>();

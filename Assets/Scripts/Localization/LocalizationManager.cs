@@ -44,7 +44,7 @@ public class LocalizationManager : MonoBehaviour
     private static void Bootstrap()
     {
         if (Instance != null) return;
-        Current = (Language)PlayerPrefs.GetInt(PrefsKey, (int)Language.Korean);
+        Current = PlayerPrefs.GetInt(PrefsKey, 0) == 1 ? Language.English : Language.Korean;
         var go = new GameObject("LocalizationManager");
         go.AddComponent<LocalizationManager>();
     }
@@ -60,7 +60,7 @@ public class LocalizationManager : MonoBehaviour
     private void Start()
     {
         // 최초 씬(타이틀) 안전 번역 — 영어 저장 상태로 시작해도 첫 화면이 영어로 뜨게.
-        if (Current == Language.English) TranslateActiveScene();
+        TranslateActiveScene();
     }
 
     private void OnDestroy()
@@ -77,12 +77,15 @@ public class LocalizationManager : MonoBehaviour
     private IEnumerator TranslateNextFrame()
     {
         yield return null;
+        foreach (var canvas in Object.FindObjectsByType<Canvas>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+            ResponsiveUi.Configure(canvas);
         TranslateActiveScene();
     }
 
     // ── 언어 설정 ────────────────────────────────────────────────
     public static void SetLanguage(Language lang)
     {
+        if (lang != Language.Korean && lang != Language.English) lang = Language.Korean;
         Current = lang;
         PlayerPrefs.SetInt(PrefsKey, (int)lang);
         PlayerPrefs.Save();
@@ -132,6 +135,10 @@ public class LocalizationManager : MonoBehaviour
     private static void LocalizeText(TMP_Text t)
     {
         if (t == null) return;
+        if (t.GetComponentInParent<TMP_InputField>() != null) return;
+        var binding = t.GetComponent<LocalizedLabel>();
+        if (binding != null && binding.OwnsCurrentText) { binding.Refresh(); return; }
+        EnsureAutoFit(t);
         string cur = t.text;
         if (string.IsNullOrEmpty(cur)) return;
 
@@ -140,8 +147,21 @@ public class LocalizationManager : MonoBehaviour
         else if (LocalizationTable.En2Ko.TryGetValue(cur, out var back)) ko = back; // 현재 영어 → 원문 역추적
         if (ko == null) return; // 표에 없는(동적) 문자열 — 그대로 둔다
 
-        t.text = (Current == Language.English && LocalizationTable.Ko2En.TryGetValue(ko, out var en)) ? en : ko;
-        EnsureAutoFit(t); // 더 긴 언어가 오브젝트를 벗어나지 않게 자동 맞춤
+        Set(t, ko);
+    }
+
+    public static void Bind(TMP_Text text, System.Func<string> render)
+    {
+        if (text == null) return;
+        var binding = text.GetComponent<LocalizedLabel>();
+        if (binding == null) binding = text.gameObject.AddComponent<LocalizedLabel>();
+        binding.Bind(render);
+    }
+
+    public static void Set(TMP_Text text, string key, params object[] arguments)
+    {
+        var message = new LocalizedMessage(key, arguments);
+        Bind(text, message.Render);
     }
 
     /// <summary>
@@ -151,18 +171,33 @@ public class LocalizationManager : MonoBehaviour
     /// </summary>
     public static void EnsureAutoFit(TMP_Text t)
     {
-        if (t == null || t.enableAutoSizing) return; // 이미 자동 크기면 그대로
+        if (t == null) return;
+        // 타이틀의 긴 영어 이름은 한글보다 작은 크기를 기준으로 맞춘다.
+        // 언어를 다시 한국어로 바꾸면 씬에 지정된 120 크기로 복원한다.
+        if (t.gameObject.scene.name == "GameStartScene" && t.gameObject.name == "TitleText")
+        {
+            float titleSize = Current == Language.English ? 64f : 120f;
+            t.enableAutoSizing = true;
+            t.fontSizeMax = titleSize;
+            t.fontSizeMin = 12f;
+            t.fontSize = titleSize;
+            return;
+        }
+        if (t.enableAutoSizing) return; // 이미 자동 크기면 그대로
         float baseSize = t.fontSize;
         if (baseSize <= 0f) return;
         t.enableAutoSizing = true;
         t.fontSizeMax = baseSize;                          // 원본(한국어) 크기를 상한으로 유지
-        t.fontSizeMin = Mathf.Max(8f, baseSize * 0.45f);   // 더 긴 언어는 필요 시 최대 45%까지 축소
+        t.fontSizeMin = Mathf.Min(baseSize, 12f);
     }
 }
 
 /// <summary>간편 접근용 별칭 — Loc.Tr(...) 로 호출.</summary>
 public static class Loc
 {
+    public static void Set(TMP_Text text, string key, params object[] arguments) => LocalizationManager.Set(text, key, arguments);
+    public static void Bind(TMP_Text text, System.Func<string> render) => LocalizationManager.Bind(text, render);
+    public static LocalizedMessage Message(string key, params object[] arguments) => new LocalizedMessage(key, arguments);
     public static string Tr(string ko) => LocalizationManager.Tr(ko);
     public static string Tr(string koFormat, params object[] args) => LocalizationManager.Tr(koFormat, args);
     public static void Localize(GameObject root) => LocalizationManager.Localize(root);

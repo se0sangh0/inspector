@@ -83,9 +83,9 @@ public class FellowSourcePickerPopup : PanelBase
 
         if (titleLabel != null)
         {
-            titleLabel.text = lockedStar.HasValue
-                ? $"슬롯 {slotIndex + 1} — {new string('★', lockedStar.Value)} 동료만 선택 가능"
-                : $"슬롯 {slotIndex + 1} 에 넣을 동료 선택";
+            if (lockedStar.HasValue)
+                Loc.Set(titleLabel, "슬롯 {0} — {1} 동료만 선택 가능", slotIndex + 1, new string('★', lockedStar.Value));
+            else Loc.Set(titleLabel, "슬롯 {0} 에 넣을 동료 선택", slotIndex + 1);
         }
         Open();
     }
@@ -101,7 +101,7 @@ public class FellowSourcePickerPopup : PanelBase
         _onPicked   = null;
         _onCanceled = onClosed;
 
-        if (titleLabel != null) titleLabel.text = "동료 명단";
+        if (titleLabel != null) Loc.Set(titleLabel, "동료 명단");
         Open();
     }
 
@@ -242,7 +242,7 @@ public class FellowSourcePickerPopup : PanelBase
         if (MercenaryService.Instance == null) return;
         int refund = MercenaryService.Instance.TrySellReserve(fellow);
         if (refund <= 0) return;
-        ShowToast($"+{refund} 영혼석 환급");
+        ShowToast(Loc.Message("+{0} 영혼석 환급", refund));
         RebuildReserveCards();
     }
 
@@ -263,10 +263,10 @@ public class FellowSourcePickerPopup : PanelBase
     // ----------------------------------------------------------
     // 토스트
     // ----------------------------------------------------------
-    private void ShowToast(string message)
+    private void ShowToast(LocalizedMessage message)
     {
         if (toastLabel == null) return;
-        toastLabel.text = message;
+        Loc.Bind(toastLabel, message.Render);
         toastLabel.gameObject.SetActive(true);
         if (_toastRoutine != null) StopCoroutine(_toastRoutine);
         _toastRoutine = StartCoroutine(HideToastAfter(toastDuration));

@@ -334,12 +334,12 @@ public partial class BattleManager
     }
 
     /// <summary>전투 기록용 조우 대상 요약 — 예: "고블린 2체"/"2x Goblin". 수치 로그는 포함하지 않는다 (16-A §5).</summary>
-    private string BuildEnemySummary()
+    private LocalizedMessage BuildEnemySummary()
     {
         var groups = enemies.Where(e => e != null)
             .GroupBy(e => string.IsNullOrEmpty(e.displayName) ? "괴생물체" : e.displayName)
-            .Select(g => Loc.Tr("{0} {1}체", Loc.Tr(g.Key), g.Count()));
-        return string.Join(", ", groups);
+            .Select(g => Loc.Message("{0} {1}체", Loc.Message(g.Key), g.Count()));
+        return LocalizedMessage.Join(", ", groups);
     }
 
     /// <summary>

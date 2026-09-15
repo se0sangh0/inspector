@@ -160,7 +160,7 @@ public partial class BattleManager : Singleton<BattleManager>
     private void UpdateTurnDisplay()
     {
         if (turnDisplayText != null)
-            turnDisplayText.text = $"턴 {CurrentTurn}";
+            Loc.Set(turnDisplayText, "턴 {0}", CurrentTurn);
     }
 
     [Tooltip("턴 종료 후 다음 턴 시작 전 대기 시간 (초)")]

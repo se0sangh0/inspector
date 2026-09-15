@@ -136,8 +136,8 @@ public class EventPanel : PanelBase
     {
         _current = evt;
 
-        if (_titleText != null) _titleText.text = evt.title;
-        if (_bodyText  != null) _bodyText.text  = evt.bodyText;
+        if (_titleText != null) Loc.Set(_titleText, evt.title);
+        if (_bodyText  != null) Loc.Set(_bodyText, evt.bodyText);
 
         // 이전 선택지 정리
         foreach (var b in _choiceButtons) if (b != null) Destroy(b);
@@ -166,10 +166,8 @@ public class EventPanel : PanelBase
         string result = outcome != null && !string.IsNullOrEmpty(outcome.resultText)
             ? outcome.resultText
             : "변화 없음.";
-        var eff = EventService.LastEffectSummary;
-        if (eff != null && eff.Count > 0)
-            result += "\n\n" + string.Join("\n", eff);
-        if (_bodyText != null) _bodyText.text = result;
+        var effects = LocalizedMessage.Join("\n", EventService.LastEffectSummary);
+        Loc.Bind(_bodyText, () => Loc.Tr(result) + (string.IsNullOrEmpty(effects.Render()) ? "" : "\n\n" + effects.Render()));
 
         // 선택지 숨기고 확인 버튼 노출
         if (_choiceRow != null) _choiceRow.gameObject.SetActive(false);
@@ -245,7 +243,7 @@ public class EventPanel : PanelBase
         hlg.childAlignment   = TextAnchor.LowerCenter;
         hlg.childControlWidth  = true;  hlg.childControlHeight  = true;
         hlg.childForceExpandWidth = true; hlg.childForceExpandHeight = true;
-        SetLayout(row.go, minHeight: 520, flexibleHeight: 0);
+        SetLayout(row.go, minHeight: 420, flexibleHeight: 0);
 
         // 확인(다음 층) 버튼 — 선택 후 노출
         _confirmButton = BuildConfirmButton(content.go.transform, out _confirmLabel);
@@ -289,14 +287,13 @@ public class EventPanel : PanelBase
         outline.effectColor = DummyBorder;
         outline.effectDistance = new Vector2(2f, 2f);
         var imgLe = img.go.AddComponent<LayoutElement>();
-        imgLe.minHeight = 280; imgLe.preferredHeight = 320; imgLe.flexibleHeight = 0;
+        imgLe.minHeight = 200; imgLe.preferredHeight = 220; imgLe.flexibleHeight = 0;
 
         // ② 선택지 설명 (선택지 label)
         var label = NewText("Label", btn.go.transform, 30, FontStyles.Normal, TextColor, TextAlignmentOptions.Center);
-        label.text = choice.label;
-        if (!affordable && choice.SoulStoneCost > 0)
-            label.text = $"{choice.label}\n<size=70%><color=#C0554E>(영혼석 {choice.SoulStoneCost} 필요)</color></size>";
-        SetLayout(label.gameObject, minHeight: 76, flexibleHeight: 0);
+        Loc.Bind(label, () => Loc.Tr(choice.label) + (!affordable && choice.SoulStoneCost > 0
+            ? "\n<size=70%><color=#C0554E>" + Loc.Tr("(영혼석 {0} 필요)", choice.SoulStoneCost) + "</color></size>" : ""));
+        SetLayout(label.gameObject, minHeight: 116, flexibleHeight: 0);
 
         button.onClick.AddListener(() => OnChoiceClicked(choice));
         return btn.go;

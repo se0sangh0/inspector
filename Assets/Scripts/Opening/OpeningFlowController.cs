@@ -10,7 +10,7 @@
 //
 // [계약 — 16-A §1·§6 / 16-B §5·§6]
 //   - 진입 모드는 저장하지 않는 OnboardingEntryMode 로 구분한다.
-//     FirstRun : 완료·스킵 시 opening_completed 저장 → 본 런으로 이어짐 (호출측 처리)
+//     FirstRun : 완료·스킵 시 이번 실행의 완료 상태 기록 → 본 런으로 이어짐 (호출측 처리)
 //     Review   : 완료 플래그를 쓰지 않고 타이틀로 복귀 (호출측 처리)
 //   - 검은 바탕, 고정폭 타자기 글꼴과 한 글자 작성 효과.
 //   - 플레이어가 아무 입력이나 하면 즉시 스킵한다.
@@ -37,7 +37,7 @@ using TMPro;
 /// <summary>오프닝 진입 모드 — 저장하지 않는 1회용 전달값 (16-A §1).</summary>
 public enum OnboardingEntryMode
 {
-    FirstRun = 0,  // 새 기록 최초 진입 — 완료 시 본 런
+    FirstRun = 0,  // 이번 실행 최초 진입 — 완료 시 본 런
     Review   = 1,  // 타이틀에서 재열람 — 완료 시 타이틀 복귀
 }
 
@@ -61,6 +61,8 @@ public class OpeningFlowController : MonoBehaviour
     private Coroutine _typeRoutine;
     private bool _typing;
     private bool _finished;
+    private float _inputReadyAt;
+    private int _lastInputFrame = -1;
 
     private static readonly Color Ink = new Color(0.85f, 0.87f, 0.82f, 1f);
 
@@ -82,6 +84,16 @@ public class OpeningFlowController : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
         Build();
+        LocalizationManager.OnLanguageChanged += RefreshLanguage;
+    }
+
+    private void OnDestroy() => LocalizationManager.OnLanguageChanged -= RefreshLanguage;
+    private void RefreshLanguage()
+    {
+        if (_finished || _root == null || !_root.activeSelf) return;
+        bool wasTyping = _typing;
+        ShowDoc(_docIndex);
+        if (!wasTyping) CompleteTyping();
     }
 
     private void _Show(OnboardingEntryMode mode, System.Action onComplete)
@@ -90,6 +102,7 @@ public class OpeningFlowController : MonoBehaviour
         _onComplete = onComplete;
         _finished   = false;
         _docIndex   = 0;
+        _inputReadyAt = Time.unscaledTime + 0.2f;
 
         _root.SetActive(true);
         _group.alpha = 1f;
@@ -99,15 +112,17 @@ public class OpeningFlowController : MonoBehaviour
 
     private void Update()
     {
-        if (_group == null || !_group.blocksRaycasts || _finished) return;
-        // 아무 입력이나 = 스킵 (키보드 아무 키 / 마우스 클릭)
-        bool anyKey   = Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame;
-        bool anyClick = Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame;
-        if (anyKey || anyClick) OnInput();
+        if (_group == null || !_group.blocksRaycasts || _finished || Time.unscaledTime < _inputReadyAt) return;
+        bool submit = Keyboard.current != null && (Keyboard.current.spaceKey.wasPressedThisFrame
+            || Keyboard.current.enterKey.wasPressedThisFrame || Keyboard.current.numpadEnterKey.wasPressedThisFrame);
+        submit |= Gamepad.current != null && Gamepad.current.buttonSouth.wasPressedThisFrame;
+        if (submit) OnInput(); // 마우스/터치는 배경 버튼이 처리한다.
     }
 
     private void OnInput()
     {
+        if (_finished || Time.unscaledTime < _inputReadyAt || _lastInputFrame == Time.frameCount) return;
+        _lastInputFrame = Time.frameCount; // Submit and a UI click must not advance twice in one frame.
         if (_typing) { CompleteTyping(); return; } // 작성 중 → 즉시 전체 표시
         AdvanceDoc();                              // 이미 표시됨 → 다음 문서 / 종료
     }
@@ -127,7 +142,7 @@ public class OpeningFlowController : MonoBehaviour
         var cb = _onComplete;
         _onComplete = null;
         Hide();
-        cb?.Invoke(); // FirstRun: opening_completed 저장 + 본 런 / Review: 타이틀 복귀 (호출측)
+        cb?.Invoke(); // FirstRun: 이번 실행의 완료 상태 기록 + 본 런 / Review: 타이틀 복귀 (호출측)
     }
 
     private void Hide()
@@ -149,8 +164,8 @@ public class OpeningFlowController : MonoBehaviour
         if (_bodyText  != null) _bodyText.text  = body;
         if (_hintText  != null)
             _hintText.text = _docIndex < Documents.Length - 1
-                ? "계속하려면 아무 키나 누르십시오"
-                : (_mode == OnboardingEntryMode.Review ? "아무 키나 누르면 타이틀로 돌아갑니다" : "아무 키나 누르면 현장으로 이동합니다");
+                ? "화면을 누르거나 확인 키를 눌러 계속"
+                : (_mode == OnboardingEntryMode.Review ? "확인하면 타이틀로 돌아갑니다" : "확인하면 현장으로 이동합니다");
 
         // 정적 문안(제목·본문·안내)을 현재 언어로 교체한 뒤 타자기 연출 시작
         Loc.Localize(_root);
@@ -202,6 +217,7 @@ public class OpeningFlowController : MonoBehaviour
         var canvas = canvasGo.GetComponent<Canvas>();
         canvas.renderMode  = RenderMode.ScreenSpaceOverlay;
         canvas.sortingOrder = 10100; // 오프닝은 최상단 (타이틀·보고서 위)
+        ResponsiveUi.Configure(canvas);
         _group = canvasGo.GetComponent<CanvasGroup>();
         _group.alpha = 0f; _group.blocksRaycasts = false;
 
@@ -215,19 +231,22 @@ public class OpeningFlowController : MonoBehaviour
         var bg = _root.AddComponent<Image>();
         bg.color = Color.black;
         bg.raycastTarget = true;
+        var advance = _root.AddComponent<Button>();
+        advance.transition = Selectable.Transition.None;
+        advance.onClick.AddListener(OnInput);
 
         // 제목 (마스킹 톤 — [기밀] 접두)
         _titleText = NewText("Title", _root.transform, font, 30, new Color(0.6f, 0.62f, 0.58f, 1f), FontStyles.Bold);
         var trt = (RectTransform)_titleText.transform;
         trt.anchorMin = new Vector2(0.5f, 0.5f); trt.anchorMax = new Vector2(0.5f, 0.5f); trt.pivot = new Vector2(0.5f, 0.5f);
-        trt.anchoredPosition = new Vector2(0, 150); trt.sizeDelta = new Vector2(900, 44);
+        trt.anchoredPosition = new Vector2(0, 180); trt.sizeDelta = new Vector2(1160, 84);
         _titleText.alignment = TextAlignmentOptions.Center;
 
         // 본문
         _bodyText = NewText("Body", _root.transform, font, 32, Ink, FontStyles.Normal);
         var brt = (RectTransform)_bodyText.transform;
         brt.anchorMin = new Vector2(0.5f, 0.5f); brt.anchorMax = new Vector2(0.5f, 0.5f); brt.pivot = new Vector2(0.5f, 0.5f);
-        brt.anchoredPosition = new Vector2(0, 20); brt.sizeDelta = new Vector2(900, 220);
+        brt.anchoredPosition = new Vector2(0, 20); brt.sizeDelta = new Vector2(1160, 240);
         _bodyText.alignment = TextAlignmentOptions.Center;
         _bodyText.enableWordWrapping = true;
 
@@ -235,7 +254,7 @@ public class OpeningFlowController : MonoBehaviour
         _hintText = NewText("Hint", _root.transform, font, 22, new Color(0.5f, 0.5f, 0.5f, 1f), FontStyles.Italic);
         var hrt = (RectTransform)_hintText.transform;
         hrt.anchorMin = new Vector2(0.5f, 0f); hrt.anchorMax = new Vector2(0.5f, 0f); hrt.pivot = new Vector2(0.5f, 0f);
-        hrt.anchoredPosition = new Vector2(0, 60); hrt.sizeDelta = new Vector2(900, 36);
+        hrt.anchoredPosition = new Vector2(0, 60); hrt.sizeDelta = new Vector2(1160, 56);
         _hintText.alignment = TextAlignmentOptions.Center;
 
         _root.SetActive(false);

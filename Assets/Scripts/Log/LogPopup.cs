@@ -88,6 +88,17 @@ public class LogPopup : PanelBase
         }
 
         var entries = GameLogService.Instance.GetEntries();
+        Loc.Bind(logText, () => BuildLogText(entries));
+
+        if (scrollRect != null)
+        {
+            Canvas.ForceUpdateCanvases();
+            scrollRect.verticalNormalizedPosition = 0f;
+        }
+    }
+
+    private string BuildLogText(System.Collections.Generic.IReadOnlyList<GameLogEntry> entries)
+    {
         var sb = new StringBuilder(entries.Count * 64);
         for (int i = 0; i < entries.Count; i++)
         {
@@ -102,13 +113,7 @@ public class LogPopup : PanelBase
             if (i < entries.Count - 1) sb.Append('\n');
         }
 
-        logText.text = sb.ToString();
-
-        if (scrollRect != null)
-        {
-            Canvas.ForceUpdateCanvases();
-            scrollRect.verticalNormalizedPosition = 0f;
-        }
+        return sb.ToString();
     }
 
     private static string ColorHex(LogCategory c) => c switch

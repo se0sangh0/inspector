@@ -51,60 +51,34 @@ public class RunSessionManager : MonoBehaviour
     // ----------------------------------------------------------
     /// <summary>완료(보고서 확인)한 런 수. FinalizeRun 에서만 +1.</summary>
     public const string RunCompletedCountKey = "run_completed_count";
-    /// <summary>오프닝 완료 플래그 — P0-06 오프닝 흐름이 사용 (여기서 키만 소유).</summary>
+    /// <summary>이전 버전의 오프닝 저장 키. 기존 데이터 정리 도구용으로만 유지한다.</summary>
     public const string OpeningCompletedKey = "opening_completed";
-    /// <summary>첫 전투 가이드 표시 플래그 — P0-06 (여기서 키만 소유). 런 초기화로 삭제하지 않는다.</summary>
+    /// <summary>이전 버전의 전투 가이드 저장 키. 현재 표시 조건에는 사용하지 않는다.</summary>
     public const string CombatGuideCompletedKey = "combat_guide_completed";
 
-    // ----------------------------------------------------------
-    // [온보딩 영속 플래그] — 오프닝 / 첫 전투 가이드 (P0-06, 16-A §1·§6)
-    //   opening_completed·combat_guide_completed 는 영속 저장이며 런 초기화로
-    //   삭제하지 않는다. 기존 저장 tutorial_completed 는 마이그레이션에만 읽는다.
-    // ----------------------------------------------------------
+    // 실행 중에만 유지한다. 기존 PlayerPrefs 완료 값은 표시 조건에 사용하지 않는다.
+    private static bool _openingCompletedThisLaunch;
+    private static bool _combatGuideCompletedThisLaunch;
 
-    /// <summary>
-    /// 오프닝을 완료한 기록인지. opening_completed=1 이면 true.
-    /// 기존 저장에 opening_completed 가 없고 tutorial_completed=1 이면
-    /// 오프닝 완료로 1회 보정 저장한다 (16-A §6 구현 참고).
-    /// </summary>
-    public static bool IsOpeningCompleted()
+    /// <summary>앱 시작과 매 Play 진입 시 초기화한다. Domain Reload를 꺼도 호출된다.</summary>
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    public static void ResetOnboardingForApplication()
     {
-        if (PlayerPrefs.GetInt(OpeningCompletedKey, 0) == 1) return true;
-        if (!PlayerPrefs.HasKey(OpeningCompletedKey)
-            && PlayerPrefs.GetInt(TutorialManager.PrefsKey, 0) == 1)
-        {
-            MarkOpeningCompleted(); // 구 튜토리얼 완료자 → 오프닝 완료로 보정
-            Debug.Log("[RunSession] opening_completed 보정 — tutorial_completed=1 기존 저장");
-            return true;
-        }
-        return false;
+        _openingCompletedThisLaunch = false;
+        _combatGuideCompletedThisLaunch = false;
     }
 
-    /// <summary>FirstRun 오프닝 완료·스킵 시 호출 — 완료 플래그 저장.</summary>
-    public static void MarkOpeningCompleted()
-    {
-        PlayerPrefs.SetInt(OpeningCompletedKey, 1);
-        PlayerPrefs.Save();
-    }
+    /// <summary>이번 실행에서 오프닝을 완료했는지 확인한다.</summary>
+    public static bool IsOpeningCompleted() => _openingCompletedThisLaunch;
 
-    /// <summary>
-    /// 첫 전투 가이드를 이미 표시(또는 표시 불필요)한 기록인지.
-    /// combat_guide_completed=1 이거나, 기존 저장 tutorial_completed=1 이면 true
-    /// (구 교전 교육 완료자에게는 가이드를 표시하지 않는다 — 16-A §1).
-    /// </summary>
-    public static bool IsCombatGuideCompleted()
-    {
-        if (PlayerPrefs.GetInt(CombatGuideCompletedKey, 0) == 1) return true;
-        if (PlayerPrefs.GetInt(TutorialManager.PrefsKey, 0) == 1) return true;
-        return false;
-    }
+    /// <summary>이번 실행의 오프닝 완료를 기록한다. PlayerPrefs에는 저장하지 않는다.</summary>
+    public static void MarkOpeningCompleted() => _openingCompletedThisLaunch = true;
 
-    /// <summary>첫 전투 가이드 표시 뒤 호출 — 표시 플래그 저장 (기록당 1회).</summary>
-    public static void MarkCombatGuideCompleted()
-    {
-        PlayerPrefs.SetInt(CombatGuideCompletedKey, 1);
-        PlayerPrefs.Save();
-    }
+    /// <summary>이번 실행에서 첫 전투 가이드를 이미 표시했는지 확인한다.</summary>
+    public static bool IsCombatGuideCompleted() => _combatGuideCompletedThisLaunch;
+
+    /// <summary>이번 실행의 가이드 표시를 기록한다. 씬 이동과 새 탐사에서는 유지한다.</summary>
+    public static void MarkCombatGuideCompleted() => _combatGuideCompletedThisLaunch = true;
 
     // prototype_demo_v1 고정 시드 (16-B §2 고정 시드).
     // 초기 파티 성향 재현 등 "매 런 동일 재현" 이 필요한 곳의 시드 원천.
@@ -346,7 +320,7 @@ public class RunSessionManager : MonoBehaviour
     /// 현장 관찰이 있으면 표시 전에 사후 관찰 필드로 포함한다 (16-A §2).
     /// 활성 런이 없으면(세션 밖 직접 플레이) 기록하지 않는다.
     /// </summary>
-    public bool RecordBattleResolved(int floor, string enemySummary, bool victory, int soulstoneGained, string observationNotebookText)
+    public bool RecordBattleResolved(int floor, LocalizedMessage enemySummary, bool victory, int soulstoneGained, string observationNotebookText)
     {
         if (!IsRunActive) return false;
         if (!_battleRecordedFloors.Add(floor))
@@ -359,20 +333,20 @@ public class RunSessionManager : MonoBehaviour
         //   승리: "{조우 대상} 사살" 처럼 조우와 처리 결과를 한 줄로 통합(별도 "전투 승리" 라벨 폐지).
         //   전멸: 마지막 전투 사건에 "탐사대 소실"을 기록한다.
         //   줄 배치는 예시(§1-4) 순서 — 조우·처리 결과 → 사후 관찰 → 조건부 획득.
-        string encounter = string.IsNullOrEmpty(enemySummary) ? Loc.Tr("괴이") : enemySummary;
+        LocalizedMessage encounter = enemySummary ?? Loc.Message("괴이");
         var entry = new RunRecordEntry
         {
             type  = RunRecordType.BattleResolved,
             floor = floor,
             node  = NodeSystem.Current != null ? NodeSystem.Current.CurrentNodeNumber : 0,
-            title = victory ? Loc.Tr("{0} 사살", encounter) : Loc.Tr("탐사대 소실"),
+            title = victory ? Loc.Message("{0} 사살", encounter) : Loc.Message("탐사대 소실"),
         };
         if (!victory)
-            entry.lines.Add(Loc.Tr("{0}와 교전 중 탐사대 소실", encounter)); // 조우 맥락 (전멸)
+            entry.lines.Add(Loc.Message("{0}와 교전 중 탐사대 소실", encounter)); // 조우 맥락 (전멸)
         if (victory && !string.IsNullOrEmpty(observationNotebookText))
-            entry.lines.Add(Loc.Tr(observationNotebookText));                // 사후 관찰 — 표시 전에 기록에 포함
+            entry.lines.Add(Loc.Message(observationNotebookText));                // 사후 관찰 — 표시 전에 기록에 포함
         if (victory && soulstoneGained > 0)
-            entry.lines.Add(Loc.Tr("영혼석 {0}개 획득", soulstoneGained));   // 조건부 획득 줄 (0이면 생략)
+            entry.lines.Add(Loc.Message("영혼석 {0}개 획득", soulstoneGained));   // 조건부 획득 줄 (0이면 생략)
 
         return Records.Add(entry, dedupKey: $"battle_F{floor}");
     }
@@ -382,7 +356,7 @@ public class RunSessionManager : MonoBehaviour
     /// 상태 적용과 같은 트랜잭션에서 호출한다 (16-A §5). 층은 NodeSystem 에서 자동 결정.
     /// 활성 런이 없으면(세션 밖 직접 플레이) 기록하지 않는다.
     /// </summary>
-    public bool AddRecord(RunRecordType type, string title, System.Collections.Generic.List<string> lines, string dedupKey = null)
+    public bool AddRecord(RunRecordType type, string title, System.Collections.Generic.List<LocalizedMessage> lines, string dedupKey = null)
     {
         if (!IsRunActive) return false;
 
@@ -395,7 +369,7 @@ public class RunSessionManager : MonoBehaviour
         };
         if (lines != null)
             foreach (var l in lines)
-                if (!string.IsNullOrEmpty(l)) entry.lines.Add(l);
+                if (l != null) entry.lines.Add(l);
 
         return Records.Add(entry, dedupKey);
     }
@@ -410,8 +384,8 @@ public class RunSessionManager : MonoBehaviour
             type  = RunRecordType.RunResolved,
             floor = reachedFloor,
             node  = NodeSystem.Current != null ? NodeSystem.Current.CurrentNodeNumber : 0,
-            title = Loc.Tr(victory ? "클리어" : "전멸"),
-            lines = { Loc.Tr("최종 도달: {0}층", reachedFloor) },
+            title = Loc.Message(victory ? "클리어" : "전멸"),
+            lines = { Loc.Message("최종 도달: {0}층", reachedFloor) },
         }, dedupKey: "run_resolved");
     }
 

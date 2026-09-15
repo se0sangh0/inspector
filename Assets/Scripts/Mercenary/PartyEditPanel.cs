@@ -103,7 +103,7 @@ public class PartyEditPanel : PanelBase
     private void RefreshHeader()
     {
         if (partyCountLabel != null && PartyManager.Instance != null)
-            partyCountLabel.text = $"파티 인원: {PartyManager.Instance.CompanionCount}/{PartySize}";
+            Loc.Set(partyCountLabel, "파티 인원: {0}/{1}", PartyManager.Instance.CompanionCount, PartySize);
     }
 
     // ----------------------------------------------------------

@@ -96,7 +96,7 @@ public partial class BattleManager
 
             yield return new WaitForSeconds(meleeImpactDelay);   // 아군과 동일 — 휘두르는 순간 데미지
             ApplyDamageToAlly(firstAlive, enemy.attackPower);
-            GameLog.Event($"{enemy.displayName}이(가) {firstAlive.displayName ?? firstAlive.positionStack.ToString()}을(를) 공격!", LogCategory.Skill);
+            GameLog.Formatted($"{enemy.displayName}이(가) {firstAlive.displayName ?? firstAlive.positionStack.ToString()}을(를) 공격!", LogCategory.Skill);
             Debug.Log($"[적 행동/Fallback] {enemy.displayName} → {firstAlive.positionStack} 에게 {enemy.attackPower} 데미지 (스킬 미정의)");
             yield break;
         }
@@ -131,7 +131,7 @@ public partial class BattleManager
         string targetNames = string.Join(", ",
             targets.Select(t => !string.IsNullOrEmpty(t.displayName) ? t.displayName : t.positionStack.ToString()));
 
-        GameLog.Event($"{enemy.displayName}이(가) [{skill.displayName}]을(를) 사용했다!", LogCategory.Skill);
+        GameLog.Formatted($"{enemy.displayName}이(가) [{skill.displayName}]을(를) 사용했다!", LogCategory.Skill);
         Debug.Log($"┌─────────────────────────────────────────");
         Debug.Log($"│ [적 스킬] {enemy.displayName} → {skill.displayName}");
         Debug.Log($"│  타겟 종류: {skill.targeting} ({targets.Count}명) → {targetNames}");
@@ -152,7 +152,7 @@ public partial class BattleManager
                 t.dotTurnsLeft = skill.dotTurns;        // 덮어쓰기 (스택 없음)
                 t.dotPerTurn   = skill.dotPower;
                 t.OnDotChanged?.Invoke(); // UI 초록 tint 토글
-                GameLog.Event($"{t.displayName ?? t.positionStack.ToString()}이(가) 중독되었다! ({skill.dotPower}×{skill.dotTurns}턴)", LogCategory.Status);
+                GameLog.Formatted($"{t.displayName ?? t.positionStack.ToString()}이(가) 중독되었다! ({skill.dotPower}×{skill.dotTurns}턴)", LogCategory.Status);
                 Debug.Log($"[DoT 부착] {t.displayName} ← {skill.dotPower}/턴 × {skill.dotTurns}턴");
             }
         }
@@ -197,7 +197,7 @@ public partial class BattleManager
             summoned.currentLifeTurns = summoned.summonLifeTurns + 1;
             enemies.Add(summoned);
             RaiseEnemySpawned(summoned); // 시각 카드/이펙트/사운드 구독자에게 알림 (BattleCardView 가 이 시점에 BindEnemy 호출, 초기 표시는 BindEnemy 내부에서 처리)
-            GameLog.Event($"{summoned.displayName}이(가) 등장!", LogCategory.Skill);
+            GameLog.Formatted($"{summoned.displayName}이(가) 등장!", LogCategory.Skill);
             Debug.Log($"  └ [소환됨] {summoned.displayName} (수명 {summoned.summonLifeTurns}턴 / {summoned.hitCountToDie} hit 처치)");
 
             // 기획 §11 §3 — 재소환 쿨다운 3턴은 '까마귀가 죽은 시점'(처치·자폭 공통)부터 시작.
@@ -374,7 +374,7 @@ public partial class BattleManager
 
             // ── 수명 만료 — 패널티 발동 + 사망 처리 ──
             // 적 → 아군 데미지는 고정 (분산 X). 각 아군 모두 expirePenaltyPower 데미지.
-            GameLog.Event($"{summon.displayName} 만료! 각 아군에게 {summon.expirePenaltyPower}의 피해.", LogCategory.Damage);
+            GameLog.Formatted($"{summon.displayName} 만료! 각 아군에게 {summon.expirePenaltyPower}의 피해.", LogCategory.Damage);
             Debug.Log($"[소환체 만료] {summon.displayName} — 패널티 {summon.expirePenaltyPower} 데미지 (각 아군 고정)");
 
             if (summon.expirePenaltyPower > 0)
@@ -441,7 +441,7 @@ public partial class BattleManager
     // ============================================================
     private IEnumerator ExecuteHarvestSkill(EnemyData caster, EnemySkillData skill)
     {
-        GameLog.Event($"{caster.displayName}이(가) [{skill.displayName}]을(를) 사용했다!", LogCategory.Skill);
+        GameLog.Formatted($"{caster.displayName}이(가) [{skill.displayName}]을(를) 사용했다!", LogCategory.Skill);
         Debug.Log($"┌─────────────────────────────────────────");
         Debug.Log($"│ [적 스킬·수확] {caster.displayName} → {skill.displayName} (각 아군 {skill.power} 데미지 + 드레인)");
         Debug.Log($"└─────────────────────────────────────────");
@@ -467,7 +467,7 @@ public partial class BattleManager
             int maxHp    = caster.maxHp > 0 ? caster.maxHp : 1;
             caster.CurrentHp = Mathf.Min(maxHp, caster.CurrentHp + totalDrain);
             int healed = caster.CurrentHp - beforeHp;
-            GameLog.Event($"{caster.displayName}이(가) {healed}의 HP를 흡수!", LogCategory.Heal);
+            GameLog.Formatted($"{caster.displayName}이(가) {healed}의 HP를 흡수!", LogCategory.Heal);
             Debug.Log($"  └ [수확 드레인] 실드 초과 데미지 총 {totalDrain} → {caster.displayName} HP +{healed} ({beforeHp} → {caster.CurrentHp}/{maxHp})");
         }
         else
@@ -520,7 +520,7 @@ public partial class BattleManager
         DefaultSetting.AllyLayout?.RelayoutNow();
         string after = string.Join(", ",
             allies.Select(a => !string.IsNullOrEmpty(a?.displayName) ? a.displayName : (a?.positionStack.ToString() ?? "?")));
-        GameLog.Event($"{caster.displayName}이(가) 진형을 뒤바꿨다!", LogCategory.Skill);
+        GameLog.Formatted($"{caster.displayName}이(가) 진형을 뒤바꿨다!", LogCategory.Skill);
         Debug.Log($"  └ [순간이동] 배치 역전: [{before}] → [{after}]");
         yield return new WaitForSeconds(DefaultSetting.RelayoutDuration + DefaultSetting.RelayoutStagger * 3f);
     }

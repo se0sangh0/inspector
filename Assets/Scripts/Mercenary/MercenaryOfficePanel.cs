@@ -1,6 +1,6 @@
 // ============================================================
 // Mercenary/MercenaryOfficePanel.cs
-// 용병소 메인 패널 — 2카드 메뉴 (모집/성장). 파티 편집은 LeftPanel/RestPanel 에서 진입.
+// 용병소 메인 패널 — 2카드 메뉴 (모집/동료 합성). 파티 편집은 LeftPanel/RestPanel 에서 진입.
 // ============================================================
 //
 // [흐름]
@@ -41,23 +41,12 @@ public class MercenaryOfficePanel : PanelBase
         if (recruitMenuButton != null)
             recruitMenuButton.onClick.AddListener(() => OpenSub(recruitPanel));
 
-        // P0-04 (16-A §4 용병소): 메뉴는 고용·편집·나가기 — 합성·성급 성장·강화 진입점은 숨긴다.
-        // 기존 성장 버튼을 파티 편집 진입점으로 재사용한다 (씬 수정 없이 계약 메뉴 구성).
-        // GrowthPanel 코드·씬 오브젝트는 보존 — 후속 범위에서 재활성 가능.
+        // 사용자 지정: 파티 편집 대신 MercenaryRoot에 연결된 GrowthPanel로 동료 합성에 진입한다.
         if (growthMenuButton != null)
         {
-            var partyEditPanel = FindFirstObjectByType<PartyEditPanel>(FindObjectsInactive.Include);
-            if (partyEditPanel != null)
-            {
-                var label = growthMenuButton.GetComponentInChildren<TMPro.TMP_Text>(true);
-                if (label != null) label.text = "파티 편집";
-                growthMenuButton.onClick.AddListener(() => OpenSub(partyEditPanel));
-            }
-            else
-            {
-                Debug.LogWarning("[MercenaryOfficePanel] PartyEditPanel 미발견 — 편집 메뉴 숨김");
-                growthMenuButton.gameObject.SetActive(false);
-            }
+            var label = growthMenuButton.GetComponentInChildren<TMPro.TMP_Text>(true);
+            if (label != null) label.text = Loc.Tr("동료 합성");
+            growthMenuButton.onClick.AddListener(() => OpenSub(growthPanel));
         }
 
         if (exitButton != null)

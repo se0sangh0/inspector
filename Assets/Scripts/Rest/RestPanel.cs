@@ -75,16 +75,16 @@ public class RestPanel : PanelBase
 
     private void RefreshRecoveryLabel(RestService.RecoveryResult result)
     {
-        if (titleLabel != null) titleLabel.text = "화툿불";
+        if (titleLabel != null) Loc.Set(titleLabel, "화톳불");
         if (recoveryResultLabel == null) return;
 
         if (result.affectedCount <= 0)
         {
-            recoveryResultLabel.text = "회복할 동료가 없습니다.";
+            Loc.Set(recoveryResultLabel, "회복할 동료가 없습니다.");
             return;
         }
-        recoveryResultLabel.text =
-            $"휴식 완료 — {result.affectedCount}명에게 HP +{RestService.HpRecoveryAmount} / 스트레스 -{RestService.RecoveryAmount}";
+        Loc.Set(recoveryResultLabel, "휴식 완료 — {0}명에게 HP +{1} / 스트레스 -{2}",
+            result.affectedCount, RestService.HpRecoveryAmount, RestService.RecoveryAmount);
     }
 
     // ----------------------------------------------------------

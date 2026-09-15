@@ -41,8 +41,8 @@ public class RunRecordEntry
     public RunRecordType type;
     public int    floor;                 // 사건이 일어난 층 (1-base, 불명이면 0)
     public int    node;                  // 노드 선택 위치 (왼1/중2/오3, 0=미상) — 수첩 '제 N구역'
-    public string title;                 // 기록 표제 (전투 결과 등). 비면 헤더만 표시
-    public List<string> lines = new();   // 본문 줄들 (항목당 한 줄, 수첩 표시용 원자료)
+    public LocalizedMessage title;                 // 기록 표제 (전투 결과 등). 비면 헤더만 표시
+    public List<LocalizedMessage> lines = new();   // 본문 줄들 (항목당 한 줄, 수첩 표시용 원자료)
 
     public override string ToString()
         => $"[{type}] {floor}층 - {title} | {string.Join(" / ", lines)}";

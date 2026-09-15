@@ -42,7 +42,7 @@ public class LoadingScreen : MonoBehaviour
         Instance._group.blocksRaycasts = true;
         Instance._covered = true;
         Instance._dotT = 0f; Instance._dots = 0;
-        if (Instance._label != null)   Instance._label.text = Instance._baseText;
+        if (Instance._label != null)   Loc.Bind(Instance._label, () => Loc.Tr(Instance._baseText) + new string('.', Instance._dots));
         if (Instance._barFill != null) Instance._barFill.fillAmount = 0f;
     }
 
@@ -83,6 +83,7 @@ public class LoadingScreen : MonoBehaviour
         canvasGo.transform.SetParent(transform, false);
 
         var canvas = canvasGo.GetComponent<Canvas>();
+        ResponsiveUi.Configure(canvas);
         canvas.renderMode  = RenderMode.ScreenSpaceOverlay;
         canvas.sortingOrder = 10000; // SceneTransition(9999) 보다도 위
 
@@ -115,7 +116,7 @@ public class LoadingScreen : MonoBehaviour
         tgo.transform.SetParent(canvasGo.transform, false);
         _label = tgo.AddComponent<TextMeshProUGUI>();
         if (font != null) _label.font = font;
-        _label.text = _baseText;
+        Loc.Bind(_label, () => Loc.Tr(_baseText) + new string('.', _dots));
         _label.fontSize = 52;
         _label.color = Gold;
         _label.alignment = TextAlignmentOptions.Center;
@@ -176,7 +177,7 @@ public class LoadingScreen : MonoBehaviour
         if (_dotT >= 0.35f)
         {
             _dotT = 0f; _dots = (_dots + 1) % 4;
-            if (_label != null) _label.text = _baseText + new string('.', _dots);
+            if (_label != null) _label.text = Loc.Tr(_baseText) + new string('.', _dots);
         }
 
         // 진행바 자동 채움 (~0.7초)

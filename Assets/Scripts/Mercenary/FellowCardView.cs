@@ -157,16 +157,16 @@ public class FellowCardView : MonoBehaviour
             }
         }
         if (roleLabel != null)
-            roleLabel.text = ShortRoleLabel(fellow.role);
+            Loc.Bind(roleLabel, () => ShortRoleLabel(fellow.role));
 
         // ── 텍스트 ──
-        if (nameLabel != null)     nameLabel.text     = !string.IsNullOrEmpty(fellow.displayName) ? Loc.Tr(fellow.displayName) : fellow.id;
-        if (affinityLabel != null) affinityLabel.text = Loc.Tr(fellow.AffinityLabel);
+        if (nameLabel != null)     Loc.Set(nameLabel, !string.IsNullOrEmpty(fellow.displayName) ? fellow.displayName : fellow.id);
+        if (affinityLabel != null) Loc.Set(affinityLabel, fellow.AffinityLabel);
         if (starLabel != null)     starLabel.text     = new string('★', Mathf.Clamp(fellow.starLevel, 1, 3));
         if (hpLabel != null)       hpLabel.text       = $"HP {fellow.maxHp}";
         if (skillsLabel != null)
         {
-            skillsLabel.text = BuildSkillsText(fellow);
+            Loc.Bind(skillsLabel, () => BuildSkillsText(fellow));
             // 스킬 호버 툴팁 (#7) — 보유 스킬 전체 정보 표시
             SkillTooltipTrigger.Ensure(skillsLabel.gameObject).SetSkills(fellow.GetSkills());
             UpdateSkillIcons(fellow.GetSkills()); // 줄별 스킬 아이콘 (1-bit, 종류별 색)
@@ -189,7 +189,7 @@ public class FellowCardView : MonoBehaviour
         {
             actionButton.gameObject.SetActive(showAction);
             if (actionButtonLabel != null)
-                actionButtonLabel.text = ActionLabelForMode(mode, costShown);
+                Loc.Bind(actionButtonLabel, () => ActionLabelForMode(mode, costShown));
         }
         if (removeButton != null)
             removeButton.gameObject.SetActive(showRemove);
@@ -315,7 +315,7 @@ public class FellowCardView : MonoBehaviour
         foreach (var s in skills)
         {
             if (s == null) continue;
-            string name = !string.IsNullOrEmpty(s.displayName) ? s.displayName : s.id;
+            string name = !string.IsNullOrEmpty(s.displayName) ? Loc.Tr(s.displayName) : s.id;
             lines.Add($"{name} ({s.costAmount})");
         }
         return string.Join("\n", lines);

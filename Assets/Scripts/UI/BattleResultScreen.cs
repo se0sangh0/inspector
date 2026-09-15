@@ -61,6 +61,7 @@ public class BattleResultScreen : MonoBehaviour
         var canvasGo = new GameObject("ResultCanvas", typeof(Canvas), typeof(CanvasGroup), typeof(GraphicRaycaster));
         canvasGo.transform.SetParent(transform, false);
         var canvas = canvasGo.GetComponent<Canvas>();
+        ResponsiveUi.Configure(canvas);
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
         canvas.sortingOrder = 9990;
         _group = canvasGo.GetComponent<CanvasGroup>();
@@ -114,7 +115,7 @@ public class BattleResultScreen : MonoBehaviour
     private void _ShowVictory(int soul, System.Action onNext)
     {
         _onNext = onNext;
-        if (_rewardText != null) _rewardText.text = Loc.Tr("영혼석 +{0}", soul);
+        if (_rewardText != null) Loc.Set(_rewardText, "영혼석 +{0}", soul);
         _victory.SetActive(true); _defeat.SetActive(false);
         Loc.Localize(_victory); // 정적 라벨(전투 승리·획득 재화·안내)을 현재 언어로
         _group.alpha = 1f; _group.blocksRaycasts = true;

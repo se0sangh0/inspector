@@ -1,17 +1,17 @@
 // ============================================================
 // Opening/CombatGuideController.cs
-// 첫 전투 가이드 — 기록당 1회, 비차단 안내 (P0-06)
+// 첫 전투 가이드 — 실행당 1회, 비차단 안내 (P0-06)
 // ============================================================
 //
 // [이 파일이 하는 일]
-//   기록당 첫 전투 진입 시 카드 사용 → 공용 스택 누적 → 동료 자동 행동
+//   실행당 첫 전투 진입 시 카드 사용 → 공용 스택 누적 → 동료 자동 행동
 //   순서를 짧은 문구로 한 번 안내합니다. 진행을 멈추지 않습니다.
 //
 // [계약 — 16-A §1 첫 전투 가이드 / 16-B §5]
-//   - 기록당 첫 전투 진입 시 한 번만 표시한다.
+//   - 실행당 첫 전투 진입 시 한 번만 표시한다.
 //   - 진행을 멈추지 않는다 (안내 표시·완료는 입력·상태 적용 조건이 아니다).
-//   - 표시 여부는 combat_guide_completed 로 영속 관리하며 런 초기화로 삭제하지 않는다.
-//   - 기존 저장 tutorial_completed=1 이면 표시하지 않고 진행한다.
+//   - 표시 여부는 메모리에 보관한다. 앱 재실행 시 초기화하고 새 탐사에서는 유지한다.
+//   - 기존 PlayerPrefs 완료 값과 관계없이 실행마다 첫 일반 전투에서 표시한다.
 //   - 별도 교전 교육 단계를 만들지 않는다 (튜토리얼 모드는 자체 안내 유지).
 //
 // [미구현 — 미관/후속]
@@ -45,7 +45,7 @@ public class CombatGuideController : MonoBehaviour
     private const float HoldSeconds = 7f;   // 표시 유지 후 서서히 사라짐
 
     /// <summary>
-    /// 기록당 첫 전투에서 1회만 가이드를 표시한다. 이미 표시했거나
+    /// 실행당 첫 전투에서 1회만 가이드를 표시한다. 이미 표시했거나
     /// 튜토리얼 모드면 아무것도 하지 않는다 (비차단).
     /// </summary>
     public static void TryShowOnce()
@@ -116,6 +116,7 @@ public class CombatGuideController : MonoBehaviour
         var canvas = canvasGo.GetComponent<Canvas>();
         canvas.renderMode  = RenderMode.ScreenSpaceOverlay;
         canvas.sortingOrder = 9900; // 전투 UI 위, 결과/보고서(9990+) 아래
+        ResponsiveUi.Configure(canvas);
         _group = canvasGo.GetComponent<CanvasGroup>();
         _group.alpha = 0f;
         _group.interactable   = false;
@@ -129,7 +130,7 @@ public class CombatGuideController : MonoBehaviour
         var rrt = (RectTransform)_root.transform;
         rrt.anchorMin = new Vector2(0.5f, 1f); rrt.anchorMax = new Vector2(0.5f, 1f); rrt.pivot = new Vector2(0.5f, 1f);
         rrt.anchoredPosition = new Vector2(0f, -40f);
-        rrt.sizeDelta = new Vector2(720f, 190f);
+        rrt.sizeDelta = new Vector2(960f, 230f);
 
         var box = _root.AddComponent<Image>();
         box.color = new Color(0.06f, 0.07f, 0.10f, 0.92f);
@@ -150,6 +151,7 @@ public class CombatGuideController : MonoBehaviour
         text.alignment = TextAlignmentOptions.Left;
         text.enableWordWrapping = true;
         text.raycastTarget = false;
+        Loc.Set(text, GuideText);
 
         _root.SetActive(false);
     }

@@ -377,7 +377,7 @@ public class GameManager : Singleton<GameManager>
         Debug.Log($"[GameManager] {msg}");
         if (discardNoticeText != null)
         {
-            discardNoticeText.text = msg;
+            Loc.Set(discardNoticeText, "턴 종료 시 랜덤으로 {0}개의 카드가 파괴됩니다.", count);
             discardNoticeText.gameObject.SetActive(true);
         }
     }

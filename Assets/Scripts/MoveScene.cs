@@ -28,7 +28,7 @@ public class MoveScene : MonoBehaviour
 {
     // [P0-06] 필드·메서드 이름은 씬 onClick 배선 유지를 위해 보존한다 (동작만 오프닝 흐름으로 교체).
     [Header("오프닝 재열람 버튼 (옵션)")]
-    [Tooltip("[오프닝 다시보기] 버튼 — 오프닝을 이미 완료한 기록에서만 노출. 인스펙터에 메인 메뉴 버튼 연결.")]
+    [Tooltip("[오프닝 다시보기] 버튼 — 이번 실행에서 오프닝을 완료하면 노출. 인스펙터에 메인 메뉴 버튼 연결.")]
     [SerializeField] private GameObject tutorialAgainButton;
 
     void Start()
@@ -36,15 +36,15 @@ public class MoveScene : MonoBehaviour
         // GameStartScene 의 시작 BGM (제목 화면)
         AudioManager.Instance?.PlayBgmById(BgmId.Title);
 
-        // 오프닝을 완료한 기록에서만 [오프닝 다시보기] 노출 (16-A §1 재열람 경로)
+        // 이번 실행에서 오프닝을 완료한 뒤 [오프닝 다시보기] 노출 (16-A §1 재열람 경로)
         if (tutorialAgainButton != null)
             tutorialAgainButton.SetActive(RunSessionManager.IsOpeningCompleted());
     }
 
     /// <summary>
     /// 메인 메뉴 [시작하기] onClick 핸들러 (씬 배선 이름 보존).
-    /// 오프닝 미완료 기록: 오프닝(FirstRun) → 완료·스킵 시 opening_completed 저장 후 본 런.
-    /// 오프닝 완료 기록: 메뉴 없이 바로 본 런 1층 (16-A §1).
+    /// 이번 실행 첫 시작: 오프닝(FirstRun) → 완료 시 실행 중 완료 상태 기록 후 본 런.
+    /// 같은 실행에서 다시 시작: 바로 본 런 1층. 앱 재실행 시 오프닝을 다시 표시한다.
     /// </summary>
     public void InGameSceneLoaded()
     {
@@ -54,7 +54,7 @@ public class MoveScene : MonoBehaviour
             return;
         }
 
-        // 새 기록 — 오프닝을 보여 준 뒤(완료·스킵) 완료 저장 + 본 런 진입.
+        // 이번 실행의 첫 시작 — 오프닝 완료를 메모리에 기록하고 본 런에 진입한다.
         OpeningFlowController.Show(OnboardingEntryMode.FirstRun, () =>
         {
             RunSessionManager.MarkOpeningCompleted();

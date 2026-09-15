@@ -50,7 +50,7 @@ public static class RestService
             .Where(f => f != null && !f.isDead)
             .ToList();
 
-        var recordLines = new System.Collections.Generic.List<string>();
+        var recordLines = new System.Collections.Generic.List<LocalizedMessage>();
         foreach (var f in fellows)
         {
             // HP 회복 — CurrentHp setter 가 OnHpChanged 발생 → 슬라이더 자동 갱신

@@ -221,6 +221,11 @@ public class LeftPanelView : MonoBehaviour
     {
         if (deckSummaryText == null) return;
 
+        Loc.Bind(deckSummaryText, () => BuildDeckSummary(party));
+    }
+
+    private static string BuildDeckSummary(IList<FellowData> party)
+    {
         // 파티에 존재하는 성향만, 등장 순서 유지
         var order = new List<CardAffinity>();
         var groups = new Dictionary<CardAffinity, List<string>>();
@@ -233,18 +238,18 @@ public class LeftPanelView : MonoBehaviour
                 groups[aff] = new List<string>();
                 order.Add(aff);
             }
-            groups[aff].Add(!string.IsNullOrEmpty(f.displayName) ? f.displayName : f.id);
+            groups[aff].Add(!string.IsNullOrEmpty(f.displayName) ? Loc.Tr(f.displayName) : f.id);
         }
 
         var lines = new List<string>();
         foreach (var aff in order)
         {
             var names = string.Join(", ", groups[aff]);
-            lines.Add($"{AffinityHelper.GetLabel(aff)}: {groups[aff].Count}({names})");
+            lines.Add($"{Loc.Tr(AffinityHelper.GetLabel(aff))}: {groups[aff].Count}({names})");
         }
 
-        deckSummaryText.text = lines.Count > 0
+        return lines.Count > 0
             ? string.Join("\n", lines)
-            : "(파티 없음)";
+            : Loc.Tr("(파티 없음)");
     }
 }

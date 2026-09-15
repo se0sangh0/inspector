@@ -50,7 +50,7 @@ public class BattleCardView : MonoBehaviour
     {
         Unbind();
         _fellow = fellow;
-        if (nameText != null) nameText.text = !string.IsNullOrEmpty(fellow.displayName) ? Loc.Tr(fellow.displayName) : fellow.id;
+        if (nameText != null) Loc.Set(nameText, !string.IsNullOrEmpty(fellow.displayName) ? fellow.displayName : fellow.id);
         ResolveSlider();
         fellow.OnHpChanged     += OnFellowHpChanged;
         fellow.OnShieldChanged += OnShieldChanged;
@@ -69,7 +69,7 @@ public class BattleCardView : MonoBehaviour
     {
         Unbind();
         _enemy = enemy;
-        if (nameText != null) nameText.text = !string.IsNullOrEmpty(enemy.displayName) ? enemy.displayName : enemy.name;
+        if (nameText != null) Loc.Set(nameText, !string.IsNullOrEmpty(enemy.displayName) ? enemy.displayName : enemy.name);
         ResolveSlider();
         enemy.OnHpChanged += OnEnemyHpChanged;
         enemy.OnDamaged   += OnDamaged;
@@ -370,7 +370,8 @@ public class BattleCardView : MonoBehaviour
         // 내부 수명은 +1 보정값(소환 턴 끝 감소 상쇄) — 표기는 '남은 온전한 턴'으로 (기획 3턴 → 3부터 시작)
         int shown = Mathf.Max(0, lifeTurns - 1);
         // 까마귀 2마리가 나란히 서면 긴 문구는 옆 텍스트와 겹침 — 짧게
-        _countdownText.text  = shown > 0 ? $"자폭 {shown}턴" : "자폭!";
+        if (shown > 0) Loc.Set(_countdownText, "자폭 {0}턴", shown);
+        else Loc.Set(_countdownText, "자폭!");
         _countdownText.color = shown > 0 ? new Color(1f, 0.55f, 0.25f) : new Color(1f, 0.2f, 0.2f); // 임박 시 빨강
     }
 

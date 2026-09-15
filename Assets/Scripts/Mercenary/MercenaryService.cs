@@ -197,17 +197,17 @@ public class MercenaryService : Singleton<MercenaryService>
 
         // 실제 고용 결과 기록 — 같은 트랜잭션에서 RecruitmentResolved 1건 (16-A §4·§5, P0-04)
         RecordRecruitment("용병소 — 고용",
-            $"{candidate.displayName} ({candidate.jobClass} | {candidate.starLevel}★) {(partyHasRoom ? "파티 합류" : "예비대 보관")}",
-            $"영혼석 -{cost} → 보유 {SoulstoneManager.Instance.Amount}");
+            Loc.Message("{0} ({1} | {2}★) {3}", Loc.Message(candidate.displayName), candidate.jobClass, candidate.starLevel, Loc.Message(partyHasRoom ? "파티 합류" : "예비대 보관")),
+            Loc.Message("영혼석 -{0} → 보유 {1}", cost, SoulstoneManager.Instance.Amount));
         return true;
     }
 
     /// <summary>모집·교체 결과를 RecruitmentResolved 1건으로 기록 (상태 적용과 같은 트랜잭션).</summary>
-    private static void RecordRecruitment(string title, params string[] lines)
+    private static void RecordRecruitment(string title, params LocalizedMessage[] lines)
     {
-        var list = new List<string>();
+        var list = new List<LocalizedMessage>();
         foreach (var l in lines)
-            if (!string.IsNullOrEmpty(l)) list.Add(l);
+            if (l != null) list.Add(l);
         RunSessionManager.Instance?.AddRecord(RunRecordType.RecruitmentResolved, title, list);
     }
 
@@ -225,7 +225,7 @@ public class MercenaryService : Singleton<MercenaryService>
 
         _reserves.RemoveAt(reserveIndex);
         PartyManager.Instance.RecruitFellow(f);
-        RecordRecruitment("파티 편성 — 교체", $"{f.displayName} 예비대 → 파티 합류");
+        RecordRecruitment("파티 편성 — 교체", Loc.Message("{0} 예비대 → 파티 합류", Loc.Message(f.displayName)));
         return true;
     }
 
@@ -238,7 +238,7 @@ public class MercenaryService : Singleton<MercenaryService>
 
         PartyManager.Instance.RemoveFellow(partyFellow);
         _reserves.Add(partyFellow);
-        RecordRecruitment("파티 편성 — 교체", $"{partyFellow.displayName} 파티 → 예비대 보관");
+        RecordRecruitment("파티 편성 — 교체", Loc.Message("{0} 파티 → 예비대 보관", Loc.Message(partyFellow.displayName)));
         return true;
     }
 
@@ -253,7 +253,7 @@ public class MercenaryService : Singleton<MercenaryService>
         _reserves.RemoveAt(reserveIndex);
         _reserves.Add(partyFellow);
         PartyManager.Instance.RecruitFellow(reserveFellow);
-        RecordRecruitment("파티 편성 — 교체", $"{partyFellow.displayName} ↔ {reserveFellow.displayName} 교체");
+        RecordRecruitment("파티 편성 — 교체", Loc.Message("{0} ↔ {1} 교체", Loc.Message(partyFellow.displayName), Loc.Message(reserveFellow.displayName)));
         return true;
     }
 
@@ -339,7 +339,7 @@ public class MercenaryService : Singleton<MercenaryService>
         if (!_reserves.Remove(fellow)) return false;
 
         // 방출 트랜잭션 기록 (16-A §4: 예비대 방출·판매 시 RecruitmentResolved 한 건)
-        RecordRecruitment("용병소 — 방출", $"{fellow.displayName} ({fellow.jobClass} | {fellow.starLevel}★) 방출 (환급 없음)");
+        RecordRecruitment("용병소 — 방출", Loc.Message("{0} ({1} | {2}★) 방출 (환급 없음)", Loc.Message(fellow.displayName), fellow.jobClass, fellow.starLevel));
 
         Debug.Log($"[Mercenary] 예비대 방출 — {fellow.displayName} ({fellow.role}·{fellow.starLevel}★) | 예비대 {_reserves.Count}/{ReservesCapacity}");
         return true;
@@ -360,8 +360,8 @@ public class MercenaryService : Singleton<MercenaryService>
 
         // 판매 트랜잭션 기록 (16-A §4: 예비대 방출·판매 시 RecruitmentResolved 한 건)
         RecordRecruitment("용병소 — 판매",
-            $"{fellow.displayName} ({fellow.jobClass} | {fellow.starLevel}★) 판매",
-            $"영혼석 +{refund} → 보유 {SoulstoneManager.Instance?.Amount ?? 0}");
+            Loc.Message("{0} ({1} | {2}★) 판매", Loc.Message(fellow.displayName), fellow.jobClass, fellow.starLevel),
+            Loc.Message("영혼석 +{0} → 보유 {1}", refund, SoulstoneManager.Instance?.Amount ?? 0));
 
         Debug.Log($"[Mercenary] 예비대 판매 — {fellow.displayName} (+{refund} 영혼석) | 예비대 {_reserves.Count}/{ReservesCapacity}");
         return refund;

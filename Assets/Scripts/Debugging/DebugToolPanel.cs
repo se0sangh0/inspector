@@ -127,9 +127,10 @@ public class DebugToolPanel : MonoBehaviour
     // ── 리셋 동작 (기능별) — 확인 모달을 거쳐 호출됨 ──────────────
     private const string ManaKey = "ManaStone"; // ManastoneManager.SaveKey 와 동일
 
-    /// <summary>온보딩 리셋 — 오프닝·첫 전투 가이드·구 튜토리얼 플래그 삭제 (P0-06 재확인용).</summary>
+    /// <summary>온보딩 리셋 — 실행 중 오프닝·가이드 상태 초기화 및 이전 저장 플래그 삭제 (P0-06 재확인용).</summary>
     private static void ResetOnboarding()
     {
+        RunSessionManager.ResetOnboardingForApplication();
         PlayerPrefs.DeleteKey(RunSessionManager.OpeningCompletedKey);
         PlayerPrefs.DeleteKey(RunSessionManager.CombatGuideCompletedKey);
         PlayerPrefs.DeleteKey(TutorialManager.PrefsKey);

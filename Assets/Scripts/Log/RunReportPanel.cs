@@ -77,7 +77,11 @@ public class RunReportPanel : MonoBehaviour
 
         // 보고서 텍스트는 지금(FinalizeRun 전) 시점의 기록으로 만든다 —
         // 확인 시 FinalizeRun 이 Records·영혼석을 초기화해도 표시 내용은 유지된다.
-        if (_reportText != null) _reportText.text = BuildReportText(result);
+        var session = RunSessionManager.Instance;
+        var records = session != null ? session.Records : null;
+        int runNumber = session != null ? session.CurrentRunNumber : 1;
+        int soul = SoulstoneManager.Instance != null ? SoulstoneManager.Instance.Amount : 0;
+        Loc.Bind(_reportText, () => BuildReportText(result, records, runNumber, soul));
 
         _reportStage.SetActive(true);
         _choiceStage.SetActive(false);
@@ -120,18 +124,15 @@ public class RunReportPanel : MonoBehaviour
     }
 
     // ── 보고서 문안 생성 (16-E §3 템플릿 + 기록 자동 삽입) ──
-    private static string BuildReportText(RunResult result)
+    private static string BuildReportText(RunResult result, RunRecord records, int runNumber, int soul)
     {
-        var s = RunSessionManager.Instance;
-        int runNumber = s != null ? s.CurrentRunNumber : 1; // FinalizeRun 전이므로 현재 런 번호
-        int soul      = SoulstoneManager.Instance != null ? SoulstoneManager.Instance.Amount : 0;
 
         // 기록 집계
         int battles = 0, choices = 0, recruits = 0, recoveries = 0, observations = 0, reached = 0;
         bool cleared = result == RunResult.Victory;
-        if (s != null && s.Records != null)
+        if (records != null)
         {
-            foreach (var e in s.Records.Entries)
+            foreach (var e in records.Entries)
             {
                 switch (e.type)
                 {
@@ -143,7 +144,7 @@ public class RunReportPanel : MonoBehaviour
                 if (e.floor > reached) reached = e.floor;
                 // 현장 관찰 — 사후 관찰 문장이 기록에 포함됐는지로 카운트
                 foreach (var line in e.lines)
-                    if (line.StartsWith("주변 탐색 결과")) { observations++; break; }
+                    if (line.Key.StartsWith("주변 탐색 결과")) { observations++; break; }
             }
         }
 
@@ -169,6 +170,7 @@ public class RunReportPanel : MonoBehaviour
         var canvasGo = new GameObject("ReportCanvas", typeof(Canvas), typeof(CanvasGroup), typeof(GraphicRaycaster));
         canvasGo.transform.SetParent(transform, false);
         var canvas = canvasGo.GetComponent<Canvas>();
+        ResponsiveUi.Configure(canvas);
         canvas.renderMode  = RenderMode.ScreenSpaceOverlay;
         canvas.sortingOrder = 10050; // BattleResultScreen(9990)·관찰(10000) 위
         _group = canvasGo.GetComponent<CanvasGroup>();
@@ -189,7 +191,7 @@ public class RunReportPanel : MonoBehaviour
         var paper = NewImage("Paper", _reportStage.transform);
         var prt = paper.rectTransform;
         prt.anchorMin = prt.anchorMax = prt.pivot = new Vector2(0.5f, 0.5f);
-        prt.sizeDelta = new Vector2(760, 560);
+        prt.sizeDelta = new Vector2(960, 680);
         paper.color = Paper;
         var pOutline = paper.gameObject.AddComponent<Outline>();
         pOutline.effectColor = new Color(0.6f, 0.55f, 0.4f, 1f);
@@ -201,7 +203,7 @@ public class RunReportPanel : MonoBehaviour
         rtr.anchorMin = new Vector2(0, 1); rtr.anchorMax = new Vector2(1, 1); rtr.pivot = new Vector2(0.5f, 1);
         rtr.anchoredPosition = new Vector2(0, -40);
         rtr.offsetMin = new Vector2(48, rtr.offsetMin.y); rtr.offsetMax = new Vector2(-48, rtr.offsetMax.y);
-        rtr.sizeDelta = new Vector2(rtr.sizeDelta.x, 400);
+        rtr.sizeDelta = new Vector2(rtr.sizeDelta.x, 520);
         _reportText.alignment = TextAlignmentOptions.TopLeft;
         _reportText.enableWordWrapping = true;
 

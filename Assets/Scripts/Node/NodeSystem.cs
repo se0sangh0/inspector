@@ -226,7 +226,7 @@ public class NodeSystem : MonoBehaviour
         if (!isTutorial && currentRowIndex == 0) currentRowIndex = 1;
 
         UpdateNodeStates();
-        if (!isTutorial) ShowLocationToast(Loc.Tr("현재 위치는 여기입니다"));
+        if (!isTutorial) ShowLocationToast("현재 위치는 여기입니다");
         AudioManager.Instance?.PlayBgmById(BgmId.NodeMap);
         // 튜토리얼 첫 노드맵 진입 시 인트로 모달 (1회만)
         TutorialManager.Instance?.TryShowDialogue(TutorialManager.DialogueId.NodeMapIntro);
@@ -687,7 +687,7 @@ public class NodeSystem : MonoBehaviour
         if (_toastRoot == null) BuildLocationToast();
         if (_toastRoot == null || _toastText == null) return;
 
-        _toastText.text = message;
+        Loc.Set(_toastText, message);
         _toastRoot.SetActive(true);
         _toastRoot.transform.SetAsLastSibling();
         if (_toastGroup != null) _toastGroup.alpha = 1f;

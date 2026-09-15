@@ -50,7 +50,7 @@ public static class ChurchService
         if (SoulstoneManager.Instance == null) return false;
         if (SoulstoneManager.Instance.Amount < HpCost)
         {
-            GameLog.Event($"영혼석 부족 (필요 {HpCost}).", LogCategory.Default);
+            GameLog.Formatted($"영혼석 부족 (필요 {HpCost}).", LogCategory.Default);
             return false;
         }
         if (PartyManager.Instance == null) return false;
@@ -64,21 +64,21 @@ public static class ChurchService
 
         SoulstoneManager.Instance.Use(HpCost);
         int totalGained = 0;
-        var recordLines = new System.Collections.Generic.List<string>();
+        var recordLines = new System.Collections.Generic.List<LocalizedMessage>();
         foreach (var f in alive)
         {
             int maxHp     = f.maxHp > 0 ? f.maxHp : 100;
             int beforeHp  = f.CurrentHp;
             f.CurrentHp   = Mathf.Min(maxHp, beforeHp + HpAmount);
             totalGained  += f.CurrentHp - beforeHp;
-            recordLines.Add($"{f.displayName} HP +{f.CurrentHp - beforeHp} → {f.CurrentHp}");
+            recordLines.Add(Loc.Message("{0} HP +{1} → {2}", Loc.Message(f.displayName), f.CurrentHp - beforeHp, f.CurrentHp));
         }
-        recordLines.Add($"영혼석 -{HpCost} → 보유 {SoulstoneManager.Instance.Amount}");
+        recordLines.Add(Loc.Message("영혼석 -{0} → 보유 {1}", HpCost, SoulstoneManager.Instance.Amount));
 
         // 실제 회복 결과 기록 — 상태 적용과 같은 트랜잭션 (16-A §5, P0-04)
         RunSessionManager.Instance?.AddRecord(RunRecordType.RecoveryResolved, "교회 — 회복 기도", recordLines);
 
-        GameLog.Event($"교회 기도 — {alive.Count}명 HP +{HpAmount} (총 +{totalGained}, 영혼석 -{HpCost}).", LogCategory.Heal);
+        GameLog.Formatted($"교회 기도 — {alive.Count}명 HP +{HpAmount} (총 +{totalGained}, 영혼석 -{HpCost}).", LogCategory.Heal);
         return true;
     }
 
@@ -88,7 +88,7 @@ public static class ChurchService
         if (SoulstoneManager.Instance == null) return false;
         if (SoulstoneManager.Instance.Amount < StressCost)
         {
-            GameLog.Event($"영혼석 부족 (필요 {StressCost}).", LogCategory.Default);
+            GameLog.Formatted($"영혼석 부족 (필요 {StressCost}).", LogCategory.Default);
             return false;
         }
         if (PartyManager.Instance == null) return false;
@@ -102,19 +102,19 @@ public static class ChurchService
 
         SoulstoneManager.Instance.Use(StressCost);
         int totalRelieved = 0;
-        var recordLines = new System.Collections.Generic.List<string>();
+        var recordLines = new System.Collections.Generic.List<LocalizedMessage>();
         foreach (var f in alive)
         {
             int before        = f.currentStress;
             f.currentStress   = Mathf.Max(0, before - StressAmount);
             totalRelieved    += before - f.currentStress;
-            recordLines.Add($"{f.displayName} 스트레스 -{before - f.currentStress} → {f.currentStress}");
+            recordLines.Add(Loc.Message("{0} 스트레스 -{1} → {2}", Loc.Message(f.displayName), before - f.currentStress, f.currentStress));
         }
-        recordLines.Add($"영혼석 -{StressCost} → 보유 {SoulstoneManager.Instance.Amount}");
+        recordLines.Add(Loc.Message("영혼석 -{0} → 보유 {1}", StressCost, SoulstoneManager.Instance.Amount));
 
         RunSessionManager.Instance?.AddRecord(RunRecordType.RecoveryResolved, "교회 — 안정 기도", recordLines);
 
-        GameLog.Event($"교회 기도 — {alive.Count}명 스트레스 -{StressAmount} (총 -{totalRelieved}, 영혼석 -{StressCost}).", LogCategory.Heal);
+        GameLog.Formatted($"교회 기도 — {alive.Count}명 스트레스 -{StressAmount} (총 -{totalRelieved}, 영혼석 -{StressCost}).", LogCategory.Heal);
         return true;
     }
 
@@ -127,14 +127,14 @@ public static class ChurchService
         int cost = GetReviveCost(target.starLevel);
         if (SoulstoneManager.Instance.Amount < cost)
         {
-            GameLog.Event($"영혼석 부족 — {target.displayName} 부활 (필요 {cost}).", LogCategory.Default);
+            GameLog.Formatted($"영혼석 부족 — {target.displayName} 부활 (필요 {cost}).", LogCategory.Default);
             return false;
         }
 
         bool ok = PartyManager.Instance.ReviveFellow(target, ReviveHpRatio);
         if (!ok)
         {
-            GameLog.Event($"부활 실패 — 파티 빈 슬롯이 없습니다.", LogCategory.Default);
+            GameLog.Formatted($"부활 실패 — 파티 빈 슬롯이 없습니다.", LogCategory.Default);
             return false;
         }
 
@@ -142,13 +142,13 @@ public static class ChurchService
 
         // 실제 부활 결과 기록 — 상태 적용과 같은 트랜잭션 (16-A §5, P0-04)
         RunSessionManager.Instance?.AddRecord(RunRecordType.RecoveryResolved, "교회 — 부활",
-            new System.Collections.Generic.List<string>
+            new System.Collections.Generic.List<LocalizedMessage>
             {
-                $"{target.displayName} 부활 ({target.starLevel}★, HP {target.CurrentHp})",
-                $"영혼석 -{cost} → 보유 {SoulstoneManager.Instance.Amount}",
+                Loc.Message("{0} 부활 ({1}★, HP {2})", Loc.Message(target.displayName), target.starLevel, target.CurrentHp),
+                Loc.Message("영혼석 -{0} → 보유 {1}", cost, SoulstoneManager.Instance.Amount),
             });
 
-        GameLog.Event($"{target.displayName} 부활! ({target.starLevel}★, 영혼석 -{cost})", LogCategory.Reward);
+        GameLog.Formatted($"{target.displayName} 부활! ({target.starLevel}★, 영혼석 -{cost})", LogCategory.Reward);
         return true;
     }
 }

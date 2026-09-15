@@ -83,11 +83,11 @@ public class SkillTooltipController : MonoBehaviour
     }
 
     /// <summary>임의 텍스트 본문을 커서 근처에 표시(상태이상 툴팁 등 범용).</summary>
-    public void ShowText(string body, Vector2 screenPos)
+    public void ShowText(LocalizedMessage body, Vector2 screenPos)
     {
-        if (panel == null || string.IsNullOrEmpty(body)) return;
+        if (panel == null || body == null || string.IsNullOrEmpty(body.Key)) return;
         foreach (var e in _entries) e.root.SetActive(false);
-        if (bodyText != null) { bodyText.gameObject.SetActive(true); bodyText.text = body; }
+        if (bodyText != null) { bodyText.gameObject.SetActive(true); Loc.Bind(bodyText, body.Render); }
         panel.gameObject.SetActive(true);
         UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(panel);
         panel.position = screenPos + cursorOffset;
@@ -184,7 +184,7 @@ public class SkillTooltipController : MonoBehaviour
         e.icon.color   = hasSprite ? TypeColor(s.effectType) : Color.clear;
 
         string name = !string.IsNullOrEmpty(s.displayName) ? s.displayName : s.id;
-        e.nameLine.text = $"({s.costAmount}){name}  <size=70%><color=#{TypeHex(s.effectType)}>[{RangeLabel(s)} | {TypeLabel(s.effectType)} | {TargetLabel(s.targeting)}]</color></size>";   // '·' 는 NanumGothic 에 없어 □ 로 깨짐 → '|' 사용
+        Loc.Bind(e.nameLine, () => $"({s.costAmount}){Loc.Tr(name)}  <size=70%><color=#{TypeHex(s.effectType)}>[{Loc.Tr(RangeLabel(s))} | {Loc.Tr(TypeLabel(s.effectType))} | {Loc.Tr(TargetLabel(s.targeting))}]</color></size>");   // '·' 는 NanumGothic 에 없어 □ 로 깨짐 → '|' 사용
 
         //string stats = $"위력 {s.power}";
         //if (s.effectType == "MixedDamageShield") stats += $" <color=#7FB2FF>+ 실드 {s.shieldPower}</color>";
@@ -194,7 +194,7 @@ public class SkillTooltipController : MonoBehaviour
 
         bool hasDesc = !string.IsNullOrEmpty(s.description);
         e.desc.gameObject.SetActive(hasDesc);
-        if (hasDesc) e.desc.text = s.description;
+        if (hasDesc) Loc.Set(e.desc, s.description);
     }
 
     private static string TypeLabel(string effectType) => effectType switch

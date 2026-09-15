@@ -70,7 +70,7 @@ public class InvestigatorNotebookController : MonoBehaviour
         var rt = (RectTransform)go.transform;
         rt.anchorMin = rt.anchorMax = new Vector2(0f, 1f); rt.pivot = new Vector2(0f, 1f);
         rt.anchoredPosition = new Vector2(24f, -24f);
-        rt.sizeDelta = new Vector2(200f, 56f);
+        rt.sizeDelta = new Vector2(280f, 56f);
         var img = go.GetComponent<Image>();
         img.color = new Color(0.18f, 0.16f, 0.12f, 0.95f);
         var ol = go.AddComponent<Outline>();
@@ -107,6 +107,18 @@ public class InvestigatorNotebookController : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
         Build();
+        LocalizationManager.OnLanguageChanged += RefreshLanguage;
+    }
+
+    private void OnDestroy() => LocalizationManager.OnLanguageChanged -= RefreshLanguage;
+
+    private void RefreshLanguage()
+    {
+        if (_root == null || !_root.activeSelf) return;
+        bool animate = _typing;
+        int page = _pageIndex;
+        RebuildPages();
+        ShowPage(page, animate);
     }
 
     private void _Open()
@@ -178,10 +190,10 @@ public class InvestigatorNotebookController : MonoBehaviour
         sb.AppendLine(e.node > 0
             ? Loc.Tr("[{0}층 | 제 {1}구역]", e.floor, e.node)
             : Loc.Tr("[{0}층 | 현장 기록]", e.floor));
-        if (!string.IsNullOrEmpty(e.title))
-            sb.AppendLine(e.title);          // 전투: "고블린 2체 사살"/"Slew ..." 등 (§1-4)
+        if (e.title != null)
+            sb.AppendLine(e.title.Render());          // 전투: "고블린 2체 사살"/"Slew ..." 등 (§1-4)
         foreach (var line in e.lines)
-            sb.AppendLine(line);             // 항목당 한 줄 (§1-5)
+            sb.AppendLine(line.Render());             // 항목당 한 줄 (§1-5)
         return sb.ToString();
     }
 
@@ -274,6 +286,7 @@ public class InvestigatorNotebookController : MonoBehaviour
         var canvasGo = new GameObject("NotebookCanvas", typeof(Canvas), typeof(CanvasGroup), typeof(GraphicRaycaster));
         canvasGo.transform.SetParent(transform, false);
         var canvas = canvasGo.GetComponent<Canvas>();
+        ResponsiveUi.Configure(canvas);
         canvas.renderMode  = RenderMode.ScreenSpaceOverlay;
         canvas.sortingOrder = 10030; // 이벤트/용병소 패널 위 (상시 열람)
         _group = canvasGo.GetComponent<CanvasGroup>();
@@ -297,7 +310,7 @@ public class InvestigatorNotebookController : MonoBehaviour
         var padRt = pad.rectTransform;
         padRt.anchorMin = new Vector2(0.5f, 1f); padRt.anchorMax = new Vector2(0.5f, 1f); padRt.pivot = new Vector2(0.5f, 1f);
         padRt.anchoredPosition = new Vector2(0f, -20f);
-        padRt.sizeDelta = new Vector2(680f, 720f);
+        padRt.sizeDelta = new Vector2(940f, 840f);
         pad.color = Paper;
         pad.raycastTarget = true; // 패드 클릭이 backdrop 으로 새지 않게
         var padOl = pad.gameObject.AddComponent<Outline>();

@@ -178,11 +178,11 @@ public class GrowthPanel : PanelBase
         if (statusLabel != null)
         {
             if (filled < 3)
-                statusLabel.text = $"{3 - filled}명을 더 선택해주세요";
+                Loc.Set(statusLabel, "{0}명을 더 선택해주세요", 3 - filled);
             else if (!AllSameStar())
-                statusLabel.text = "같은 성급의 동료 3명을 선택해주세요";
+                Loc.Set(statusLabel, "같은 성급의 동료 3명을 선택해주세요");
             else
-                statusLabel.text = "합성 준비 완료";
+                Loc.Set(statusLabel, "합성 준비 완료");
         }
         if (synthesizeButton != null) synthesizeButton.interactable = canSynth;
     }

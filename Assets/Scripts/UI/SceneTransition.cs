@@ -50,6 +50,7 @@ public class SceneTransition : MonoBehaviour
         canvasGo.transform.SetParent(transform, false);
 
         var canvas = canvasGo.GetComponent<Canvas>();
+        ResponsiveUi.Configure(canvas);
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
         canvas.sortingOrder = 9999; // 항상 최상단
 

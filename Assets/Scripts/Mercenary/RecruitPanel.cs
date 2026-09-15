@@ -109,7 +109,7 @@ public class RecruitPanel : PanelBase
                 : "0";
 
         if (rerollCostLabel != null && MercenaryService.Instance != null)
-            rerollCostLabel.text = $"리롤 ({MercenaryService.Instance.NextRerollCost})";
+            Loc.Set(rerollCostLabel, "리롤 ({0})", MercenaryService.Instance.NextRerollCost);
 
         if (rerollButton != null)
             rerollButton.interactable = CanAffordReroll();
@@ -118,7 +118,7 @@ public class RecruitPanel : PanelBase
         {
             int cur = MercenaryService.Instance.Reserves.Count;
             int max = MercenaryService.ReservesCapacity;
-            reservesCountLabel.text = $"예비대 ({cur}/{max})";
+            Loc.Set(reservesCountLabel, "예비대 ({0}/{1})", cur, max);
         }
     }
 
@@ -174,7 +174,7 @@ public class RecruitPanel : PanelBase
         var list = MercenaryService.Instance.Candidates;
         var cand = (candidateIndex >= 0 && candidateIndex < list.Count) ? list[candidateIndex] : null;
         if (cand != null && SoulstoneManager.Instance != null && SoulstoneManager.Instance.Amount < cand.recruitCost)
-            ShowToast($"영혼석이 부족합니다 (필요 {cand.recruitCost})");
+            ShowToast(Loc.Message("영혼석이 부족합니다 (필요 {0})", cand.recruitCost));
         else
             ShowToast("파티와 예비대가 가득 찼습니다");
     }
@@ -184,14 +184,14 @@ public class RecruitPanel : PanelBase
         if (MercenaryService.Instance == null) return;
         bool ok = MercenaryService.Instance.TryReroll();
         if (ok) { RebuildAll(); return; }
-        ShowToast($"영혼석이 부족합니다 (필요 {MercenaryService.Instance.NextRerollCost})");
+        ShowToast(Loc.Message("영혼석이 부족합니다 (필요 {0})", MercenaryService.Instance.NextRerollCost));
     }
 
     // 기획 §7-1/§8-3 — 실패 사유 표시 (빨간색, 2초 후 자동 소거)
-    private void ShowToast(string msg)
+    private void ShowToast(LocalizedMessage msg)
     {
         if (statusLabel == null) return;
-        statusLabel.text = msg;
+        Loc.Bind(statusLabel, msg.Render);
         if (_toastRoutine != null) StopCoroutine(_toastRoutine);
         _toastRoutine = StartCoroutine(ClearToastAfter(2f));
     }

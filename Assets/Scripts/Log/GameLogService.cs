@@ -24,11 +24,12 @@ public enum LogCategory
 
 public readonly struct GameLogEntry
 {
-    public readonly string      message;
+    private readonly LocalizedMessage _message;
+    public string message => _message?.Render() ?? string.Empty;
     public readonly LogCategory category;
-    public GameLogEntry(string message, LogCategory category)
+    public GameLogEntry(LocalizedMessage message, LogCategory category)
     {
-        this.message  = message;
+        _message = message;
         this.category = category;
     }
 }
@@ -61,9 +62,9 @@ public class GameLogService : Singleton<GameLogService>
     }
 
     // ── 게임 이벤트 (사용자 노출용) ───────────────────────────
-    public void LogEvent(string message, LogCategory category = LogCategory.Default)
+    public void LogEvent(LocalizedMessage message, LogCategory category = LogCategory.Default)
     {
-        if (string.IsNullOrEmpty(message)) return;
+        if (message == null || string.IsNullOrEmpty(message.Key)) return;
 
         var entry = new GameLogEntry(message, category);
         _gameEvents.Add(entry);
@@ -105,6 +106,12 @@ public class GameLogService : Singleton<GameLogService>
 /// <summary>전역 편의 헬퍼 — `GameLog.Event("...", LogCategory.Damage)` 한 줄로 호출.</summary>
 public static class GameLog
 {
+    public static void Formatted(System.FormattableString message, LogCategory category = LogCategory.Default)
+    {
+        if (GameLogService.Instance != null)
+            GameLogService.Instance.LogEvent(LocalizedMessage.FromInterpolated(message), category);
+    }
+
     public static void Event(string message, LogCategory category = LogCategory.Default)
     {
         if (GameLogService.Instance != null) GameLogService.Instance.LogEvent(message, category);

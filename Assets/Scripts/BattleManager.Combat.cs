@@ -77,7 +77,7 @@ public partial class BattleManager
                 if (ally.isFrozen)
                 {
                     ally.isFrozen = false;
-                    GameLog.Event($"{ally.displayName ?? ally.positionStack.ToString()}이(가) 공포에 질려 행동하지 못한다.", LogCategory.Status);
+                    GameLog.Formatted($"{ally.displayName ?? ally.positionStack.ToString()}이(가) 공포에 질려 행동하지 못한다.", LogCategory.Status);
                     Debug.Log($"[공포 경직] {ally.positionStack} — 이번 턴 행동 불가");
                     continue;
                 }
@@ -107,7 +107,7 @@ public partial class BattleManager
                         int effectiveCost = bestSkill.costAmount + panicCostBonus;
                         PlayerRoleCost.Instance.Use(allyRole, effectiveCost);
                         int afterStack = currentStack - effectiveCost;
-                        GameLog.Event($"{allyName}이(가) [{bestSkill.displayName}]을(를) 사용했다!", LogCategory.Skill);
+                        GameLog.Formatted($"{allyName}이(가) [{bestSkill.displayName}]을(를) 사용했다!", LogCategory.Skill);
                         Debug.Log($"[아군 행동] {allyName} ({allyRole}) → {bestSkill.displayName}  (스택 {effectiveCost} 사용 / {currentStack}→{afterStack}{(panicCostBonus > 0 ? $", 과호흡 +{panicCostBonus}" : "")})");
                         yield return StartCoroutine(UseSkill(ally, bestSkill));
                         usedAny = true;
@@ -133,7 +133,7 @@ public partial class BattleManager
                     _carryoverBonus.TryGetValue(allyRole, out int prev);
                     _carryoverBonus[allyRole] = prev + 1;
                     noAction.Add(ally);
-                    GameLog.Event($"{allyName}이(가) 행동하지 않아 다음 턴 스택 +1 (행동 우선)", LogCategory.Status);
+                    GameLog.Formatted($"{allyName}이(가) 행동하지 않아 다음 턴 스택 +1 (행동 우선)", LogCategory.Status);
                     Debug.Log($"[아군 미행동] {allyName}({allyRole}) → 다음 턴 이월 +1, 진형 앞으로");
                 }
             }
@@ -225,7 +225,7 @@ public partial class BattleManager
                 if (share > 0)
                 {
                     damage -= share;
-                    GameLog.Event($"수호 결속 — {defender.displayName ?? defender.positionStack.ToString()}가 피해 {share} 분담.", LogCategory.Shield);
+                    GameLog.Formatted($"수호 결속 — {defender.displayName ?? defender.positionStack.ToString()}가 피해 {share} 분담.", LogCategory.Shield);
                     Debug.Log($"[수호결속] {defender.positionStack}가 {target.positionStack} 피해 {share} 분담");
                     ApplyDamageToAlly(defender, share, false); // 분담분은 재분담 안 함
                 }
@@ -251,7 +251,7 @@ public partial class BattleManager
             target.shield -= absorbed;
             remaining     -= absorbed;
             target.OnShieldChanged?.Invoke();
-            GameLog.Event($"{targetName}의 실드가 {absorbed}을(를) 흡수!", LogCategory.Shield);
+            GameLog.Formatted($"{targetName}의 실드가 {absorbed}을(를) 흡수!", LogCategory.Shield);
             Debug.Log($"  └ [실드 흡수] {targetName} — {absorbed} 흡수 (남은 실드: {target.shield})");
         }
 
@@ -262,7 +262,7 @@ public partial class BattleManager
             int maxHp    = target.maxHp > 0 ? target.maxHp : 100;
             target.CurrentHp = Mathf.Max(0, target.CurrentHp - remaining);
             UpdateAllyHpUI(target);
-            GameLog.Event($"{targetName}이(가) {remaining}의 피해를 입었다!", LogCategory.Damage);
+            GameLog.Formatted($"{targetName}이(가) {remaining}의 피해를 입었다!", LogCategory.Damage);
             Debug.Log($"  └ [데미지] {targetName} ({target.positionStack}) ← {remaining} 데미지  (HP: {beforeHp} → {target.CurrentHp}/{maxHp})");
         }
 
@@ -278,7 +278,7 @@ public partial class BattleManager
         }
 
         target.currentStress = Mathf.Min(100, target.currentStress + stressGain);
-        GameLog.Event($"{targetName}의 스트레스 +{stressGain} ({target.currentStress}/100)", LogCategory.Status);
+        GameLog.Formatted($"{targetName}의 스트레스 +{stressGain} ({target.currentStress}/100)", LogCategory.Status);
         Debug.Log($"  └ [스트레스] {targetName} +{stressGain} → {target.currentStress}");
 
         TriggerPanicIfNeeded(target);
@@ -321,20 +321,20 @@ public partial class BattleManager
                 CompanionRole.Support => "광역 회복 → 단일 회복",
                 _ => "없음"
             };
-            GameLog.Event($"{ally.displayName ?? ally.positionStack.ToString()} 중증 디버프 — {dbuff} (전투 종료까지).", LogCategory.Status);
+            GameLog.Formatted($"{ally.displayName ?? ally.positionStack.ToString()} 중증 디버프 — {dbuff} (전투 종료까지).", LogCategory.Status);
             Debug.Log($"[중증디버프] {ally.positionStack} ({ally.role}) — {dbuff}");
         }
 
         if (Random.value > 0.5f)
         {
             ally.isFrozen = true;
-            GameLog.Event($"{ally.displayName ?? ally.positionStack.ToString()}이(가) 패닉! 공포 경직 발동.", LogCategory.Status);
+            GameLog.Formatted($"{ally.displayName ?? ally.positionStack.ToString()}이(가) 패닉! 공포 경직 발동.", LogCategory.Status);
             Debug.Log($"[패닉] {ally.positionStack} — 공포 경직 발동! (다음 턴 행동 불가)");
         }
         else
         {
             ally.isOverBreathing = true;
-            GameLog.Event($"{ally.displayName ?? ally.positionStack.ToString()}이(가) 과호흡! 다음 턴 스킬 코스트 +1.", LogCategory.Status);
+            GameLog.Formatted($"{ally.displayName ?? ally.positionStack.ToString()}이(가) 과호흡! 다음 턴 스킬 코스트 +1.", LogCategory.Status);
             Debug.Log($"[패닉] {ally.positionStack} — 과호흡 발동! (다음 턴 스킬 코스트 +1)");
         }
     }
@@ -376,7 +376,7 @@ public partial class BattleManager
         var live = allies.Where(a => !a.isDead).ToList();
         if (live.Count == 0) return;
 
-        GameLog.Event($"탈진! 살아있는 동료 전원 스트레스 +{exhaustionStressPenalty}.", LogCategory.Status);
+        GameLog.Formatted($"탈진! 살아있는 동료 전원 스트레스 +{exhaustionStressPenalty}.", LogCategory.Status);
         Debug.Log($"[탈진] 손패 0 + 덱 0 — 살아있는 동료 {live.Count}명 스트레스 +{exhaustionStressPenalty}");
         foreach (var ally in live)
         {
@@ -450,7 +450,7 @@ public partial class BattleManager
         {
             ally.isDead = true;
             ally.deathHandled = true; // 중복 처리(스트레스 반복·손패 재파괴) 방지
-            GameLog.Event($"{ally.displayName ?? ally.positionStack.ToString()}이(가) 쓰러졌다.", LogCategory.Death);
+            GameLog.Formatted($"{ally.displayName ?? ally.positionStack.ToString()}이(가) 쓰러졌다.", LogCategory.Death);
             Debug.Log($"[사망] {ally.positionStack} 사망 처리됨.");
 
             GameManager.Instance?.RemoveCardsOfFellow(ally);
@@ -460,7 +460,7 @@ public partial class BattleManager
             {
                 survivor.currentStress = Mathf.Min(100, survivor.currentStress + 20);
                 TriggerPanicIfNeeded(survivor);
-                GameLog.Event($"{survivor.displayName ?? survivor.positionStack.ToString()}의 스트레스 +20 (동료 사망)", LogCategory.Status);
+                GameLog.Formatted($"{survivor.displayName ?? survivor.positionStack.ToString()}의 스트레스 +20 (동료 사망)", LogCategory.Status);
                 Debug.Log($"[스트레스] {survivor.positionStack} +20 (동료 사망 패널티) → {survivor.currentStress}");
             }
         }
@@ -483,7 +483,7 @@ public partial class BattleManager
                 {
                     SoulstoneManager.Instance.Add(enemy.soulstoneDrop);
                 }
-                GameLog.Event($"{enemy.displayName} 처치! 영혼석 +{enemy.soulstoneDrop}", LogCategory.Reward);
+                GameLog.Formatted($"{enemy.displayName} 처치! 영혼석 +{enemy.soulstoneDrop}", LogCategory.Reward);
                 Debug.Log($"  └ [보상] {enemy.displayName} 처치 → 영혼석 +{enemy.soulstoneDrop}");
             }
         }
@@ -496,7 +496,7 @@ public partial class BattleManager
             var aliveSummons = enemies.Where(e => e != null && !e.isDead && e.isPassive).ToList();
             foreach (var s in aliveSummons)
             {
-                GameLog.Event($"{s.displayName}이(가) 보스와 함께 사라졌다.", LogCategory.Death);
+                GameLog.Formatted($"{s.displayName}이(가) 보스와 함께 사라졌다.", LogCategory.Death);
                 Debug.Log($"  └ [보스 동반 사망] {s.displayName} — 보스 사망에 의해 강제 제거");
                 s.CurrentHp = 0; // setter 가 isDead=true + OnDied 처리
             }
@@ -677,7 +677,7 @@ public partial class BattleManager
         foreach (var ally in live)
         {
             ally.AddShield(shieldAmt);
-            GameLog.Event($"{ally.displayName ?? ally.positionStack.ToString()}에게 {shieldAmt} 실드.", LogCategory.Shield);
+            GameLog.Formatted($"{ally.displayName ?? ally.positionStack.ToString()}에게 {shieldAmt} 실드.", LogCategory.Shield);
             Debug.Log($"[ApplyMixedShield] {ally.displayName} +{shieldAmt} 실드 (현재: {ally.shield})");
         }
     }
@@ -699,7 +699,7 @@ public partial class BattleManager
             e.OnTauntChanged?.Invoke(); // 상태 칩 갱신
             applied++;
         }
-        GameLog.Event($"{user.displayName}이(가) {applied}마리 적을 {turns}턴 도발!", LogCategory.Status);
+        GameLog.Formatted($"{user.displayName}이(가) {applied}마리 적을 {turns}턴 도발!", LogCategory.Status);
         Debug.Log($"[ApplyTaunt] {user.displayName} → 적 {applied}마리 도발 {turns}턴");
     }
 
@@ -848,7 +848,7 @@ public partial class BattleManager
             .OrderBy(e => e.tier == EnemyTier.Boss ? 1 : 0)
             .ThenBy(e => enemies.IndexOf(e))
             .First();
-        GameLog.Event($"비전 연쇄! {next.displayName}에게 추가 타격 (+{power})", LogCategory.Damage);
+        GameLog.Formatted($"비전 연쇄! {next.displayName}에게 추가 타격 (+{power})", LogCategory.Damage);
         Debug.Log($"[비전연쇄] {user.positionStack} 처치 연쇄 → {next.displayName} +{power}");
         DealDamageToEnemy(next, power);
     }
@@ -874,7 +874,7 @@ public partial class BattleManager
         if (heal <= 0) return;
         user.CurrentHp = Mathf.Min(user.maxHp > 0 ? user.maxHp : user.CurrentHp + heal, user.CurrentHp + heal);
         UpdateAllyHpUI(user);
-        GameLog.Event($"피의 갈망 — {user.displayName ?? user.positionStack.ToString()} HP +{heal}.", LogCategory.Heal);
+        GameLog.Formatted($"피의 갈망 — {user.displayName ?? user.positionStack.ToString()} HP +{heal}.", LogCategory.Heal);
         Debug.Log($"[피의갈망] {user.positionStack} 처치 회복 +{heal}");
     }
 
@@ -909,7 +909,7 @@ public partial class BattleManager
             Debug.Log($"  └ [공격] {target.displayName} ← {target.currentHits}/{target.hitCountToDie} 히트 (HP {remaining}/{target.maxHp})");
             if (target.currentHits >= target.hitCountToDie)
             {
-                GameLog.Event($"{target.displayName} 처치!", LogCategory.Death);
+                GameLog.Formatted($"{target.displayName} 처치!", LogCategory.Death);
                 Debug.Log($"  └ [처치] {target.displayName} — 공격 {target.hitCountToDie}회로 처치됨");
             }
             return;
@@ -918,7 +918,7 @@ public partial class BattleManager
         // 기본: HP 기반 처치
         int beforeHp = target.CurrentHp;
         target.CurrentHp -= power;
-        GameLog.Event($"{target.displayName}이(가) {power}의 피해를 입었다!", LogCategory.Damage);
+        GameLog.Formatted($"{target.displayName}이(가) {power}의 피해를 입었다!", LogCategory.Damage);
         Debug.Log($"  └ [데미지] {target.displayName} ← {power} 데미지  (HP: {beforeHp} → {target.CurrentHp}/{target.maxHp})");
     }
 
@@ -962,7 +962,7 @@ public partial class BattleManager
             case "Self":
                 user.CurrentHp += power;
                 UpdateAllyHpUI(user);
-                GameLog.Event($"{user.displayName ?? user.positionStack.ToString()}의 HP +{power} 회복.", LogCategory.Heal);
+                GameLog.Formatted($"{user.displayName ?? user.positionStack.ToString()}의 HP +{power} 회복.", LogCategory.Heal);
                 Debug.Log($"[ApplySkillHeal] {user.displayName ?? user.positionStack.ToString()} 자신 +{power} HP (현재: {user.CurrentHp})");
                 ApplyPriestHealBonus(user, user, power);
                 break;
@@ -972,7 +972,7 @@ public partial class BattleManager
                 var healTarget = liveAllies.OrderBy(a => AllyHpRatio(a)).First();
                 healTarget.CurrentHp += power;
                 UpdateAllyHpUI(healTarget);
-                GameLog.Event($"{healTarget.displayName ?? healTarget.positionStack.ToString()}의 HP +{power} 회복.", LogCategory.Heal);
+                GameLog.Formatted($"{healTarget.displayName ?? healTarget.positionStack.ToString()}의 HP +{power} 회복.", LogCategory.Heal);
                 Debug.Log($"[ApplySkillHeal] {healTarget.displayName ?? healTarget.positionStack.ToString()} +{power} HP (현재: {healTarget.CurrentHp})");
                 ApplyPriestHealBonus(user, healTarget, power);
                 break;
@@ -981,7 +981,7 @@ public partial class BattleManager
                 {
                     ally.CurrentHp += power;
                     UpdateAllyHpUI(ally);
-                    GameLog.Event($"{ally.displayName ?? ally.positionStack.ToString()}의 HP +{power} 회복.", LogCategory.Heal);
+                    GameLog.Formatted($"{ally.displayName ?? ally.positionStack.ToString()}의 HP +{power} 회복.", LogCategory.Heal);
                     Debug.Log($"[ApplySkillHeal] {ally.displayName ?? ally.positionStack.ToString()} +{power} HP (현재: {ally.CurrentHp})");
                     ApplyPriestHealBonus(user, ally, power);
                 }
@@ -1003,7 +1003,7 @@ public partial class BattleManager
             if (reduce > 0)
             {
                 ally.currentStress = Mathf.Max(0, ally.currentStress - reduce);
-                GameLog.Event($"정화의 빛 — {ally.displayName ?? ally.positionStack.ToString()} 스트레스 -{reduce}.", LogCategory.Status);
+                GameLog.Formatted($"정화의 빛 — {ally.displayName ?? ally.positionStack.ToString()} 스트레스 -{reduce}.", LogCategory.Status);
                 Debug.Log($"[정화의빛] {ally.positionStack} 스트레스 -{reduce}");
             }
         }
@@ -1014,7 +1014,7 @@ public partial class BattleManager
             if (sh > 0)
             {
                 ally.AddShield(sh);
-                GameLog.Event($"수호 기도 — {ally.displayName ?? ally.positionStack.ToString()} 실드 +{sh}.", LogCategory.Shield);
+                GameLog.Formatted($"수호 기도 — {ally.displayName ?? ally.positionStack.ToString()} 실드 +{sh}.", LogCategory.Shield);
                 Debug.Log($"[수호기도] {ally.positionStack} 실드 +{sh}");
             }
         }
@@ -1046,7 +1046,7 @@ public partial class BattleManager
             case "Self":
                 user.shield += power;
                 user.OnShieldChanged?.Invoke();
-                GameLog.Event($"{user.displayName ?? user.positionStack.ToString()}의 실드 +{power}.", LogCategory.Shield);
+                GameLog.Formatted($"{user.displayName ?? user.positionStack.ToString()}의 실드 +{power}.", LogCategory.Shield);
                 Debug.Log($"[ApplySkillShield] {user.displayName ?? user.positionStack.ToString()} 자신 +{power} 실드 (현재: {user.shield})");
                 break;
             // 기획 §02 §자동 타겟팅 §아군 지원 — "HP 비율 최저 아군 우선" (정책 통일)
@@ -1055,7 +1055,7 @@ public partial class BattleManager
                 var shieldTarget = liveAllies.OrderBy(a => AllyHpRatio(a)).First();
                 shieldTarget.shield += power;
                 shieldTarget.OnShieldChanged?.Invoke();
-                GameLog.Event($"{shieldTarget.displayName ?? shieldTarget.positionStack.ToString()}의 실드 +{power}.", LogCategory.Shield);
+                GameLog.Formatted($"{shieldTarget.displayName ?? shieldTarget.positionStack.ToString()}의 실드 +{power}.", LogCategory.Shield);
                 Debug.Log($"[ApplySkillShield] {shieldTarget.displayName ?? shieldTarget.positionStack.ToString()} +{power} 실드 (현재: {shieldTarget.shield})");
                 break;
             case "AllAllies":
@@ -1063,7 +1063,7 @@ public partial class BattleManager
                 {
                     ally.shield += power;
                     ally.OnShieldChanged?.Invoke();
-                    GameLog.Event($"{ally.displayName ?? ally.positionStack.ToString()}의 실드 +{power}.", LogCategory.Shield);
+                    GameLog.Formatted($"{ally.displayName ?? ally.positionStack.ToString()}의 실드 +{power}.", LogCategory.Shield);
                     Debug.Log($"[ApplySkillShield] {ally.displayName ?? ally.positionStack.ToString()} +{power} 실드 (현재: {ally.shield})");
                 }
                 break;

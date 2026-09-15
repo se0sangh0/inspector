@@ -13,7 +13,7 @@
 
 using System.Collections.Generic;
 
-public static class LocalizationTable
+public static partial class LocalizationTable
 {
     public static readonly Dictionary<string, string> Ko2En = new();
     public static readonly Dictionary<string, string> En2Ko = new();
@@ -265,6 +265,7 @@ public static class LocalizationTable
         Add("편집", "Edit");
         Add("모집", "Recruit");
         Add("성장", "Growth");
+        Add("동료 합성", "Companion Fusion");
         Add("리롤", "Reroll");
         Add("HP 회복", "Heal HP");
         Add("스트레스 회복", "Relieve Stress");
@@ -296,5 +297,6 @@ public static class LocalizationTable
         Add("부활 ({0})", "Revive ({0})");
         Add("선택", "Select");
         Add("+ 동료 선택", "+ Select Companion");
+        AddGameplay();
     }
 }
