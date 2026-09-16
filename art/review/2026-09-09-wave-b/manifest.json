@@ -19,10 +19,12 @@
       "mode": "RGB",
       "sha256": "dd97142a6628ac282870fac21b6e8cc4db9fef3fb07598e8f64bb4a9ecc36312",
       "required_features": "찢어진 바구니, 약초, 열매, 땔감",
-      "approval": "review_pending",
-      "unity_connected": false,
+      "approval": "user_requested_unity_integration_2026-09-16",
+      "unity_connected": true,
       "prompt_key": "clue_OBS_TORN_BASKET_prompt",
-      "kind": "clue"
+      "kind": "clue",
+      "unity_imported": true,
+      "unity_asset": "Assets/Resources/RemakeV1/Clues/OBS_TORN_BASKET_v1.png"
     },
     {
       "assetId": "OBS_STONE_EDGED_SLOPE",
@@ -35,10 +37,12 @@
       "mode": "RGB",
       "sha256": "07bbb35e8371be33b3c9fc3db9c3aa064ab5e730f4f8413e7c0230423a8daf1e",
       "required_features": "낮은 돌테두리, 손질한 흙, 잡아맨 덩굴",
-      "approval": "review_pending",
+      "approval": "user_requested_unity_integration_2026-09-16",
       "unity_connected": false,
       "prompt_key": "clue_OBS_STONE_EDGED_SLOPE_prompt",
-      "kind": "clue"
+      "kind": "clue",
+      "unity_imported": true,
+      "unity_asset": "Assets/Resources/RemakeV1/Clues/OBS_STONE_EDGED_SLOPE_v1.png"
     },
     {
       "assetId": "OBS_COVERED_ROCK_GAP",
@@ -51,10 +55,12 @@
       "mode": "RGB",
       "sha256": "fe5d3da71e9341822e9e137f3a201a306f7e01759ec5dcd71e2f69ba74a884d7",
       "required_features": "바위 틈의 구덩이, 마른 가지 덮개, 견과와 말린 과일이 든 자루",
-      "approval": "review_pending",
+      "approval": "user_requested_unity_integration_2026-09-16",
       "unity_connected": false,
       "prompt_key": "clue_OBS_COVERED_ROCK_GAP_prompt",
-      "kind": "clue"
+      "kind": "clue",
+      "unity_imported": true,
+      "unity_asset": "Assets/Resources/RemakeV1/Clues/OBS_COVERED_ROCK_GAP_v1.png"
     },
     {
       "assetId": "R03-A",
@@ -109,9 +115,11 @@
       "mode": "RGB",
       "sha256": "c7004a37bac68768629c7a278c5bfe3d72f200c171e34ca737b8d66ed71ac408",
       "prompt_key": "art_OBS_HORN_KNOT_prompt",
-      "approval": "review_pending",
+      "approval": "user_requested_unity_integration_2026-09-16",
       "unity_connected": false,
-      "routeId": "R03-A"
+      "routeId": "R03-A",
+      "unity_imported": true,
+      "unity_asset": "Assets/Resources/RemakeV1/Clues/OBS_HORN_KNOT_v1.png"
     },
     {
       "assetId": "OBS_LOW_PASSAGE_BARRIER",
@@ -124,9 +132,11 @@
       "mode": "RGB",
       "sha256": "de5832d5d6cc5d223286cdfc7665c9ac617603553910afeebdbc6102d899ed52",
       "prompt_key": "art_OBS_LOW_PASSAGE_BARRIER_prompt",
-      "approval": "review_pending",
+      "approval": "user_requested_unity_integration_2026-09-16",
       "unity_connected": false,
-      "routeId": "R03-B"
+      "routeId": "R03-B",
+      "unity_imported": true,
+      "unity_asset": "Assets/Resources/RemakeV1/Clues/OBS_LOW_PASSAGE_BARRIER_v1.png"
     },
     {
       "assetId": "OBS_FOREST_BARRICADE",
@@ -139,9 +149,11 @@
       "mode": "RGB",
       "sha256": "925c4b978be8373a5c7c622243a3aeb51757d4f1734292fcb5311c9808770b6b",
       "prompt_key": "art_OBS_FOREST_BARRICADE_prompt",
-      "approval": "review_pending",
-      "unity_connected": false,
-      "routeId": "R03-C"
+      "approval": "user_requested_unity_integration_2026-09-16",
+      "unity_connected": true,
+      "routeId": "R03-C",
+      "unity_imported": true,
+      "unity_asset": "Assets/Resources/RemakeV1/Clues/OBS_FOREST_BARRICADE_v1.png"
     },
     {
       "assetId": "BG-BattleCanyon",
@@ -154,22 +166,23 @@
       "mode": "RGB",
       "sha256": "f5bae0b915fa1883e76a3cab7271e95b34ffbc0792a047c28dfd0e6b6c9b5b10",
       "prompt_key": "art_BG-BattleCanyon_prompt",
-      "approval": "review_pending",
-      "unity_connected": false
+      "approval": "user_requested_unity_integration_2026-09-16",
+      "unity_connected": true,
+      "unity_imported": true,
+      "unity_asset": "Assets/Resources/RemakeV1/Backgrounds/Battle_Canyon_Floor4_v1.png"
     }
   ],
   "approval": "review_pending",
   "unity_connected": false,
   "remaining": [
-    "User visual approval",
-    "Caption crop and object/foreground orientation check in final UI",
-    "Battle character readability and brightness at actual placements",
-    "Approved import and Unity play inspection"
+    "Route illustrations are outside this integration and remain pending.",
+    "Four imported clue images need their corresponding gameplay routes.",
+    "Full battle Play Mode check for character/VFX readability and victory-to-observation flow."
   ],
   "notes": [
-    "Prior ten review candidates remain pending; no prior approval inferred.",
-    "Existing runtime PNGs, GUIDs, data and Notion canon were not changed.",
-    "Images contain no UI text or numbers; route and clue originals are separate."
+    "2026-09-09 generation and browser review are historical records.",
+    "2026-09-16: seven source PNGs copied unchanged into RemakeV1. Two active clue routes and normal/elite background connected.",
+    "Legacy PNGs and GUIDs preserved. No new rewards, observation triggers or Notion canon introduced."
   ],
   "visual_review": {
     "date": "2026-09-09",
@@ -183,5 +196,12 @@
       "Barrier inside/outside and palisade facing direction need final presentation review."
     ],
     "unity_tested": false
+  },
+  "integration_2026_09_16": {
+    "report": "art/review/2026-09-16-wave-b-integration/README.md",
+    "background_scope": "Normal and elite battles, explicitly selected by the user. Boss sprite and brightness retained.",
+    "clue_scope": "Six source illustrations imported; existing TornBasket and ForestBarricade observation routes connected. Other four routes are not implemented.",
+    "verification": "Unity compilation, scene reload and three background modes, two observation panels at 1280x720 and 1920x1080, legacy filename and empty image handling, continue callback exactly once.",
+    "play_mode_tested": false
   }
 }

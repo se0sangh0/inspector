@@ -14,14 +14,14 @@
 //   보스면 보스 배경, 그 외(일반·엘리트)면 일반 배경을 월드 배경에 깐다.
 //   (엘리트 전용 배경이 아직 없어 일반 배경을 사용)
 //
-// 스프라이트는 Resources/BackGround/ 에서 로드: Battle_Normal / Battle_Boss.
+// 일반·엘리트는 RemakeV1/Backgrounds 협곡, 보스는 기존 BackGround/Battle_Boss.
 // ============================================================
 
 using UnityEngine;
 
 public class BattleBackground : MonoBehaviour
 {
-    [SerializeField] private string normalSpritePath = "BackGround/Battle_Normal";
+    [SerializeField] private string normalSpritePath = "RemakeV1/Backgrounds/Battle_Canyon_Floor4_v1";
     [SerializeField] private string bossSpritePath   = "BackGround/Battle_Boss";
 
     [Tooltip("월드 배경 SpriteRenderer (씬 루트 Background). 비우면 'Background' 이름으로 자동 검색.")]
@@ -30,9 +30,13 @@ public class BattleBackground : MonoBehaviour
     [Tooltip("배경 sortingOrder — 캐릭터(0)보다 뒤가 되도록 음수.")]
     [SerializeField] private int worldSortingOrder = -100;
 
-    [Tooltip("배경 명도(0~1). 낮출수록 어두워져 캐릭터가 도드라진다. 1=원본.")]
+    [Tooltip("보스 배경 명도(0~1). 기존 보스 배경의 밝기를 유지한다.")]
     [Range(0f, 1f)]
     [SerializeField] private float backgroundBrightness = 0.3f;
+
+    [Tooltip("일반·엘리트 배경 명도(0~1). 1=원본.")]
+    [Range(0f, 1f)]
+    [SerializeField] private float normalBackgroundBrightness = 0.85f;
 
     private Sprite   _normal;
     private Sprite   _boss;
@@ -64,7 +68,7 @@ public class BattleBackground : MonoBehaviour
         }
 
         sr.sprite = s;
-        float b   = Mathf.Clamp01(backgroundBrightness);
+        float b   = Mathf.Clamp01(room == RoomType.Boss ? backgroundBrightness : normalBackgroundBrightness);
         sr.color  = new Color(b, b, b, 1f);  // 명도 낮춰 캐릭터가 도드라지게
         sr.sortingOrder = worldSortingOrder; // 캐릭터(0) 뒤로
 

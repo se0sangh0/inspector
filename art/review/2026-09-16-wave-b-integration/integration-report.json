@@ -1,0 +1,21 @@
+{
+    "unityVersion": "6000.3.9f1",
+    "completedUtc": "2026-09-16T15:11:04.0072681Z",
+    "passed": true,
+    "importedSprites": 7,
+    "backgroundModes": 3,
+    "observationLayouts": 4,
+    "bossPreserved": true,
+    "legacyImageNames": true,
+    "emptyImage": true,
+    "continueOnce": true,
+    "renders": [
+        "art/review/2026-09-16-wave-b-integration/battle-1280x720.png",
+        "art/review/2026-09-16-wave-b-integration/battle-1920x1080.png",
+        "art/review/2026-09-16-wave-b-integration/OBS_TORN_BASKET-1280x720.png",
+        "art/review/2026-09-16-wave-b-integration/OBS_TORN_BASKET-1920x1080.png",
+        "art/review/2026-09-16-wave-b-integration/OBS_FOREST_BARRICADE-1280x720.png",
+        "art/review/2026-09-16-wave-b-integration/OBS_FOREST_BARRICADE-1920x1080.png"
+    ],
+    "errors": []
+}

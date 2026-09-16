@@ -1,0 +1,384 @@
+{
+    "unityVersion": "6000.3.9f1",
+    "completedUtc": "2026-09-16T14:25:29.2173445Z",
+    "passed": true,
+    "characters": [
+        {
+            "name": "Caster",
+            "controller": "Assets/Resources/Animators/Fellows/Caster/Caster.controller",
+            "visibleHeight": 1.9696969985961915,
+            "baseline": -0.9848484992980957,
+            "pixelsPerUnit": 210.1846160888672,
+            "spriteCount": 8,
+            "clips": [
+                {
+                    "path": "Assets/Resources/Animators/Fellows/Caster/Idle.anim",
+                    "durationBefore": 0.8738095760345459,
+                    "durationAfter": 0.8738095760345459,
+                    "loop": true,
+                    "events": 0,
+                    "sprites": [
+                        "Caster_Idle_0",
+                        "Caster_Idle_1",
+                        "Caster_Idle_2",
+                        "Caster_Idle_3"
+                    ],
+                    "sampled": true,
+                    "triggerEntered": false,
+                    "returnedToIdle": false,
+                    "observedAttackFrames": 0
+                },
+                {
+                    "path": "Assets/Resources/Animators/Fellows/Caster/Attack.anim",
+                    "durationBefore": 0.5166666507720947,
+                    "durationAfter": 0.5166666507720947,
+                    "loop": false,
+                    "events": 0,
+                    "sprites": [
+                        "Caster_Attack_0",
+                        "Caster_Attack_1",
+                        "Caster_Attack_2",
+                        "Caster_Attack_3"
+                    ],
+                    "sampled": true,
+                    "triggerEntered": true,
+                    "returnedToIdle": true,
+                    "observedAttackFrames": 4
+                },
+                {
+                    "path": "Assets/Resources/Animators/Fellows/Caster/Attack2.anim",
+                    "durationBefore": 0.5166666507720947,
+                    "durationAfter": 0.5166666507720947,
+                    "loop": false,
+                    "events": 0,
+                    "sprites": [
+                        "Caster_Attack_0",
+                        "Caster_Attack_1",
+                        "Caster_Attack_2",
+                        "Caster_Attack_3"
+                    ],
+                    "sampled": true,
+                    "triggerEntered": true,
+                    "returnedToIdle": true,
+                    "observedAttackFrames": 4
+                }
+            ]
+        },
+        {
+            "name": "Offender",
+            "controller": "Assets/Resources/Animators/Fellows/Offender/Offender.controller",
+            "visibleHeight": 1.9808611869812012,
+            "baseline": -0.9904305934906006,
+            "pixelsPerUnit": 185.27294921875,
+            "spriteCount": 8,
+            "clips": [
+                {
+                    "path": "Assets/Resources/Animators/Fellows/Offender/Idle.anim",
+                    "durationBefore": 0.7666666507720947,
+                    "durationAfter": 0.7666666507720947,
+                    "loop": true,
+                    "events": 0,
+                    "sprites": [
+                        "Offender_Idle_0",
+                        "Offender_Idle_1",
+                        "Offender_Idle_2",
+                        "Offender_Idle_3"
+                    ],
+                    "sampled": true,
+                    "triggerEntered": false,
+                    "returnedToIdle": false,
+                    "observedAttackFrames": 0
+                },
+                {
+                    "path": "Assets/Resources/Animators/Fellows/Offender/Attack.anim",
+                    "durationBefore": 0.5166666507720947,
+                    "durationAfter": 0.5166666507720947,
+                    "loop": false,
+                    "events": 0,
+                    "sprites": [
+                        "Offender_Attack_0",
+                        "Offender_Attack_1",
+                        "Offender_Attack_2",
+                        "Offender_Attack_3"
+                    ],
+                    "sampled": true,
+                    "triggerEntered": true,
+                    "returnedToIdle": true,
+                    "observedAttackFrames": 4
+                }
+            ]
+        },
+        {
+            "name": "Defender",
+            "controller": "Assets/Resources/Animators/Fellows/Defender/Defender.controller",
+            "visibleHeight": 1.9806764125823975,
+            "baseline": -0.9903380870819092,
+            "pixelsPerUnit": 158.02682495117188,
+            "spriteCount": 8,
+            "clips": [
+                {
+                    "path": "Assets/Resources/Animators/Fellows/Defender/Idle.anim",
+                    "durationBefore": 0.7666666507720947,
+                    "durationAfter": 0.7666666507720947,
+                    "loop": true,
+                    "events": 0,
+                    "sprites": [
+                        "Defender_Idle_0",
+                        "Defender_Idle_1",
+                        "Defender_Idle_2",
+                        "Defender_Idle_3"
+                    ],
+                    "sampled": true,
+                    "triggerEntered": false,
+                    "returnedToIdle": false,
+                    "observedAttackFrames": 0
+                },
+                {
+                    "path": "Assets/Resources/Animators/Fellows/Defender/Attack.anim",
+                    "durationBefore": 0.5166666507720947,
+                    "durationAfter": 0.5166666507720947,
+                    "loop": false,
+                    "events": 0,
+                    "sprites": [
+                        "Defender_Attack_0",
+                        "Defender_Attack_1",
+                        "Defender_Attack_2",
+                        "Defender_Attack_3"
+                    ],
+                    "sampled": true,
+                    "triggerEntered": true,
+                    "returnedToIdle": true,
+                    "observedAttackFrames": 4
+                }
+            ]
+        },
+        {
+            "name": "Attacker",
+            "controller": "Assets/Resources/Animators/Fellows/Attacker/Attacker.controller",
+            "visibleHeight": 1.983263611793518,
+            "baseline": -0.991631805896759,
+            "pixelsPerUnit": 134.1223602294922,
+            "spriteCount": 8,
+            "clips": [
+                {
+                    "path": "Assets/Resources/Animators/Fellows/Attacker/Idle.anim",
+                    "durationBefore": 0.7666666507720947,
+                    "durationAfter": 0.7666666507720947,
+                    "loop": true,
+                    "events": 0,
+                    "sprites": [
+                        "Attacker_Idle_0",
+                        "Attacker_Idle_1",
+                        "Attacker_Idle_2",
+                        "Attacker_Idle_3"
+                    ],
+                    "sampled": true,
+                    "triggerEntered": false,
+                    "returnedToIdle": false,
+                    "observedAttackFrames": 0
+                },
+                {
+                    "path": "Assets/Resources/Animators/Fellows/Attacker/Attack.anim",
+                    "durationBefore": 0.5166666507720947,
+                    "durationAfter": 0.5166666507720947,
+                    "loop": false,
+                    "events": 0,
+                    "sprites": [
+                        "Attacker_Attack_0",
+                        "Attacker_Attack_1",
+                        "Attacker_Attack_2",
+                        "Attacker_Attack_3"
+                    ],
+                    "sampled": true,
+                    "triggerEntered": true,
+                    "returnedToIdle": true,
+                    "observedAttackFrames": 4
+                },
+                {
+                    "path": "Assets/Resources/Animators/Fellows/Attacker/Attack2.anim",
+                    "durationBefore": 0.5166666507720947,
+                    "durationAfter": 0.5166666507720947,
+                    "loop": false,
+                    "events": 0,
+                    "sprites": [
+                        "Attacker_Attack_0",
+                        "Attacker_Attack_1",
+                        "Attacker_Attack_2",
+                        "Attacker_Attack_3"
+                    ],
+                    "sampled": true,
+                    "triggerEntered": true,
+                    "returnedToIdle": true,
+                    "observedAttackFrames": 4
+                }
+            ]
+        },
+        {
+            "name": "Priest",
+            "controller": "Assets/Resources/Animators/Fellows/Priest/Priest.controller",
+            "visibleHeight": 1.9854015111923218,
+            "baseline": -0.9927007555961609,
+            "pixelsPerUnit": 179.30882263183595,
+            "spriteCount": 8,
+            "clips": [
+                {
+                    "path": "Assets/Resources/Animators/Fellows/Priest/Idle.anim",
+                    "durationBefore": 0.5166666507720947,
+                    "durationAfter": 0.5166666507720947,
+                    "loop": true,
+                    "events": 0,
+                    "sprites": [
+                        "Priest_Idle_0",
+                        "Priest_Idle_1",
+                        "Priest_Idle_2",
+                        "Priest_Idle_3"
+                    ],
+                    "sampled": true,
+                    "triggerEntered": false,
+                    "returnedToIdle": false,
+                    "observedAttackFrames": 0
+                },
+                {
+                    "path": "Assets/Resources/Animators/Fellows/Priest/Attack.anim",
+                    "durationBefore": 0.5166666507720947,
+                    "durationAfter": 0.5166666507720947,
+                    "loop": false,
+                    "events": 0,
+                    "sprites": [
+                        "Priest_Attack_0",
+                        "Priest_Attack_1",
+                        "Priest_Attack_2",
+                        "Priest_Attack_3"
+                    ],
+                    "sampled": true,
+                    "triggerEntered": true,
+                    "returnedToIdle": true,
+                    "observedAttackFrames": 4
+                }
+            ]
+        },
+        {
+            "name": "Goblin",
+            "controller": "Assets/Resources/Animators/Enemies/Goblin/Goblin.controller",
+            "visibleHeight": 1.6100000143051148,
+            "baseline": -0.8050000071525574,
+            "pixelsPerUnit": 221.11801147460938,
+            "spriteCount": 8,
+            "clips": [
+                {
+                    "path": "Assets/Resources/Animators/Enemies/Goblin/Idle.anim",
+                    "durationBefore": 0.5166666507720947,
+                    "durationAfter": 0.5166666507720947,
+                    "loop": true,
+                    "events": 0,
+                    "sprites": [
+                        "Goblin_Idle_0",
+                        "Goblin_Idle_1",
+                        "Goblin_Idle_2",
+                        "Goblin_Idle_3"
+                    ],
+                    "sampled": true,
+                    "triggerEntered": false,
+                    "returnedToIdle": false,
+                    "observedAttackFrames": 0
+                },
+                {
+                    "path": "Assets/Resources/Animators/Enemies/Goblin/Attack.anim",
+                    "durationBefore": 0.5166666507720947,
+                    "durationAfter": 0.5166666507720947,
+                    "loop": true,
+                    "events": 0,
+                    "sprites": [
+                        "Goblin_Attack_0",
+                        "Goblin_Attack_1",
+                        "Goblin_Attack_2",
+                        "Goblin_Attack_3"
+                    ],
+                    "sampled": true,
+                    "triggerEntered": true,
+                    "returnedToIdle": true,
+                    "observedAttackFrames": 4
+                },
+                {
+                    "path": "Assets/Resources/Animators/Enemies/Goblin/Attack2.anim",
+                    "durationBefore": 0.5166666507720947,
+                    "durationAfter": 0.5166666507720947,
+                    "loop": true,
+                    "events": 0,
+                    "sprites": [
+                        "Goblin_Attack_0",
+                        "Goblin_Attack_1",
+                        "Goblin_Attack_2",
+                        "Goblin_Attack_3"
+                    ],
+                    "sampled": true,
+                    "triggerEntered": true,
+                    "returnedToIdle": true,
+                    "observedAttackFrames": 4
+                }
+            ]
+        },
+        {
+            "name": "Raider",
+            "controller": "Assets/Resources/Animators/Enemies/Raider/Raider.controller",
+            "visibleHeight": 2.119999885559082,
+            "baseline": -1.059999942779541,
+            "pixelsPerUnit": 178.77359008789063,
+            "spriteCount": 8,
+            "clips": [
+                {
+                    "path": "Assets/Resources/Animators/Enemies/Raider/Idle.anim",
+                    "durationBefore": 0.5166666507720947,
+                    "durationAfter": 0.5166666507720947,
+                    "loop": true,
+                    "events": 0,
+                    "sprites": [
+                        "Raider_Idle_0",
+                        "Raider_Idle_1",
+                        "Raider_Idle_2",
+                        "Raider_Idle_3"
+                    ],
+                    "sampled": true,
+                    "triggerEntered": false,
+                    "returnedToIdle": false,
+                    "observedAttackFrames": 0
+                },
+                {
+                    "path": "Assets/Resources/Animators/Enemies/Raider/Attack.anim",
+                    "durationBefore": 0.5166666507720947,
+                    "durationAfter": 0.5166666507720947,
+                    "loop": false,
+                    "events": 0,
+                    "sprites": [
+                        "Raider_Attack_0",
+                        "Raider_Attack_1",
+                        "Raider_Attack_2",
+                        "Raider_Attack_3"
+                    ],
+                    "sampled": true,
+                    "triggerEntered": true,
+                    "returnedToIdle": true,
+                    "observedAttackFrames": 4
+                },
+                {
+                    "path": "Assets/Resources/Animators/Enemies/Raider/Attack2.anim",
+                    "durationBefore": 0.5166666507720947,
+                    "durationAfter": 0.5166666507720947,
+                    "loop": false,
+                    "events": 0,
+                    "sprites": [
+                        "Raider_Attack_0",
+                        "Raider_Attack_1",
+                        "Raider_Attack_2",
+                        "Raider_Attack_3"
+                    ],
+                    "sampled": true,
+                    "triggerEntered": true,
+                    "returnedToIdle": true,
+                    "observedAttackFrames": 4
+                }
+            ]
+        }
+    ],
+    "errors": []
+}

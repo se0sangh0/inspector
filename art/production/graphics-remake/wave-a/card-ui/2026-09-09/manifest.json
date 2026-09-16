@@ -1,8 +1,8 @@
 {
   "date": "2026-09-09",
   "generation": "Codex built-in image_gen",
-  "approval": "pending",
-  "unity_integrated": false,
+  "approval": "user_requested_unity_integration_2026-09-16",
+  "unity_integrated": true,
   "source_notion": "https://app.notion.com/p/3cc6aef5baac81a5a228f2d8562cf292",
   "source_notion_last_edited": "2026-09-08",
   "basis": [
@@ -15,7 +15,7 @@
       "assetId": "CARD-공격-카드 배경",
       "file": "Card_Attack_Background_v1.png",
       "label": "공격 카드 배경",
-      "status": "review_pending",
+      "status": "integrated_from_source",
       "source_file": "/Users/seosangho/.codex/generated_images/01a07a09-295c-7462-8fd2-6bcc15031e5c/exec-7a84b01f-7ccb-405b-8481-fba6e027110c.png",
       "size": [
         984,
@@ -30,13 +30,14 @@
       "reference_images": [
         "art/production/graphics-remake/style-anchors/Battle_Forest_StyleAnchor_v1.png",
         "_workspace/graphics-remake/rejected/card-ui-2026-09-09/Card_Attack_WithFalseTransparency_v0.png"
-      ]
+      ],
+      "unity_asset": "Assets/Resources/RemakeV1/CardUI/Card_Attack_Background_v1.png"
     },
     {
       "assetId": "CARD-방어-카드 배경",
       "file": "Card_Defense_Background_v1.png",
       "label": "방어 카드 배경",
-      "status": "review_pending",
+      "status": "integrated_from_source",
       "source_file": "/Users/seosangho/.codex/generated_images/01a07a09-295c-7462-8fd2-6bcc15031e5c/exec-5edc1000-f669-45f8-b2d6-617c65d069e6.png",
       "size": [
         984,
@@ -50,13 +51,14 @@
       "runtime_ready": false,
       "reference_images": [
         "Card_Attack_Background_v1.png"
-      ]
+      ],
+      "unity_asset": "Assets/Resources/RemakeV1/CardUI/Card_Defense_Background_v1.png"
     },
     {
       "assetId": "CARD-지원-카드 배경",
       "file": "Card_Support_Background_v1.png",
       "label": "지원 카드 배경",
-      "status": "review_pending",
+      "status": "integrated_from_source",
       "source_file": "/Users/seosangho/.codex/generated_images/01a07a09-295c-7462-8fd2-6bcc15031e5c/exec-435ca8b3-7c15-4e31-bb2d-a1003c792b28.png",
       "size": [
         984,
@@ -70,13 +72,14 @@
       "runtime_ready": false,
       "reference_images": [
         "Card_Attack_Background_v1.png"
-      ]
+      ],
+      "unity_asset": "Assets/Resources/RemakeV1/CardUI/Card_Support_Background_v1.png"
     },
     {
       "assetId": "CARD-공격-역할 배지",
       "file": "Badge_Attack_Sword_v1.png",
       "label": "공격 배지 · 검",
-      "status": "review_pending",
+      "status": "integrated_from_source",
       "source_file": "/Users/seosangho/.codex/generated_images/01a07a09-295c-7462-8fd2-6bcc15031e5c/exec-d07e98cb-ec8e-4068-903d-48b03d2053cf.png",
       "size": [
         1254,
@@ -96,13 +99,14 @@
       ],
       "prompt_key": "badge_attack_prompt",
       "runtime_ready": false,
-      "reference_images": []
+      "reference_images": [],
+      "unity_asset": "Assets/Resources/RemakeV1/CardUI/Badge_Attack_Sword_v1.png"
     },
     {
       "assetId": "CARD-방어-역할 배지",
       "file": "Badge_Defense_Shield_v1.png",
       "label": "방어 배지 · 방패",
-      "status": "review_pending",
+      "status": "integrated_from_source",
       "source_file": "/Users/seosangho/.codex/generated_images/01a07a09-295c-7462-8fd2-6bcc15031e5c/exec-9537deb1-85d8-4039-8c59-53b4813b3e05.png",
       "size": [
         1254,
@@ -122,13 +126,14 @@
       ],
       "prompt_key": "badge_defense_fresh_prompt",
       "runtime_ready": false,
-      "reference_images": []
+      "reference_images": [],
+      "unity_asset": "Assets/Resources/RemakeV1/CardUI/Badge_Defense_Shield_v1.png"
     },
     {
       "assetId": "CARD-지원-역할 배지",
       "file": "Badge_Support_Heart_v1.png",
       "label": "지원 배지 · 하트",
-      "status": "review_pending",
+      "status": "integrated_from_source",
       "source_file": "/Users/seosangho/.codex/generated_images/01a07a09-295c-7462-8fd2-6bcc15031e5c/exec-b03ad377-af77-449b-8d44-1df406236777.png",
       "size": [
         1254,
@@ -150,25 +155,33 @@
       "runtime_ready": false,
       "reference_images": [
         "Badge_Attack_Sword_v1.png"
-      ]
+      ],
+      "unity_asset": "Assets/Resources/RemakeV1/CardUI/Badge_Support_Heart_v1.png"
     }
   ],
   "remaining": [
-    "User visual approval",
-    "Exact 64x64 badge export and common pixel grid / alpha cleanup",
-    "Card target pixel size, 9-slice borders and runtime geometry",
-    "Unity display at 1280x720 and 1920x1080"
+    "Full battle Play Mode visual check (selection animation, hand overlap, draw and turn flow).",
+    "Optional art follow-up: native 64x64 redraw/export. Current integration uses imported source sprites."
   ],
   "notes": [
-    "Backgrounds are opaque by design; badges have verified alpha.",
+    "Backgrounds are opaque; badges have verified alpha.",
     "Images contain no game copy or numbers.",
-    "High-resolution review originals; not final 64px sprites.",
-    "No original runtime asset or GUID was modified."
+    "High-resolution source PNGs remain unchanged. Badge display bounds are normalized through Unity Sprite import settings.",
+    "Legacy sprite sheet and GUIDs remain unchanged. Runtime cards and stack icons use RemakeV1/CardUI."
   ],
   "technical_reject_directory": "_workspace/graphics-remake/rejected/card-ui-2026-09-09",
   "technical_reject_reason": "RGB image with painted checkerboard instead of real transparency; replaced by selected review candidates.",
   "visual_review": {
     "browser_comparison": "passed for image loading, alpha on dark/light surfaces and background-text legibility",
     "runtime_scale_note": "At current 26px display the unnormalized badge artwork is too small; normalize glyph bounds and common 64px grid before Unity use."
+  },
+  "integration": {
+    "date": "2026-09-16",
+    "unity_version": "6000.3.9f1",
+    "runtime_directory": "Assets/Resources/RemakeV1/CardUI/",
+    "report": "art/review/2026-09-16-card-ui-integration/integration-report.json",
+    "source_pngs_unchanged": true,
+    "badge_geometry": "Centered square Sprite rect; alpha >= 128 bounds occupy 75% of its longest side. Source PNG retained.",
+    "verification": "Unity compile; scene prefab references; 24 card setups; discard, consume and reuse; 1280x720 and 1920x1080 Preview Scene renders."
   }
 }

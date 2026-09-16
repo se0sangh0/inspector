@@ -28,7 +28,7 @@ public class FieldObservation
     public string title;          // 물리적 관찰 명칭 (행위자·의도 결론어 금지)
     public string screenText;     // 화면 문안 (두 문장 이내)
     public string notebookText;   // 조사관 수첩 사후 관찰 (한 문장)
-    public string imageName;      // Resources/ResultImage/{imageName} 스프라이트 (확장자 제외). 없거나 못 찾으면 이미지 생략
+    public string imageName;      // Resources 기준 경로 또는 기존 ResultImage 파일명 (확장자 제외).
 }
 
 /// <summary>현장 관찰 정적 카탈로그. 문안은 16-E T0 초안의 시연용 테스트값.</summary>
@@ -45,7 +45,7 @@ public static class FieldObservationCatalog
             title        = "찢어진 바구니",
             screenText   = "전투가 끝난 자리에서 찢어진 바구니가 발견된다. 안쪽에서는 평범한 약초와 열매, 땔감이 쏟아져 있다.",
             notebookText = "주변 탐색 결과 찢어진 바구니에서 약초, 열매, 땔감을 확인함.",
-            imageName    = "Torn_Basket",       // Resources/ResultImage/torn_basket
+            imageName    = "RemakeV1/Clues/OBS_TORN_BASKET_v1",
         },
         new FieldObservation
         {
@@ -53,7 +53,7 @@ public static class FieldObservationCatalog
             title        = "숲을 향한 목책",
             screenText   = "전투가 끝난 자리에서 숲을 향해 세워진 목책이 확인된다. 목책 위쪽 끝에는 흰 천 조각이 묶여 있다.",
             notebookText = "주변 탐색 결과 숲 방향 목책과 흰 천 표식을 확인함.",
-            imageName    = "Forest_Barricade",  // Resources/ResultImage/forest_barricade
+            imageName    = "RemakeV1/Clues/OBS_FOREST_BARRICADE_v1",
         },
     };
 

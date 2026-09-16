@@ -1,0 +1,15 @@
+{
+    "unityVersion": "6000.3.9f1",
+    "completedUtc": "2026-09-16T14:56:14.6256353Z",
+    "passed": true,
+    "importedSprites": 6,
+    "prefabCards": 4,
+    "sceneStackIcons": 3,
+    "cardSetups": 24,
+    "pendingDiscardAndReuse": true,
+    "renders": [
+        "art/review/2026-09-16-card-ui-integration/cards-1280x720.png",
+        "art/review/2026-09-16-card-ui-integration/cards-1920x1080.png"
+    ],
+    "errors": []
+}

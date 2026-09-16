@@ -87,47 +87,9 @@ public class StackCardController : MonoBehaviour
     public bool IsPendingDiscard { get; private set; }
     private static readonly Color PendingDiscardColor = new Color(1f, 0.84f, 0.2f, 1f); // 황금색
 
-    // 손패 카드 — 역할별 카드 스프라이트(sprite_sheet) 적용. 색은 스프라이트를 살리는 흰색 기준.
+    // 손패 카드 — Wave A 역할별 카드 그림 적용. 색은 스프라이트를 살리는 흰색 기준.
     private static readonly Color NormalCardColor = Color.white;
     private static readonly Color CardDescColor   = new Color(0.90f, 0.90f, 0.85f, 1f);
-
-    // 역할별 카드 배경 스프라이트 (sprite_sheet) — 딜=빨강 / 탱=파랑 / 힐=초록. 한번 로드 후 캐시.
-    private static Sprite[] _roleCardSprites;
-    private static Sprite RoleCardSprite(StackType role)
-    {
-        if (_roleCardSprites == null)
-        {
-            _roleCardSprites = new Sprite[3];
-            var all = Resources.LoadAll<Sprite>("Icons/sprite_sheet");
-            foreach (var s in all)
-            {
-                if (s.name == "sprite_sheet_8")  _roleCardSprites[0] = s; // 딜(Dealer) 빨강 (민무늬 — 탱9/힐14와 동일 모양, 2026-06-09 통일)
-                else if (s.name == "sprite_sheet_9")  _roleCardSprites[1] = s; // 탱(Tank) 파랑 (민무늬)
-                else if (s.name == "sprite_sheet_14") _roleCardSprites[2] = s; // 힐(Support) 초록 (민무늬)
-            }
-        }
-        int i = (int)role;
-        return (i >= 0 && i < 3) ? _roleCardSprites[i] : null;
-    }
-
-    // 역할 뱃지 아이콘 (sprite_sheet) — 딜=검 / 탱=방패 / 힐=하트. 한번 로드 후 캐시. (2026-06-09)
-    private static Sprite[] _roleBadgeSprites;
-    private static Sprite RoleBadgeSprite(StackType role)
-    {
-        if (_roleBadgeSprites == null)
-        {
-            _roleBadgeSprites = new Sprite[3];
-            var all = Resources.LoadAll<Sprite>("Icons/sprite_sheet");
-            foreach (var s in all)
-            {
-                if (s.name == "sprite_sheet_24")      _roleBadgeSprites[0] = s; // 딜 = 검
-                else if (s.name == "sprite_sheet_31") _roleBadgeSprites[1] = s; // 탱 = 방패
-                else if (s.name == "sprite_sheet_32") _roleBadgeSprites[2] = s; // 힐 = 하트
-            }
-        }
-        int i = (int)role;
-        return (i >= 0 && i < 3) ? _roleBadgeSprites[i] : null;
-    }
 
     /// <summary>roleText 위치에 역할 아이콘 Image 를 보장(없으면 생성, 텍스트 영역을 채움).</summary>
     private static Image EnsureRoleIcon(TextMeshProUGUI roleText)
@@ -192,11 +154,11 @@ public class StackCardController : MonoBehaviour
         // 소유자 역할 기반으로 스택 타입 설정
         stackType = (StackType)(int)cardOwner.role;
 
-        // 숫자 텍스트 업데이트 — 검은색·볼드 통일, 양수/음수 색 분기 제거. (2026-06-09)
+        // 어두운 가죽 배경에서도 읽히도록 숫자를 밝은 상아색으로 표시한다.
         if (numberText != null)
         {
             numberText.text      = number > 0 ? $"+{number}" : $"{number}";
-            numberText.color     = Color.black;
+            numberText.color     = StackCardArt.NumberColor;
             numberText.fontStyle = TMPro.FontStyles.Bold;
             // 카드 안에서 숫자 강조하되 아이콘/설명 공간 확보 위해 축소 + 카드 정중앙 배치. (2026-06-09 디자인 보정)
             numberText.enableAutoSizing = false;
@@ -210,7 +172,7 @@ public class StackCardController : MonoBehaviour
             var roleIcon = EnsureRoleIcon(roleText);
             if (roleIcon != null)
             {
-                var sp = RoleBadgeSprite(stackType);
+                var sp = StackCardArt.Badge(stackType);
                 roleIcon.sprite  = sp;
                 roleIcon.enabled = (sp != null);
             }
@@ -238,8 +200,8 @@ public class StackCardController : MonoBehaviour
         if (myButton != null) myButton.interactable = true;
         if (myImage  != null)
         {
-            // 역할별 카드 배경 스프라이트 적용 (딜=빨강/탱=파랑/힐=초록). 없으면 기존 흰색.
-            var cardSprite = RoleCardSprite(stackType);
+            // 공격·방어·지원 역할에 맞는 Wave A 카드 배경을 적용한다.
+            var cardSprite = StackCardArt.Background(stackType);
             if (cardSprite != null) myImage.sprite = cardSprite;
             myImage.type  = UnityEngine.UI.Image.Type.Simple;
             myImage.color = NormalCardColor;

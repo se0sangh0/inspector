@@ -14816,11 +14816,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b434568f6e2d84c7386f77677b300b76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleBackground
-  normalSpritePath: BackGround/Battle_Normal
+  normalSpritePath: RemakeV1/Backgrounds/Battle_Canyon_Floor4_v1
   bossSpritePath: BackGround/Battle_Boss
   worldBackground: {fileID: 1468175465}
   worldSortingOrder: -100
   backgroundBrightness: 0.28
+  normalBackgroundBrightness: 0.85
 --- !u!224 &1498114392 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2509643945421697865, guid: d61e1ef6351e141c4b22fbf71feb3652, type: 3}

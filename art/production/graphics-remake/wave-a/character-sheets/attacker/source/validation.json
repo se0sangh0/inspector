@@ -1,0 +1,147 @@
+{
+  "scale": 0.5159420289855072,
+  "cell": [
+    384,
+    512
+  ],
+  "baseline": 501,
+  "front_foot_right_x": 218,
+  "sheets": {
+    "Idle": {
+      "file": "Attacker_Filtered_Idle_384x512x4_v1.png",
+      "size": [
+        1536,
+        512
+      ],
+      "mode": "RGBA",
+      "transparent_pixels": 676524,
+      "frames": [
+        {
+          "source_bbox": [
+            87,
+            170,
+            521,
+            685
+          ],
+          "output_bbox": [
+            39,
+            236,
+            263,
+            502
+          ]
+        },
+        {
+          "source_bbox": [
+            628,
+            161,
+            1057,
+            685
+          ],
+          "output_bbox": [
+            422,
+            232,
+            643,
+            502
+          ]
+        },
+        {
+          "source_bbox": [
+            1177,
+            190,
+            1609,
+            685
+          ],
+          "output_bbox": [
+            811,
+            247,
+            1034,
+            502
+          ]
+        },
+        {
+          "source_bbox": [
+            1716,
+            170,
+            2144,
+            685
+          ],
+          "output_bbox": [
+            1191,
+            236,
+            1412,
+            502
+          ]
+        }
+      ],
+      "sha256": "7ac15222df42acbd14fd8b8bb568d076ac394c3314dd6c17bc481a0ee9921151"
+    },
+    "ClearTheWay": {
+      "file": "Attacker_Filtered_ClearTheWay_384x512x4_v1.png",
+      "size": [
+        1536,
+        512
+      ],
+      "mode": "RGBA",
+      "transparent_pixels": 679600,
+      "frames": [
+        {
+          "source_bbox": [
+            33,
+            161,
+            466,
+            654
+          ],
+          "output_bbox": [
+            40,
+            248,
+            263,
+            502
+          ]
+        },
+        {
+          "source_bbox": [
+            527,
+            182,
+            967,
+            653
+          ],
+          "output_bbox": [
+            412,
+            259,
+            639,
+            502
+          ]
+        },
+        {
+          "source_bbox": [
+            1035,
+            177,
+            1725,
+            650
+          ],
+          "output_bbox": [
+            781,
+            258,
+            1137,
+            502
+          ]
+        },
+        {
+          "source_bbox": [
+            1729,
+            162,
+            2150,
+            654
+          ],
+          "output_bbox": [
+            1193,
+            248,
+            1410,
+            502
+          ]
+        }
+      ],
+      "sha256": "aa724395b3ee911b63ef20983e94dd3ab2c9bb7417f716c4e9f430d741ded795"
+    }
+  }
+}

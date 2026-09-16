@@ -13,7 +13,7 @@
 //   - 기록(BattleResolved 사후 관찰 필드)은 표시 전에 이미 생성돼 있다.
 //   - [기획자 피드백] 탐사 완료 이동은 '계속' 버튼으로만. 빈 공간 클릭·키 입력으로는 진행하지 않는다.
 //
-// [이미지] Resources/ResultImage/{imageName} 스프라이트. 없으면 이미지 없이 표시.
+// [이미지] Resources 기준 경로. 기존 파일명만 받으면 ResultImage에서 찾는다.
 //   화면을 벗어나지 않는 선에서 비율을 유지해 가능한 크게 표시한다.
 //
 // 사용:
@@ -76,13 +76,14 @@ public class PostBattleObservationPanel : MonoBehaviour
         if (_titleText != null) _titleText.text = title ?? "";
         if (_bodyText  != null) _bodyText.text  = body ?? "";
 
-        // 이미지 로드 (Resources/ResultImage/{imageName}) — 없으면 이미지 생략
+        // 새 Resources 경로와 기존 ResultImage 파일명을 함께 지원한다.
         Sprite sprite = null;
         if (!string.IsNullOrEmpty(imageName))
         {
-            sprite = Resources.Load<Sprite>("ResultImage/" + imageName);
+            string resourcePath = imageName.Contains("/") ? imageName : "ResultImage/" + imageName;
+            sprite = Resources.Load<Sprite>(resourcePath);
             if (sprite == null)
-                Debug.LogWarning($"[PostBattleObservationPanel] 이미지 없음 — Resources/ResultImage/{imageName} (이미지 없이 표시)");
+                Debug.LogWarning($"[PostBattleObservationPanel] 이미지 없음 — Resources/{resourcePath} (이미지 없이 표시)");
         }
         LayoutBox(sprite);
 
@@ -98,10 +99,15 @@ public class PostBattleObservationPanel : MonoBehaviour
     /// </summary>
     private void LayoutBox(Sprite sprite)
     {
+        LayoutBox(sprite, ResponsiveUi.LogicalSize(new Vector2(Screen.width, Screen.height)));
+    }
+
+    private void LayoutBox(Sprite sprite, Vector2 canvasSize)
+    {
         // 화면 안에 들어가는 박스 최대 크기에서 이미지 외 요소 높이를 뺀 만큼이 이미지 가용 공간.
         float nonImgH   = PadTop + TitleH + GapTitleImg + GapImgBody + BodyH + GapBodyBtn + BtnH + PadBottom;
-        float availImgH = Mathf.Max(120f, Screen.height - ScreenMargin * 2f - nonImgH);
-        float availImgW = Mathf.Max(200f, Screen.width  - ScreenMargin * 2f - PadX * 2f);
+        float availImgH = Mathf.Max(120f, canvasSize.y - ScreenMargin * 2f - nonImgH);
+        float availImgW = Mathf.Max(200f, canvasSize.x - ScreenMargin * 2f - PadX * 2f);
 
         float imgW = 0f, imgH = 0f;
         if (sprite != null && sprite.rect.width > 0f && sprite.rect.height > 0f)

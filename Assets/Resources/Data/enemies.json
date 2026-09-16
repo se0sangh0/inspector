@@ -33,7 +33,7 @@
       "spritePath": "Characters/test_enemy_goblin",
       "visualScale": 1.0,
       "flipSprite": true,
-      "animatorPath": "Animators/Enemies/Wolf/Wolf",
+      "animatorPath": "Animators/Enemies/Raider/Raider",
       "soulstoneDrop": 12
     },
     {
