@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="怪異探查局 · INSPECTOR: 以卡牌引導同伴自動行動的黑暗恐怖牌組構築遊戲開發預覽">
+  <meta name="description" content="怪異探查局 · INSPECTOR：以韓國、日本、中國、台灣等地民間傳說為靈感的黑暗恐怖牌組構築自動戰鬥遊戲。預計於 Steam 推出，商店頁面預計於 2026 年 12 月至 2027 年 2 月開設。">
   <meta name="theme-color" content="#0f1115">
   <link rel="canonical" href="https://davi-dev.uk/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://davi-dev.uk/">
   <meta property="og:title" content="怪異探查局 · INSPECTOR">
-  <meta property="og:description" content="以卡牌累積全隊共用職能，並引導同伴自動行動的黑暗恐怖牌組構築遊戲。">
+  <meta property="og:description" content="以各地民間傳說為靈感，用卡牌引導同伴自動行動。預計於 Steam 推出，商店頁面預計於 2026 年 12 月至 2027 年 2 月開設。">
   <meta property="og:locale" content="zh_TW">
   <meta property="og:locale:alternate" content="en_US">
   <meta property="og:locale:alternate" content="ko_KR">
@@ -971,6 +971,67 @@
       border-left: 1px solid var(--inspector-brass);
     }
 
+    #inspector-expo-mockup .inspector-story-note {
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid var(--inspector-hair);
+    }
+
+    #inspector-expo-mockup .inspector-story-note h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    #inspector-expo-mockup .inspector-story-note p {
+      max-width: 36em;
+      color: var(--inspector-muted);
+      font-size: 16px;
+    }
+
+    #inspector-expo-mockup .inspector-recognition-list {
+      margin-top: 34px;
+    }
+
+    #inspector-expo-mockup .inspector-recognition-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+      gap: 12px 32px;
+      padding: 24px 0;
+      border-top: 1px solid var(--inspector-line-soft);
+    }
+
+    #inspector-expo-mockup .inspector-recognition-row dt {
+      min-width: 0;
+      font-size: clamp(17px, 1.5vw, 21px);
+      line-height: 1.6;
+    }
+
+    #inspector-expo-mockup .inspector-recognition-type {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--inspector-dim);
+      font-family: var(--inspector-font-mono);
+      font-size: 12px;
+      letter-spacing: var(--inspector-label-tracking);
+    }
+
+    #inspector-expo-mockup .inspector-recognition-row dd {
+      min-width: 0;
+      align-self: center;
+      color: var(--inspector-brass);
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    #inspector-expo-mockup .inspector-recognition-note {
+      display: block;
+      margin-top: 8px;
+      color: var(--inspector-muted);
+      font-size: 14px;
+    }
+
     #inspector-expo-mockup .inspector-closing {
       display: grid;
       grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
@@ -1239,6 +1300,11 @@
     }
 
     @media (max-width: 560px) {
+      #inspector-expo-mockup .inspector-recognition-row {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 10px;
+      }
+
       #inspector-expo-mockup .inspector-shell {
         width: min(100% - 32px, 460px);
       }
@@ -1357,7 +1423,11 @@
             </div>
             <div>
               <dt data-copy="statusLabel">狀態</dt>
-              <dd data-copy="statusValue">開發中</dd>
+              <dd data-copy="statusValue">開發中・預計於 Steam 推出</dd>
+            </div>
+            <div>
+              <dt data-copy="steamPageLabel">Steam 頁面</dt>
+              <dd data-copy="steamPageWindow">預計於 2026 年 12 月至 2027 年 2 月開設</dd>
             </div>
           </dl>
         </div>
@@ -1493,6 +1563,10 @@
             <p class="inspector-kicker" data-copy="encounterKicker">03 · 已知威脅</p>
             <h2 data-copy="encounterTitle" data-reveal>怪異正在回望</h2>
             <p class="inspector-section-intro" data-copy="encounterBody" data-reveal>哥布林、掠奪者與收割者只是目前公開的威脅，其餘紀錄仍等待調查員確認。</p>
+            <div class="inspector-story-note" id="inspector-story" data-reveal>
+              <h3 data-copy="storyTitle">從民間傳說展開的故事</h3>
+              <p data-copy="storyBody">故事靈感來自韓國、日本、中國、台灣等地的民間傳說。我們將各地流傳的故事，在《怪異探查局》的世界中重新詮釋。</p>
+            </div>
           </div>
           <figure class="inspector-reaper" data-reveal>
             <div class="inspector-reaper-plate inspector-frame">
@@ -1545,6 +1619,27 @@
         </div>
       </section>
 
+      <section class="inspector-section" id="inspector-recognition" aria-labelledby="inspector-recognition-title">
+        <div class="inspector-shell">
+          <p class="inspector-kicker" data-copy="awardsKicker">06 · 開發紀錄</p>
+          <h2 id="inspector-recognition-title" data-copy="awardsTitle" data-reveal>入選與獲獎</h2>
+          <dl class="inspector-recognition-list">
+            <div class="inspector-recognition-row" data-reveal>
+              <dt><span class="inspector-recognition-type" data-copy="selectionType">入選</span><span data-copy="daeguProgram">大邱遊戲人才培育計畫</span></dt>
+              <dd data-copy="daeguSelection">入選預備創業團隊</dd>
+            </div>
+            <div class="inspector-recognition-row" data-reveal>
+              <dt><span class="inspector-recognition-type" data-copy="awardType">獲獎</span><span data-copy="taiwanExpo">2026 台灣 InnoTech 展覽</span></dt>
+              <dd data-copy="taiwanAwards">銅獎・特別獎</dd>
+            </div>
+            <div class="inspector-recognition-row" data-reveal>
+              <dt><span class="inspector-recognition-type" data-copy="awardType">獲獎</span><span data-copy="thaiExhibition">2026 泰國發明展</span></dt>
+              <dd><span data-copy="thaiAward">特別獎</span><span class="inspector-recognition-note" data-copy="thaiContext">與台灣 InnoTech 展覽同期舉行的活動。</span></dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
       <section class="inspector-section" id="inspector-team">
         <div class="inspector-shell inspector-closing" data-reveal>
           <div>
@@ -1562,7 +1657,11 @@
             </div>
             <div class="inspector-ledger-row">
               <strong data-copy="statusLabel">狀態</strong>
-              <span data-copy="statusValue">開發中</span>
+              <span data-copy="statusValue">開發中・預計於 Steam 推出</span>
+            </div>
+            <div class="inspector-ledger-row">
+              <strong data-copy="steamPageLabel">Steam 頁面</strong>
+              <span data-copy="steamPageWindow">預計於 2026 年 12 月至 2027 年 2 月開設</span>
             </div>
           </div>
         </div>
@@ -1675,7 +1774,22 @@
           genreLabel: "類型",
           genreValue: "黑暗恐怖 Roguelike 牌組構築自動戰鬥",
           statusLabel: "狀態",
-          statusValue: "開發中",
+          statusValue: "開發中・預計於 Steam 推出",
+          steamPageLabel: "Steam 頁面",
+          steamPageWindow: "預計於 2026 年 12 月至 2027 年 2 月開設",
+          storyTitle: "從民間傳說展開的故事",
+          storyBody: "故事靈感來自韓國、日本、中國、台灣等地的民間傳說。我們將各地流傳的故事，在《怪異探查局》的世界中重新詮釋。",
+          awardsKicker: "06 · 開發紀錄",
+          awardsTitle: "入選與獲獎",
+          selectionType: "入選",
+          awardType: "獲獎",
+          daeguProgram: "大邱遊戲人才培育計畫",
+          daeguSelection: "入選預備創業團隊",
+          taiwanExpo: "2026 台灣 InnoTech 展覽",
+          taiwanAwards: "銅獎・特別獎",
+          thaiExhibition: "2026 泰國發明展",
+          thaiAward: "特別獎",
+          thaiContext: "與台灣 InnoTech 展覽同期舉行的活動。",
           footerLeft: "怪異探查局 2026",
           footerRight: "由 Team 578 開發中",
           footerContact: "聯絡"
@@ -1752,7 +1866,22 @@
           genreLabel: "Genre",
           genreValue: "Dark horror roguelike deck-building autobattler",
           statusLabel: "Status",
-          statusValue: "In development",
+          statusValue: "In development · Planned for Steam",
+          steamPageLabel: "Steam page",
+          steamPageWindow: "Planned to open between December 2026 and February 2027",
+          storyTitle: "Stories rooted in folklore",
+          storyBody: "Inspired by folk tales from Korea, Japan, China, Taiwan, and beyond, these stories are reimagined in the world of INSPECTOR.",
+          awardsKicker: "06 · Development milestones",
+          awardsTitle: "Selection & Awards",
+          selectionType: "Selection",
+          awardType: "Award",
+          daeguProgram: "Daegu Game Talent Development Program",
+          daeguSelection: "Selected as a prospective startup team",
+          taiwanExpo: "2026 Taiwan InnoTech Exhibition",
+          taiwanAwards: "Bronze Award · Special Award",
+          thaiExhibition: "2026 Thai invention exhibition",
+          thaiAward: "Special Award",
+          thaiContext: "An event held alongside the Taiwan InnoTech Exhibition.",
           footerLeft: "INSPECTOR 2026",
           footerRight: "In development by Team 578",
           footerContact: "Contact"
@@ -1829,7 +1958,22 @@
           genreLabel: "장르",
           genreValue: "다크 호러 로그라이크 덱빌딩 오토배틀러",
           statusLabel: "상태",
-          statusValue: "개발 중",
+          statusValue: "개발 중 · Steam 출시 예정",
+          steamPageLabel: "Steam 페이지",
+          steamPageWindow: "2026년 12월~2027년 2월 개설 예정",
+          storyTitle: "민간 설화에서 시작되는 이야기",
+          storyBody: "한국·일본·중국·대만 등지의 민간 설화에서 모티프를 얻었습니다. 각 지역에 전해 내려오는 이야기를 괴이탐사국의 세계에서 새롭게 풀어냅니다.",
+          awardsKicker: "06 · 개발 이력",
+          awardsTitle: "선정 및 수상",
+          selectionType: "선정",
+          awardType: "수상",
+          daeguProgram: "대구게임인재육성사업",
+          daeguSelection: "예비 창업팀 선정",
+          taiwanExpo: "2026 대만 이노테크 전시회",
+          taiwanAwards: "동상 · 특별상",
+          thaiExhibition: "2026 태국 발명전시회",
+          thaiAward: "특별상",
+          thaiContext: "대만 이노테크 전시회에서 함께 진행된 행사",
           footerLeft: "괴이탐사국 2026",
           footerRight: "팀 578에서 개발 중",
           footerContact: "문의"
