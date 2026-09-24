@@ -1,0 +1,122 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "pipeline_run_id",
+    "input_manifest_sha256",
+    "reviewed_artifact_sha256",
+    "verdict",
+    "summary",
+    "meaning_drift",
+    "canon_conflicts",
+    "exposure_violations",
+    "style_issues",
+    "unresolved_items",
+    "required_fixes"
+  ],
+  "properties": {
+    "pipeline_run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "input_manifest_sha256": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    },
+    "reviewed_artifact_sha256": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    },
+    "verdict": {
+      "type": "string",
+      "enum": ["pass", "needs_changes", "blocked"]
+    },
+    "summary": {
+      "type": "string"
+    },
+    "meaning_drift": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["severity", "location", "evidence", "recommendation"],
+        "properties": {
+          "severity": {"type": "string", "enum": ["critical", "major", "minor"]},
+          "location": {"type": "string"},
+          "evidence": {"type": "string"},
+          "recommendation": {"type": "string"}
+        }
+      }
+    },
+    "canon_conflicts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["severity", "location", "evidence", "recommendation"],
+        "properties": {
+          "severity": {"type": "string", "enum": ["critical", "major", "minor"]},
+          "location": {"type": "string"},
+          "evidence": {"type": "string"},
+          "recommendation": {"type": "string"}
+        }
+      }
+    },
+    "exposure_violations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["severity", "location", "evidence", "recommendation"],
+        "properties": {
+          "severity": {"type": "string", "enum": ["critical", "major", "minor"]},
+          "location": {"type": "string"},
+          "evidence": {"type": "string"},
+          "recommendation": {"type": "string"}
+        }
+      }
+    },
+    "style_issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["severity", "location", "evidence", "recommendation"],
+        "properties": {
+          "severity": {"type": "string", "enum": ["critical", "major", "minor"]},
+          "location": {"type": "string"},
+          "evidence": {"type": "string"},
+          "recommendation": {"type": "string"}
+        }
+      }
+    },
+    "unresolved_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["severity", "location", "evidence", "recommendation"],
+        "properties": {
+          "severity": {"type": "string", "enum": ["critical", "major", "minor"]},
+          "location": {"type": "string"},
+          "evidence": {"type": "string"},
+          "recommendation": {"type": "string"}
+        }
+      }
+    },
+    "required_fixes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["severity", "location", "evidence", "recommendation"],
+        "properties": {
+          "severity": {"type": "string", "enum": ["critical", "major", "minor"]},
+          "location": {"type": "string"},
+          "evidence": {"type": "string"},
+          "recommendation": {"type": "string"}
+        }
+      }
+    }
+  }
+}
