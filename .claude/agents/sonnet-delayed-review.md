@@ -2,9 +2,9 @@
 name: sonnet-delayed-review
 description: Sonnet 5 한도 때문에 GPT가 먼저 작성한 괴이탐사국 서사 승인 후보를 사용량 초기화 뒤 재검토한다.
 model: claude-sonnet-5
-tools: Read, Grep, Glob, mcp__notion__notion-search, mcp__notion__notion-fetch
+tools: Read, Grep, Glob, mcp__Notion__notion-search, mcp__Notion__notion-fetch
 mcpServers:
-  - notion
+  - Notion
 permissionMode: default
 maxTurns: 16
 ---

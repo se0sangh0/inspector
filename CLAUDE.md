@@ -73,7 +73,7 @@
 - 이 도구가 필요한 단계는 다른 도구나 모델로 대신하지 않는다. `BLOCKED`와 로컬에서 해야 할 작업을 사용자에게 보고한다.
 - 도구가 없어서 멈춘 경우는 사용량 한도가 아니다. Sonnet 예외 흐름으로 바꾸지 않는다.
 - Unity 컴파일·씬 검증을 하지 못한 변경은 `미검증`으로 보고한다.
-- Notion은 claude.ai Notion 커넥터로 읽는다. 커넥터 도구 이름이 `mcp__notion__*`와 다르면 사용자에게 실제 이름을 보고한다. `scenario-writer`와 `sonnet-delayed-review`의 `tools:`는 사용자 승인 뒤에 고친다.
+- Notion은 claude.ai Notion 커넥터(서버 이름 `Notion`, 도구 `mcp__Notion__notion-search`·`mcp__Notion__notion-fetch`)로 읽는다. `scenario-writer`와 `sonnet-delayed-review`는 이 이름을 쓴다. 로컬에서 쓰려면 로컬 MCP 서버 이름도 `Notion`으로 맞춘다.
 - 이 저장소는 공개 저장소다. `.claude/`에 커밋하는 에이전트·스킬 파일에는 내부 반전과 진실층 내용을 적지 않는다.
 - 금지할 진실은 메인 Claude가 작업 입력이나 근거 스냅샷으로 전달한다.
 

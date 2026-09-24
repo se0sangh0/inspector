@@ -2,9 +2,9 @@
 name: scenario-writer
 description: 괴이탐사국의 시나리오 전문 집필 담당. 장면, 분기, 대사와 스토리북 원고 초안을 작성할 때 사용한다.
 model: claude-sonnet-5
-tools: Read, Grep, Glob, mcp__notion__notion-search, mcp__notion__notion-fetch
+tools: Read, Grep, Glob, mcp__Notion__notion-search, mcp__Notion__notion-fetch
 mcpServers:
-  - notion
+  - Notion
 permissionMode: default
 maxTurns: 16
 ---
@@ -16,7 +16,7 @@ maxTurns: 16
 
 - 메인 Claude가 작업 입력에 고유한 `pipeline_run_id`와 `requested_model: claude-sonnet-5`를 전달해야 합니다.
 - 이 에이전트 안에서는 실제 실행 모델을 자기 선언하지 않습니다. 메인 Claude가 호출 종료 뒤 같은 세션·호출 ID에 묶인 Agent 이벤트 또는 `modelUsage`를 확인하고, 불일치하면 이 출력을 폐기합니다.
-- 이 에이전트는 로컬 파일과 Notion을 읽을 수 있지만 어디에도 쓰거나 편집할 수 없습니다. MCP는 `notion` 서버의 검색·조회 도구만 허용됩니다.
+- 이 에이전트는 로컬 파일과 Notion을 읽을 수 있지만 어디에도 쓰거나 편집할 수 없습니다. MCP는 `Notion` 서버(claude.ai Notion 커넥터)의 검색·조회 도구만 허용됩니다.
 
 ## 기준 순서
 
