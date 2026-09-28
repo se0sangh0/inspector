@@ -39,6 +39,20 @@ public class MoveScene : MonoBehaviour
         // 이번 실행에서 오프닝을 완료한 뒤 [오프닝 다시보기] 노출 (16-A §1 재열람 경로)
         if (tutorialAgainButton != null)
             tutorialAgainButton.SetActive(RunSessionManager.IsOpeningCompleted());
+
+        // 첫 선택이 비어 있으면 방향키·Enter로 메뉴를 시작할 수 없다.
+        // 이름 대신 실제 시작 핸들러에 연결된 버튼을 선택한다.
+        var eventSystem = UnityEngine.EventSystems.EventSystem.current;
+        if (eventSystem != null && eventSystem.currentSelectedGameObject == null)
+            foreach (var button in FindObjectsByType<UnityEngine.UI.Button>(FindObjectsInactive.Exclude, FindObjectsSortMode.None))
+                for (int i = 0; i < button.onClick.GetPersistentEventCount(); i++)
+                    if (button.onClick.GetPersistentTarget(i) == this &&
+                        button.onClick.GetPersistentMethodName(i) == nameof(InGameSceneLoaded))
+                    {
+                        eventSystem.firstSelectedGameObject = button.gameObject;
+                        eventSystem.SetSelectedGameObject(button.gameObject);
+                        return;
+                    }
     }
 
     /// <summary>

@@ -44,7 +44,7 @@ public static class FieldObservationCatalog
             id           = TornBasketId,
             title        = "찢어진 바구니",
             screenText   = "전투가 끝난 자리에서 찢어진 바구니가 발견된다. 안쪽에서는 평범한 약초와 열매, 땔감이 쏟아져 있다.",
-            notebookText = "주변 탐색 결과 찢어진 바구니에서 약초, 열매, 땔감을 확인함.",
+            notebookText = "주변 탐색 결과 찢어진 바구니에서 약초·열매·땔감을 확인함.",
             imageName    = "RemakeV1/Clues/OBS_TORN_BASKET_v1",
         },
         new FieldObservation

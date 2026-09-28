@@ -277,7 +277,8 @@ public partial class BattleManager
             int battleFloor = NodeSystem.Current != null ? NodeSystem.Current.CurrentFloor : 0;
             RunSessionManager.Instance?.RecordBattleResolved(
                 battleFloor, BuildEnemySummary(), victory: true,
-                soulstoneGained: soulGained, observationNotebookText: observation?.notebookText);
+                soulstoneGained: soulGained, observationNotebookText: observation?.notebookText,
+                lostFellows: allies.Where(a => a != null && a.isDead));
 
             // 보스 클리어 판정 — 보스 tier 적 + RoomType.Boss 노드 둘 다 만족 시 엔딩.
             bool bossWasInBattle = enemies.Any(e => e != null && e.tier == EnemyTier.Boss);
@@ -287,8 +288,8 @@ public partial class BattleManager
                 GameLog.Event("보스를 쓰러트렸다!", LogCategory.Reward);
                 Debug.Log("[BattleManager] 🎉 보스 클리어 — 엔딩 진입");
                 RunSessionManager.Instance?.RecordRunResolved(victory: true, reachedFloor: battleFloor); // 클리어 기록 (보고서 자료 — P0-05)
-                ShowEndingPanel("보스 처치\n\n엔딩");
-                yield return new WaitForSeconds(endingDisplayDuration);
+                // 런 마감은 보고서에서 선택한다. 구형 자동 재시작 안내가 겹치지 않게 숨긴다.
+                if (endingPanel != null) endingPanel.SetActive(false);
 
                 // 클리어 탐사 보고서 (P0-05, 16-A §5) — 후면 딤 + 이번 런 요약.
                 // [확인] 시 FinalizeRun 정확히 1회 → 다음 탐사·타이틀 선택.
@@ -306,6 +307,7 @@ public partial class BattleManager
                     System.Action returnToMap = () =>
                     {
                         DisplayChange.Instance.ToggleDisplay();
+                        NodeSystem.Current?.CompleteCurrentVisit();
                         AudioManager.Instance?.PlayBgmById(BgmId.NodeMap);
                     };
                     if (observation != null)
@@ -322,7 +324,8 @@ public partial class BattleManager
             // 전멸 기록 — BattleResolved(전멸) + RunResolved(전멸·최종 도달 층) 각 1건 (P0-03).
             int wipeFloor = NodeSystem.Current != null ? NodeSystem.Current.CurrentFloor : 0;
             RunSessionManager.Instance?.RecordBattleResolved(
-                wipeFloor, BuildEnemySummary(), victory: false, soulstoneGained: 0, observationNotebookText: null);
+                wipeFloor, BuildEnemySummary(), victory: false, soulstoneGained: 0, observationNotebookText: null,
+                lostFellows: allies.Where(a => a != null && a.isDead));
             RunSessionManager.Instance?.RecordRunResolved(victory: false, reachedFloor: wipeFloor);
             // 전멸 탐사 보고서 (P0-05, 16-A §2·§5) — 임시 게임오버 화면을 실제 보고서로 교체.
             // 후면 딤 + 이번 런 요약. [확인] 시 FinalizeRun 정확히 1회 → 다음 탐사·타이틀 선택.

@@ -3,14 +3,14 @@
 // ============================================================
 //
 // [이 파일이 하는 일]
-//   03. 노드·용병소·보상·메타 §1-1 — P0 6층, 일반 구간 층당 3갈래.
+//   03. 노드·용병소·보상·메타 §1-1 — 10층, 일반 구간 층당 3갈래.
 //
 // [구조 — 2026-08-21 (P0-02 대체안: 노드맵 3갈래 방식)]
-//   본편 맵 = 6층 (layer 0~5):
+//   본편 맵 = 10층 (layer 0~9):
 //     layer 0   = 시작 1노드 (RoomType.Combat — NodeSystem 이 '현재 위치' 마커로 처리, 클릭 불가)
-//     layer 1~3 = 2~4층 3갈래 — 전투 70% / 이벤트(?) 30% 추첨 (03 §1-1 초안)
-//     layer 4   = 화톳불 1노드 (고정 — 가짜 3택 없음)
-//     layer 5   = 보스 1노드 (고정 — 가짜 3택 없음)
+//     layer 1~7 = 2~8층 3갈래 — 전투 70% / 이벤트(?) 30% 추첨 (03 §1-1 초안)
+//     layer 8   = 화톳불 1노드 (9층 고정 — 가짜 3택 없음)
+//     layer 9   = 보스 1노드 (10층 고정 — 가짜 3택 없음)
 //   이벤트(?) 노드의 실제 결과(용병소/교회/엘리트/선택지 이벤트)는
 //   NodeSystem 이 진입 시 가중 추첨한다 (용병소 40/교회 20/엘리트 10/이벤트 30).
 //
@@ -25,6 +25,10 @@ using UnityEngine;
 
 public class MapGenerator : MonoBehaviour
 {
+    public const int TotalFloors = 10;
+    public const int RestFloor = 9;
+    public const int BossFloor = 10;
+
     private MapData mapData;
 
     // ============================================================
@@ -36,7 +40,7 @@ public class MapGenerator : MonoBehaviour
         if (TutorialManager.Instance != null && TutorialManager.Instance.IsTutorial)
             return GenerateTutorialMap();
 
-        return GenerateMvpMap();
+        return GenerateFullRunMap();
     }
 
     // ── 일반 구간 노드 타입 비율 (03. 노드·용병소·보상·메타 §1-1 초안) ──
@@ -45,26 +49,21 @@ public class MapGenerator : MonoBehaviour
     private const int EventWeight  = 30;
 
     /// <summary>
-    /// 본편 맵 — 6층, 일반 구간(2~4층)은 층당 3갈래 (P0-02 대체안, 03 §1-1).
-    /// 시작(1층) > 3갈래 ×3 (2~4층) > 화톳불(5층 고정) > 보스(6층 고정).
+    /// 본편 맵 — 10층, 일반 구간(2~8층)은 층당 3갈래 (03 §1-1).
+    /// 시작(1층) > 3갈래 ×7 (2~8층) > 화톳불(9층 고정) > 보스(10층 고정).
     /// 3갈래 노드는 전투 70 / 이벤트 30 으로 추첨. 이벤트(?)의 실제 결과
     /// (용병소/교회/엘리트/선택지 이벤트)는 NodeSystem 이 진입 시 추첨한다.
-    /// 5·6층은 단일 노드 — 가짜 3택을 제시하지 않는다 (03 §1-1).
+    /// 9·10층은 단일 노드 — 가짜 3택을 제시하지 않는다 (03 §1-1).
     /// </summary>
-    private MapData GenerateMvpMap()
+    public MapData GenerateFullRunMap()
     {
-        var layers = new List<RoomType[]>
-        {
-            new[] { RoomType.Combat },  // layer 0 = 1층 시작 (NodeSystem 이 '현재 위치' 마커 처리)
-            RollChoiceLayer(),          // layer 1 = 2층 3갈래
-            RollChoiceLayer(),          // layer 2 = 3층 3갈래
-            RollChoiceLayer(),          // layer 3 = 4층 3갈래
-            new[] { RoomType.Rest },    // layer 4 = 5층 화톳불 (고정)
-            new[] { RoomType.Boss },    // layer 5 = 6층 보스 (고정)
-        };
+        var layers = new List<RoomType[]> { new[] { RoomType.Combat } };
+        for (int floor = 2; floor <= 8; floor++) layers.Add(RollChoiceLayer());
+        layers.Add(new[] { RoomType.Rest }); // 9층
+        layers.Add(new[] { RoomType.Boss }); // 10층
 
         mapData = BuildLayeredMap(layers);
-        Debug.Log("[MapGenerator] 본편 맵 생성 — 6층 (시작 > 3갈래×3 > 화톳불 > 보스)");
+        Debug.Log("[MapGenerator] 본편 맵 생성 — 10층 (시작 > 3갈래×7 > 화톳불 > 보스)");
         return mapData;
     }
 

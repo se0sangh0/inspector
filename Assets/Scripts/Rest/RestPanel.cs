@@ -1,6 +1,6 @@
 // ============================================================
 // Rest/RestPanel.cs
-// 화툿불 노드 UI 패널 — 자동 회복 + 파티 편집 진입점 + 다음 층
+// 화톳불 노드 UI 패널 — 자동 회복 + 파티 편집 진입점 + 다음 층
 // ============================================================
 //
 // [흐름]
@@ -16,7 +16,7 @@
 //
 // [인스펙터 슬롯]
 //   - canvasGroup        : (자동)
-//   - titleLabel         : "화툿불" 제목 TMP_Text
+//   - titleLabel         : "화톳불" 제목 TMP_Text
 //   - recoveryResultLabel: 회복 결과 표시 TMP_Text
 //   - partyEditButton    : "파티 편집" Button
 //   - nextNodeButton     : "다음 층으로" Button
@@ -55,7 +55,7 @@ public class RestPanel : PanelBase
     private bool _recoveryAppliedThisVisit;
     private RestService.RecoveryResult _lastResult;
 
-    /// <summary>NodeSystem 이 호출. 화툿불 진입 — 자동 회복(방문당 1회) + 페이드 인.</summary>
+    /// <summary>NodeSystem 이 호출. 화톳불 진입 — 자동 회복(방문당 1회) + 페이드 인.</summary>
     public void OpenFromNode()
     {
         _recoveryAppliedThisVisit = false; // 새 방문 — 이번 방문의 1회 회복 허용
@@ -71,6 +71,21 @@ public class RestPanel : PanelBase
             _lastResult = RestService.ApplyRecovery();
         }
         RefreshRecoveryLabel(_lastResult);
+        if (nextNodeButton != null)
+        {
+            bool tutorial = TutorialManager.Instance != null && TutorialManager.Instance.IsTutorial;
+            var label = nextNodeButton.GetComponentInChildren<TMP_Text>(true);
+            if (label != null) Loc.Set(label, tutorial ? "다음 층으로" : "성소로 향한다");
+            var narration = nextNodeButton.GetComponent<NarrationFocus>();
+            if (narration == null) narration = nextNodeButton.gameObject.AddComponent<NarrationFocus>();
+            narration.SetSource(tutorial ? null : "성소로 향한다");
+        }
+    }
+
+    public override void Close()
+    {
+        if (nextNodeButton != null) NarrationPlayer.Stop(nextNodeButton.GetComponent<NarrationFocus>());
+        base.Close();
     }
 
     private void RefreshRecoveryLabel(RestService.RecoveryResult result)
@@ -102,7 +117,7 @@ public class RestPanel : PanelBase
         onSubClosed = () =>
         {
             partyEditPanel.OnClosedEvent -= onSubClosed;
-            Open(); // 화툿불로 복귀
+            Open(); // 화톳불로 복귀
         };
         partyEditPanel.OnClosedEvent += onSubClosed;
 

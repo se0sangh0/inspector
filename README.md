@@ -27,7 +27,11 @@
 
 ## 처음 확인할 곳
 
-1. [16. 프로토타입 개발 사양서](https://app.notion.com/p/3b96aef5baac81209a2dcf56163e0ea5) — 구현 범위·작업 순서·합격 기준
+현재 개발은 **10층 출시 기반**으로 전환했습니다. 구현·검증 완료와 남은 항목은
+[10층 전환 기록](docs/handoff/10층_출시기반_전환.md)에서 확인합니다.
+기존 6층 프로토타입 문서는 이전 시연 범위의 기록으로 구분합니다.
+
+1. [03. 노드·용병소·보상·메타](https://app.notion.com/p/3af6aef5baac812e9f0de26468f2e2fc) — 정식판 10층 진행 기준
 2. [괴이탐사국 팀 기획서](https://app.notion.com/p/3af6aef5baac800298b6c2154b9b2699) — 최신 기획 진입점
 3. [기획서 안내 · 문서 지도](https://app.notion.com/p/3af6aef5baac818e95d2c2a39782a267) — 역할별 읽는 순서
 4. [15. 미결 안건표](https://app.notion.com/p/3af6aef5baac8185866ff29253c2e69f) — 지금 결정할 항목

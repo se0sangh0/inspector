@@ -53,6 +53,16 @@ public class SoulstoneManager : BaseCurrency<SoulstoneManager>
     //    초기값을 즉시 반영하려면 PlayerPrefs 삭제 필요.
     protected override int StartingAmount => 20;
 
+    /// <summary>보고서는 현재 잔액이 아니라 런의 총획득량을 사용한다 (16-E §9).</summary>
+    public override void Add(int value)
+    {
+        int before = Amount;
+        base.Add(value);
+        var session = RunSessionManager.Instance;
+        if (session != null && session.IsRunActive)
+            session.Records.RecordSoulstoneGain(Amount - before);
+    }
+
     // ----------------------------------------------------------
     // UpdateText — 영혼석 값이 바뀔 때마다 화면 텍스트 갱신
     // OnCurrencyChanged 이벤트에 자동 구독됨 (BaseCurrency.Awake 에서 처리)

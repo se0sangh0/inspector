@@ -7,14 +7,14 @@
 //   로그라이크 게임의 노드 맵 화면을 관리합니다.
 //   Awake 시 MapGenerator 로부터 자동 생성된 MapData 를 받아
 //   인스펙터에 사전 배치된 nodeRows 의 버튼들에 RoomType 을 매핑하고,
-//   클릭 시 타입별로 다른 화면(전투/화툿불/용병소/...)으로 분기합니다.
+//   클릭 시 타입별로 다른 화면(전투/화톳불/용병소/...)으로 분기합니다.
 //
 // [노드 클릭 → 분기 흐름]
 //   1. 버튼 클릭 → OnNodeClicked(row, col)
 //   2. 현재 층의 버튼이면 → 선택 + currentRowIndex++
 //   3. 클릭된 노드의 RoomType 보고 분기:
 //      - Combat/Elite/Boss → 전투 패널 (DisplayChanger 호출)
-//      - Rest(화툿불)      → TODO 자리 (다음 사이클 E 작업)
+//      - Rest(화톳불)      → TODO 자리 (다음 사이클 E 작업)
 //      - Shop(용병소)      → TODO 자리 (다음 사이클 F 작업)
 //      - Event(교회)       → TODO 백로그
 //   4. UpdateNodeStates() 로 버튼 색상 업데이트
@@ -36,7 +36,7 @@ using TMPro;
 /// <summary>
 /// 노드 맵 UI 시스템. 자동 생성된 RoomType 을 버튼에 매핑하고 클릭 시 타입별 분기.
 /// </summary>
-public class NodeSystem : MonoBehaviour
+public partial class NodeSystem : MonoBehaviour
 {
     // ----------------------------------------------------------
     // [NodeRow] — 한 층(Row)의 정보를 담는 내부 클래스
@@ -78,6 +78,8 @@ public class NodeSystem : MonoBehaviour
 
     /// <summary>현재 진행 중인 층 인덱스 (0-base)</summary>
     private int currentRowIndex = 0;
+    private bool _visitInProgress;
+    private bool _automaticTravelInProgress;
 
     // ── 외부 노출 (EnemySpawner 의 층 기반 적 등장 결정용) ──
     public static NodeSystem Current { get; private set; }
@@ -153,7 +155,7 @@ public class NodeSystem : MonoBehaviour
     [SerializeField] [Tooltip("잠긴 층 — 클릭 불가 버튼 색상 (호환 유지, 현재 미사용)")]
     private NodeVisualState lockedState;
 
-    // ── RoomType 별 색상 (배틀 흰색 / 용병소 파랑 / 화툿불 빨강 / 보스 보라) ──
+    // ── RoomType 별 색상 (배틀 흰색 / 용병소 파랑 / 화톳불 빨강 / 보스 보라) ──
     [Header("RoomType 색상")]
     [SerializeField] private Color combatColor = Color.white;
     [SerializeField] private Color eliteColor  = Color.white;
@@ -179,8 +181,8 @@ public class NodeSystem : MonoBehaviour
     [Tooltip("Shop(용병소) 노드 클릭 시 열릴 메인 패널. 비어있으면 TODO 로그만 출력하고 다음 층 진행.")]
     [SerializeField] private MercenaryOfficePanel mercenaryOfficePanel;
 
-    [Header("화툿불 (Rest 노드 — 선택)")]
-    [Tooltip("Rest(화툿불) 노드 클릭 시 열릴 패널. MVP 고정맵 layer4. 비어있으면 회복 없이 다음 층 진행.")]
+    [Header("화톳불 (Rest 노드 — 선택)")]
+    [Tooltip("Rest(화톳불) 노드 클릭 시 열릴 패널. MVP 고정맵 layer4. 비어있으면 회복 없이 다음 층 진행.")]
     [SerializeField] private RestPanel restPanel;
 
     [Header("교회 (Event 랜덤노드 결과 중 하나)")]
@@ -225,8 +227,8 @@ public class NodeSystem : MonoBehaviour
         bool isTutorial = TutorialManager.Instance != null && TutorialManager.Instance.IsTutorial;
         if (!isTutorial && currentRowIndex == 0) currentRowIndex = 1;
 
+        if (!isTutorial) BuildRouteInterface();
         UpdateNodeStates();
-        if (!isTutorial) ShowLocationToast("현재 위치는 여기입니다");
         AudioManager.Instance?.PlayBgmById(BgmId.NodeMap);
         // 튜토리얼 첫 노드맵 진입 시 인트로 모달 (1회만)
         TutorialManager.Instance?.TryShowDialogue(TutorialManager.DialogueId.NodeMapIntro);
@@ -237,11 +239,11 @@ public class NodeSystem : MonoBehaviour
         {
             Transform notebookHost = (nodeDisplay != null && nodeDisplay.Length > 0 && nodeDisplay[0] != null)
                 ? nodeDisplay[0].transform : ResolveUiCanvas();
-            InvestigatorNotebookController.EnsureOpenButton(notebookHost);
+            if (_routeView == null) InvestigatorNotebookController.EnsureOpenButton(notebookHost);
         }
 
         // 노드 연결선 — 레이아웃 그룹이 버튼 위치를 확정한 뒤 생성
-        if (isActiveAndEnabled) StartCoroutine(BuildNodeLinksAfterLayout());
+        if (isTutorial && isActiveAndEnabled) StartCoroutine(BuildNodeLinksAfterLayout());
     }
 
     // ----------------------------------------------------------
@@ -523,6 +525,12 @@ public class NodeSystem : MonoBehaviour
     {
         bool startIsMarker = !(TutorialManager.Instance != null && TutorialManager.Instance.IsTutorial);
 
+        if (startIsMarker && _routeView != null)
+        {
+            RefreshRouteInterface();
+            return;
+        }
+
         for (int r = 0; r < nodeRows.Count; r++)
         {
             for (int b = 0; b < nodeRows[r].buttons.Count; b++)
@@ -561,7 +569,7 @@ public class NodeSystem : MonoBehaviour
                 {
                     // 현재 클릭 가능 — 금색 테두리.
                     alpha        = currentAlpha;
-                    interactable = true;
+                    interactable = !_visitInProgress && !_automaticTravelInProgress;
                     border       = BorderCurrent;
                 }
                 else
@@ -849,6 +857,7 @@ public class NodeSystem : MonoBehaviour
         int col = nodeRows[row].selectedButtonIndex;
         if (kinds == null || col < 0 || col >= kinds.Count) return;
         kinds[col] = kind;
+        RecordRevealedRouteLocation(row, col, kind);
     }
 
     /// <summary>인덱스 안전한 EncounterKind 조회. 범위 밖이면 None(미공개).</summary>
@@ -935,7 +944,9 @@ public class NodeSystem : MonoBehaviour
     /// </summary>
     public void OnNodeClicked(int row, int col)
     {
-        if (row != currentRowIndex) return;
+        if (row != currentRowIndex || _visitInProgress || _automaticTravelInProgress) return;
+        if (InvestigatorNotebookController.IsOpen) return;
+        if (nodeRows == null || row < 0 || row >= nodeRows.Count || col < 0 || col >= nodeRows[row].buttons.Count) return;
 
         // 팝업/패널(설정·로그·파티편집 등)이 열린 상태면 노드 클릭 무시 (기획자 피드백 #10).
         // 열린 패널 위로 클릭이 새어 노드가 실행되던 문제 차단.
@@ -958,8 +969,13 @@ public class NodeSystem : MonoBehaviour
         // 3) 진행 + 분기
         if (currentRowIndex < nodeRows.Count)
         {
+            _visitInProgress = true;
+            bool showRecordNotice = RecordSelectedRoute(row, col, type);
             currentRowIndex++;
-            DispatchByRoomType(type);
+            if (showRecordNotice && isActiveAndEnabled)
+                StartCoroutine(EnterAfterRouteNotice(type));
+            else
+                DispatchByRoomType(type);
             UpdateNodeStates();
         }
     }
@@ -976,6 +992,54 @@ public class NodeSystem : MonoBehaviour
             if (cg != null && cg.alpha > 0.5f) return true;
         }
         return false;
+    }
+
+    /// <summary>장소의 결과와 열람을 마친 뒤 다음 이동을 연다.</summary>
+    public void CompleteCurrentVisit()
+    {
+        if (!_visitInProgress) return;
+        _visitInProgress = false;
+        PrepareNextChoiceTypes();
+        UpdateNodeStates();
+        bool tutorial = TutorialManager.Instance != null && TutorialManager.Instance.IsTutorial;
+        if (!tutorial && currentRowIndex == MapGenerator.RestFloor - 1)
+            StartCoroutine(EnterFixedDestination(MapGenerator.RestFloor - 1));
+    }
+
+    private void PrepareNextChoiceTypes()
+    {
+        bool tutorial = TutorialManager.Instance != null && TutorialManager.Instance.IsTutorial;
+        if (tutorial || currentRowIndex < 3 || currentRowIndex >= MapGenerator.RestFloor - 1) return;
+        var previous = nodeRows[currentRowIndex - 1];
+        var beforePrevious = nodeRows[currentRowIndex - 2];
+        if (previous.selectedButtonIndex < 0 || beforePrevious.selectedButtonIndex < 0) return;
+        RoomType last = GetRoomTypeAt(currentRowIndex - 1, previous.selectedButtonIndex);
+        RoomType prior = GetRoomTypeAt(currentRowIndex - 2, beforePrevious.selectedButtonIndex);
+        if (last != prior || (last != RoomType.Combat && last != RoomType.Event)) return;
+        var next = nodeRows[currentRowIndex];
+        for (int i = 0; i < next.roomTypes.Count; i++)
+            if (next.roomTypes[i] == last)
+                next.roomTypes[i] = last == RoomType.Combat ? RoomType.Event : RoomType.Combat;
+        if (generatedMap != null)
+        {
+            int column = 0;
+            foreach (var node in generatedMap.nodes)
+                if (node.layer == currentRowIndex && column < next.roomTypes.Count)
+                    node.roomType = next.roomTypes[column++];
+        }
+    }
+
+    private IEnumerator EnterFixedDestination(int row)
+    {
+        if (_automaticTravelInProgress || row != currentRowIndex) yield break;
+        _automaticTravelInProgress = true;
+        // 나가기 콜백은 패널의 닫힘보다 먼저 올 수 있으므로 페이드 종료를 기다린다.
+        while (IsAnyBlockingPanelOpen()) yield return null;
+        while (!SceneTransition.WithinScene(() =>
+        {
+            _automaticTravelInProgress = false;
+            OnNodeClicked(row, 0);
+        })) yield return null;
     }
 
     /// <summary>RoomType 에 따라 적절한 화면을 켜거나 임시 진행 처리한다.</summary>
@@ -1029,8 +1093,8 @@ public class NodeSystem : MonoBehaviour
                     AudioManager.Instance?.PlayBgmById(BgmId.Battle);
                 break;
 
-            // ── 화툿불 (E 작업 완료 — RestPanel 호출) ──
-            //   기획 §02_MVP_노드_설계 §화툿불 — HP/스트레스 -15 회복 + 파티 편집
+            // ── 화톳불 (E 작업 완료 — RestPanel 호출) ──
+            //   기획 §02_MVP_노드_설계 §화톳불 — HP/스트레스 -15 회복 + 파티 편집
             //   패널 미연결 시(인스펙터 빈 경우) 로그만 남기고 다음 층 진행.
             case RoomType.Rest:
                 if (restPanel != null)
@@ -1041,7 +1105,8 @@ public class NodeSystem : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("[NodeSystem] 화툿불 노드 — RestPanel 미연결, 회복 없이 다음 층으로 진행.");
+                    Debug.Log("[NodeSystem] 화톳불 노드 — RestPanel 미연결, 회복 없이 다음 층으로 진행.");
+                    HandleRestExit();
                 }
                 break;
 
@@ -1058,7 +1123,7 @@ public class NodeSystem : MonoBehaviour
                 }
                 else
                 {
-                    switch (RollEventOutcome())
+                    switch (PreparedEventOutcome(currentRowIndex - 1, CurrentNodeNumber - 1))
                     {
                         case 0:
                             Debug.Log("[NodeSystem] `?` 노드 → 용병소");
@@ -1122,7 +1187,11 @@ public class NodeSystem : MonoBehaviour
             mercenaryOfficePanel.OpenFromNode();
             AudioManager.Instance?.PlayBgmById(BgmId.Mercenary);
         }
-        else Debug.Log("[NodeSystem] 용병소 — MercenaryOfficePanel 미연결, 다음 층으로 진행.");
+        else
+        {
+            Debug.Log("[NodeSystem] 용병소 — MercenaryOfficePanel 미연결, 다음 층으로 진행.");
+            HandleMercenaryExit();
+        }
     }
 
     /// <summary>
@@ -1148,7 +1217,11 @@ public class NodeSystem : MonoBehaviour
             churchPanel.OnExit += HandleChurchExit;
             churchPanel.OpenFromNode();
         }
-        else Debug.Log("[NodeSystem] 교회 — ChurchPanel 미연결, 다음 층으로 진행.");
+        else
+        {
+            Debug.Log("[NodeSystem] 교회 — ChurchPanel 미연결, 다음 층으로 진행.");
+            HandleChurchExit();
+        }
     }
 
     /// <summary>용병소 패널의 "나가기" 클릭 시 호출 — 노드맵 화면 복귀.</summary>
@@ -1158,11 +1231,11 @@ public class NodeSystem : MonoBehaviour
         // 여기서는 노드맵 UI 갱신만 — 이미 currentRowIndex++ 가 OnNodeClicked 에서 처리됨.
         if (mercenaryOfficePanel != null)
             mercenaryOfficePanel.OnExit -= HandleMercenaryExit;
-        UpdateNodeStates();
+        CompleteCurrentVisit();
         AudioManager.Instance?.PlayBgmById(BgmId.NodeMap);
     }
 
-    /// <summary>화툿불 패널의 "다음 층" 클릭 시 호출 — 노드맵 화면 복귀.
+    /// <summary>화톳불 패널의 "다음 층" 클릭 시 호출 — 노드맵 화면 복귀.
     /// 단, 튜토리얼에서는 화톳불이 마지막 노드 → 여기서 튜토리얼 종료 후 시작 화면으로 (2026-06-13 QA: 보스 노드 제거).</summary>
     private void HandleRestExit()
     {
@@ -1177,8 +1250,9 @@ public class NodeSystem : MonoBehaviour
             return;
         }
 
-        UpdateNodeStates();
-        AudioManager.Instance?.PlayBgmById(BgmId.NodeMap);
+        CompleteCurrentVisit();
+        if (currentRowIndex == MapGenerator.BossFloor - 1)
+            StartCoroutine(EnterFixedDestination(MapGenerator.BossFloor - 1));
     }
 
     /// <summary>교회 패널의 "다음 층" 클릭 시 호출 — 노드맵 화면 복귀.</summary>
@@ -1186,7 +1260,7 @@ public class NodeSystem : MonoBehaviour
     {
         if (churchPanel != null)
             churchPanel.OnExit -= HandleChurchExit;
-        UpdateNodeStates();
+        CompleteCurrentVisit();
         AudioManager.Instance?.PlayBgmById(BgmId.NodeMap);
     }
 
@@ -1202,6 +1276,7 @@ public class NodeSystem : MonoBehaviour
         if (_eventPanel == null)
         {
             Debug.LogWarning("[NodeSystem] 선택지 이벤트 팝업 생성 실패 — 캔버스를 찾지 못해 다음 층으로 진행.");
+            HandleEventExit();
             return;
         }
 
@@ -1214,7 +1289,7 @@ public class NodeSystem : MonoBehaviour
     private void HandleEventExit()
     {
         if (_eventPanel != null) _eventPanel.OnExit -= HandleEventExit;
-        UpdateNodeStates();
+        CompleteCurrentVisit();
         AudioManager.Instance?.PlayBgmById(BgmId.NodeMap);
     }
 

@@ -1,0 +1,40 @@
+{
+  "date": "2026-09-27",
+  "user_request": "적용해서 빌드까지 하죠",
+  "status": "applied",
+  "approval_scope": "Current route-card UI, read-only progress map, six existing forest/canyon illustrations and the currently shown farmland sketch applied to the build.",
+  "remaining_art": "Farmland is still a temporary diagram; approval does not fabricate a finished farmland illustration.",
+  "images": [
+    {
+      "path": "Assets/Resources/Routes/R02-A_Footprint_Path_v1.png",
+      "sha256": "146d8d0eac7c08ab31d6c73854129dcbbd5c093369474b6889110ed9ccb2a526",
+      "status": "approved_for_current_integration"
+    },
+    {
+      "path": "Assets/Resources/Routes/R02-B_Canvas_Traces_v1.png",
+      "sha256": "0d8784ef411e4afc4fad20a916c5432b0c23e67ac127e33555b3d61445959fa5",
+      "status": "approved_for_current_integration"
+    },
+    {
+      "path": "Assets/Resources/Routes/R02-C_Wet_Roots_v1.png",
+      "sha256": "05ff51dc7c5f1b9c2df44f003752834f874ff369a4034207244d2ef47e08672e",
+      "status": "approved_for_current_integration"
+    },
+    {
+      "path": "Assets/Resources/Routes/R03-A_Wagon_Path_v1.png",
+      "sha256": "72d8a6d572478d551b4e0f7ffb8c2179775cbd2586fb5b4f1e67184623310752",
+      "status": "approved_for_current_integration"
+    },
+    {
+      "path": "Assets/Resources/Routes/R03-B_White_Cloth_v1.png",
+      "sha256": "5e61f4ba61b4444395540994d1b48519c3f8d184d58408cba38239c02124cbb9",
+      "status": "approved_for_current_integration"
+    },
+    {
+      "path": "Assets/Resources/Routes/R03-C_Split_Slope_v1.png",
+      "sha256": "113b3cfb11611e9204f0f566b209be714c62b6d782a9fd4738de914bd5288a04",
+      "status": "approved_for_current_integration"
+    }
+  ],
+  "source_spec": "https://app.notion.com/p/3af6aef5baac812e9f0de26468f2e2fc"
+}

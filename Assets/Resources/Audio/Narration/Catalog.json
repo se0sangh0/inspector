@@ -1,0 +1,796 @@
+{
+  "entries": [
+    {
+      "id": "opening_01",
+      "aliases": [
+        "opening_01"
+      ],
+      "sourceKo": "이전 탐사 결과\n이전 탐사대와의 연락이 두절되었다.\n해당 임무는 실패로 종결한다.",
+      "koResource": "Audio/Narration/ko/opening_01",
+      "enResource": ""
+    },
+    {
+      "id": "opening_02",
+      "aliases": [
+        "opening_02"
+      ],
+      "sourceKo": "후속 투입 통보\n후속 투입 절차가 승인되었다.\n교전 수칙 숙지 후 즉시 현장으로 이동하라.",
+      "koResource": "Audio/Narration/ko/opening_02",
+      "enResource": ""
+    },
+    {
+      "id": "combat_guide",
+      "aliases": [
+        "combat_guide"
+      ],
+      "sourceKo": "전투 안내\n① 손패의 카드를 클릭해 공용 스택을 쌓으세요.\n② [턴 종료]로 이번 턴을 확정합니다.\n③ 동료가 쌓인 스택에 맞춰 자동으로 행동합니다.",
+      "koResource": "Audio/Narration/ko/combat_guide",
+      "enResource": ""
+    },
+    {
+      "id": "route_R02-A",
+      "aliases": [
+        "route_R02-A"
+      ],
+      "sourceKo": "발자국이 남은 숲길\n낮은 수풀 사이로 좁은 길이 이어진다.\n잘린 덩굴과 뒤엉킨 발자국이 보인다.",
+      "koResource": "Audio/Narration/ko/route_R02-A",
+      "enResource": ""
+    },
+    {
+      "id": "route_R02-A_warning",
+      "aliases": [
+        "route_R02-A_warning"
+      ],
+      "sourceKo": "발자국이 남은 숲길\n낮은 수풀 사이로 좁은 길이 이어진다.\n전방에 위험한 움직임. 들어서면 심각한 피해를 입을 수 있다.",
+      "koResource": "Audio/Narration/ko/route_R02-A_warning",
+      "enResource": ""
+    },
+    {
+      "id": "route_R02-B",
+      "aliases": [
+        "route_R02-B"
+      ],
+      "sourceKo": "천막의 흔적\n나무 사이에 덧댄 천이 보인다.\n낮은 목소리와 금속 마찰음이 들린다.",
+      "koResource": "Audio/Narration/ko/route_R02-B",
+      "enResource": ""
+    },
+    {
+      "id": "route_R02-B_warning",
+      "aliases": [
+        "route_R02-B_warning"
+      ],
+      "sourceKo": "천막의 흔적\n나무 사이에 덧댄 천이 보인다.\n전방에 위험한 움직임. 들어서면 심각한 피해를 입을 수 있다.",
+      "koResource": "Audio/Narration/ko/route_R02-B_warning",
+      "enResource": ""
+    },
+    {
+      "id": "route_R02-C",
+      "aliases": [
+        "route_R02-C"
+      ],
+      "sourceKo": "젖은 숲 가장자리\n물먹은 나무뿌리가 길을 좁힌다.\n수풀 안쪽에서 짧은 움직임이 반복된다.",
+      "koResource": "Audio/Narration/ko/route_R02-C",
+      "enResource": ""
+    },
+    {
+      "id": "route_R02-C_warning",
+      "aliases": [
+        "route_R02-C_warning"
+      ],
+      "sourceKo": "젖은 숲 가장자리\n물먹은 나무뿌리가 길을 좁힌다.\n전방에 위험한 움직임. 들어서면 심각한 피해를 입을 수 있다.",
+      "koResource": "Audio/Narration/ko/route_R02-C_warning",
+      "enResource": ""
+    },
+    {
+      "id": "route_R03-A",
+      "aliases": [
+        "route_R03-A"
+      ],
+      "sourceKo": "수레가 선 길\n협곡 그늘에 짐수레와 천막이 모여 있다.\n여러 사람의 시선이 길목에 머문다.",
+      "koResource": "Audio/Narration/ko/route_R03-A",
+      "enResource": ""
+    },
+    {
+      "id": "route_R03-A_warning",
+      "aliases": [
+        "route_R03-A_warning"
+      ],
+      "sourceKo": "수레가 선 길\n협곡 그늘에 짐수레와 천막이 모여 있다.\n전방에 위험한 움직임. 들어서면 심각한 피해를 입을 수 있다.",
+      "koResource": "Audio/Narration/ko/route_R03-A_warning",
+      "enResource": ""
+    },
+    {
+      "id": "route_R03-B",
+      "aliases": [
+        "route_R03-B"
+      ],
+      "sourceKo": "흰 천 표식\n바위 틈마다 바랜 천 조각이 묶여 있다.\n약 냄새와 낮은 기도 소리가 섞여 온다.",
+      "koResource": "Audio/Narration/ko/route_R03-B",
+      "enResource": ""
+    },
+    {
+      "id": "route_R03-B_warning",
+      "aliases": [
+        "route_R03-B_warning"
+      ],
+      "sourceKo": "흰 천 표식\n바위 틈마다 바랜 천 조각이 묶여 있다.\n전방에 위험한 움직임. 들어서면 심각한 피해를 입을 수 있다.",
+      "koResource": "Audio/Narration/ko/route_R03-B_warning",
+      "enResource": ""
+    },
+    {
+      "id": "route_R03-C",
+      "aliases": [
+        "route_R03-C"
+      ],
+      "sourceKo": "갈라진 비탈\n갈라진 비탈 아래에 임시 천막이 이어진다.\n금속을 손질하는 소리가 비탈 아래에서 들린다.",
+      "koResource": "Audio/Narration/ko/route_R03-C",
+      "enResource": ""
+    },
+    {
+      "id": "route_R03-C_warning",
+      "aliases": [
+        "route_R03-C_warning"
+      ],
+      "sourceKo": "갈라진 비탈\n갈라진 비탈 아래에 임시 천막이 이어진다.\n전방에 위험한 움직임. 들어서면 심각한 피해를 입을 수 있다.",
+      "koResource": "Audio/Narration/ko/route_R03-C_warning",
+      "enResource": ""
+    },
+    {
+      "id": "route_FARM-A",
+      "aliases": [
+        "route_FARM-A"
+      ],
+      "sourceKo": "왼편 밭가\n마른 줄기 빽빽한 밭 가장자리가 왼쪽으로 길게 휘어 있다.\n헤집어진 흙 위로 발자국이 이어지고, 앞쪽 줄기들이 바스락거린다.",
+      "koResource": "Audio/Narration/ko/route_FARM-A",
+      "enResource": ""
+    },
+    {
+      "id": "route_FARM-A_warning",
+      "aliases": [
+        "route_FARM-A_warning"
+      ],
+      "sourceKo": "왼편 밭가\n마른 줄기 빽빽한 밭 가장자리가 왼쪽으로 길게 휘어 있다.\n전방에 위험한 움직임. 들어서면 심각한 피해를 입을 수 있다.",
+      "koResource": "Audio/Narration/ko/route_FARM-A_warning",
+      "enResource": ""
+    },
+    {
+      "id": "route_FARM-B",
+      "aliases": [
+        "route_FARM-B"
+      ],
+      "sourceKo": "마른 고랑 사잇길\n갈라진 고랑이 곧게 뻗어 있고, 양옆으로 시든 줄기가 빽빽하다.\n고랑 흙이 갓 헤집어져 있고, 앞쪽 어딘가에서 마른 줄기가 사각거린다.",
+      "koResource": "Audio/Narration/ko/route_FARM-B",
+      "enResource": ""
+    },
+    {
+      "id": "route_FARM-B_warning",
+      "aliases": [
+        "route_FARM-B_warning"
+      ],
+      "sourceKo": "마른 고랑 사잇길\n갈라진 고랑이 곧게 뻗어 있고, 양옆으로 시든 줄기가 빽빽하다.\n전방에 위험한 움직임. 들어서면 심각한 피해를 입을 수 있다.",
+      "koResource": "Audio/Narration/ko/route_FARM-B_warning",
+      "enResource": ""
+    },
+    {
+      "id": "route_FARM-C",
+      "aliases": [
+        "route_FARM-C"
+      ],
+      "sourceKo": "오른편 밭고랑\n낮은 둑을 넘어 오른쪽, 마른 줄기가 빽빽이 서 있다.\n줄기가 서걱이고, 헤집어진 흙에 발자국이 찍혀 있다.",
+      "koResource": "Audio/Narration/ko/route_FARM-C",
+      "enResource": ""
+    },
+    {
+      "id": "route_FARM-C_warning",
+      "aliases": [
+        "route_FARM-C_warning"
+      ],
+      "sourceKo": "오른편 밭고랑\n낮은 둑을 넘어 오른쪽, 마른 줄기가 빽빽이 서 있다.\n전방에 위험한 움직임. 들어서면 심각한 피해를 입을 수 있다.",
+      "koResource": "Audio/Narration/ko/route_FARM-C_warning",
+      "enResource": ""
+    },
+    {
+      "id": "observation_OBS_TORN_BASKET",
+      "aliases": [
+        "observation_OBS_TORN_BASKET"
+      ],
+      "sourceKo": "찢어진 바구니\n전투가 끝난 자리에서 찢어진 바구니가 발견된다. 안쪽에서는 평범한 약초와 열매, 땔감이 쏟아져 있다.",
+      "koResource": "Audio/Narration/ko/observation_OBS_TORN_BASKET",
+      "enResource": ""
+    },
+    {
+      "id": "observation_OBS_FOREST_BARRICADE",
+      "aliases": [
+        "observation_OBS_FOREST_BARRICADE"
+      ],
+      "sourceKo": "숲을 향한 목책\n전투가 끝난 자리에서 숲을 향해 세워진 목책이 확인된다. 목책 위쪽 끝에는 흰 천 조각이 묶여 있다.",
+      "koResource": "Audio/Narration/ko/observation_OBS_FOREST_BARRICADE",
+      "enResource": ""
+    },
+    {
+      "id": "evt_cold_camp_intro",
+      "aliases": [
+        "evt_cold_camp_intro"
+      ],
+      "sourceKo": "식어 있는 야영지\n협곡 입구에 버려진 야영지가 있다. 꺼진 화덕의 재 아래쪽이 아직 따뜻하고, 말리다 만 약초 다발과 흙을 털지 않은 도구가 흩어져 있다.",
+      "koResource": "Audio/Narration/ko/evt_cold_camp_intro",
+      "enResource": ""
+    },
+    {
+      "id": "evt_cold_camp_choice_0",
+      "aliases": [
+        "evt_cold_camp_choice_0"
+      ],
+      "sourceKo": "휴식하기",
+      "koResource": "Audio/Narration/ko/evt_cold_camp_choice_0",
+      "enResource": ""
+    },
+    {
+      "id": "evt_cold_camp_choice_0_result_0",
+      "aliases": [
+        "evt_cold_camp_choice_0_result_0"
+      ],
+      "sourceKo": "일행이 화덕에 새 불을 지피고 짧게 쉰 뒤 진행한다.",
+      "koResource": "Audio/Narration/ko/evt_cold_camp_choice_0_result_0",
+      "enResource": ""
+    },
+    {
+      "id": "evt_cold_camp_choice_1",
+      "aliases": [
+        "evt_cold_camp_choice_1"
+      ],
+      "sourceKo": "흩어져서 살펴보기",
+      "koResource": "Audio/Narration/ko/evt_cold_camp_choice_1",
+      "enResource": ""
+    },
+    {
+      "id": "evt_cold_camp_choice_1_result_0",
+      "aliases": [
+        "evt_cold_camp_choice_1_result_0"
+      ],
+      "sourceKo": "일행이 흩어져 물건을 조사하던 중 짐 뒤의 괴생물체를 쫓아낸다. 회수한 물건에서 영혼석을 확보한다.",
+      "koResource": "Audio/Narration/ko/evt_cold_camp_choice_1_result_0",
+      "enResource": ""
+    },
+    {
+      "id": "evt_cold_camp_choice_2",
+      "aliases": [
+        "evt_cold_camp_choice_2"
+      ],
+      "sourceKo": "지나치기",
+      "koResource": "Audio/Narration/ko/evt_cold_camp_choice_2",
+      "enResource": ""
+    },
+    {
+      "id": "evt_cold_camp_choice_2_result_0",
+      "aliases": [
+        "evt_cold_camp_choice_2_result_0"
+      ],
+      "sourceKo": "일행은 기록에 없는 휴식처를 그대로 지나친다.",
+      "koResource": "Audio/Narration/ko/evt_cold_camp_choice_2_result_0",
+      "enResource": ""
+    },
+    {
+      "id": "evt_field_altar_intro",
+      "aliases": [
+        "evt_field_altar_intro"
+      ],
+      "sourceKo": "임시 상납소\n피난 안내도의 화살표가 전부 이곳을 가리키고 있었다. 접수구 위에 적힌 글씨 — “상납은 질서다.”",
+      "koResource": "Audio/Narration/ko/evt_field_altar_intro",
+      "enResource": ""
+    },
+    {
+      "id": "evt_field_altar_choice_0",
+      "aliases": [
+        "evt_field_altar_choice_0",
+        "evt_forgotten_altar_choice_1"
+      ],
+      "sourceKo": "영혼석을 바친다",
+      "koResource": "Audio/Narration/ko/evt_field_altar_choice_0",
+      "enResource": ""
+    },
+    {
+      "id": "evt_field_altar_choice_0_result_0",
+      "aliases": [
+        "evt_field_altar_choice_0_result_0"
+      ],
+      "sourceKo": "“이상하리만큼 마음이 편해졌다. 그게 제일 이상했다.”",
+      "koResource": "Audio/Narration/ko/evt_field_altar_choice_0_result_0",
+      "enResource": ""
+    },
+    {
+      "id": "evt_field_altar_choice_1",
+      "aliases": [
+        "evt_field_altar_choice_1"
+      ],
+      "sourceKo": "접수구를 뒤진다",
+      "koResource": "Audio/Narration/ko/evt_field_altar_choice_1",
+      "enResource": ""
+    },
+    {
+      "id": "evt_field_altar_choice_1_result_0",
+      "aliases": [
+        "evt_field_altar_choice_1_result_0"
+      ],
+      "sourceKo": "“앞사람의 상납분이다. 장부에는 이미 ‘수령 완료’라고 적혀 있었다.”",
+      "koResource": "Audio/Narration/ko/evt_field_altar_choice_1_result_0",
+      "enResource": ""
+    },
+    {
+      "id": "evt_field_altar_choice_1_result_1",
+      "aliases": [
+        "evt_field_altar_choice_1_result_1"
+      ],
+      "sourceKo": "“접수구 안쪽에서, 손이 아닌 것이 손목을 잡았다.”",
+      "koResource": "Audio/Narration/ko/evt_field_altar_choice_1_result_1",
+      "enResource": ""
+    },
+    {
+      "id": "evt_field_altar_choice_2",
+      "aliases": [
+        "evt_field_altar_choice_2"
+      ],
+      "sourceKo": "무시한다",
+      "koResource": "Audio/Narration/ko/evt_field_altar_choice_2",
+      "enResource": ""
+    },
+    {
+      "id": "evt_field_altar_choice_2_result_0",
+      "aliases": [
+        "evt_field_altar_choice_2_result_0",
+        "evt_supply_cache_choice_2_result_0",
+        "evt_scratch_marks_choice_2_result_0",
+        "evt_deploy_order_choice_2_result_0",
+        "evt_unfamiliar_log_choice_2_result_0"
+      ],
+      "sourceKo": "변화 없음.",
+      "koResource": "Audio/Narration/ko/evt_field_altar_choice_2_result_0",
+      "enResource": ""
+    },
+    {
+      "id": "evt_supply_cache_intro",
+      "aliases": [
+        "evt_supply_cache_intro"
+      ],
+      "sourceKo": "봉인된 보급 상자\n탐사국 보급 상자. 로고가 낯익은데, 볼수록 눈이 미끄러진다. 잠금 장치는 이쪽을 향해 달려 있다.",
+      "koResource": "Audio/Narration/ko/evt_supply_cache_intro",
+      "enResource": ""
+    },
+    {
+      "id": "evt_supply_cache_choice_0",
+      "aliases": [
+        "evt_supply_cache_choice_0"
+      ],
+      "sourceKo": "규정 해제 코드를 시도한다",
+      "koResource": "Audio/Narration/ko/evt_supply_cache_choice_0",
+      "enResource": ""
+    },
+    {
+      "id": "evt_supply_cache_choice_0_result_0",
+      "aliases": [
+        "evt_supply_cache_choice_0_result_0"
+      ],
+      "sourceKo": "“코드가 맞았다. 당신이 이 코드를 어떻게 알고 있었는지는, 넘어가자.”",
+      "koResource": "Audio/Narration/ko/evt_supply_cache_choice_0_result_0",
+      "enResource": ""
+    },
+    {
+      "id": "evt_supply_cache_choice_0_result_1",
+      "aliases": [
+        "evt_supply_cache_choice_0_result_1"
+      ],
+      "sourceKo": "“‘권한 없음.’ 상자가 조금 더 단단해진 것 같다.”",
+      "koResource": "Audio/Narration/ko/evt_supply_cache_choice_0_result_1",
+      "enResource": ""
+    },
+    {
+      "id": "evt_supply_cache_choice_1",
+      "aliases": [
+        "evt_supply_cache_choice_1"
+      ],
+      "sourceKo": "강제로 연다",
+      "koResource": "Audio/Narration/ko/evt_supply_cache_choice_1",
+      "enResource": ""
+    },
+    {
+      "id": "evt_supply_cache_choice_1_result_0",
+      "aliases": [
+        "evt_supply_cache_choice_1_result_0"
+      ],
+      "sourceKo": "“경첩이 아니라 이빨이 부러지는 소리가 났다.”",
+      "koResource": "Audio/Narration/ko/evt_supply_cache_choice_1_result_0",
+      "enResource": ""
+    },
+    {
+      "id": "evt_supply_cache_choice_2",
+      "aliases": [
+        "evt_supply_cache_choice_2"
+      ],
+      "sourceKo": "놓아둔다",
+      "koResource": "Audio/Narration/ko/evt_supply_cache_choice_2",
+      "enResource": ""
+    },
+    {
+      "id": "evt_crow_watcher_intro",
+      "aliases": [
+        "evt_crow_watcher_intro"
+      ],
+      "sourceKo": "지켜보는 까마귀\n까마귀 한 마리가 앉아 있다. 날개 소리를 들은 기억이 없다. 처음부터 거기 있었던 것처럼.",
+      "koResource": "Audio/Narration/ko/evt_crow_watcher_intro",
+      "enResource": ""
+    },
+    {
+      "id": "evt_crow_watcher_choice_0",
+      "aliases": [
+        "evt_crow_watcher_choice_0"
+      ],
+      "sourceKo": "먹이를 준다",
+      "koResource": "Audio/Narration/ko/evt_crow_watcher_choice_0",
+      "enResource": ""
+    },
+    {
+      "id": "evt_crow_watcher_choice_0_result_0",
+      "aliases": [
+        "evt_crow_watcher_choice_0_result_0"
+      ],
+      "sourceKo": "“까마귀는 먹이를 먹지 않았다. 다만 세는 것을 멈추었다.”",
+      "koResource": "Audio/Narration/ko/evt_crow_watcher_choice_0_result_0",
+      "enResource": ""
+    },
+    {
+      "id": "evt_crow_watcher_choice_1",
+      "aliases": [
+        "evt_crow_watcher_choice_1"
+      ],
+      "sourceKo": "쫓아낸다",
+      "koResource": "Audio/Narration/ko/evt_crow_watcher_choice_1",
+      "enResource": ""
+    },
+    {
+      "id": "evt_crow_watcher_choice_1_result_0",
+      "aliases": [
+        "evt_crow_watcher_choice_1_result_0"
+      ],
+      "sourceKo": "“그것은 웃는 것처럼 울었다.”",
+      "koResource": "Audio/Narration/ko/evt_crow_watcher_choice_1_result_0",
+      "enResource": ""
+    },
+    {
+      "id": "evt_crow_watcher_choice_2",
+      "aliases": [
+        "evt_crow_watcher_choice_2"
+      ],
+      "sourceKo": "마주 본다",
+      "koResource": "Audio/Narration/ko/evt_crow_watcher_choice_2",
+      "enResource": ""
+    },
+    {
+      "id": "evt_crow_watcher_choice_2_result_0",
+      "aliases": [
+        "evt_crow_watcher_choice_2_result_0"
+      ],
+      "sourceKo": "“까마귀의 눈에 낫이 비쳤다. 이 방에는 낫이 없다.”",
+      "koResource": "Audio/Narration/ko/evt_crow_watcher_choice_2_result_0",
+      "enResource": ""
+    },
+    {
+      "id": "evt_crow_watcher_choice_2_result_1",
+      "aliases": [
+        "evt_crow_watcher_choice_2_result_1"
+      ],
+      "sourceKo": "“먼저 눈을 돌린 쪽은 당신이었다.”",
+      "koResource": "Audio/Narration/ko/evt_crow_watcher_choice_2_result_1",
+      "enResource": ""
+    },
+    {
+      "id": "evt_scratch_marks_intro",
+      "aliases": [
+        "evt_scratch_marks_intro"
+      ],
+      "sourceKo": "벽에 새겨진 눈금\n복도 막다른 벽에 손톱으로 긁은 눈금이 빽빽하다. 마흔일곱 개. 마지막 몇 줄은 피가 섞여 있다. 손바닥을 대보자 홈의 간격이 네 손가락과 정확히 일치한다.",
+      "koResource": "Audio/Narration/ko/evt_scratch_marks_intro",
+      "enResource": ""
+    },
+    {
+      "id": "evt_scratch_marks_choice_0",
+      "aliases": [
+        "evt_scratch_marks_choice_0"
+      ],
+      "sourceKo": "마지막 눈금을 긋는다",
+      "koResource": "Audio/Narration/ko/evt_scratch_marks_choice_0",
+      "enResource": ""
+    },
+    {
+      "id": "evt_scratch_marks_choice_0_result_0",
+      "aliases": [
+        "evt_scratch_marks_choice_0_result_0"
+      ],
+      "sourceKo": "“마흔여덟째를 새긴다. 손끝에 전해지는 감촉이 낯설지 않다.”",
+      "koResource": "Audio/Narration/ko/evt_scratch_marks_choice_0_result_0",
+      "enResource": ""
+    },
+    {
+      "id": "evt_scratch_marks_choice_0_result_1",
+      "aliases": [
+        "evt_scratch_marks_choice_0_result_1"
+      ],
+      "sourceKo": "“마흔여덟째를 긋는다. 동료들이 한 걸음 물러선다.”",
+      "koResource": "Audio/Narration/ko/evt_scratch_marks_choice_0_result_1",
+      "enResource": ""
+    },
+    {
+      "id": "evt_scratch_marks_choice_1",
+      "aliases": [
+        "evt_scratch_marks_choice_1"
+      ],
+      "sourceKo": "흔적을 통째로 긁어 지운다",
+      "koResource": "Audio/Narration/ko/evt_scratch_marks_choice_1",
+      "enResource": ""
+    },
+    {
+      "id": "evt_scratch_marks_choice_1_result_0",
+      "aliases": [
+        "evt_scratch_marks_choice_1_result_0"
+      ],
+      "sourceKo": "“숫자가 사라진다. 모두가 안심한 표정이다. 나만 왠지 손끝이 허전하다.”",
+      "koResource": "Audio/Narration/ko/evt_scratch_marks_choice_1_result_0",
+      "enResource": ""
+    },
+    {
+      "id": "evt_scratch_marks_choice_2",
+      "aliases": [
+        "evt_scratch_marks_choice_2",
+        "evt_deploy_order_choice_2",
+        "evt_unfamiliar_log_choice_2",
+        "evt_forgotten_altar_choice_2",
+        "evt_hand_in_the_rift_choice_1"
+      ],
+      "sourceKo": "지나친다",
+      "koResource": "Audio/Narration/ko/evt_scratch_marks_choice_2",
+      "enResource": ""
+    },
+    {
+      "id": "evt_deploy_order_intro",
+      "aliases": [
+        "evt_deploy_order_intro"
+      ],
+      "sourceKo": "격리 해제 승인서\n바닥에 흩어진 서류 더미. 탐사국 발신 「격리 해제 승인서」다. 피험자 번호, 체액 채취 동의, 재배치 가능 일자… 모든 항목에 도장이 찍혀 있다. 서명란에는 내 이름이 있다. 기억나지 않는다.",
+      "koResource": "Audio/Narration/ko/evt_deploy_order_intro",
+      "enResource": ""
+    },
+    {
+      "id": "evt_deploy_order_choice_0",
+      "aliases": [
+        "evt_deploy_order_choice_0"
+      ],
+      "sourceKo": "서류를 챙긴다",
+      "koResource": "Audio/Narration/ko/evt_deploy_order_choice_0",
+      "enResource": ""
+    },
+    {
+      "id": "evt_deploy_order_choice_0_result_0",
+      "aliases": [
+        "evt_deploy_order_choice_0_result_0"
+      ],
+      "sourceKo": "“주머니에 접어 넣는다. 문구 하나가 눈에 박힌다. ‘피험자는 절차에 동의하였으며, 기억 소거는 표준 규정에 따른 것임.’”",
+      "koResource": "Audio/Narration/ko/evt_deploy_order_choice_0_result_0",
+      "enResource": ""
+    },
+    {
+      "id": "evt_deploy_order_choice_1",
+      "aliases": [
+        "evt_deploy_order_choice_1"
+      ],
+      "sourceKo": "찢어 버린다",
+      "koResource": "Audio/Narration/ko/evt_deploy_order_choice_1",
+      "enResource": ""
+    },
+    {
+      "id": "evt_deploy_order_choice_1_result_0",
+      "aliases": [
+        "evt_deploy_order_choice_1_result_0"
+      ],
+      "sourceKo": "“찢는다. 또 찢는다. 종이 조각이 흩어진다. 동료가 묻는다. ‘뭐였어?’ 대답하지 않는다. 목구멍까지 올라온 말을 삼킨다.”",
+      "koResource": "Audio/Narration/ko/evt_deploy_order_choice_1_result_0",
+      "enResource": ""
+    },
+    {
+      "id": "evt_unfamiliar_log_intro",
+      "aliases": [
+        "evt_unfamiliar_log_intro"
+      ],
+      "sourceKo": "두 개의 진입 기록\n벽면에 부착된 구형 탐사 일지. 오늘자, 이 구역 진입 기록이 두 건이다. 한 건은 06:12, 내 서명. 다른 한 건은 03:47, 역시 내 서명. 새벽의 나는 혼자 와 있었다.",
+      "koResource": "Audio/Narration/ko/evt_unfamiliar_log_intro",
+      "enResource": ""
+    },
+    {
+      "id": "evt_unfamiliar_log_choice_0",
+      "aliases": [
+        "evt_unfamiliar_log_choice_0"
+      ],
+      "sourceKo": "03:47 기록을 뜯어낸다",
+      "koResource": "Audio/Narration/ko/evt_unfamiliar_log_choice_0",
+      "enResource": ""
+    },
+    {
+      "id": "evt_unfamiliar_log_choice_0_result_0",
+      "aliases": [
+        "evt_unfamiliar_log_choice_0_result_0"
+      ],
+      "sourceKo": "“종이를 뜯어 주머니에 넣는다. 손이 떨린다. 내 서명은 분명한데, 내 기억은 아니다.”",
+      "koResource": "Audio/Narration/ko/evt_unfamiliar_log_choice_0_result_0",
+      "enResource": ""
+    },
+    {
+      "id": "evt_unfamiliar_log_choice_1",
+      "aliases": [
+        "evt_unfamiliar_log_choice_1"
+      ],
+      "sourceKo": "기록을 정독한다",
+      "koResource": "Audio/Narration/ko/evt_unfamiliar_log_choice_1",
+      "enResource": ""
+    },
+    {
+      "id": "evt_unfamiliar_log_choice_1_result_0",
+      "aliases": [
+        "evt_unfamiliar_log_choice_1_result_0"
+      ],
+      "sourceKo": "“기록에 따르면 나는 뭔가를 ‘회수’했다. 회수물 란은 비어 있다. 공란의 잉크 색이 주변보다 진하다. 누군가 지운 흔적이다.”",
+      "koResource": "Audio/Narration/ko/evt_unfamiliar_log_choice_1_result_0",
+      "enResource": ""
+    },
+    {
+      "id": "evt_forgotten_altar_intro",
+      "aliases": [
+        "evt_forgotten_altar_intro"
+      ],
+      "sourceKo": "잊힌 봉납 제단\n돌 제단 위, 말라붙은 핏자국이 영혼석 몇 점과 나란히 놓여 있다. 누군가 바치고 갔는지, 바치려다 도망쳤는지는 알 수 없다.",
+      "koResource": "Audio/Narration/ko/evt_forgotten_altar_intro",
+      "enResource": ""
+    },
+    {
+      "id": "evt_forgotten_altar_choice_0",
+      "aliases": [
+        "evt_forgotten_altar_choice_0"
+      ],
+      "sourceKo": "피를 바친다",
+      "koResource": "Audio/Narration/ko/evt_forgotten_altar_choice_0",
+      "enResource": ""
+    },
+    {
+      "id": "evt_forgotten_altar_choice_0_result_0",
+      "aliases": [
+        "evt_forgotten_altar_choice_0_result_0"
+      ],
+      "sourceKo": "“상처가 아물지 않는다. 대신 손안의 돌이 체온을 빨아들이듯 따뜻해진다.”",
+      "koResource": "Audio/Narration/ko/evt_forgotten_altar_choice_0_result_0",
+      "enResource": ""
+    },
+    {
+      "id": "evt_forgotten_altar_choice_1_result_0",
+      "aliases": [
+        "evt_forgotten_altar_choice_1_result_0"
+      ],
+      "sourceKo": "“돌이 제단에 닿자 바스러진다. 동시에 상처가 거짓말처럼 사라진다. 다만, 기분 좋은 일은 아니다.”",
+      "koResource": "Audio/Narration/ko/evt_forgotten_altar_choice_1_result_0",
+      "enResource": ""
+    },
+    {
+      "id": "evt_forgotten_altar_choice_2_result_0",
+      "aliases": [
+        "evt_forgotten_altar_choice_2_result_0"
+      ],
+      "sourceKo": "“당연한 거래처럼 보였다. 그게 더 신경 쓰인다.”",
+      "koResource": "Audio/Narration/ko/evt_forgotten_altar_choice_2_result_0",
+      "enResource": ""
+    },
+    {
+      "id": "evt_hand_in_the_rift_intro",
+      "aliases": [
+        "evt_hand_in_the_rift_intro"
+      ],
+      "sourceKo": "갈라진 틈새의 손\n복도 벽에 난 균열, 그 틈새로 사람의 손이 뻗어 나와 있다. 손바닥을 위로 향한 채, 무언가를 기다리는 자세다.",
+      "koResource": "Audio/Narration/ko/evt_hand_in_the_rift_intro",
+      "enResource": ""
+    },
+    {
+      "id": "evt_hand_in_the_rift_choice_0",
+      "aliases": [
+        "evt_hand_in_the_rift_choice_0"
+      ],
+      "sourceKo": "손을 잡는다",
+      "koResource": "Audio/Narration/ko/evt_hand_in_the_rift_choice_0",
+      "enResource": ""
+    },
+    {
+      "id": "evt_hand_in_the_rift_choice_0_result_0",
+      "aliases": [
+        "evt_hand_in_the_rift_choice_0_result_0"
+      ],
+      "sourceKo": "“손이 부드럽게 돌을 쥐여주고 틈새 너머로 사라진다. 손바닥에 남은 온기. 사람 체온이다.”",
+      "koResource": "Audio/Narration/ko/evt_hand_in_the_rift_choice_0_result_0",
+      "enResource": ""
+    },
+    {
+      "id": "evt_hand_in_the_rift_choice_0_result_1",
+      "aliases": [
+        "evt_hand_in_the_rift_choice_0_result_1"
+      ],
+      "sourceKo": "“손이 움켜잡는다. 손목을 타고 올라온 한기가 머릿속 어딘가를 만진다. 놓아도, 만져진 기억은 남는다.”",
+      "koResource": "Audio/Narration/ko/evt_hand_in_the_rift_choice_0_result_1",
+      "enResource": ""
+    },
+    {
+      "id": "evt_hand_in_the_rift_choice_1_result_0",
+      "aliases": [
+        "evt_hand_in_the_rift_choice_1_result_0"
+      ],
+      "sourceKo": "“손은 아직 기다리고 있다.”",
+      "koResource": "Audio/Narration/ko/evt_hand_in_the_rift_choice_1_result_0",
+      "enResource": ""
+    },
+    {
+      "id": "fixed_20c307a800",
+      "aliases": [
+        "fixed_20c307a800"
+      ],
+      "sourceKo": "전투 승리",
+      "koResource": "Audio/Narration/ko/fixed_20c307a800",
+      "enResource": ""
+    },
+    {
+      "id": "fixed_1068afeef1",
+      "aliases": [
+        "fixed_1068afeef1"
+      ],
+      "sourceKo": "임무 완수",
+      "koResource": "Audio/Narration/ko/fixed_1068afeef1",
+      "enResource": ""
+    },
+    {
+      "id": "fixed_eac2ac956e",
+      "aliases": [
+        "fixed_eac2ac956e"
+      ],
+      "sourceKo": "임무 실패",
+      "koResource": "Audio/Narration/ko/fixed_eac2ac956e",
+      "enResource": ""
+    },
+    {
+      "id": "fixed_9cc0efd378",
+      "aliases": [
+        "fixed_9cc0efd378"
+      ],
+      "sourceKo": "성소로 향한다",
+      "koResource": "Audio/Narration/ko/fixed_9cc0efd378",
+      "enResource": ""
+    },
+    {
+      "id": "fixed_caa001c01d",
+      "aliases": [
+        "fixed_caa001c01d"
+      ],
+      "sourceKo": "그들은 무엇을 지키고 있었나.",
+      "koResource": "Audio/Narration/ko/fixed_caa001c01d",
+      "enResource": ""
+    },
+    {
+      "id": "fixed_e6763c6eb0",
+      "aliases": [
+        "fixed_e6763c6eb0"
+      ],
+      "sourceKo": "이동 후보 3건이 확인되었습니다. 각 기록의 징조를 비교해 다음 경로를 선택하십시오.",
+      "koResource": "Audio/Narration/ko/fixed_e6763c6eb0",
+      "enResource": ""
+    },
+    {
+      "id": "fixed_cad1170358",
+      "aliases": [
+        "fixed_cad1170358"
+      ],
+      "sourceKo": "현장 기록 갱신: 선택 경로가 수첩에 추가되었습니다.",
+      "koResource": "Audio/Narration/ko/fixed_cad1170358",
+      "enResource": ""
+    }
+  ]
+}

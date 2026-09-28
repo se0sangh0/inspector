@@ -30,6 +30,33 @@ public static class EventService
     /// <summary>직전 ResolveChoice 에서 적용된 효과 집계 요약. EventPanel 결과 창 표시용.</summary>
     public static IReadOnlyList<LocalizedMessage> LastEffectSummary => _effectSummary;
 
+    private sealed class ResolvedChoice
+    {
+        public EventOutcome outcome;
+        public List<LocalizedMessage> summary;
+    }
+    private static readonly Dictionary<string, ResolvedChoice> _resolved = new();
+    private static readonly HashSet<string> _resolving = new();
+
+    /// <summary>새 런에서 확정 결과와 표시 요약을 비운다.</summary>
+    public static void ResetRun()
+    {
+        _resolved.Clear();
+        _resolving.Clear();
+        _effectSummary.Clear();
+    }
+
+    /// <summary>재열람에서는 확정 결과와 실제 변화량만 복원한다.</summary>
+    public static bool TryGetResolvedOutcome(EventDefinition evt, out EventOutcome outcome)
+    {
+        outcome = null;
+        if (evt == null || string.IsNullOrEmpty(evt.id) || !_resolved.TryGetValue(evt.id, out var result)) return false;
+        outcome = result.outcome;
+        _effectSummary.Clear();
+        _effectSummary.AddRange(result.summary);
+        return true;
+    }
+
     /// <summary>영혼석 코스트를 지불할 수 있는지. (HP/스트레스 코스트는 항상 지불 가능으로 본다)</summary>
     public static bool CanAfford(EventChoice choice)
     {
@@ -43,45 +70,71 @@ public static class EventService
     /// 선택지를 확정한다. 코스트 지불 → 결과 추첨 → 효과 적용(effects 순서대로) →
     /// ChoiceResolved 사건 1건 기록 → 선택된 결과 반환 (16-B §3: 상태 적용과 기록은 같은 트랜잭션).
     /// 코스트를 못 내면 null 반환(패널에서 사전 차단되지만 안전용).
-    /// 재클릭·연타는 EventPanel 이 선택지를 숨겨 차단하고, 기록은 dedupKey 가 최종 안전망.
+    /// 같은 런의 확정 이벤트는 원래 결과를 반환하며 비용·효과·기록을 반복하지 않는다.
     /// </summary>
     public static EventOutcome ResolveChoice(EventDefinition evt, EventChoice choice)
     {
-        if (choice == null) return null;
-        _effectSummary.Clear(); // 시작에서만 비운다 — 반환 후 EventPanel 이 LastEffectSummary 를 읽는다
-        if (!PayCost(choice)) return null;
-
-        var outcome = RollOutcome(choice);
-        if (outcome != null)
+        if (TryGetResolvedOutcome(evt, out var resolved)) return resolved;
+        _effectSummary.Clear();
+        if (evt == null || string.IsNullOrEmpty(evt.id) || choice == null ||
+            evt.choices == null || !evt.choices.Contains(choice) || !CanAfford(choice)) return null;
+        // 결과가 없는 잘못된 데이터에는 비용도 지불하지 않는다.
+        if (choice.outcomes == null || !choice.outcomes.Any(o => o != null)) return null;
+        if (!_resolving.Add(evt.id)) return null;
+        try
         {
-            foreach (var eff in outcome.effects) ApplyEffect(eff);
+            var before = ResolveTargets(EventTarget.All)
+                .Select(f => (fellow: f, hp: f.CurrentHp, stress: f.currentStress)).ToList();
+            int soulBefore = SoulstoneManager.Instance?.Amount ?? 0;
+            var outcome = RollOutcome(choice);
+            if (outcome == null || !PayCost(choice)) return null;
+            if (outcome.effects != null)
+                foreach (var eff in outcome.effects) ApplyEffect(eff);
             if (!string.IsNullOrEmpty(outcome.resultText))
                 GameLog.Event(outcome.resultText, LogCategory.Status);
-            RecordChoiceResolved(evt, choice, outcome);
+
+            var lines = new List<LocalizedMessage>
+            {
+                Loc.Message("확인 장소: {0}", Loc.Message(evt.title)),
+            };
+            if (evt.id == "evt_cold_camp")
+            {
+                // 16-E §4-3의 수첩 전문. 수치는 결과 적용 직전·직후의 차이다.
+                _effectSummary.Clear();
+                bool resting = choice.label == "휴식하기";
+                bool searching = choice.label == "흩어져서 살펴보기";
+                lines.Add(Loc.Message("조치: {0}", Loc.Message(resting ? "화덕에서 휴식" : searching ? "현장 수색" : "현장 미접촉")));
+                lines.Add(Loc.Message("결과: {0}", Loc.Message(resting ? "생존 동료 전원 HP 회복" : searching ? "짐 뒤의 괴생물체를 쫓아내고 영혼석 회수" : "변화 없음")));
+                if (resting || searching)
+                    foreach (var snapshot in before)
+                    {
+                        var fellow = snapshot.fellow;
+                        var name = RunSessionManager.GetNotebookFellowName(fellow);
+                        var status = resting
+                            ? Loc.Message("상태: {0} HP +{1} → {2}", name, fellow.CurrentHp - snapshot.hp, fellow.CurrentHp)
+                            : Loc.Message("상태: {0} HP -{1} → {2} / 스트레스 +{3} → {4}", name,
+                                snapshot.hp - fellow.CurrentHp, fellow.CurrentHp, fellow.currentStress - snapshot.stress, fellow.currentStress);
+                        lines.Add(status);
+                        _effectSummary.Add(status);
+                    }
+                if (searching)
+                {
+                    var gained = Loc.Message("획득: 영혼석 +{0} → 보유 {1}", (SoulstoneManager.Instance?.Amount ?? 0) - soulBefore, SoulstoneManager.Instance?.Amount ?? 0);
+                    lines.Add(gained);
+                    _effectSummary.Add(gained);
+                }
+            }
+            else
+            {
+                lines.Add(Loc.Message("조치: {0}", Loc.Message(choice.label)));
+                if (!string.IsNullOrEmpty(outcome.resultText))
+                    lines.Add(Loc.Message("결과: {0}", Loc.Message(outcome.resultText)));
+            }
+            RunSessionManager.Instance?.AddRecord(RunRecordType.ChoiceResolved, "", lines, dedupKey: $"choice_{evt.id}");
+            _resolved.Add(evt.id, new ResolvedChoice { outcome = outcome, summary = new List<LocalizedMessage>(_effectSummary) });
+            return outcome;
         }
-        return outcome;
-    }
-
-    /// <summary>
-    /// 조사관 수첩 사건 기록 1건 — 탐사국 공식 현장 기록 양식 (12 §1-5): 확인 장소 / 조치 / 결과.
-    /// 내부 이벤트 ID·동료별 수치 상세는 넣지 않는다(그건 결과 창·GameLog 담당).
-    /// </summary>
-    private static void RecordChoiceResolved(EventDefinition evt, EventChoice choice, EventOutcome outcome)
-    {
-        var session = RunSessionManager.Instance;
-        if (session == null || !session.IsRunActive) return;
-
-        var lines = new List<LocalizedMessage>
-        {
-            Loc.Message("확인 장소: {0}", evt != null ? Loc.Message(evt.title) : Loc.Message("미상")),
-            Loc.Message("조치: {0}", Loc.Message(choice.label)),
-        };
-        if (!string.IsNullOrEmpty(outcome.resultText))
-            lines.Add(Loc.Message("결과: {0}", Loc.Message(outcome.resultText)));
-
-        // 표제는 비운다 — 헤더 [O층 | 제 N구역] 아래 확인 장소/조치/결과 항목만 표시.
-        session.AddRecord(RunRecordType.ChoiceResolved, "", lines,
-            dedupKey: evt != null ? $"choice_{evt.id}" : null);
+        finally { _resolving.Remove(evt.id); }
     }
 
     // ── 코스트 지불 ─────────────────────────────────────────────
@@ -116,7 +169,7 @@ public static class EventService
     // ── 결과 가중 추첨 ─────────────────────────────────────────
     private static EventOutcome RollOutcome(EventChoice choice)
     {
-        var outs = choice.outcomes;
+        var outs = choice.outcomes?.Where(o => o != null).ToList();
         if (outs == null || outs.Count == 0) return null;
         if (outs.Count == 1) return outs[0];
 

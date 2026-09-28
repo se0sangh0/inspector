@@ -55,6 +55,8 @@ public class SettingPopup : PanelBase
     [Header("음량")]
     [SerializeField] private Slider bgmSlider;
     [SerializeField] private Slider sfxSlider;
+    private Slider _narrationSlider;
+    private TMP_Text _narrationLabel;
 
     [Header("화면 모드")]
     [Tooltip("TMP_Dropdown — 옵션은 OnOpened 에서 자동으로 채움 (한국어 라벨 3개).")]
@@ -83,7 +85,9 @@ public class SettingPopup : PanelBase
         }
 
         EnsureLanguageDropdown(); // 언어 드롭다운 준비 (BindListeners 전에)
+        EnsureNarrationSlider();
         ConfigureLayout();
+        SystemIconArt.EnsureGlyphOnlyIcon(closeButton, "icon_close", 40f);
 
         if (screenModeDropdown != null)
         {
@@ -168,8 +172,21 @@ public class SettingPopup : PanelBase
         _langDrop.RefreshShownValue();
     }
 
-    // The authored dropdown clone overlapped the screen-mode heading.
-    // Five explicit rows reserve space for both languages within the FHD canvas.
+    private void EnsureNarrationSlider()
+    {
+        if (_narrationSlider == null && sfxSlider != null)
+        {
+            _narrationSlider = Instantiate(sfxSlider, sfxSlider.transform.parent);
+            _narrationSlider.name = "NarrationSlider";
+            _narrationSlider.onValueChanged = new Slider.SliderEvent();
+            _narrationSlider.minValue = 0f;
+            _narrationSlider.maxValue = 1f;
+            _narrationSlider.wholeNumbers = false;
+        }
+        if (_narrationSlider != null) _narrationSlider.SetValueWithoutNotify(NarrationPlayer.Volume);
+    }
+
+    // Six rows reserve independent narration volume without covering the bottom buttons.
     private void ConfigureLayout()
     {
         var panel = transform.Find("Panel") as RectTransform;
@@ -177,13 +194,31 @@ public class SettingPopup : PanelBase
         panel.anchorMin = panel.anchorMax = panel.pivot = new Vector2(0.5f, 0.5f);
         panel.anchoredPosition = Vector2.zero;
         panel.sizeDelta = new Vector2(1240, 920);
-        LayoutSettingRow(panel, bgmSlider, -310);
-        LayoutSettingRow(panel, sfxSlider, -430);
-        LayoutSettingRow(panel, screenModeDropdown, -550);
-        LayoutSettingRow(panel, resolutionDropdown, -670);
+        LayoutSettingRow(panel, bgmSlider, -275);
+        LayoutSettingRow(panel, sfxSlider, -380);
+        LayoutSettingRow(panel, screenModeDropdown, -590);
+        LayoutSettingRow(panel, resolutionDropdown, -695);
+        if (_narrationSlider != null)
+        {
+            PlaceSettingControl(panel, (RectTransform)_narrationSlider.transform, new Vector2(160, -485), new Vector2(650, 60));
+            if (_narrationLabel == null)
+            {
+                var go = new GameObject("NarrationLabel", typeof(RectTransform));
+                _narrationLabel = go.AddComponent<TextMeshProUGUI>();
+                var audioLabel = panel.Find(sfxSlider.name + "Heading")?.GetComponent<TMP_Text>();
+                _narrationLabel.font = audioLabel != null ? audioLabel.font : TMP_Settings.defaultFontAsset;
+                _narrationLabel.fontSize = audioLabel != null ? audioLabel.fontSize : 30;
+                _narrationLabel.fontStyle = audioLabel != null ? audioLabel.fontStyle : FontStyles.Normal;
+                _narrationLabel.color = Color.white;
+                _narrationLabel.raycastTarget = false;
+                _narrationLabel.alignment = TextAlignmentOptions.MidlineLeft;
+            }
+            PlaceSettingControl(panel, _narrationLabel.rectTransform, new Vector2(-370, -485), new Vector2(300, 60));
+            Loc.Set(_narrationLabel, "음성");
+        }
         if (_langDrop != null)
         {
-            PlaceSettingControl(panel, (RectTransform)_langDrop.transform, new Vector2(160, -190), new Vector2(650, 60));
+            PlaceSettingControl(panel, (RectTransform)_langDrop.transform, new Vector2(160, -170), new Vector2(650, 60));
             var label = panel.Find("LanguageLabel")?.GetComponent<TMP_Text>();
             if (label == null)
             {
@@ -194,7 +229,7 @@ public class SettingPopup : PanelBase
                 label.color = Color.white;
                 label.raycastTarget = false;
             }
-            PlaceSettingControl(panel, label.rectTransform, new Vector2(-370, -190), new Vector2(300, 60));
+            PlaceSettingControl(panel, label.rectTransform, new Vector2(-370, -170), new Vector2(300, 60));
             label.alignment = TextAlignmentOptions.MidlineLeft;
             Loc.Set(label, "언어");
         }
@@ -241,6 +276,11 @@ public class SettingPopup : PanelBase
         {
             sfxSlider.onValueChanged.RemoveListener(OnSfxChanged);
             if (subscribe) sfxSlider.onValueChanged.AddListener(OnSfxChanged);
+        }
+        if (_narrationSlider != null)
+        {
+            _narrationSlider.onValueChanged.RemoveListener(NarrationPlayer.SetVolume);
+            if (subscribe) _narrationSlider.onValueChanged.AddListener(NarrationPlayer.SetVolume);
         }
         if (screenModeDropdown != null)
         {

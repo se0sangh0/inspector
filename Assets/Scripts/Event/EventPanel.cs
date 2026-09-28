@@ -50,6 +50,11 @@ public class EventPanel : PanelBase
 
     private EventDefinition _current;
     private readonly List<GameObject> _choiceButtons = new();
+    private readonly Dictionary<GameObject, EventChoice> _choiceByButton = new();
+    private bool _choiceProcessing;
+    private bool _choiceCompleted;
+    private bool _exitInvoked;
+    private string _narrationText;
 
     /// <summary>"다음 층" 클릭 시 NodeSystem 이 구독해 노드맵으로 복귀시킨다. (ChurchPanel 과 동일 패턴)</summary>
     public event Action OnExit;
@@ -92,8 +97,9 @@ public class EventPanel : PanelBase
     // ============================================================
     public void OpenRandom()
     {
-        int floor = (NodeSystem.Current != null ? NodeSystem.Current.CurrentFloor : 0) + 1; // 1-base
-        var evt = EventCatalog.GetRandom(floor);
+        int floor = NodeSystem.Current != null ? Mathf.Max(1, NodeSystem.Current.CurrentFloor) : 1; // CurrentFloor is already 1-base
+        // 10층 개발 빌드는 효과가 실제 연결된 사건 중 런에서 보지 않은 것만 추첨한다.
+        var evt = EventCatalog.GetPlayableRandom(floor);
         if (evt == null)
         {
             Debug.LogWarning("[EventPanel] 표시할 이벤트가 없습니다 — 즉시 종료.");
@@ -135,13 +141,26 @@ public class EventPanel : PanelBase
     private void Bind(EventDefinition evt)
     {
         _current = evt;
+        _choiceProcessing = false;
+        _choiceCompleted = false;
+        _exitInvoked = false;
 
         if (_titleText != null) Loc.Set(_titleText, evt.title);
         if (_bodyText  != null) Loc.Set(_bodyText, evt.bodyText);
+        _narrationText = evt.title + "\n" + evt.bodyText;
 
         // 이전 선택지 정리
         foreach (var b in _choiceButtons) if (b != null) Destroy(b);
         _choiceButtons.Clear();
+        _choiceByButton.Clear();
+
+        // 이미 확정된 결과가 있으면 결과 화면으로 복원한다.
+        if (EventService.TryGetResolvedOutcome(evt, out var resolvedOutcome) && resolvedOutcome != null)
+        {
+            _choiceCompleted = true;
+            BindResult(resolvedOutcome);
+            return;
+        }
 
         // 선택지 버튼 생성
         var choices = evt.choices ?? new List<EventChoice>();
@@ -158,26 +177,77 @@ public class EventPanel : PanelBase
     // ── 선택지 클릭 ─────────────────────────────────────────────
     private void OnChoiceClicked(EventChoice choice)
     {
-        if (choice == null || _current == null) return;
+        if (choice == null || _current == null || _choiceProcessing || _choiceCompleted) return;
+
+        _choiceProcessing = true;
 
         var outcome = EventService.ResolveChoice(_current, choice);
 
-        // 결과 텍스트 + 효과 요약을 결과 창에 표시 (상세 수치는 여기, 조사관 수첩은 기본 양식만).
-        string result = outcome != null && !string.IsNullOrEmpty(outcome.resultText)
-            ? outcome.resultText
-            : "변화 없음.";
-        var effects = LocalizedMessage.Join("\n", EventService.LastEffectSummary);
-        Loc.Bind(_bodyText, () => Loc.Tr(result) + (string.IsNullOrEmpty(effects.Render()) ? "" : "\n\n" + effects.Render()));
+        if (outcome == null)
+        {
+            // 비용 부족 등으로 확정되지 않은 선택은 결과 화면으로 전환하지 않는다.
+            _choiceProcessing = false;
+            RefreshChoiceAffordability();
+            if (_choiceRow != null) _choiceRow.gameObject.SetActive(true);
+            return;
+        }
 
-        // 선택지 숨기고 확인 버튼 노출
-        if (_choiceRow != null) _choiceRow.gameObject.SetActive(false);
-        if (_confirmButton != null) _confirmButton.gameObject.SetActive(true);
+        _choiceProcessing = false;
+        _choiceCompleted = true;
+        BindResult(outcome);
     }
 
     private void OnConfirm()
     {
+        if (!_choiceCompleted || _exitInvoked) return;
+        StopNarration();
+        _exitInvoked = true;
         OnExit?.Invoke();
         Close();
+    }
+
+    /// <summary>확정 결과와 효과 요약을 현재 언어로 다시 그린다.</summary>
+    private void BindResult(EventOutcome fallbackOutcome)
+    {
+        _narrationText = fallbackOutcome != null && !string.IsNullOrEmpty(fallbackOutcome.resultText)
+            ? fallbackOutcome.resultText : "변화 없음.";
+        Loc.Bind(_bodyText, () =>
+        {
+            var outcome = fallbackOutcome;
+            if (_current != null && EventService.TryGetResolvedOutcome(_current, out var cachedOutcome) && cachedOutcome != null)
+                outcome = cachedOutcome;
+
+            string result = outcome != null && !string.IsNullOrEmpty(outcome.resultText)
+                ? outcome.resultText
+                : "변화 없음.";
+            var effects = LocalizedMessage.Join("\n", EventService.LastEffectSummary);
+            string renderedEffects = effects.Render();
+            return Loc.Tr(result) + (string.IsNullOrEmpty(renderedEffects) ? "" : "\n\n" + renderedEffects);
+        });
+
+        if (_choiceRow != null) _choiceRow.gameObject.SetActive(false);
+        if (_confirmButton != null) _confirmButton.gameObject.SetActive(true);
+        if (canvasGroup != null && canvasGroup.alpha > 0f)
+            NarrationPlayer.PlayText(_narrationText, this);
+    }
+
+    /// <summary>비용 부족으로 확정되지 않은 뒤 현재 자원에 맞춰 선택지를 다시 갱신한다.</summary>
+    private void RefreshChoiceAffordability()
+    {
+        foreach (var go in _choiceButtons)
+        {
+            if (go == null) continue;
+            var button = go.GetComponent<Button>();
+            var bg = go.GetComponent<Image>();
+            _choiceByButton.TryGetValue(go, out var choice);
+            if (choice == null) continue;
+
+            bool affordable = EventService.CanAfford(choice);
+            if (button != null) button.interactable = affordable;
+            if (bg != null) bg.color = affordable ? ChoiceBg : ChoiceBgDim;
+            var label = go.GetComponentInChildren<TMP_Text>(true);
+            if (label != null) label.GetComponent<LocalizedLabel>()?.Refresh();
+        }
     }
 
     // ============================================================
@@ -291,11 +361,13 @@ public class EventPanel : PanelBase
 
         // ② 선택지 설명 (선택지 label)
         var label = NewText("Label", btn.go.transform, 30, FontStyles.Normal, TextColor, TextAlignmentOptions.Center);
-        Loc.Bind(label, () => Loc.Tr(choice.label) + (!affordable && choice.SoulStoneCost > 0
+        _choiceByButton[btn.go] = choice;
+        Loc.Bind(label, () => Loc.Tr(choice.label) + (!EventService.CanAfford(choice) && choice.SoulStoneCost > 0
             ? "\n<size=70%><color=#C0554E>" + Loc.Tr("(영혼석 {0} 필요)", choice.SoulStoneCost) + "</color></size>" : ""));
         SetLayout(label.gameObject, minHeight: 116, flexibleHeight: 0);
 
         button.onClick.AddListener(() => OnChoiceClicked(choice));
+        btn.go.AddComponent<NarrationFocus>().SetSource(choice.label);
         return btn.go;
     }
 
@@ -423,8 +495,24 @@ public class EventPanel : PanelBase
         }
     }
 
+    protected override void OnOpened() => NarrationPlayer.PlayText(_narrationText, this);
+
+    public override void Close()
+    {
+        StopNarration();
+        base.Close();
+    }
+
+    private void StopNarration()
+    {
+        NarrationPlayer.Stop(this);
+        foreach (var choice in _choiceButtons)
+            if (choice != null) NarrationPlayer.Stop(choice.GetComponent<NarrationFocus>());
+    }
+
     protected override void OnClosed()
     {
+        StopNarration();
         // 닫힐 때 블러 RT 를 반납해 메모리 누수 방지. 다음 열림에서 새로 캡처한다.
         ReleaseBlur();
         if (_blurImage != null) _blurImage.color = DimColor;

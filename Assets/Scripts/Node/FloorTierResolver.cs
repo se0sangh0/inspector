@@ -1,62 +1,91 @@
 // ============================================================
 // Node/FloorTierResolver.cs
-// 현재 층 인덱스 → 등장 적 풀 + 마릿수 범위 매핑 (Combat 노드 전용)
+// 일반 전투 층별 적 조합과 tier 폴백
 // ============================================================
-//
-// [왜 이 파일이 필요한가요?]
-//   기획 §11_맵_노드: 층이 올라갈수록 난이도 상승.
-//   Boss/Elite 는 NodeSystem.CurrentRoomType 으로 EnemySpawner 가 직접 처리하고,
-//   이 클래스는 일반 전투(Combat) 노드의 층별 적 구성만 책임진다.
-//
-// [매핑 정책 — 2026-06-09 갱신 (MVP 6층 고정 일렬)]
-//   MVP 맵 전투(Combat) 노드 = layer 1·3 (CurrentFloor = currentRowIndex = 1, 3) 두 곳.
-//   일반 전투는 고블린만 등장, 각 2마리(RollCount ≤3 → 2).
-//   약탈자(enemy_raider_01)는 일반 전투엔 미등장(의도) — 엘리트로만 등장:
-//     튜토리얼 Elite 노드 + MVP 랜덤노드(Event)의 엘리트 결과(발표용 가중치 0이라 현재 미발생).
-//   ※ RollCount 의 floor>3(3~4마리) 분기는 튜토리얼/향후 맵용으로 보존.
-//
-// [tier 폴백 — Combat 노드 한정]
-//   GetEnemyPool 이 비어있을 때 EnemySpawner 가 사용. Boss tier 는 절대 반환 안 함
-//   (일반 노드에 보스가 spawn 되어 엔딩이 잘못 트리거되는 버그 방지).
-// ============================================================
+
+using System.Collections.Generic;
+using UnityEngine;
 
 public static class FloorTierResolver
 {
-    /// <summary>0-base 층 인덱스를 받아 등장시킬 적 tier 를 반환한다 (Combat 노드 폴백용).</summary>
-    public static EnemyTier ResolveTier(int floorIndex)
+    private sealed class EncounterOption
     {
-        // Combat 노드 폴백은 절대 Boss 를 반환하지 않는다 — 일반 노드에 보스가 spawn 되어
-        // 엔딩이 잘못 트리거되는 버그 방지. 보스 등장은 RoomType.Boss 노드에서만.
-        if (floorIndex >= 4) return EnemyTier.Normal;
-        return EnemyTier.Weak;
+        public readonly string[] ids;
+        public readonly int weight;
+        public EncounterOption(int weight, params string[] ids) { this.weight = weight; this.ids = ids; }
+        public string Key => string.Join("+", ids);
     }
 
-    // ============================================================
-    // 일반 전투 노드 — 적 ID 풀 (Combat 노드만 사용)
-    // ============================================================
-    //
-    // [반환값]
-    //   풀 (unique IDs). EnemySpawner 가 RollCount() 마릿수만큼 풀에서 랜덤 선택.
-    //   매핑이 없으면 null → tier 기반 폴백.
-    //
-    // [현 정책]
-    //   모든 층 = 고블린만. 약탈자는 Elite 노드에서만 등장.
-    //   추후 신규 일반 적 추가 시 풀에 합류.
-    // ============================================================
-    public static string[] GetEnemyPool(int floorIndex)
+    private static string _lastEncounterKey;
+
+    public static void ResetRun() => _lastEncounterKey = null;
+
+    /// <summary>1-base 일반 전투 층의 적 조합을 가중 추첨한다.</summary>
+    public static string[] RollEncounter(int floor)
     {
-        if (floorIndex >= 1 && floorIndex <= 6)
-            return new[] { "enemy_goblin_01" };
+        var options = BuildOptions(floor);
+        if (options == null || options.Count == 0) return null;
+
+        var candidates = new List<EncounterOption>(options.Count);
+        foreach (var option in options)
+            if (options.Count == 1 || option.Key != _lastEncounterKey)
+                candidates.Add(option);
+
+        int total = 0;
+        foreach (var option in candidates) total += option.weight;
+        if (total <= 0) return null;
+
+        int roll = Random.Range(0, total);
+        EncounterOption picked = candidates[candidates.Count - 1];
+        int cursor = 0;
+        foreach (var option in candidates)
+        {
+            cursor += option.weight;
+            if (roll < cursor) { picked = option; break; }
+        }
+
+        _lastEncounterKey = picked.Key;
+        return (string[])picked.ids.Clone();
+    }
+
+    public static EnemyTier ResolveTier(int floor) => floor >= 5 ? EnemyTier.Normal : EnemyTier.Weak;
+
+    /// <summary>기존 호출부 호환용 ID 풀. 실제 일반 전투는 RollEncounter를 사용한다.</summary>
+    public static string[] GetEnemyPool(int floor)
+    {
+        var options = BuildOptions(floor);
+        if (options == null) return null;
+        var ids = new List<string>();
+        foreach (var option in options)
+            foreach (var id in option.ids)
+                if (!ids.Contains(id)) ids.Add(id);
+        return ids.ToArray();
+    }
+
+    public static int RollCount(int floor)
+    {
+        // 일반 전투는 RollEncounter의 조합을 사용한다. 이 경로는 기존 엘리트용이다.
+        if (floor <= 3) return 2;
+        return Random.Range(3, 5);
+    }
+
+    private static List<EncounterOption> BuildOptions(int floor)
+    {
+        if (floor >= 2 && floor <= 4)
+            return new List<EncounterOption>
+            {
+                new EncounterOption(40, "enemy_goblin_01", "enemy_goblin_01"),
+                new EncounterOption(30, "enemy_goblin_01", "enemy_goblin_01", "enemy_goblin_01"),
+                new EncounterOption(30, "enemy_goblin_01", "enemy_raider_01"),
+            };
+        if (floor >= 5 && floor <= 8)
+            return new List<EncounterOption>
+            {
+                new EncounterOption(35, "enemy_goblin_01", "enemy_goblin_01", "enemy_raider_01"),
+                new EncounterOption(25, "enemy_raider_01", "enemy_raider_01"),
+                new EncounterOption(25, "enemy_goblin_01", "enemy_goblin_01", "enemy_goblin_01", "enemy_raider_01"),
+                new EncounterOption(15, "enemy_raider_01", "enemy_raider_01", "enemy_goblin_01"),
+            };
         return null;
-    }
-
-    // ============================================================
-    // 마릿수 결정 — 2026-06-09 (MVP 6층 고정 일렬)
-    //   MVP 전투는 floor 1·3 → 둘 다 2마리. floor>3(3~4마리)는 튜토리얼/향후 맵용 보존.
-    // ============================================================
-    public static int RollCount(int floorIndex)
-    {
-        if (floorIndex <= 3) return 2;                  // MVP 전투(floor 1·3): 2마리
-        return UnityEngine.Random.Range(3, 5);          // 향후 후반층: 3 or 4마리
     }
 }

@@ -61,8 +61,8 @@ public class BattleResultScreen : MonoBehaviour
         var canvasGo = new GameObject("ResultCanvas", typeof(Canvas), typeof(CanvasGroup), typeof(GraphicRaycaster));
         canvasGo.transform.SetParent(transform, false);
         var canvas = canvasGo.GetComponent<Canvas>();
-        ResponsiveUi.Configure(canvas);
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        ResponsiveUi.Configure(canvas);
         canvas.sortingOrder = 9990;
         _group = canvasGo.GetComponent<CanvasGroup>();
         _group.alpha = 0f; _group.blocksRaycasts = false;
@@ -119,6 +119,7 @@ public class BattleResultScreen : MonoBehaviour
         _victory.SetActive(true); _defeat.SetActive(false);
         Loc.Localize(_victory); // 정적 라벨(전투 승리·획득 재화·안내)을 현재 언어로
         _group.alpha = 1f; _group.blocksRaycasts = true;
+        NarrationPlayer.PlayText("전투 승리", this);
         // 자동 진행 없음 — 아무 키/클릭 대기. 전투 종료 키 입력이 즉시 넘기지 않게 잠깐 아밍.
         _victoryArmTime = Time.unscaledTime + 0.4f;
     }
@@ -133,6 +134,7 @@ public class BattleResultScreen : MonoBehaviour
 
     private void _ShowDefeat(System.Action onContinue)
     {
+        NarrationPlayer.StopAll();
         _onContinue = onContinue;
         _defeat.SetActive(true); _victory.SetActive(false);
         _group.alpha = 1f; _group.blocksRaycasts = true;
@@ -168,6 +170,7 @@ public class BattleResultScreen : MonoBehaviour
 
     private void Hide()
     {
+        NarrationPlayer.Stop(this);
         if (_autoRoutine != null) { StopCoroutine(_autoRoutine); _autoRoutine = null; }
         _group.alpha = 0f; _group.blocksRaycasts = false;
         _victory.SetActive(false); _defeat.SetActive(false);

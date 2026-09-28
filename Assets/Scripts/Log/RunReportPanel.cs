@@ -80,7 +80,7 @@ public class RunReportPanel : MonoBehaviour
         var session = RunSessionManager.Instance;
         var records = session != null ? session.Records : null;
         int runNumber = session != null ? session.CurrentRunNumber : 1;
-        int soul = SoulstoneManager.Instance != null ? SoulstoneManager.Instance.Amount : 0;
+        int soul = records != null ? records.SoulstoneGained : 0;
         Loc.Bind(_reportText, () => BuildReportText(result, records, runNumber, soul));
 
         _reportStage.SetActive(true);
@@ -88,12 +88,17 @@ public class RunReportPanel : MonoBehaviour
         Loc.Localize(_reportStage); // 정적 라벨(확인 버튼 등)을 현재 언어로 (본문은 이미 Tr 완료)
         _group.alpha = 1f;
         _group.blocksRaycasts = true;
+        if (result == RunResult.Victory)
+            NarrationPlayer.PlaySequence(this, NarrationCatalog.FindId("임무 완수"), NarrationCatalog.FindId("그들은 무엇을 지키고 있었나."));
+        else
+            NarrationPlayer.PlayText("임무 실패", this);
     }
 
     // ── 확인 → FinalizeRun 1회 → 선택 화면 ──
     private void OnConfirm()
     {
         if (_confirmed) return;         // 연타 차단 — FinalizeRun 정확히 1회 (16-B §4)
+        NarrationPlayer.Stop(this);
         _confirmed = true;
         _onConfirmed?.Invoke();         // 런 정산·초기화 (완료 런 수 +1)
         _reportStage.SetActive(false);
@@ -117,6 +122,7 @@ public class RunReportPanel : MonoBehaviour
 
     private void Hide()
     {
+        NarrationPlayer.Stop(this);
         _group.alpha = 0f;
         _group.blocksRaycasts = false;
         _reportStage.SetActive(false);
@@ -148,19 +154,19 @@ public class RunReportPanel : MonoBehaviour
             }
         }
 
-        string zone = cleared ? Loc.Tr("성소") : (reached > 0 ? Loc.Tr("{0}층", reached) : Loc.Tr("미상"));
+        string zone = cleared ? Loc.Tr("성소") : (reached > 0 ? Loc.Tr("제 {0}구역", reached) : Loc.Tr("미상"));
 
         var sb = new StringBuilder();
         sb.AppendLine(Loc.Tr("제 {0}차 정기 탐사 보고", runNumber));
         sb.AppendLine();
-        sb.AppendLine(cleared ? Loc.Tr("결과: 탐사 완료, 성소 도달") : Loc.Tr("결과: 탐사 실패, 파티 전멸"));
-        sb.AppendLine(Loc.Tr("탐사 구역: 야생림—협곡—성소"));
+        sb.AppendLine(Loc.Tr("결과: {0}", cleared ? Loc.Tr("임무 완수") : Loc.Tr("임무 실패")));
+        sb.AppendLine(Loc.Tr("탐사 구역: 야생림—협곡—경작지—성소"));
         sb.AppendLine(Loc.Tr("도달 구역: {0}", zone));
         sb.AppendLine(Loc.Tr("기록 요약: 전투 {0}건, 사건 {1}건, 정비/회복 {2}건, 현장 관찰 {3}건 확인.", battles, choices, recoveries, observations));
         if (recruits > 0) sb.AppendLine(Loc.Tr("          동료 편성 변동 {0}건.", recruits));
         sb.AppendLine(Loc.Tr("획득 영혼석: {0}개", soul));
         sb.AppendLine();
-        sb.Append(Loc.Tr("그들은 무엇을 지키고 있었나."));
+        if (cleared) sb.Append(Loc.Tr("그들은 무엇을 지키고 있었나."));
         return sb.ToString();
     }
 
@@ -170,8 +176,8 @@ public class RunReportPanel : MonoBehaviour
         var canvasGo = new GameObject("ReportCanvas", typeof(Canvas), typeof(CanvasGroup), typeof(GraphicRaycaster));
         canvasGo.transform.SetParent(transform, false);
         var canvas = canvasGo.GetComponent<Canvas>();
-        ResponsiveUi.Configure(canvas);
         canvas.renderMode  = RenderMode.ScreenSpaceOverlay;
+        ResponsiveUi.Configure(canvas);
         canvas.sortingOrder = 10050; // BattleResultScreen(9990)·관찰(10000) 위
         _group = canvasGo.GetComponent<CanvasGroup>();
         _group.alpha = 0f; _group.blocksRaycasts = false;

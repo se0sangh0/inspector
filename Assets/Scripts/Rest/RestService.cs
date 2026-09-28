@@ -1,11 +1,11 @@
 // ============================================================
 // Rest/RestService.cs
-// 화툿불(휴식) 노드 — HP/스트레스 회복 로직
+// 화톳불(휴식) 노드 — HP/스트레스 회복 로직
 // ============================================================
 //
 // [기획 참조]
-//   §04_스트레스_디버프_표 §기본 회복 — "화툿불/휴식 노드: -15"
-//   §02_MVP_노드_설계 §화툿불 — "체력/스트레스 회복, 다음 전투 전 정비"
+//   §04_스트레스_디버프_표 §기본 회복 — "화톳불/휴식 노드: -15"
+//   §02_MVP_노드_설계 §화톳불 — "체력/스트레스 회복, 다음 전투 전 정비"
 //
 // [수치 정책 — P0-04 갱신 (16-A §4 5층 화톳불)]
 //   기본 회복 = 생존 동료 전원 HP +30. HP 30 은 H2 정식 확정 전 시험값.
@@ -24,7 +24,7 @@ public static class RestService
     /// <summary>화톳불 기본 HP 회복량. 16-A §4 — H2 정식 확정 전 시험값.</summary>
     public const int HpRecoveryAmount = 30;
 
-    /// <summary>화툿불 스트레스 회복량 (기존 시험값 유지).</summary>
+    /// <summary>화톳불 스트레스 회복량 (기존 시험값 유지).</summary>
     public const int RecoveryAmount = 15;
 
     /// <summary>회복 결과 통계 — UI 표시용.</summary>
@@ -50,7 +50,12 @@ public static class RestService
             .Where(f => f != null && !f.isDead)
             .ToList();
 
-        var recordLines = new System.Collections.Generic.List<LocalizedMessage>();
+        var recordLines = new System.Collections.Generic.List<LocalizedMessage>
+        {
+            Loc.Message("확인 장소: {0}", Loc.Message("화톳불")),
+            Loc.Message("조치: {0}", Loc.Message("정비")),
+            Loc.Message("결과: {0}", Loc.Message("생존 동료 전원 HP·스트레스 회복")),
+        };
         foreach (var f in fellows)
         {
             // HP 회복 — CurrentHp setter 가 OnHpChanged 발생 → 슬라이더 자동 갱신
@@ -69,13 +74,14 @@ public static class RestService
             result.totalStressRelieved += stressRelieved;
 
             string label = !string.IsNullOrEmpty(f.displayName) ? f.displayName : f.positionStack.ToString();
-            //recordLines.Add($"{label} HP +{hpGained} → {f.CurrentHp}, 스트레스 -{stressRelieved} → {f.currentStress}");
+            recordLines.Add(Loc.Message("상태: {0} HP +{1} → {2} / 스트레스 -{3} → {4}",
+                RunSessionManager.GetNotebookFellowName(f), hpGained, f.CurrentHp, stressRelieved, f.currentStress));
             Debug.Log($"[Rest] {label} — HP {beforeHp}→{f.CurrentHp} (+{hpGained}), 스트레스 {beforeStress}→{f.currentStress} (-{stressRelieved})");
         }
 
         // 회복 사건 기록 — 방문(층)당 1건 (연타·재열람으로 재생성되지 않도록 dedup)
         if (result.affectedCount > 0)
-            RunSessionManager.Instance?.AddRecord(RunRecordType.RecoveryResolved, "화톳불 정비", recordLines,
+            RunSessionManager.Instance?.AddRecord(RunRecordType.RecoveryResolved, "", recordLines,
                 dedupKey: $"rest_F{(NodeSystem.Current != null ? NodeSystem.Current.CurrentFloor : 0)}");
 
         Debug.Log($"[Rest] 회복 완료 — {result.affectedCount}명, 총 HP+{result.totalHpRecovered} / 스트레스-{result.totalStressRelieved}");

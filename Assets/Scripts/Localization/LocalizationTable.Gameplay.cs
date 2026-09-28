@@ -60,7 +60,7 @@ public static partial class LocalizationTable
         Add("쫓아낸다", "Drive it away");
         Add("“그것은 웃는 것처럼 울었다.”", "“Its cry sounded like laughter.”");
         Add("마주 본다", "Meet its gaze");
-        Add("“까마귀의 눈에 낫이 비쳤다. 이 방에는 낫이 없다.”", "“A scythe reflected in its eyes. There is no scythe in this room.”");
+        Add("“까마귀의 눈에 낫이 비쳤다. 이 방에는 낫이 없다.”", "“A scythe was reflected in the raven’s eyes. There is no scythe in this room.”");
         Add("“먼저 눈을 돌린 쪽은 당신이었다.”", "“You were the first to look away.”");
         Add("뒤처진 자의 잔재", "Remains of the Left Behind");
         Add("바닥에 희미하게 빛나는 잔상이 놓여 있다. 전투에서 행동하지 못하고 사라진 동료의 잔재다. 만지면 아직 따뜻하다.", "A faintly glowing afterimage lies on the floor. The remnant of a companion who vanished without acting in battle. Still warm to the touch.");

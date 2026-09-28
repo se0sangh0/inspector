@@ -1,0 +1,77 @@
+{
+  "strongWarning": "전방에 위험한 움직임. 들어서면 심각한 피해를 입을 수 있다.",
+  "routes": [
+    {
+      "id": "R02-A",
+      "title": "발자국이 남은 숲길",
+      "environment": "낮은 수풀 사이로 좁은 길이 이어진다.",
+      "omen": "잘린 덩굴과 뒤엉킨 발자국이 보인다.",
+      "area": "forest",
+      "imagePath": "Routes/R02-A_Footprint_Path_v1"
+    },
+    {
+      "id": "R02-B",
+      "title": "천막의 흔적",
+      "environment": "나무 사이에 덧댄 천이 보인다.",
+      "omen": "낮은 목소리와 금속 마찰음이 들린다.",
+      "area": "forest",
+      "imagePath": "Routes/R02-B_Canvas_Traces_v1"
+    },
+    {
+      "id": "R02-C",
+      "title": "젖은 숲 가장자리",
+      "environment": "물먹은 나무뿌리가 길을 좁힌다.",
+      "omen": "수풀 안쪽에서 짧은 움직임이 반복된다.",
+      "area": "forest",
+      "imagePath": "Routes/R02-C_Wet_Roots_v1"
+    },
+    {
+      "id": "R03-A",
+      "title": "수레가 선 길",
+      "environment": "협곡 그늘에 짐수레와 천막이 모여 있다.",
+      "omen": "여러 사람의 시선이 길목에 머문다.",
+      "area": "canyon",
+      "imagePath": "Routes/R03-A_Wagon_Path_v1"
+    },
+    {
+      "id": "R03-B",
+      "title": "흰 천 표식",
+      "environment": "바위 틈마다 바랜 천 조각이 묶여 있다.",
+      "omen": "약 냄새와 낮은 기도 소리가 섞여 온다.",
+      "area": "canyon",
+      "imagePath": "Routes/R03-B_White_Cloth_v1"
+    },
+    {
+      "id": "R03-C",
+      "title": "갈라진 비탈",
+      "environment": "갈라진 비탈 아래에 임시 천막이 이어진다.",
+      "omen": "금속을 손질하는 소리가 비탈 아래에서 들린다.",
+      "area": "canyon",
+      "imagePath": "Routes/R03-C_Split_Slope_v1"
+    },
+    {
+      "id": "FARM-A",
+      "area": "farmland",
+      "imagePath": "",
+      "title": "왼편 밭가",
+      "environment": "마른 줄기 빽빽한 밭 가장자리가 왼쪽으로 길게 휘어 있다.",
+      "omen": "헤집어진 흙 위로 발자국이 이어지고, 앞쪽 줄기들이 바스락거린다."
+    },
+    {
+      "id": "FARM-B",
+      "area": "farmland",
+      "imagePath": "",
+      "title": "마른 고랑 사잇길",
+      "environment": "갈라진 고랑이 곧게 뻗어 있고, 양옆으로 시든 줄기가 빽빽하다.",
+      "omen": "고랑 흙이 갓 헤집어져 있고, 앞쪽 어딘가에서 마른 줄기가 사각거린다."
+    },
+    {
+      "id": "FARM-C",
+      "area": "farmland",
+      "imagePath": "",
+      "title": "오른편 밭고랑",
+      "environment": "낮은 둑을 넘어 오른쪽, 마른 줄기가 빽빽이 서 있다.",
+      "omen": "줄기가 서걱이고, 헤집어진 흙에 발자국이 찍혀 있다."
+    }
+  ]
+}

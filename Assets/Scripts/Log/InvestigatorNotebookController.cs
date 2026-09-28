@@ -38,8 +38,7 @@ using TMPro;
 public class InvestigatorNotebookController : MonoBehaviour
 {
     public static InvestigatorNotebookController Instance { get; private set; }
-
-    private const int EntriesPerPage = 4;
+    public static bool IsOpen => Instance != null && Instance._group != null && Instance._group.blocksRaycasts;
 
     private CanvasGroup _group;
     private GameObject  _root;
@@ -86,11 +85,13 @@ public class InvestigatorNotebookController : MonoBehaviour
         if (font != null) label.font = font;
         label.text = Loc.Tr("조사관 수첩"); label.fontSize = 24; label.color = Ink;
         label.alignment = TextAlignmentOptions.Center; label.raycastTarget = false;
+        SystemIconArt.EnsureLeftIcon(btn, "icon_notebook", 32f, 14f);
     }
 
     // ── 열기 ─────────────────────────────────────────────────────
     public static void Open()
     {
+        NarrationPlayer.StopAll();
         Ensure();
         Instance._Open();
     }
@@ -123,9 +124,10 @@ public class InvestigatorNotebookController : MonoBehaviour
 
     private void _Open()
     {
+        _root.SetActive(true);
+        Canvas.ForceUpdateCanvases();
         RebuildPages();
         _pageIndex = 0;
-        _root.SetActive(true);
         Loc.Localize(_root); // 이전/다음/닫기 등 정적 라벨을 현재 언어로 (본문·헤더는 Tr로 이미 현재 언어)
         _group.alpha = 1f; _group.blocksRaycasts = true;
         ShowPage(0, animate: true);
@@ -161,39 +163,70 @@ public class InvestigatorNotebookController : MonoBehaviour
         }
 
         var sb = new StringBuilder();
-        int onPage = 0;
+        int currentFloor = -1;
         for (int i = 0; i < entries.Count; i++)
         {
             var e = entries[i];
-            sb.Append(FormatEntry(e));
-            onPage++;
-            bool last = (i == entries.Count - 1);
-            if (onPage >= EntriesPerPage || last)
+            if (e == null) continue;
+            if (currentFloor != e.floor)
             {
-                _pages.Add(sb.ToString().TrimEnd());
-                sb.Clear();
-                onPage = 0;
+                currentFloor = e.floor;
+                AppendNotebookLine(sb, HeaderForFloor(currentFloor), currentFloor, isHeader: true);
             }
-            else sb.AppendLine();
+            foreach (string line in EntryLines(e))
+                AppendNotebookLine(sb, line, currentFloor, isHeader: false);
         }
+        if (sb.Length > 0) _pages.Add(sb.ToString().TrimEnd());
+    }
+
+    private string HeaderForFloor(int floor) => Loc.Tr("[제 {0}구역 현장 기록]", floor);
+
+    private IEnumerable<string> EntryLines(RunRecordEntry e)
+    {
+        string title = e.title?.Render();
+        if (!string.IsNullOrWhiteSpace(title)) yield return title;
+        foreach (var line in e.lines)
+        {
+            string text = line?.Render();
+            if (!string.IsNullOrWhiteSpace(text)) yield return text;
+        }
+    }
+
+    private void AppendNotebookLine(StringBuilder page, string line, int floor, bool isHeader)
+    {
+        if (string.IsNullOrWhiteSpace(line)) return;
+        string candidate = page.Length == 0 ? line : page + "\n" + line;
+        var area = _bodyText != null ? _bodyText.rectTransform.rect : new Rect(0, 0, 0, 0);
+        bool overflows = page.Length > 0 && area.width > 0f && area.height > 0f
+            && _bodyText.GetPreferredValues(candidate, area.width, Mathf.Infinity).y > area.height;
+        if (overflows)
+        {
+            _pages.Add(page.ToString().TrimEnd());
+            page.Clear();
+            // Keep the group context when a long group crosses a page boundary.
+            if (!isHeader) page.Append(HeaderForFloor(floor));
+        }
+        if (page.Length > 0) page.AppendLine();
+        page.Append(line);
     }
 
     /// <summary>
     /// 사건 기록 1건을 탐사국 공식 현장 기록 양식으로 포맷 (12 §1-5).
-    /// 헤더 = [O층 | 제 N구역] (O=층, N=노드 선택 위치 왼1/중2/오3).
+    /// 구역은 사건이 일어난 층이다. 노드 선택 위치를 구역으로 표시하지 않는다 (16-E §8).
     /// 표제(전투 결과 등)가 있으면 헤더 아래 한 줄, 이어서 항목당 한 줄 (불릿 없음).
     /// 판정·추천·내부 식별자를 넣지 않는다.
     /// </summary>
     private static string FormatEntry(RunRecordEntry e)
     {
         var sb = new StringBuilder();
-        sb.AppendLine(e.node > 0
-            ? Loc.Tr("[{0}층 | 제 {1}구역]", e.floor, e.node)
-            : Loc.Tr("[{0}층 | 현장 기록]", e.floor));
-        if (e.title != null)
-            sb.AppendLine(e.title.Render());          // 전투: "고블린 2체 사살"/"Slew ..." 등 (§1-4)
+        sb.AppendLine(Loc.Tr("[제 {0}구역 현장 기록]", e.floor));
+        string title = e.title?.Render();
+        if (!string.IsNullOrWhiteSpace(title)) sb.AppendLine(title);
         foreach (var line in e.lines)
-            sb.AppendLine(line.Render());             // 항목당 한 줄 (§1-5)
+        {
+            string text = line?.Render();
+            if (!string.IsNullOrWhiteSpace(text)) sb.AppendLine(text);
+        }
         return sb.ToString();
     }
 
@@ -286,8 +319,8 @@ public class InvestigatorNotebookController : MonoBehaviour
         var canvasGo = new GameObject("NotebookCanvas", typeof(Canvas), typeof(CanvasGroup), typeof(GraphicRaycaster));
         canvasGo.transform.SetParent(transform, false);
         var canvas = canvasGo.GetComponent<Canvas>();
-        ResponsiveUi.Configure(canvas);
         canvas.renderMode  = RenderMode.ScreenSpaceOverlay;
+        ResponsiveUi.Configure(canvas);
         canvas.sortingOrder = 10030; // 이벤트/용병소 패널 위 (상시 열람)
         _group = canvasGo.GetComponent<CanvasGroup>();
         _group.alpha = 0f; _group.blocksRaycasts = false;
@@ -344,6 +377,7 @@ public class InvestigatorNotebookController : MonoBehaviour
         _nextButton = NewButton("Next", pad.transform, "다음", font, new Vector2(0, 20));
         _nextButton.onClick.AddListener(OnNext);
         var closeBtn = NewButton("Close", pad.transform, "닫기", font, new Vector2(200, 20));
+        SystemIconArt.EnsureRightIcon(closeBtn, "icon_close", 28f, 10f);
         closeBtn.onClick.AddListener(Close);
 
         _root.SetActive(false);

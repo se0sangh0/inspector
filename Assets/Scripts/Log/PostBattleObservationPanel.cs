@@ -91,6 +91,7 @@ public class PostBattleObservationPanel : MonoBehaviour
         Loc.Localize(_root); // 제목·설명·계속 버튼을 현재 언어로 (관찰 문안은 표에 등록됨)
         _group.alpha = 1f;
         _group.blocksRaycasts = true;
+        NarrationPlayer.PlayText((title ?? "") + "\n" + (body ?? ""), this);
     }
 
     /// <summary>
@@ -153,6 +154,7 @@ public class PostBattleObservationPanel : MonoBehaviour
 
     private void Hide()
     {
+        NarrationPlayer.Stop(this);
         _group.alpha = 0f;
         _group.blocksRaycasts = false;
         _root.SetActive(false);
@@ -164,8 +166,8 @@ public class PostBattleObservationPanel : MonoBehaviour
         var canvasGo = new GameObject("ObservationCanvas", typeof(Canvas), typeof(CanvasGroup), typeof(GraphicRaycaster));
         canvasGo.transform.SetParent(transform, false);
         var canvas = canvasGo.GetComponent<Canvas>();
-        ResponsiveUi.Configure(canvas);
         canvas.renderMode  = RenderMode.ScreenSpaceOverlay;
+        ResponsiveUi.Configure(canvas);
         canvas.sortingOrder = 10000; // BattleResultScreen(9990) 위 — 승리 팝업 다음 순서로 표시
         _group = canvasGo.GetComponent<CanvasGroup>();
         _group.alpha = 0f;

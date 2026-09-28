@@ -69,6 +69,7 @@ public class EnemySpawner : MonoBehaviour
         //   3) NodeSystem 없으면 → tier 기반 랜덤 폴백 (인스펙터 randomCount)
         EnemyTier tierToUse = randomTier;
         string[] enemyPool  = null;   // 적 ID 풀 (Boss 만 단일, Elite/Combat 은 풀)
+        bool encounterIsResolved = false;
         int      spawnCount = 0;      // RollCount 결과 (Boss 만 1 고정)
         RoomType currentRoom = RoomType.Combat;
 
@@ -94,8 +95,9 @@ public class EnemySpawner : MonoBehaviour
 
                 case RoomType.Combat:
                 default:
-                    enemyPool  = FloorTierResolver.GetEnemyPool(floor);
-                    spawnCount = FloorTierResolver.RollCount(floor);
+                    enemyPool  = FloorTierResolver.RollEncounter(floor);
+                    spawnCount = enemyPool != null ? enemyPool.Length : 0;
+                    encounterIsResolved = enemyPool != null && enemyPool.Length > 0;
                     tierToUse  = FloorTierResolver.ResolveTier(floor);
                     break;
             }
@@ -109,6 +111,15 @@ public class EnemySpawner : MonoBehaviour
         {
             // 수동 강제 — 인스펙터 순서 그대로
             foreach (var id in enemyIds)
+            {
+                var def = EnemyDatabase.Instance.GetEnemy(id);
+                if (def != null) spawned.Add(EnemyDatabase.CreateRuntimeEnemy(def));
+            }
+        }
+        else if (encounterIsResolved)
+        {
+            // 일반 전투는 Resolver가 고른 조합을 그대로 사용한다.
+            foreach (string id in enemyPool)
             {
                 var def = EnemyDatabase.Instance.GetEnemy(id);
                 if (def != null) spawned.Add(EnemyDatabase.CreateRuntimeEnemy(def));
@@ -137,4 +148,3 @@ public class EnemySpawner : MonoBehaviour
         Debug.Log($"[EnemySpawner] 적 {spawned.Count}마리 주입 완료 (기존 목록 덮어씀).");
     }
 }
-

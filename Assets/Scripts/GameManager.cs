@@ -129,7 +129,7 @@ public class GameManager : Singleton<GameManager>
     // 턴 시작 시 잔여 스택(이월분) — 선택 미리보기 재계산의 base (Dealer/Tank/Support).
     private readonly int[] _stackBase = new int[3];
 
-    /// <summary>지정 카드 순서(읽기 전용). 향후 처리 순서 참조용.</summary>
+    /// <summary>스택 적용 순서인 지정 카드 목록(읽기 전용).</summary>
     public IReadOnlyList<StackCardController> SelectedOrder => _selectedOrder;
 
     // ----------------------------------------------------------
@@ -393,8 +393,8 @@ public class GameManager : Singleton<GameManager>
 
     // ----------------------------------------------------------
     // 카드 지정/취소 (2026-06-08 발라트로식 토글) — StackCardController 가 호출.
-    //   스택은 (턴 시작 잔여 base) + (지정 카드 합)을 재계산해 SetAmount 한다.
-    //   (RoleCostBase.Add 는 0 클램프라 증분 토글이 깨지므로 전체 재계산 방식.)
+    //   턴 시작 잔여 스택부터 지정 순서대로 계산하고 카드마다 0 하한을 적용한다.
+    //   취소 시 역산하지 않고 남은 카드를 다시 적용한다 (01 §2-1a).
     // ----------------------------------------------------------
 
     /// <summary>카드 지정 시 호출 — 순서 기록 + 스택 라이브 반영.</summary>
@@ -415,19 +415,20 @@ public class GameManager : Singleton<GameManager>
         Debug.Log($"[GameManager] 카드 지정 취소 | {card.stackType} {card.stackDelta:+#;-#;0}");
     }
 
-    /// <summary>스택 = base(턴 시작 잔여) + 지정 카드 합, 0 이상 클램프해 SetAmount.</summary>
+    /// <summary>턴 시작 잔여에 지정 카드를 순서대로 적용한다. 카드마다 0 하한을 지킨다.</summary>
     private void RecomputeStackPreview()
     {
         if (PlayerRoleCost.Instance == null) return;
-        int[] sum = (int[])_stackBase.Clone();
+        int[] amounts = (int[])_stackBase.Clone();
         foreach (var c in _selectedOrder)
         {
             if (c == null) continue;
             int idx = (int)c.stackType;
-            if (idx >= 0 && idx < 3) sum[idx] += c.stackDelta;
+            // Notion 01 전투·카드·스트레스 §2-1a: 감소하지 못한 값은 다음 카드로 넘기지 않는다.
+            if (idx >= 0 && idx < 3) amounts[idx] = Mathf.Max(0, amounts[idx] + c.stackDelta);
         }
         for (int i = 0; i < 3; i++)
-            PlayerRoleCost.Instance.SetAmount((StackType)i, Mathf.Max(0, sum[i]));
+            PlayerRoleCost.Instance.SetAmount((StackType)i, Mathf.Max(0, amounts[i]));
     }
 
     /// <summary>드로우 덱이 끝까지 소진되었는지 여부.</summary>

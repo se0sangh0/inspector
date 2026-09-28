@@ -19,12 +19,34 @@ public class SceneTransition : MonoBehaviour
     private const float FadeDuration = 0.45f; // 페이드 인/아웃 각각의 시간(초)
 
     private CanvasGroup _group;
+    private bool _transitioning;
 
     /// <summary>페이드 연출과 함께 씬을 로드한다. 어디서든 한 줄로 호출.</summary>
     public static void Go(string sceneName)
     {
         EnsureInstance();
         Instance.StartCoroutine(Instance.LoadRoutine(sceneName));
+    }
+
+    /// <summary>같은 씬의 고정 목적지로 검은 페이드와 함께 이동한다.</summary>
+    public static bool WithinScene(System.Action enterDestination)
+    {
+        EnsureInstance();
+        if (Instance._transitioning) return false;
+        Instance._transitioning = true;
+        Instance.StartCoroutine(Instance.WithinSceneRoutine(enterDestination));
+        return true;
+    }
+
+    private IEnumerator WithinSceneRoutine(System.Action enterDestination)
+    {
+        _group.blocksRaycasts = true;
+        yield return Fade(0f, 1f);
+        try { enterDestination?.Invoke(); }
+        catch (System.Exception error) { Debug.LogException(error); }
+        yield return Fade(1f, 0f);
+        _group.blocksRaycasts = false;
+        _transitioning = false;
     }
 
     private static void EnsureInstance()
@@ -50,8 +72,8 @@ public class SceneTransition : MonoBehaviour
         canvasGo.transform.SetParent(transform, false);
 
         var canvas = canvasGo.GetComponent<Canvas>();
-        ResponsiveUi.Configure(canvas);
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        ResponsiveUi.Configure(canvas);
         canvas.sortingOrder = 9999; // 항상 최상단
 
         _group = canvasGo.GetComponent<CanvasGroup>();

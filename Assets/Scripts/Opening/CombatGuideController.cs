@@ -89,10 +89,13 @@ public class CombatGuideController : MonoBehaviour
 
         // 페이드 인
         yield return Fade(0f, 1f, 0.4f);
-        yield return new WaitForSeconds(HoldSeconds);
+        bool speaking = NarrationPlayer.Play("combat_guide", this);
+        var voice = speaking ? NarrationCatalog.GetClip("combat_guide", LocalizationManager.Current) : null;
+        yield return new WaitForSeconds(Mathf.Max(HoldSeconds, voice != null ? voice.length : 0f));
         // 페이드 아웃
         yield return Fade(1f, 0f, 0.6f);
 
+        NarrationPlayer.Stop(this);
         _root.SetActive(false);
         _routine = null;
     }

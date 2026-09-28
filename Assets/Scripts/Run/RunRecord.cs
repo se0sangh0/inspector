@@ -59,6 +59,48 @@ public class RunRecord
 
     public IReadOnlyList<RunRecordEntry> Entries => _entries;
 
+    /// <summary>시작 자금을 제외하고 이번 런에서 실제로 얻은 영혼석 누계.</summary>
+    public int SoulstoneGained { get; private set; }
+
+    public void RecordSoulstoneGain(int amount)
+    {
+        if (amount > 0) SoulstoneGained += amount;
+    }
+
+    /// <summary>경로 카드를 선택한 순간의 원문 정보를 한 번 기록한다.</summary>
+    public bool RecordRouteSelected(int floor, int node, string title, string environment, string omen)
+    {
+        if (floor <= 0) return false;
+        var lines = new List<LocalizedMessage>
+        {
+            Loc.Message("경로: {0}", Loc.Message(title ?? "")),
+            Loc.Message("관찰: {0}", Loc.Message(environment ?? "")),
+            Loc.Message("징조: {0}", Loc.Message(omen ?? "")),
+        };
+        return Add(new RunRecordEntry
+        {
+            type = RunRecordType.RouteSelected,
+            floor = floor,
+            node = node,
+            title = null,
+            lines = lines,
+        }, $"route_F{floor}");
+    }
+
+    /// <summary>공개된 장소를 같은 층에 한 번 기록한다.</summary>
+    public bool RecordLocationRevealed(int floor, int node, LocalizedMessage location)
+    {
+        if (floor <= 0 || location == null) return false;
+        return Add(new RunRecordEntry
+        {
+            type = RunRecordType.LocationRevealed,
+            floor = floor,
+            node = node,
+            title = null,
+            lines = new List<LocalizedMessage> { Loc.Message("확인 장소: {0}", location) },
+        }, $"location_F{floor}");
+    }
+
     /// <summary>
     /// 사건 기록 1건 추가. dedupKey 가 이미 기록된 키면 무시하고 false —
     /// 화면 재열람·연타로 같은 사건이 중복 기록되는 것을 막는 최종 안전망.

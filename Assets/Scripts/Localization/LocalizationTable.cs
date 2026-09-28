@@ -36,6 +36,7 @@ public static partial class LocalizationTable
         Add("파티편집", "Edit Party");
         Add("파티 편집", "Edit Party");
         Add("설정", "Settings");
+        Add("음성", "Voice");
         Add("로그", "Log");
         Add("파워업", "Power-Up");
         Add("현재 위치는 여기입니다", "You are here");
@@ -298,5 +299,7 @@ public static partial class LocalizationTable
         Add("선택", "Select");
         Add("+ 동료 선택", "+ Select Companion");
         AddGameplay();
+        AddNotebookCoverage();
+        AddRoutes();
     }
 }

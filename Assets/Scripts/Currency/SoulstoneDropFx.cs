@@ -9,7 +9,7 @@
 //     1) worldPos 에서 살짝 튀어오름 (0.18s)
 //     2) dropDwell 대기 (기본 0.5s)
 //     3) gatherDuration 동안 target world position 으로 트윈 (기본 0.4s)
-//     4) onArrive() 콜백 (= SoulstoneManager.Add)
+//     4) onArrive() 콜백 (선택적 연출 후처리; 재화는 Pool 이 시작 전에 지급)
 //     5) gameObject.SetActive(false) → 풀 반환
 //
 // [좌표계]

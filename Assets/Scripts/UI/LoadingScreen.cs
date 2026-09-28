@@ -83,8 +83,8 @@ public class LoadingScreen : MonoBehaviour
         canvasGo.transform.SetParent(transform, false);
 
         var canvas = canvasGo.GetComponent<Canvas>();
-        ResponsiveUi.Configure(canvas);
         canvas.renderMode  = RenderMode.ScreenSpaceOverlay;
+        ResponsiveUi.Configure(canvas);
         canvas.sortingOrder = 10000; // SceneTransition(9999) 보다도 위
 
         _group = canvasGo.GetComponent<CanvasGroup>();

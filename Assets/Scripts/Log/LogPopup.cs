@@ -34,6 +34,7 @@ public class LogPopup : PanelBase
     protected override void OnOpened()
     {
         RefreshAll();
+        SystemIconArt.EnsureGlyphOnlyIcon(closeButton, "icon_close", 40f);
         if (GameLogService.Instance != null)
             GameLogService.Instance.OnGameEventAdded += OnLogAdded;
 

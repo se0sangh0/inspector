@@ -10,7 +10,7 @@
 //
 // [무작위 규칙] (기획 §2 — 런 안에서 중복 노출하지 않는다)
 //   GetRandom(floor) : 아직 소비하지 않은 이벤트 중 층 조건에 맞는 것을 균등 추첨.
-//   전부 소비했으면 소비 기록을 비우고 다시 순환한다 (소프트락 방지).
+//   후보가 없으면 null을 반환한다. 소비 기록을 비우거나 층 조건을 무시하지 않는다.
 //   ResetRun()       : 새 런 시작 시 소비 기록 초기화.
 // ============================================================
 
@@ -54,13 +54,73 @@ public static class EventCatalog
     public static void ResetRun()
     {
         _consumed.Clear();
+        EventService.ResetRun();
         Debug.Log("[EventCatalog] 런 소비 기록 초기화.");
+    }
+
+    /// <summary>현재 프로토타입에 지정된 이벤트를 런당 한 번만 노출한다 (06 §2).</summary>
+    public static EventDefinition GetOnce(string eventId, int floor)
+    {
+        if (string.IsNullOrEmpty(eventId) || _consumed.Contains(eventId)) return null;
+        foreach (var evt in All)
+        {
+            if (evt == null || evt.id != eventId || !evt.MatchesFloor(floor)) continue;
+            _consumed.Add(eventId);
+            return evt;
+        }
+        return null;
+    }
+
+    /// <summary>10층 개발 빌드는 실제 효과가 연결된 사건만 사용한다.</summary>
+    public static EventDefinition GetPlayableRandom(int floor)
+    {
+        var ready = new List<EventDefinition>();
+        foreach (var evt in All)
+            if (HasImplementedChoices(evt)) ready.Add(evt);
+        var pool = BuildPool(ready, floor);
+        if (pool.Count == 0) return null;
+        var picked = pool[Random.Range(0, pool.Count)];
+        _consumed.Add(picked.id);
+        return picked;
+    }
+
+    public static bool HasImplementedChoices(EventDefinition evt)
+    {
+        if (evt == null || string.IsNullOrEmpty(evt.id) || evt.choices == null || evt.choices.Count == 0) return false;
+        // 조건부 파티 판정과 수첩형 지시 전환이 아직 연결되지 않은 콘텐츠.
+        if (evt.id == "evt_parasitic_light" || evt.id == "evt_briefing_terminal") return false;
+        bool hasFreeChoice = false;
+        foreach (var choice in evt.choices)
+        {
+            if (choice == null || choice.outcomes == null || choice.outcomes.Count == 0) return false;
+            if (choice.costType == EventCostType.None || choice.costAmount <= 0) hasFreeChoice = true;
+            foreach (var outcome in choice.outcomes)
+            {
+                if (outcome == null) return false;
+                if (outcome.effects == null) continue;
+                foreach (var effect in outcome.effects)
+                {
+                    if (effect == null) continue;
+                    switch (effect.type)
+                    {
+                        case EventEffectType.RecruitRandom:
+                        case EventEffectType.NextBattleStack:
+                        case EventEffectType.RerollAffinity:
+                        case EventEffectType.ObtainObject:
+                        case EventEffectType.Corruption:
+                            return false;
+                    }
+                }
+            }
+        }
+        return hasFreeChoice;
     }
 
     /// <summary>
     /// 아직 소비하지 않은 이벤트 중 층 조건(1-base floor)에 맞는 것을 균등 추첨한다.
     /// 반환 직전 소비 처리하여 같은 런에서 다시 나오지 않게 한다.
-    /// 후보가 없으면 소비 기록을 비우고 재순환한다. 정의가 아예 없으면 null.
+    /// 후보가 없으면 null을 반환한다. 정의가 아예 없거나 층 조건을 만족하는
+    /// 미소비 이벤트가 없을 때도 소비 기록과 층 조건을 변경하지 않는다.
     /// </summary>
     public static EventDefinition GetRandom(int floor = 1)
     {
@@ -73,18 +133,6 @@ public static class EventCatalog
 
         var pool = BuildPool(all, floor);
 
-        // 전부 소비했으면 순환 리셋 후 재구성
-        if (pool.Count == 0)
-        {
-            _consumed.Clear();
-            pool = BuildPool(all, floor);
-        }
-
-        // 층 조건조차 만족하는 게 없으면(잘못된 min/max) 층 무시하고 전체에서 추첨
-        if (pool.Count == 0)
-        {
-            foreach (var e in all) if (e != null) pool.Add(e);
-        }
         if (pool.Count == 0) return null;
 
         var picked = pool[Random.Range(0, pool.Count)];

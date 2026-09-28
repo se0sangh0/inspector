@@ -471,7 +471,7 @@ public partial class BattleManager
         {
             Debug.Log($"  └ {enemy.displayName} | HP:{enemy.CurrentHp} | isDead:{enemy.isDead}");
             // 기획 §15 보상 — 적 처치 시 영혼석 드롭 (고블린 8 / 약탈자 12 / 보스 20)
-            // Pool 이 있으면 시각 연출 후 가산, 없으면(폴백) 즉시 가산.
+            // 영혼석은 즉시 가산한다. Pool 이 있으면 지급 후 수거 연출을 재생한다.
             if (enemy.soulstoneDrop > 0)
             {
                 Vector3 dropPos = FindEnemyWorldPos(enemy);

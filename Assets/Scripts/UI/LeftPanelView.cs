@@ -58,6 +58,7 @@ public class LeftPanelView : MonoBehaviour
     // ──────────────────────────────────────────────────────────────
     private void OnEnable()
     {
+        ApplySystemIcons();
         WireButtons();
         Refresh();
         SubscribeParty(true);
@@ -159,6 +160,14 @@ public class LeftPanelView : MonoBehaviour
             return;
         }
         partyEditPanel.Open();
+    }
+
+    private void ApplySystemIcons()
+    {
+        SystemIconArt.EnsureCenteredLeadingIcon(settingButton, "icon_settings");
+        // LeftPanel.prefab의 재화 행은 Icon / NameText / ValueText 직계 구조다.
+        SystemIconArt.ApplyToNamedChild(soulstoneText != null ? soulstoneText.transform.parent : null, "Icon", "icon_soulstone");
+        SystemIconArt.ApplyToNamedChild(manastoneText != null ? manastoneText.transform.parent : null, "Icon", "icon_magicstone");
     }
 
     /// <summary>

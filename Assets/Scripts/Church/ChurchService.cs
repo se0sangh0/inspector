@@ -71,7 +71,7 @@ public static class ChurchService
             int beforeHp  = f.CurrentHp;
             f.CurrentHp   = Mathf.Min(maxHp, beforeHp + HpAmount);
             totalGained  += f.CurrentHp - beforeHp;
-            recordLines.Add(Loc.Message("{0} HP +{1} → {2}", Loc.Message(f.displayName), f.CurrentHp - beforeHp, f.CurrentHp));
+            recordLines.Add(Loc.Message("{0} HP +{1} → {2}", RunSessionManager.GetNotebookFellowName(f), f.CurrentHp - beforeHp, f.CurrentHp));
         }
         recordLines.Add(Loc.Message("영혼석 -{0} → 보유 {1}", HpCost, SoulstoneManager.Instance.Amount));
 
@@ -108,7 +108,7 @@ public static class ChurchService
             int before        = f.currentStress;
             f.currentStress   = Mathf.Max(0, before - StressAmount);
             totalRelieved    += before - f.currentStress;
-            recordLines.Add(Loc.Message("{0} 스트레스 -{1} → {2}", Loc.Message(f.displayName), before - f.currentStress, f.currentStress));
+            recordLines.Add(Loc.Message("{0} 스트레스 -{1} → {2}", RunSessionManager.GetNotebookFellowName(f), before - f.currentStress, f.currentStress));
         }
         recordLines.Add(Loc.Message("영혼석 -{0} → 보유 {1}", StressCost, SoulstoneManager.Instance.Amount));
 
@@ -144,7 +144,7 @@ public static class ChurchService
         RunSessionManager.Instance?.AddRecord(RunRecordType.RecoveryResolved, "교회 — 부활",
             new System.Collections.Generic.List<LocalizedMessage>
             {
-                Loc.Message("{0} 부활 ({1}★, HP {2})", Loc.Message(target.displayName), target.starLevel, target.CurrentHp),
+                Loc.Message("{0} 부활 ({1}★, HP {2})", RunSessionManager.GetNotebookFellowName(target), target.starLevel, target.CurrentHp),
                 Loc.Message("영혼석 -{0} → 보유 {1}", cost, SoulstoneManager.Instance.Amount),
             });
 

@@ -1,0 +1,466 @@
+{
+  "created": "2026-09-28",
+  "newVariants": [
+    {
+      "id": "soulstone_v2",
+      "name": "영혼석",
+      "source": "/Users/seosangho/.codex/generated_images/01a0e0a3-7785-7cf1-a237-04eb27669f44/exec-c62a5c58-fa2c-411b-83e6-c06aa6567a1d.png",
+      "prompt": "Use case: precise-object-edit. Asset: tiny pixel-art soulstone currency icon. Edit only this existing sprite for stronger 32px readability. Preserve its irregular dark stone silhouette, muted teal mineral fissures, material identity, limited dark folklore palette and transparent background. Simplify the stone texture into a few broad square pixel clusters, remove tiny speckles, make the TWO teal fissures a little thicker and brighter so they remain distinct at 32 pixels. Center the shape, filling roughly 60 percent of the square canvas height with generous equal transparent margins. Keep a strong charcoal stepped outline, simple top-left highlights, restrained color; no external glow, new symbols, text, faces, objects or scenery. Hard opaque sprite edges; transparent empty areas must contain no haze or isolated stray pixels. Make this look like an actual 32/64-pixel game sprite enlarged by nearest neighbor, not a detailed painting.",
+      "file": "art/production/graphics-remake/system-icons/2026-09-28/icon_soulstone_v2.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaBounds": [
+        103,
+        21,
+        1194,
+        1198
+      ],
+      "visibleAlphaBounds": [
+        303,
+        220,
+        951,
+        1065
+      ],
+      "sha256": "cb3439fe895443cb87d684c8b62e8aa6caf82cd3cd725bf0862b56f389149090",
+      "method": "built-in image_gen edit; original preserved"
+    },
+    {
+      "id": "settings_v2",
+      "name": "설정",
+      "source": "/Users/seosangho/.codex/generated_images/01a0e0a3-7785-7cf1-a237-04eb27669f44/exec-f89eaa3f-8c6d-4aa8-bc31-6abd451b7eee.png",
+      "prompt": "Use case: precise-object-edit. Asset: tiny pixel-art settings UI icon. Edit only this existing symbol for stronger 32px readability. Keep exactly THREE separate parallel vertical adjustment bars, and one square ivory knob on each bar at the existing different heights. Keep the same bronze, ivory and charcoal palette, transparent background and stepped pixel-art outline. Thicken the three bars and make knob silhouettes bold and simple. Remove cracks, tiny mottling and decorative texture; use flat shaded pixel clusters with at most a few tones per material. Balance the three columns and center the icon within about 60 percent of square canvas height. Keep generous equal transparent margins. No panel, frame, gears, text, circles, extra controls, new objects, halo or cast shadow. Transparent empty areas must contain no faint residual pixels. Make this look like an actual 32/64-pixel game sprite enlarged by nearest neighbor.",
+      "file": "art/production/graphics-remake/system-icons/2026-09-28/icon_settings_v2.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaBounds": [
+        97,
+        54,
+        985,
+        1198
+      ],
+      "visibleAlphaBounds": [
+        309,
+        313,
+        945,
+        967
+      ],
+      "sha256": "f10a7a5e151875f6ad38a1f6da93b38a5947beff6200690d3511acb23fa6b6e8",
+      "method": "built-in image_gen edit; original preserved"
+    }
+  ],
+  "imports": [
+    {
+      "id": "icon_notebook",
+      "name": "조사관 수첩",
+      "file": "art/production/graphics-remake/system-icons/2026-09-27/icon_notebook_v2.png",
+      "source": "/Users/seosangho/.codex/generated_images/01a0e0a3-7785-7cf1-a237-04eb27669f44/exec-a7afd62c-5ffd-4963-a82f-2a06a3fad910.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        97,
+        128,
+        1192,
+        1198
+      ],
+      "visibleAlphaBounds": [
+        258,
+        223,
+        1016,
+        1048
+      ],
+      "sha256": "7c2ac079788e5ff182bb7bb77833001c24470b526bd7ac24b3b0b82aecff2c4c",
+      "status": "connected_in_preview_build",
+      "generator": "built-in image_gen",
+      "prompt": "Edit this existing notebook icon with one targeted technical correction: preserve the notebook design, materials, colors, angle and all visible details. Clean the transparent area around it so there are no nearly invisible residual pixels or haze. Keep the entire notebook within the central 60% of the square canvas with at least 20% fully transparent padding on every edge. Strict hard pixel sprite edges and binary alpha: only fully opaque object pixels and fully transparent background pixels. No added object, no writing, no new ornament.",
+      "variant": "v2",
+      "partiallyTransparentPixels": 395229,
+      "faintAlphaPixels": 5849,
+      "selectedCandidate": true,
+      "runtimeApplied": true,
+      "referenceImages": [
+        "art/production/graphics-remake/system-icons/2026-09-27/icon_notebook_v1.png"
+      ],
+      "promptRecorded": true,
+      "runtimeFile": "Assets/Resources/RemakeV1/SystemIcons/icon_notebook.png",
+      "sourceFile": "art/production/graphics-remake/system-icons/2026-09-27/icon_notebook_v2.png",
+      "runtimeSourceSha256": "7c2ac079788e5ff182bb7bb77833001c24470b526bd7ac24b3b0b82aecff2c4c",
+      "runtimeImported": true,
+      "runtimeTextureSize": [
+        64,
+        64
+      ],
+      "runtimeOuterEightPixelMaxAlpha": 0,
+      "selectionContext": "User requested continuation after viewing the icon candidates; Codex verified integration in isolated preview build"
+    },
+    {
+      "id": "icon_soulstone",
+      "name": "영혼석",
+      "file": "art/production/graphics-remake/system-icons/2026-09-27/icon_soulstone_v1.png",
+      "source": "/Users/seosangho/.codex/generated_images/01a0e0a3-7785-7cf1-a237-04eb27669f44/exec-8a510f47-29e5-4008-9f76-4bf99b002c7e.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        97,
+        53,
+        1037,
+        1182
+      ],
+      "visibleAlphaBounds": [
+        388,
+        325,
+        878,
+        941
+      ],
+      "sha256": "08c264cc2961eda084ddc5521a686ed30a509d7396d4be5c2f4dd789432bea8a",
+      "status": "connected_in_preview_build",
+      "generator": "built-in image_gen",
+      "prompt": "Edit the supplied game icon to create a separate matching sprite. Preserve the square transparent canvas, strict chunky pixel-art language, dark stepped outlines, muted charcoal/dead-brown/parchment/matte-bronze palette, simple top-left light, and small-icon readability. This is for a consistent 16-bit dark-folklore investigation game UI set, not a realistic painting. The whole new foreground must fit inside the central 60% of the canvas, leaving a fully empty transparent 20% border on every side. Use hard crisp pixel edges; background must have alpha zero with no stray faint pixels, aura, haze, anti-aliased shadow, checkerboard, backdrop, text, watermark, rune, skull, face, gear or pipe. One icon only. Replace the notebook entirely with one rough, irregular soulstone: a small jagged chunk of dark gray stone with two pale muted-teal mineral fissures and a restrained inner teal glint. Clearly uncut, asymmetrical and stone-like; no human shapes or ghost face. Retain the same chunky square pixel density and reserved material shading. This is the game's ordinary soulstone currency icon.",
+      "variant": "v1",
+      "partiallyTransparentPixels": 204448,
+      "faintAlphaPixels": 3093,
+      "selectedCandidate": true,
+      "runtimeApplied": true,
+      "referenceImages": [
+        "art/production/graphics-remake/system-icons/2026-09-27/icon_notebook_v1.png"
+      ],
+      "promptRecorded": true,
+      "runtimeFile": "Assets/Resources/RemakeV1/SystemIcons/icon_soulstone.png",
+      "sourceFile": "art/production/graphics-remake/system-icons/2026-09-28/icon_soulstone_v2.png",
+      "runtimeSourceSha256": "cb3439fe895443cb87d684c8b62e8aa6caf82cd3cd725bf0862b56f389149090",
+      "runtimeImported": true,
+      "runtimeTextureSize": [
+        64,
+        64
+      ],
+      "runtimeOuterEightPixelMaxAlpha": 0,
+      "selectionContext": "User requested continuation after viewing the icon candidates; Codex verified integration in isolated preview build"
+    },
+    {
+      "id": "icon_magicstone",
+      "name": "마석",
+      "file": "art/production/graphics-remake/system-icons/2026-09-27/icon_magicstone_v1.png",
+      "source": "/Users/seosangho/.codex/generated_images/01a0e0a3-7785-7cf1-a237-04eb27669f44/exec-feb3ee10-071d-4dff-891f-410029277113.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        343,
+        53,
+        1192,
+        1196
+      ],
+      "visibleAlphaBounds": [
+        349,
+        315,
+        906,
+        939
+      ],
+      "sha256": "650e2c02f7a9e5c7f2db1cc34852f319dfb317f91dc4080de4115c26a0d87402",
+      "status": "connected_in_preview_build",
+      "generator": "built-in image_gen",
+      "prompt": "Edit the supplied game icon to create a separate matching sprite. Preserve the square transparent canvas, strict chunky pixel-art language, dark stepped outlines, muted charcoal/dead-brown/parchment/matte-bronze palette, simple top-left light, and small-icon readability. This is for a consistent 16-bit dark-folklore investigation game UI set, not a realistic painting. The whole new foreground must fit inside the central 60% of the canvas, leaving a fully empty transparent 20% border on every side. Use hard crisp pixel edges; background must have alpha zero with no stray faint pixels, aura, haze, anti-aliased shadow, checkerboard, backdrop, text, watermark, rune, skull, face, gear or pipe. One icon only. Replace the notebook entirely with one single compact faceted magic stone. Give it a broad deliberate hexagonal silhouette and smoky honey-amber mineral facets, muted ochre/ivory highlights, dark brown shadow and only a tiny desaturated teal facet. It must be visually distinct from a rough teal soulstone: this gem is regular and neatly cut. No setting, chain, pedestal or glow outside the object. This is the game's persistent magic-stone currency icon.",
+      "variant": "v1",
+      "partiallyTransparentPixels": 262938,
+      "faintAlphaPixels": 3086,
+      "selectedCandidate": true,
+      "runtimeApplied": true,
+      "referenceImages": [
+        "art/production/graphics-remake/system-icons/2026-09-27/icon_notebook_v1.png"
+      ],
+      "promptRecorded": true,
+      "runtimeFile": "Assets/Resources/RemakeV1/SystemIcons/icon_magicstone.png",
+      "sourceFile": "art/production/graphics-remake/system-icons/2026-09-27/icon_magicstone_v1.png",
+      "runtimeSourceSha256": "650e2c02f7a9e5c7f2db1cc34852f319dfb317f91dc4080de4115c26a0d87402",
+      "runtimeImported": true,
+      "runtimeTextureSize": [
+        64,
+        64
+      ],
+      "runtimeOuterEightPixelMaxAlpha": 0,
+      "selectionContext": "User requested continuation after viewing the icon candidates; Codex verified integration in isolated preview build"
+    },
+    {
+      "id": "icon_core_clue",
+      "name": "핵심 단서",
+      "file": "art/production/graphics-remake/system-icons/2026-09-27/icon_core_clue_v1.png",
+      "source": "/Users/seosangho/.codex/generated_images/01a0e0a3-7785-7cf1-a237-04eb27669f44/exec-79ece36c-3fda-4e67-b6cf-54580738cf84.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        73,
+        49,
+        1192,
+        1198
+      ],
+      "visibleAlphaBounds": [
+        287,
+        303,
+        985,
+        961
+      ],
+      "sha256": "8870ffdd2950072fb2cc59635c59486130439d270ae568f7bbba95e0ac53dc96",
+      "status": "imported_without_ui_consumer",
+      "generator": "built-in image_gen",
+      "prompt": "Edit this existing pixel-art UI icon into a matching new system icon. Preserve its square transparent canvas and consistent dark chunky pixel outlines, limited charcoal, worn-brown, aged-ivory, matte-bronze and tiny muted-teal palette. Keep a strict 16-bit sprite look with crisp square pixel clusters and simple top-left highlights. Replace the notebook completely. One isolated foreground icon, centered and wholly within the central 60% of the canvas; the outer 20% on every side must be fully transparent alpha zero. No background, shadow outside the object, halo, barely-visible stray pixels, checkerboard, word, letter, number, logo or watermark. No gears, pipes, machinery, faces, skulls or magical runes. Readable at 64 and 32 pixels. Subject: a compact investigation evidence icon, a simple matte-bronze magnifying glass with a short worn dark-wood handle laid diagonally across one small folded, torn-edged ivory evidence paper. The paper must be blank, with no writing or stamps. Clear silhouette of round lens plus folded paper, no extra objects. The lens has a restrained slate-teal reflection, not a luminous magical effect. Match the source icon's material texture and pixel density.",
+      "variant": "v1",
+      "partiallyTransparentPixels": 296124,
+      "faintAlphaPixels": 6128,
+      "selectedCandidate": true,
+      "runtimeApplied": false,
+      "referenceImages": [
+        "art/production/graphics-remake/system-icons/2026-09-27/icon_notebook_v2.png"
+      ],
+      "promptRecorded": true,
+      "runtimeFile": "Assets/Resources/RemakeV1/SystemIcons/icon_core_clue.png",
+      "sourceFile": "art/production/graphics-remake/system-icons/2026-09-27/icon_core_clue_v1.png",
+      "runtimeSourceSha256": "8870ffdd2950072fb2cc59635c59486130439d270ae568f7bbba95e0ac53dc96",
+      "runtimeImported": true,
+      "runtimeTextureSize": [
+        64,
+        64
+      ],
+      "runtimeOuterEightPixelMaxAlpha": 0,
+      "selectionContext": "User requested continuation after viewing the icon candidates; Codex verified integration in isolated preview build"
+    },
+    {
+      "id": "icon_settings",
+      "name": "설정",
+      "file": "art/production/graphics-remake/system-icons/2026-09-27/icon_settings_v1.png",
+      "source": "/Users/seosangho/.codex/generated_images/01a0e0a3-7785-7cf1-a237-04eb27669f44/exec-20050db8-9065-472c-ae61-4a39be00a415.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        97,
+        54,
+        1192,
+        1182
+      ],
+      "visibleAlphaBounds": [
+        344,
+        346,
+        909,
+        917
+      ],
+      "sha256": "d68412d3a7ab3f730ac97d7fce4c74cd188a4262c8fe4b097dd92b446f78a7fe",
+      "status": "connected_in_preview_build",
+      "generator": "built-in image_gen",
+      "prompt": "Edit this existing pixel-art UI icon into a matching new system icon. Preserve its square transparent canvas and consistent dark chunky pixel outlines, limited charcoal, worn-brown, aged-ivory, matte-bronze and tiny muted-teal palette. Keep a strict 16-bit sprite look with crisp square pixel clusters and simple top-left highlights. Replace the notebook completely. One isolated foreground icon, centered and wholly within the central 60% of the canvas; the outer 20% on every side must be fully transparent alpha zero. No background, shadow outside the object, halo, barely-visible stray pixels, checkerboard, word, letter, number, logo or watermark. No gears, pipes, machinery, faces, skulls or magical runes. Readable at 64 and 32 pixels. Subject: the universal settings/adjustment symbol made from three simple parallel vertical matte-bronze strokes, each with one solid aged-ivory square sliding knob at a different height. Treat it as an abstract flat UI symbol in the same pixel-art material style, not as a real machine or electronics panel. Strong distinct simple silhouette, balanced widths, no frame, no gears, no screws or extra objects.",
+      "variant": "v1",
+      "partiallyTransparentPixels": 179790,
+      "faintAlphaPixels": 5234,
+      "selectedCandidate": true,
+      "runtimeApplied": true,
+      "referenceImages": [
+        "art/production/graphics-remake/system-icons/2026-09-27/icon_notebook_v2.png"
+      ],
+      "promptRecorded": true,
+      "runtimeFile": "Assets/Resources/RemakeV1/SystemIcons/icon_settings.png",
+      "sourceFile": "art/production/graphics-remake/system-icons/2026-09-28/icon_settings_v2.png",
+      "runtimeSourceSha256": "f10a7a5e151875f6ad38a1f6da93b38a5947beff6200690d3511acb23fa6b6e8",
+      "runtimeImported": true,
+      "runtimeTextureSize": [
+        64,
+        64
+      ],
+      "runtimeOuterEightPixelMaxAlpha": 0,
+      "selectionContext": "User requested continuation after viewing the icon candidates; Codex verified integration in isolated preview build"
+    },
+    {
+      "id": "icon_help",
+      "name": "도움말",
+      "file": "art/production/graphics-remake/system-icons/2026-09-27/icon_help_v1.png",
+      "source": "/Users/seosangho/.codex/generated_images/01a0e0a3-7785-7cf1-a237-04eb27669f44/exec-1b3e3efe-c333-49b8-b15b-ce765dfa63c6.png",
+      "status": "imported_without_ui_consumer",
+      "generator": "built-in image_gen",
+      "prompt": "Edit this existing game icon into a matching new system UI symbol. Preserve its square transparent canvas, chunky dark stepped pixel outlines, limited charcoal, worn brown, aged ivory and matte bronze palette, simple top-left lighting and crisp 16-bit pixel clusters. Replace the notebook entirely. One isolated bold symbol, centered within the central 60% of the square canvas. Leave a fully transparent 20% margin on each side. Background alpha must be zero, no stray faint pixels, backdrop, checkerboard, halo, shadow outside the object, logo, watermark, frame, gears, machinery, skull, face or runes. Strong readability at 64 and 32 pixels. No ornaments or additional objects. The sole subject is a single large question mark '?', drawn as a thick aged-ivory pixel glyph with a restrained matte-bronze edge and dark-brown stepped outline, including a separate clear square dot underneath. This exact question mark is the only permitted text. Keep it immediately recognizable as the help icon.",
+      "variant": "v1",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        210,
+        48,
+        1049,
+        1166
+      ],
+      "visibleAlphaBounds": [
+        381,
+        282,
+        860,
+        987
+      ],
+      "partiallyTransparentPixels": 186381,
+      "faintAlphaPixels": 4550,
+      "sha256": "cf13b260d89ba03f572edcf0f400bb62204d83cacde2b291b8da1b08fb5a2848",
+      "selectedCandidate": true,
+      "runtimeApplied": false,
+      "referenceImages": [
+        "art/production/graphics-remake/system-icons/2026-09-27/icon_notebook_v2.png"
+      ],
+      "promptRecorded": true,
+      "runtimeFile": "Assets/Resources/RemakeV1/SystemIcons/icon_help.png",
+      "sourceFile": "art/production/graphics-remake/system-icons/2026-09-27/icon_help_v1.png",
+      "runtimeSourceSha256": "cf13b260d89ba03f572edcf0f400bb62204d83cacde2b291b8da1b08fb5a2848",
+      "runtimeImported": true,
+      "runtimeTextureSize": [
+        64,
+        64
+      ],
+      "runtimeOuterEightPixelMaxAlpha": 0,
+      "selectionContext": "User requested continuation after viewing the icon candidates; Codex verified integration in isolated preview build"
+    },
+    {
+      "id": "icon_back",
+      "name": "뒤로",
+      "file": "art/production/graphics-remake/system-icons/2026-09-27/icon_back_v1.png",
+      "source": "/Users/seosangho/.codex/generated_images/01a0e0a3-7785-7cf1-a237-04eb27669f44/exec-6319cbb2-751d-4400-97e4-fd3d311d6c80.png",
+      "status": "imported_without_ui_consumer",
+      "generator": "built-in image_gen",
+      "prompt": "Edit this existing game icon into a matching new system UI symbol. Preserve its square transparent canvas, chunky dark stepped pixel outlines, limited charcoal, worn brown, aged ivory and matte bronze palette, simple top-left lighting and crisp 16-bit pixel clusters. Replace the notebook entirely. One isolated bold symbol, centered within the central 60% of the square canvas. Leave a fully transparent 20% margin on each side. Background alpha must be zero, no stray faint pixels, backdrop, checkerboard, halo, shadow outside the object, logo, watermark, frame, gears, machinery, skull, face or runes. Strong readability at 64 and 32 pixels. No ornaments or additional objects. The sole subject is a single thick horizontal left-facing arrow, with a broad triangular arrowhead pointing LEFT and a short straight shaft extending to the right. Aged-ivory fill, restrained matte-bronze edging, dark-brown stepped outline. The arrow clearly means back. No text, no letters, no return-loop bend.",
+      "variant": "v1",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        210,
+        54,
+        997,
+        1166
+      ],
+      "visibleAlphaBounds": [
+        281,
+        349,
+        973,
+        922
+      ],
+      "partiallyTransparentPixels": 203495,
+      "faintAlphaPixels": 3036,
+      "sha256": "55cf99bb1445973a5cae06befbd4c55a4cb2f15eb4c9bd4d0ad0d586e30fcf1a",
+      "selectedCandidate": true,
+      "runtimeApplied": false,
+      "referenceImages": [
+        "art/production/graphics-remake/system-icons/2026-09-27/icon_notebook_v2.png"
+      ],
+      "promptRecorded": true,
+      "runtimeFile": "Assets/Resources/RemakeV1/SystemIcons/icon_back.png",
+      "sourceFile": "art/production/graphics-remake/system-icons/2026-09-27/icon_back_v1.png",
+      "runtimeSourceSha256": "55cf99bb1445973a5cae06befbd4c55a4cb2f15eb4c9bd4d0ad0d586e30fcf1a",
+      "runtimeImported": true,
+      "runtimeTextureSize": [
+        64,
+        64
+      ],
+      "runtimeOuterEightPixelMaxAlpha": 0,
+      "selectionContext": "User requested continuation after viewing the icon candidates; Codex verified integration in isolated preview build"
+    },
+    {
+      "id": "icon_close",
+      "name": "닫기",
+      "file": "art/production/graphics-remake/system-icons/2026-09-27/icon_close_v1.png",
+      "source": "/Users/seosangho/.codex/generated_images/01a0e0a3-7785-7cf1-a237-04eb27669f44/exec-897cd4fe-5057-482d-8df1-e72788fa2c12.png",
+      "status": "connected_in_preview_build",
+      "generator": "built-in image_gen",
+      "prompt": "Edit this existing game icon into a matching new system UI symbol. Preserve its square transparent canvas, chunky dark stepped pixel outlines, limited charcoal, worn brown, aged ivory and matte bronze palette, simple top-left lighting and crisp 16-bit pixel clusters. Replace the notebook entirely. One isolated bold symbol, centered within the central 60% of the square canvas. Leave a fully transparent 20% margin on each side. Background alpha must be zero, no stray faint pixels, backdrop, checkerboard, halo, shadow outside the object, logo, watermark, frame, gears, machinery, skull, face or runes. Strong readability at 64 and 32 pixels. No ornaments or additional objects. The sole subject is a single thick diagonal X close symbol, two equal-length straight strokes crossing at their centers, with balanced arms and clear diagonal negative spaces. Aged-ivory fill, restrained matte-bronze edging and dark-brown stepped outline. The exact X shape is the only symbol, no other text. No plaque, circle or square button background.",
+      "variant": "v1",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        97,
+        54,
+        1192,
+        1182
+      ],
+      "visibleAlphaBounds": [
+        268,
+        286,
+        987,
+        1000
+      ],
+      "partiallyTransparentPixels": 320149,
+      "faintAlphaPixels": 6189,
+      "sha256": "775b85e14c7521e3f874d4e99db18f3e96ce8568e03742604468aa84305b4f22",
+      "selectedCandidate": true,
+      "runtimeApplied": true,
+      "referenceImages": [
+        "art/production/graphics-remake/system-icons/2026-09-27/icon_notebook_v2.png"
+      ],
+      "promptRecorded": true,
+      "runtimeFile": "Assets/Resources/RemakeV1/SystemIcons/icon_close.png",
+      "sourceFile": "art/production/graphics-remake/system-icons/2026-09-27/icon_close_v1.png",
+      "runtimeSourceSha256": "775b85e14c7521e3f874d4e99db18f3e96ce8568e03742604468aa84305b4f22",
+      "runtimeImported": true,
+      "runtimeTextureSize": [
+        64,
+        64
+      ],
+      "runtimeOuterEightPixelMaxAlpha": 0,
+      "selectionContext": "User requested continuation after viewing the icon candidates; Codex verified integration in isolated preview build"
+    }
+  ],
+  "pixelPolicy": "Original PNGs and generated alpha preserved; Unity standard import configured for 64px Point sprites. No programmatic image rewriting.",
+  "status": "8 imported; 5 kinds connected; settings icon and label centered; flat close outline; actual UI2 Korean and English verification passed",
+  "checks": {
+    "assets": 8,
+    "ui": 71,
+    "voiceClips": 46,
+    "failures": 0
+  },
+  "build": "Builds/2026-09-28_Icons_TTS46_UI2/INSPECTOR-Icons-TTS46-UI2-macOS-Universal.zip"
+}

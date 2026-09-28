@@ -11,7 +11,8 @@
 //
 // [기획 참조 — 16-B 구현·데이터 계약 §4 상태 소유권·초기화]
 //   - StartNewRun 순서: MercenaryService.ResetForNewRun → PartyManager 초기
-//     파티 재생성 → SoulstoneManager.ResetCurrency → RunSession 기록 초기화.
+//     파티 재생성 → SoulstoneManager.ResetCurrency → RunSession 기록 초기화
+//     → EventCatalog.ResetRun (런별 이벤트 소비 기록 초기화).
 //     중간 단계 실패 시 오류를 표시하고 1층 입력을 열지 않는다.
 //   - FinalizeRun 만 런 번호 증가·RunSession 폐기·런 상태 초기화를 수행한다.
 //     같은 런에서 두 번 호출되면 두 번째 호출은 무시한다.
@@ -36,7 +37,7 @@ using UnityEngine;
 /// <summary>런 종료 결과. FinalizeRun(result) 인자.</summary>
 public enum RunResult
 {
-    Victory = 0,  // 6층 보스 클리어
+    Victory = 0,  // 10층 보스 클리어
     Defeat  = 1   // 파티 전멸
 }
 
@@ -138,6 +139,27 @@ public class RunSessionManager : MonoBehaviour
     // 이번 런에서 발급한 동료 ID 수 (런 내 재사용 금지 카운터)
     private int _fellowIdCounter;
 
+    // 화면용 번호는 후보 생성 순서가 아니라 실제 합류 순서다 (16-E §13-5).
+    private readonly System.Collections.Generic.Dictionary<FellowData, int> _notebookFellowNumbers = new();
+    private int _notebookFellowCounter;
+
+    /// <summary>역할 표시명과 합류 순서 번호를 문장 생성 시점에 고정한다.</summary>
+    public static LocalizedMessage GetNotebookFellowName(FellowData fellow)
+    {
+        if (fellow == null) return Loc.Message("미상");
+        var definition = FellowDatabase.Instance != null ? FellowDatabase.Instance.GetFellow(fellow.id) : null;
+        string roleName = !string.IsNullOrEmpty(definition?.displayName) ? definition.displayName : fellow.displayName;
+        if (string.IsNullOrEmpty(roleName)) roleName = fellow.jobClass;
+        var session = Instance;
+        if (session == null || (!session.IsRunActive && !session._initializingRun)) return Loc.Message(roleName);
+        if (!session._notebookFellowNumbers.TryGetValue(fellow, out int number))
+        {
+            number = ++session._notebookFellowCounter;
+            session._notebookFellowNumbers.Add(fellow, number);
+        }
+        return Loc.Message("{0} · {1}", Loc.Message(roleName), number.ToString("D2"));
+    }
+
     // StartNewRun 초기화 진행 중 표시 — 초기 파티 생성 시점에도
     // IssueFellowId 가 새 런 번호로 ID 를 발급하게 한다.
     private bool _initializingRun;
@@ -168,6 +190,8 @@ public class RunSessionManager : MonoBehaviour
         {
             // 이번 런의 ID 발급 준비 — 초기 파티도 새 런 번호 ID 를 받는다.
             _fellowIdCounter = 0;
+            _notebookFellowNumbers.Clear();
+            _notebookFellowCounter = 0;
             _initializingRun = true;
 
             // 타이틀 씬 등에서 호출될 수 있으므로 필수 매니저가 없으면 생성한다.
@@ -191,6 +215,9 @@ public class RunSessionManager : MonoBehaviour
                 return false;
             }
 
+            foreach (var fellow in PartyManager.Instance.GetActiveFellows())
+                if (fellow != null) GetNotebookFellowName(fellow);
+
             // ③ 영혼석 — 시작값으로 초기화.
             //    타이틀 씬 등 SoulstoneManager 인스턴스가 없는 시점엔 저장 키만 비워
             //    다음 씬 로드 시 StartingAmount 로 시작하게 한다.
@@ -205,7 +232,11 @@ public class RunSessionManager : MonoBehaviour
             _battleRecordedFloors.Clear();
             _runResolvedRecorded = false;
 
-            // ⑤ 세션 활성화 — 1층 생성은 호출자의 GamePlayScene 로드가 수행
+            // ⑤ 런별 이벤트 소비 기록 초기화 — 지난 탐사의 추첨 이력을 넘기지 않는다.
+            EventCatalog.ResetRun();
+            FloorTierResolver.ResetRun();
+
+            // ⑥ 세션 활성화 — 1층 생성은 호출자의 GamePlayScene 로드가 수행
             IsRunActive = true;
             Debug.Log($"[RunSession] 새 런 시작 — 런 #{CurrentRunNumber} (완료 런 수 {CompletedRunCount})");
             return true;
@@ -320,7 +351,7 @@ public class RunSessionManager : MonoBehaviour
     /// 현장 관찰이 있으면 표시 전에 사후 관찰 필드로 포함한다 (16-A §2).
     /// 활성 런이 없으면(세션 밖 직접 플레이) 기록하지 않는다.
     /// </summary>
-    public bool RecordBattleResolved(int floor, LocalizedMessage enemySummary, bool victory, int soulstoneGained, string observationNotebookText)
+    public bool RecordBattleResolved(int floor, LocalizedMessage enemySummary, bool victory, int soulstoneGained, string observationNotebookText, System.Collections.Generic.IEnumerable<FellowData> lostFellows = null)
     {
         if (!IsRunActive) return false;
         if (!_battleRecordedFloors.Add(floor))
@@ -347,6 +378,10 @@ public class RunSessionManager : MonoBehaviour
             entry.lines.Add(Loc.Message(observationNotebookText));                // 사후 관찰 — 표시 전에 기록에 포함
         if (victory && soulstoneGained > 0)
             entry.lines.Add(Loc.Message("영혼석 {0}개 획득", soulstoneGained));   // 조건부 획득 줄 (0이면 생략)
+
+        if (lostFellows != null)
+            foreach (var fellow in lostFellows)
+                if (fellow != null) entry.lines.Add(Loc.Message("소실: {0}", GetNotebookFellowName(fellow)));
 
         return Records.Add(entry, dedupKey: $"battle_F{floor}");
     }

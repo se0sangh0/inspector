@@ -7,7 +7,7 @@
 // [공개 API]
 //   SoulstoneDropPool.Instance?.SpawnAt(worldPos, amount)
 //     - 풀에서 비활성 인스턴스를 꺼내(없으면 신규 생성) 연출 시작.
-//     - 도착 시 SoulstoneManager.Add(amount) 자동 호출.
+//     - 영혼석을 먼저 지급하고 수거 연출을 시작한다.
 //
 // [폴백 안전망]
 //   prefab 또는 target 가 미연결이면 즉시 SoulstoneManager.Add 만 호출 — 게임 안 깨짐.
@@ -55,23 +55,19 @@ public class SoulstoneDropPool : MonoBehaviour
 
     /// <summary>
     /// 풀에서 인스턴스를 꺼내 worldPos 에서 시작해 target 으로 빨려들어가게 한다.
-    /// amount 는 도착 시 SoulstoneManager 에 +amount 로 가산된다.
+    /// amount 는 연출 시작 전에 SoulstoneManager 에 가산된다 (16-B §3).
     /// prefab 또는 target 가 null 이면 즉시 Add 만 수행 (폴백).
     /// </summary>
     public void SpawnAt(Vector3 worldPos, int amount)
     {
         if (amount <= 0) return;
-
-        if (prefab == null || target == null)
-        {
-            // 폴백 — 시각 연출 없이 즉시 가산
-            SoulstoneManager.Instance?.Add(amount);
-            return;
-        }
+        // 기록·보고서·씬 전환은 수거 연출의 완료를 기다리지 않는다.
+        SoulstoneManager.Instance?.Add(amount);
+        if (prefab == null || target == null) return;
 
         var fx = GetFromPool();
         fx.gameObject.SetActive(true);
-        fx.Play(worldPos, target, () => SoulstoneManager.Instance?.Add(amount));
+        fx.Play(worldPos, target, null);
     }
 
     private SoulstoneDropFx GetFromPool()
@@ -86,6 +82,7 @@ public class SoulstoneDropPool : MonoBehaviour
 
     private SoulstoneDropFx CreateInstance()
     {
+        if (prefab == null) return null;
         var fx = Instantiate(prefab, transform);
         fx.gameObject.SetActive(false);
         _pool.Add(fx);

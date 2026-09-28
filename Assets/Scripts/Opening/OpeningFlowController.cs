@@ -147,6 +147,7 @@ public class OpeningFlowController : MonoBehaviour
 
     private void Hide()
     {
+        NarrationPlayer.Stop(this);
         if (_typeRoutine != null) { StopCoroutine(_typeRoutine); _typeRoutine = null; }
         _typing = false;
         _group.alpha = 0f;
@@ -169,6 +170,7 @@ public class OpeningFlowController : MonoBehaviour
 
         // 정적 문안(제목·본문·안내)을 현재 언어로 교체한 뒤 타자기 연출 시작
         Loc.Localize(_root);
+        NarrationPlayer.Play("opening_" + (_docIndex + 1).ToString("00"), this);
 
         if (_bodyText != null)
         {
