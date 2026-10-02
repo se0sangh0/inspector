@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="怪異探查局 · INSPECTOR：以韓國、日本、中國、台灣等地民間傳說為靈感的黑暗恐怖牌組構築自動戰鬥遊戲。預計於 Steam 推出，商店頁面預計於 2026 年 12 月至 2027 年 2 月開設。">
+  <meta name="description" content="怪異探查局 · INSPECTOR：以民間傳說為靈感的黑暗恐怖牌組構築自動戰鬥遊戲。用卡牌指揮同伴，探索十個樓層，記錄沿途發現的線索。支援韓語、英語與繁體中文，預計於 Steam 推出。">
   <meta name="theme-color" content="#0f1115">
   <link rel="canonical" href="https://davi-dev.uk/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://davi-dev.uk/">
   <meta property="og:title" content="怪異探查局 · INSPECTOR">
-  <meta property="og:description" content="以各地民間傳說為靈感，用卡牌引導同伴自動行動。預計於 Steam 推出，商店頁面預計於 2026 年 12 月至 2027 年 2 月開設。">
+  <meta property="og:description" content="用卡牌指揮同伴，探索十個樓層，在調查員筆記本中留下紀錄。以各地民間傳說為靈感的黑暗恐怖牌組構築遊戲，預計於 Steam 推出。">
   <meta property="og:locale" content="zh_TW">
   <meta property="og:locale:alternate" content="en_US">
   <meta property="og:locale:alternate" content="ko_KR">
@@ -971,6 +971,52 @@
       border-left: 1px solid var(--inspector-brass);
     }
 
+    #inspector-expo-mockup .inspector-investigation-link {
+      display: flex;
+      align-items: center;
+      width: fit-content;
+      min-height: 44px;
+      margin-top: 10px;
+      color: var(--inspector-brass);
+      font-size: 14px;
+      text-underline-offset: 5px;
+    }
+
+    #inspector-expo-mockup .inspector-investigation {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: clamp(32px, 6vw, 88px);
+      align-items: start;
+    }
+
+    #inspector-expo-mockup .inspector-investigation > div {
+      min-width: 0;
+    }
+
+    #inspector-expo-mockup .inspector-investigation-list > div {
+      padding: 24px 0;
+      border-top: 1px solid var(--inspector-hair);
+    }
+
+    #inspector-expo-mockup .inspector-investigation-list dt {
+      margin-bottom: 10px;
+      color: var(--inspector-brass);
+      font-size: 20px;
+      line-height: 1.5;
+    }
+
+    #inspector-expo-mockup .inspector-investigation-list dd {
+      color: var(--inspector-muted);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 900px) {
+      #inspector-expo-mockup .inspector-investigation {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
     #inspector-expo-mockup .inspector-story-note {
       margin-top: 28px;
       padding-top: 22px;
@@ -1414,8 +1460,9 @@
         <div class="inspector-hero-copy">
           <p class="inspector-hero-eyebrow"><span data-copy="brand">怪異探查局</span></p>
           <h1 data-copy="heroTitle">用卡牌指揮隊伍</h1>
-          <p class="inspector-hero-body" data-copy="heroBody">卡牌會累積成全隊共用的職能。你規劃下一步，同伴承擔結果。</p>
+          <p class="inspector-hero-body" data-copy="heroBody">用卡牌引導同伴行動，探索十個樓層的岔路。沿途發現的痕跡，都記在調查員筆記本中。</p>
           <button class="inspector-cta" type="button" data-jump="inspector-flow" data-copy="cta">查看玩法</button>
+          <a class="inspector-investigation-link" href="#inspector-investigation" data-copy="investigationLink">了解探索與紀錄</a>
           <dl class="inspector-hero-meta">
             <div>
               <dt data-copy="genreLabel">類型</dt>
@@ -1491,9 +1538,9 @@
                   <span class="inspector-sprite-sheet" data-sprite-sheet aria-hidden="true"></span>
                 </div>
                 <div class="inspector-sprite-controls" role="group" data-copy-aria="motionControlsLabel">
-                  <button class="inspector-sprite-button" type="button" data-motion="idle" data-copy="idleMotion" aria-pressed="false">대기</button>
-                  <button class="inspector-sprite-button" type="button" data-motion="attack" data-copy="attackMotion" aria-pressed="true">기본 동작</button>
-                  <button class="inspector-sprite-button" type="button" data-sprite-play data-copy="playMotion">재생</button>
+                  <button class="inspector-sprite-button" type="button" data-motion="idle" data-copy="idleMotion" aria-pressed="false">待機</button>
+                  <button class="inspector-sprite-button" type="button" data-motion="attack" data-copy="attackMotion" aria-pressed="true">基本動作</button>
+                  <button class="inspector-sprite-button" type="button" data-sprite-play data-copy="playMotion">播放</button>
                 </div>
               </div>
               <h3 data-copy="casterActionLabel">元素術士行動序列</h3>
@@ -1505,9 +1552,9 @@
                   <span class="inspector-sprite-sheet" data-sprite-sheet aria-hidden="true"></span>
                 </div>
                 <div class="inspector-sprite-controls" role="group" data-copy-aria="motionControlsLabel">
-                  <button class="inspector-sprite-button" type="button" data-motion="idle" data-copy="idleMotion" aria-pressed="false">대기</button>
-                  <button class="inspector-sprite-button" type="button" data-motion="attack" data-copy="attackMotion" aria-pressed="true">기본 동작</button>
-                  <button class="inspector-sprite-button" type="button" data-sprite-play data-copy="playMotion">재생</button>
+                  <button class="inspector-sprite-button" type="button" data-motion="idle" data-copy="idleMotion" aria-pressed="false">待機</button>
+                  <button class="inspector-sprite-button" type="button" data-motion="attack" data-copy="attackMotion" aria-pressed="true">基本動作</button>
+                  <button class="inspector-sprite-button" type="button" data-sprite-play data-copy="playMotion">播放</button>
                 </div>
               </div>
               <h3 data-copy="goblinActionLabel">哥布林行動序列</h3>
@@ -1526,19 +1573,19 @@
           <div class="inspector-roster" data-companion-slider data-reveal role="region" aria-labelledby="inspector-party-title" aria-roledescription="輪播" tabindex="0">
             <div class="inspector-roster-stage inspector-frame" id="inspector-companion-stage">
             <figure class="inspector-agent" data-companion-slide role="group" aria-label="封鎖兵，第 1 位，共 4 位">
-              <div class="inspector-sprite-player" data-sprite-player data-character="defender" data-default-motion="idle" data-motion="idle" data-loaded="false"><div class="inspector-sprite-viewport" data-sprite-viewport role="img" data-copy-aria="defenderPlayerLabel" aria-label="封鎖兵動作預覽"><img class="inspector-sprite-poster" loading="lazy" src="assets/animations/defender-idle-poster.webp" aria-hidden="true" alt=""><span class="inspector-sprite-sheet" data-sprite-sheet aria-hidden="true"></span></div><div class="inspector-sprite-controls" role="group" data-copy-aria="motionControlsLabel"><button class="inspector-sprite-button" type="button" data-motion="idle" data-copy="idleMotion" aria-pressed="true">대기</button><button class="inspector-sprite-button" type="button" data-motion="attack" data-copy="attackMotion" aria-pressed="false">기본 동작</button><button class="inspector-sprite-button" type="button" data-sprite-play data-copy="playMotion">재생</button></div></div>
+              <div class="inspector-sprite-player" data-sprite-player data-character="defender" data-default-motion="idle" data-motion="idle" data-loaded="false"><div class="inspector-sprite-viewport" data-sprite-viewport role="img" data-copy-aria="defenderPlayerLabel" aria-label="封鎖兵動作預覽"><img class="inspector-sprite-poster" loading="lazy" src="assets/animations/defender-idle-poster.webp" aria-hidden="true" alt=""><span class="inspector-sprite-sheet" data-sprite-sheet aria-hidden="true"></span></div><div class="inspector-sprite-controls" role="group" data-copy-aria="motionControlsLabel"><button class="inspector-sprite-button" type="button" data-motion="idle" data-copy="idleMotion" aria-pressed="true">待機</button><button class="inspector-sprite-button" type="button" data-motion="attack" data-copy="attackMotion" aria-pressed="false">基本動作</button><button class="inspector-sprite-button" type="button" data-sprite-play data-copy="playMotion">播放</button></div></div>
               <figcaption data-copy="defenderRole">封鎖兵</figcaption>
             </figure>
             <figure class="inspector-agent" data-companion-slide role="group" aria-label="元素術士，第 2 位，共 4 位" hidden>
-              <div class="inspector-sprite-player" data-sprite-player data-character="caster" data-default-motion="idle" data-motion="idle" data-loaded="false"><div class="inspector-sprite-viewport" data-sprite-viewport role="img" data-copy-aria="casterPlayerLabel" aria-label="元素術士動作預覽"><img class="inspector-sprite-poster" loading="lazy" src="assets/animations/caster-idle-poster.webp" aria-hidden="true" alt=""><span class="inspector-sprite-sheet" data-sprite-sheet aria-hidden="true"></span></div><div class="inspector-sprite-controls" role="group" data-copy-aria="motionControlsLabel"><button class="inspector-sprite-button" type="button" data-motion="idle" data-copy="idleMotion" aria-pressed="true">대기</button><button class="inspector-sprite-button" type="button" data-motion="attack" data-copy="attackMotion" aria-pressed="false">기본 동작</button><button class="inspector-sprite-button" type="button" data-sprite-play data-copy="playMotion">재생</button></div></div>
+              <div class="inspector-sprite-player" data-sprite-player data-character="caster" data-default-motion="idle" data-motion="idle" data-loaded="false"><div class="inspector-sprite-viewport" data-sprite-viewport role="img" data-copy-aria="casterPlayerLabel" aria-label="元素術士動作預覽"><img class="inspector-sprite-poster" loading="lazy" src="assets/animations/caster-idle-poster.webp" aria-hidden="true" alt=""><span class="inspector-sprite-sheet" data-sprite-sheet aria-hidden="true"></span></div><div class="inspector-sprite-controls" role="group" data-copy-aria="motionControlsLabel"><button class="inspector-sprite-button" type="button" data-motion="idle" data-copy="idleMotion" aria-pressed="true">待機</button><button class="inspector-sprite-button" type="button" data-motion="attack" data-copy="attackMotion" aria-pressed="false">基本動作</button><button class="inspector-sprite-button" type="button" data-sprite-play data-copy="playMotion">播放</button></div></div>
               <figcaption data-copy="casterRole">元素術士</figcaption>
             </figure>
             <figure class="inspector-agent" data-companion-slide role="group" aria-label="追獵者，第 3 位，共 4 位" hidden>
-              <div class="inspector-sprite-player" data-sprite-player data-character="offender" data-default-motion="idle" data-motion="idle" data-loaded="false"><div class="inspector-sprite-viewport" data-sprite-viewport role="img" data-copy-aria="offenderPlayerLabel" aria-label="追獵者動作預覽"><img class="inspector-sprite-poster" loading="lazy" src="assets/animations/offender-idle-poster.webp" aria-hidden="true" alt=""><span class="inspector-sprite-sheet" data-sprite-sheet aria-hidden="true"></span></div><div class="inspector-sprite-controls" role="group" data-copy-aria="motionControlsLabel"><button class="inspector-sprite-button" type="button" data-motion="idle" data-copy="idleMotion" aria-pressed="true">대기</button><button class="inspector-sprite-button" type="button" data-motion="attack" data-copy="attackMotion" aria-pressed="false">기본 동작</button><button class="inspector-sprite-button" type="button" data-sprite-play data-copy="playMotion">재생</button></div></div>
+              <div class="inspector-sprite-player" data-sprite-player data-character="offender" data-default-motion="idle" data-motion="idle" data-loaded="false"><div class="inspector-sprite-viewport" data-sprite-viewport role="img" data-copy-aria="offenderPlayerLabel" aria-label="追獵者動作預覽"><img class="inspector-sprite-poster" loading="lazy" src="assets/animations/offender-idle-poster.webp" aria-hidden="true" alt=""><span class="inspector-sprite-sheet" data-sprite-sheet aria-hidden="true"></span></div><div class="inspector-sprite-controls" role="group" data-copy-aria="motionControlsLabel"><button class="inspector-sprite-button" type="button" data-motion="idle" data-copy="idleMotion" aria-pressed="true">待機</button><button class="inspector-sprite-button" type="button" data-motion="attack" data-copy="attackMotion" aria-pressed="false">基本動作</button><button class="inspector-sprite-button" type="button" data-sprite-play data-copy="playMotion">播放</button></div></div>
               <figcaption data-copy="offenderRole">追獵者</figcaption>
             </figure>
             <figure class="inspector-agent" data-companion-slide role="group" aria-label="治療師，第 4 位，共 4 位" hidden>
-              <div class="inspector-sprite-player" data-sprite-player data-character="priest" data-default-motion="idle" data-motion="idle" data-loaded="false"><div class="inspector-sprite-viewport" data-sprite-viewport role="img" data-copy-aria="priestPlayerLabel" aria-label="治療師動作預覽"><img class="inspector-sprite-poster" loading="lazy" src="assets/animations/priest-idle-poster.webp" aria-hidden="true" alt=""><span class="inspector-sprite-sheet" data-sprite-sheet aria-hidden="true"></span></div><div class="inspector-sprite-controls" role="group" data-copy-aria="motionControlsLabel"><button class="inspector-sprite-button" type="button" data-motion="idle" data-copy="idleMotion" aria-pressed="true">대기</button><button class="inspector-sprite-button" type="button" data-motion="attack" data-copy="attackMotion" aria-pressed="false">기본 동작</button><button class="inspector-sprite-button" type="button" data-sprite-play data-copy="playMotion">재생</button></div></div>
+              <div class="inspector-sprite-player" data-sprite-player data-character="priest" data-default-motion="idle" data-motion="idle" data-loaded="false"><div class="inspector-sprite-viewport" data-sprite-viewport role="img" data-copy-aria="priestPlayerLabel" aria-label="治療師動作預覽"><img class="inspector-sprite-poster" loading="lazy" src="assets/animations/priest-idle-poster.webp" aria-hidden="true" alt=""><span class="inspector-sprite-sheet" data-sprite-sheet aria-hidden="true"></span></div><div class="inspector-sprite-controls" role="group" data-copy-aria="motionControlsLabel"><button class="inspector-sprite-button" type="button" data-motion="idle" data-copy="idleMotion" aria-pressed="true">待機</button><button class="inspector-sprite-button" type="button" data-motion="attack" data-copy="attackMotion" aria-pressed="false">基本動作</button><button class="inspector-sprite-button" type="button" data-sprite-play data-copy="playMotion">播放</button></div></div>
               <figcaption data-copy="priestRole">治療師</figcaption>
             </figure>
             </div>
@@ -1577,13 +1624,13 @@
           <div class="inspector-enemies">
             <figure class="inspector-enemy" data-reveal>
               <div class="inspector-enemy-plate">
-                <div class="inspector-sprite-player" data-sprite-player data-character="goblin" data-default-motion="idle" data-motion="idle" data-loaded="false"><div class="inspector-sprite-viewport" data-sprite-viewport role="img" data-copy-aria="goblinPlayerLabel" aria-label="哥布林動作預覽"><img class="inspector-sprite-poster" loading="lazy" src="assets/animations/goblin-idle-poster.webp" aria-hidden="true" alt=""><span class="inspector-sprite-sheet" data-sprite-sheet aria-hidden="true"></span></div><div class="inspector-sprite-controls" role="group" data-copy-aria="motionControlsLabel"><button class="inspector-sprite-button" type="button" data-motion="idle" data-copy="idleMotion" aria-pressed="true">대기</button><button class="inspector-sprite-button" type="button" data-motion="attack" data-copy="attackMotion" aria-pressed="false">기본 동작</button><button class="inspector-sprite-button" type="button" data-sprite-play data-copy="playMotion">재생</button></div></div>
+                <div class="inspector-sprite-player" data-sprite-player data-character="goblin" data-default-motion="idle" data-motion="idle" data-loaded="false"><div class="inspector-sprite-viewport" data-sprite-viewport role="img" data-copy-aria="goblinPlayerLabel" aria-label="哥布林動作預覽"><img class="inspector-sprite-poster" loading="lazy" src="assets/animations/goblin-idle-poster.webp" aria-hidden="true" alt=""><span class="inspector-sprite-sheet" data-sprite-sheet aria-hidden="true"></span></div><div class="inspector-sprite-controls" role="group" data-copy-aria="motionControlsLabel"><button class="inspector-sprite-button" type="button" data-motion="idle" data-copy="idleMotion" aria-pressed="true">待機</button><button class="inspector-sprite-button" type="button" data-motion="attack" data-copy="attackMotion" aria-pressed="false">基本動作</button><button class="inspector-sprite-button" type="button" data-sprite-play data-copy="playMotion">播放</button></div></div>
               </div>
               <figcaption data-copy="goblinLabel">哥布林</figcaption>
             </figure>
             <figure class="inspector-enemy" data-reveal>
               <div class="inspector-enemy-plate">
-                <div class="inspector-sprite-player" data-sprite-player data-character="raider" data-default-motion="idle" data-motion="idle" data-loaded="false"><div class="inspector-sprite-viewport" data-sprite-viewport role="img" data-copy-aria="raiderPlayerLabel" aria-label="掠奪者動作預覽"><img class="inspector-sprite-poster" loading="lazy" src="assets/animations/raider-idle-poster.webp" aria-hidden="true" alt=""><span class="inspector-sprite-sheet" data-sprite-sheet aria-hidden="true"></span></div><div class="inspector-sprite-controls" role="group" data-copy-aria="motionControlsLabel"><button class="inspector-sprite-button" type="button" data-motion="idle" data-copy="idleMotion" aria-pressed="true">대기</button><button class="inspector-sprite-button" type="button" data-motion="attack" data-copy="attackMotion" aria-pressed="false">기본 동작</button><button class="inspector-sprite-button" type="button" data-sprite-play data-copy="playMotion">재생</button></div></div>
+                <div class="inspector-sprite-player" data-sprite-player data-character="raider" data-default-motion="idle" data-motion="idle" data-loaded="false"><div class="inspector-sprite-viewport" data-sprite-viewport role="img" data-copy-aria="raiderPlayerLabel" aria-label="掠奪者動作預覽"><img class="inspector-sprite-poster" loading="lazy" src="assets/animations/raider-idle-poster.webp" aria-hidden="true" alt=""><span class="inspector-sprite-sheet" data-sprite-sheet aria-hidden="true"></span></div><div class="inspector-sprite-controls" role="group" data-copy-aria="motionControlsLabel"><button class="inspector-sprite-button" type="button" data-motion="idle" data-copy="idleMotion" aria-pressed="true">待機</button><button class="inspector-sprite-button" type="button" data-motion="attack" data-copy="attackMotion" aria-pressed="false">基本動作</button><button class="inspector-sprite-button" type="button" data-sprite-play data-copy="playMotion">播放</button></div></div>
               </div>
               <figcaption data-copy="raiderLabel">掠奪者</figcaption>
             </figure>
@@ -1607,14 +1654,38 @@
         </div>
       </section>
 
+      <section class="inspector-section" id="inspector-investigation" aria-labelledby="inspector-investigation-title">
+        <div class="inspector-shell inspector-investigation">
+          <div>
+            <p class="inspector-kicker" data-copy="investigationKicker">探索與紀錄</p>
+            <h2 id="inspector-investigation-title" data-copy="investigationTitle" data-reveal>探索結束，線索仍然留下</h2>
+            <p class="inspector-section-intro" data-copy="investigationBody" data-reveal>在目前的開發版本中，你將選擇路線、記錄事件與發現，逐步深入裂隙。</p>
+          </div>
+          <dl class="inspector-investigation-list">
+            <div data-reveal>
+              <dt data-copy="routeTitle">十個樓層的岔路</dt>
+              <dd data-copy="routeBody">每一層都要選擇前進的路線。在途中遭遇戰鬥與事件，再前往下一層。</dd>
+            </div>
+            <div data-reveal>
+              <dt data-copy="notebookTitle">這次探索的紀錄</dt>
+              <dd data-copy="notebookBody">調查員筆記本會記下本次探索的路線、事件與結果，供你回顧。</dd>
+            </div>
+            <div data-reveal>
+              <dt data-copy="clueTitle">在多次探索中累積線索</dt>
+              <dd data-copy="clueBody">發現的核心線索會收進獨立列表。探索結束後，發現紀錄仍會保留，你可以再次查看已找到線索的插畫與文字。</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
       <section class="inspector-section" id="inspector-video">
         <div class="inspector-shell">
           <p class="inspector-kicker" data-copy="videoKicker">05 · 核心玩法</p>
-          <h2 data-copy="videoTitle" data-reveal>用 30 秒看見核心玩法</h2>
-          <p class="inspector-section-intro" data-copy="videoBody" data-reveal>正式頁面將依序呈現卡牌輸入、自動戰鬥、事件選擇與收割者概念畫面。</p>
-          <div class="inspector-pending inspector-pending-band" data-reveal role="img" data-copy-aria="videoPlaceholderAlt" aria-label="30 秒展示影片預定區域">
+          <h2 data-copy="videoTitle" data-reveal>遊戲實機影片</h2>
+          <p class="inspector-section-intro" data-copy="videoBody" data-reveal>我們正在準備影片，介紹如何用卡牌指揮同伴，以及探索岔路的過程。</p>
+          <div class="inspector-pending inspector-pending-band" data-reveal>
             <span class="inspector-pending-mark" aria-hidden="true"></span>
-            <span class="inspector-pending-text" data-copy="videoPlaceholder">30 秒展示影片預定</span>
+            <span class="inspector-pending-text" data-copy="videoPlaceholder">影片準備中</span>
           </div>
         </div>
       </section>
@@ -1647,6 +1718,14 @@
             <p class="inspector-closing-copy" data-copy="developmentNotice">本頁使用開發中的概念視覺呈現遊戲氛圍與系統方向，並不代表最終遊戲畫面。</p>
           </div>
           <div class="inspector-ledger">
+            <div class="inspector-ledger-row">
+              <strong data-copy="gameLanguagesLabel">遊戲語言</strong>
+              <span data-copy="gameLanguages">韓語・英語・繁體中文</span>
+            </div>
+            <div class="inspector-ledger-row">
+              <strong data-copy="narrationLabel">語音</strong>
+              <span data-copy="narrationValue">韓語旁白</span>
+            </div>
             <div class="inspector-ledger-row">
               <strong data-copy="formatLabel">形式</strong>
               <span data-copy="formatValue">遊戲</span>
@@ -1703,6 +1782,20 @@
 
       const copy = {
         zh: {
+          narrationValue: "韓語旁白",
+          narrationLabel: "語音",
+          gameLanguages: "韓語・英語・繁體中文",
+          gameLanguagesLabel: "遊戲語言",
+          clueBody: "發現的核心線索會收進獨立列表。探索結束後，發現紀錄仍會保留，你可以再次查看已找到線索的插畫與文字。",
+          clueTitle: "在多次探索中累積線索",
+          notebookBody: "調查員筆記本會記下本次探索的路線、事件與結果，供你回顧。",
+          notebookTitle: "這次探索的紀錄",
+          routeBody: "每一層都要選擇前進的路線。在途中遭遇戰鬥與事件，再前往下一層。",
+          routeTitle: "十個樓層的岔路",
+          investigationBody: "在目前的開發版本中，你將選擇路線、記錄事件與發現，逐步深入裂隙。",
+          investigationTitle: "探索結束，線索仍然留下",
+          investigationKicker: "探索與紀錄",
+          investigationLink: "了解探索與紀錄",
           lang: "zh-Hant",
           documentTitle: "怪異探查局 · INSPECTOR",
           skipToContent: "跳至主要內容",
@@ -1712,7 +1805,7 @@
           languageLabel: "語言",
           cta: "查看玩法",
           heroTitle: "用卡牌指揮隊伍",
-          heroBody: "卡牌會累積成全隊共用的職能。你規劃下一步，同伴承擔結果。",
+          heroBody: "用卡牌引導同伴行動，探索十個樓層的岔路。沿途發現的痕跡，都記在調查員筆記本中。",
           heroArtAlt: "調查隊與怪異在森林戰場對峙的開發中概念視覺",
           conceptCaption: "開發中概念視覺。並非最終遊戲畫面。",
           flowKicker: "01 · 出牌流程",
@@ -1764,10 +1857,9 @@
           eventArtAlt: "森林峽谷營地中的營火灰燼與遺留工具",
           eventArtCaption: "事件插畫 · 冷清的營地",
           videoKicker: "05 · 核心玩法",
-          videoTitle: "用 30 秒看見核心玩法",
-          videoBody: "正式頁面將依序呈現卡牌輸入、自動戰鬥、事件選擇與收割者概念畫面。",
-          videoPlaceholderAlt: "30 秒展示影片預定區域",
-          videoPlaceholder: "30 秒展示影片預定",
+          videoTitle: "遊戲實機影片",
+          videoBody: "我們正在準備影片，介紹如何用卡牌指揮同伴，以及探索岔路的過程。",
+          videoPlaceholder: "影片準備中",
           developmentNotice: "本頁使用開發中的概念視覺呈現遊戲氛圍與系統方向，並不代表最終遊戲畫面。",
           formatLabel: "形式",
           formatValue: "遊戲",
@@ -1795,6 +1887,20 @@
           footerContact: "聯絡"
         },
         en: {
+          narrationValue: "Korean narration",
+          narrationLabel: "Audio",
+          gameLanguages: "Korean · English · Traditional Chinese",
+          gameLanguagesLabel: "Game languages",
+          clueBody: "Key clues you discover are kept in a separate collection. They remain after an expedition ends, so you can revisit their illustrations and records.",
+          clueTitle: "Clues collected across expeditions",
+          notebookBody: "Revisit the routes, events, and outcomes of your current expedition in the investigator's notebook.",
+          notebookTitle: "A record of this expedition",
+          routeBody: "Choose a path on each floor. Face battles and events along the way before moving to the next floor.",
+          routeTitle: "Paths across ten floors",
+          investigationBody: "In the current development build, choose your route and record events and discoveries as you venture deeper into the rift.",
+          investigationTitle: "The expedition ends. The clues remain.",
+          investigationKicker: "Exploration and records",
+          investigationLink: "Explore the investigation",
           lang: "en",
           documentTitle: "INSPECTOR · Dark Horror Deckbuilding Autobattler",
           skipToContent: "Skip to main content",
@@ -1804,7 +1910,7 @@
           languageLabel: "Language",
           cta: "See how it plays",
           heroTitle: "Command the formation",
-          heroBody: "Cards build a shared role stack. You plan the next move, and companions face the result.",
+          heroBody: "Guide your companions with cards and choose your path through ten floors. Record the traces you find in your investigator's notebook.",
           heroArtAlt: "Work-in-progress concept scene of an investigation team facing anomalies in a forest battlefield",
           conceptCaption: "Work-in-progress concept visual. Not final gameplay footage.",
           flowKicker: "01 · Card Flow",
@@ -1856,10 +1962,9 @@
           eventArtAlt: "Campfire ashes and tools left at a campsite in a forest gorge",
           eventArtCaption: "Event illustration · A Cold Campsite",
           videoKicker: "05 · Preview",
-          videoTitle: "See the core loop in 30 seconds",
-          videoBody: "The final page will show card input, automatic combat, an event choice, and the Reaper concept in sequence.",
-          videoPlaceholderAlt: "Reserved area for the 30-second demo video",
-          videoPlaceholder: "30-second demo video coming soon",
+          videoTitle: "Gameplay video",
+          videoBody: "A video showing how you command companions with cards and explore branching paths is in preparation.",
+          videoPlaceholder: "Video in preparation",
           developmentNotice: "This page uses work-in-progress concept visuals to present the game's atmosphere and system direction, not final gameplay footage.",
           formatLabel: "Format",
           formatValue: "Game",
@@ -1887,6 +1992,20 @@
           footerContact: "Contact"
         },
         ko: {
+          narrationValue: "한국어 내레이션",
+          narrationLabel: "음성",
+          gameLanguages: "한국어 · 영어 · 번체중국어",
+          gameLanguagesLabel: "게임 언어",
+          clueBody: "현장에서 발견한 핵심 단서는 별도 목록에 쌓입니다. 탐사가 끝나도 발견 기록은 남고, 찾은 단서의 그림과 문장을 다시 볼 수 있습니다.",
+          clueTitle: "탐사를 거듭하며 모으는 단서",
+          notebookBody: "조사관 수첩에서 이번 탐사의 경로와 사건, 그 결과를 다시 읽을 수 있습니다.",
+          notebookTitle: "이번 탐사의 기록",
+          routeBody: "층마다 갈 길을 고릅니다. 선택한 경로에서 전투와 사건을 마주하고, 다음 층으로 향합니다.",
+          routeTitle: "10개 층의 갈림길",
+          investigationBody: "현재 개발 빌드에서는 탐사 경로를 고르고, 사건과 발견을 기록하며 균열 안쪽으로 나아갑니다.",
+          investigationTitle: "탐사가 끝나도, 단서는 남는다",
+          investigationKicker: "탐사와 기록",
+          investigationLink: "탐사와 기록 보기",
           lang: "ko",
           documentTitle: "괴이탐사국 · INSPECTOR",
           skipToContent: "본문으로 건너뛰기",
@@ -1896,7 +2015,7 @@
           languageLabel: "언어",
           cta: "플레이 방식 보기",
           heroTitle: "카드로 대열을 지휘한다",
-          heroBody: "카드를 내면 파티가 함께 쓰는 역할 스택이 쌓입니다. 당신이 다음 수를 정하면, 동료가 그 결과를 짊어집니다.",
+          heroBody: "카드로 동료의 행동을 이끌고, 10개 층의 갈림길을 탐사합니다. 현장에서 발견한 흔적은 조사관 수첩에 남습니다.",
           heroArtAlt: "숲 전장에서 조사대와 괴이가 대치하는 개발 중 콘셉트 비주얼",
           conceptCaption: "개발 중 콘셉트 비주얼입니다. 최종 게임 화면이 아닙니다.",
           flowKicker: "01 · 카드 흐름",
@@ -1948,10 +2067,9 @@
           eventArtAlt: "숲속 협곡의 야영지에 남은 모닥불 재와 도구",
           eventArtCaption: "사건 삽화 · 식어 있는 야영지",
           videoKicker: "05 · 핵심 플레이",
-          videoTitle: "30초로 보는 핵심 플레이",
-          videoBody: "정식 페이지에서는 카드 사용, 자동 전투, 사건 선택, 거두는 자 콘셉트를 순서대로 보여 줍니다.",
-          videoPlaceholderAlt: "30초 시연 영상이 연결될 예정 영역",
-          videoPlaceholder: "30초 시연 영상 연결 예정",
+          videoTitle: "플레이 영상",
+          videoBody: "카드로 동료를 지휘하고 경로를 탐사하는 모습을 담은 영상을 준비하고 있습니다.",
+          videoPlaceholder: "영상 준비 중",
           developmentNotice: "이 페이지의 이미지는 게임의 분위기와 시스템 방향을 보여 주는 개발 중 콘셉트 비주얼이며, 최종 게임 화면이 아닙니다.",
           formatLabel: "형식",
           formatValue: "게임",
